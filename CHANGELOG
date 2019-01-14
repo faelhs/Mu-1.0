@@ -1,0 +1,212 @@
+//======================================================================================================//
+//		| Projeto		#-- Premium ( Licenciado )				 								        //
+// 		| Versão		#-- Gamesever 99.60T (CHS) ~~ 1.0M			        							//
+// 		| Base			#-- Maykon - Fire Team							        						//
+// 		| Programador	#-- faelhs - B&W Team							        						//
+//======================================================================================================//
+//																										//
+// ---------------------------------------------------------------------------------------------------- //
+// ==> Configurações do Servidor 
+// ---------------------------------------------------------------------------------------------------- //
+//
+// => [WzAG] Porta UDP
+// => [WzAG] Servidor Non-PK
+// => [B&W] Level Máximo dos monstros
+// => [WzAG] Level Máximo
+// => [WzAG] Pontos Por Level
+// => [WzAG] Numero Máximo de Jogadores
+// => [WzAG] Máximo de Zen no Inventory
+// => [WzAG] Máximo de Zen no Warehouse
+// => [WzAG] CheckSum
+// => [WzAG] Players para iniciar o chaos castle
+// => [WzAG] Players para iniciar uma guild aliança
+// => [WzAG] Porcentagem das Jóias
+// => [WzAG] Tempo dos Itens Dropados no chão
+// => [WzAG] Configuração das Skills do blade knight
+// => [WzAG] Configuração da GreatFortitude
+// => [WzAG] Configuração da ManaShield
+// => [WzAG] Premiação do Blood Castle
+// => [WzAG] Premiação do Chaos Castle
+// => [WzAG] Premiação do Devil Square
+// => [WzAG] Sistema ViP
+// => [WzAG] Vip System Diferenciando XP e Drop Adicional por conta VIP
+// => [WzAG] Sistema Iniciante
+// => [WzAG] Porcentagem de Mix da Chaos Machine
+// => [WzAG] Preço das Jóias
+// => [WzAG] Parametros do GameServer
+// => [WzAG] AutoXP para Iniciantes
+// => [WzAG] Item Drop Custom Definido por map e mobs
+// => [WzAG] GM System - Ativando e Removendo comandos por GM
+//
+// ---------------------------------------------------------------------------------------------------- //
+// ==> Comandos dos Jogadores
+// ---------------------------------------------------------------------------------------------------- //
+// => [Player] /info			  	  	==> Mostra informações da conta / char
+// => [Player] /post				  	==> Mensagem Global
+// => [Player] /limparpk	     	  	==> Limpa o Pk do Seu Personagem 
+// => [Player] /reset                 	==> Reseta seu Personagem Acumulativo / Pontuativo
+// => [Player] /mreset                	==> Aplica o Master Reset em Seu Personagem
+// => [Player] /readd                 	==> Redistribuir Pontos
+// => [Player] /for                   	==> Adiciona Pontos em Força
+// => [Player] /agi                   	==> Adiciona Pontos em Agilidade
+// => [Player] /vit                   	==> Adiciona Pontos em Vitalidade
+// => [Player] /ene                   	==> Adiciona Pontos em Energia
+// => [Player] /cmd                   	==> Adiciona Pontos em Comando
+// => [Player] /bau                   	==> Comando de Múltiplos Baús 
+// => [Player] /zen                   	==> Adiciona zen ao Personagem
+// => [Player] /online                	==> Mostra Jogadores / GMS onlines
+// => [Player] /evo					  	==> Evolui o Char Vip para Sua classe final
+// => [Player] /open			  	  	==> Abre o Bau em qualquer lugar
+// => [Player] /classe 			  	  	==> Muda de Classe IN-GAME
+// => [Player] /irmatamata            	==> Participar do mata mata
+// => [Player] /irpegapega            	==> Participar do pega pega
+// => [B&W][Player] /comprar	  	  	==> Compra itens com gold
+// => [B&W][Player] /listar	 		  	==> Lista itens a venda por gold
+// => [B&W][Player] /questinfo  	  	==> Informações da quest.
+// => [B&W][Player] /goquest	  	  	==> Ir para local da quest
+// => [B&W][Player] /pet		  	  	==> Invocar um monstro para te ajudar
+// => [B&W][Player] /limparinv  	  	==> Limpa inventario
+// => [B&W][Player] /ping		  	  	==> Verifica lag
+// => [B&W][Player] /comprar	  	  	==> Compra itens com gold
+// => [B&W][Player] /black	  	      	==> Entra na facção black
+// => [B&W][Player] /white	  		  	==> Entra na facção white
+// => [B&W][Player] /sairf	  		  	==> Sai da facção
+// => [B&W][Player] /rankf	  		  	==> Ranking da facção
+//
+// ---------------------------------------------------------------------------------------------------- //
+// ==> Comandos dos GameMaster
+// ---------------------------------------------------------------------------------------------------- //
+// => [GM] /moveall		          		==> Move Todos os Personagem
+// => [GM] /disconnect                  ==> Desconecta um Personagem
+// => [GM] /gmove              	  	  	==> Move o Personagem
+// => [GM] /track       		  		==> Move Você Ate o Personagem
+// => [GM] /skin                        ==> Adiciona Skin ao Personagem
+// => [GM] /premiar		          		==> Premiar Jogadores
+// => [GM] /drop			  			==> Dropa Items no Jogo
+// => [B&W][GM] /makeset		  		==> Dropa um set completo no Jogo
+// => [GM] /invisible			  		==> Torna o Char GM invisivel
+// => [GM] /storm			  			==> Drop de Items Randonicos definidos por ini
+// => [GM] /matamata                    ==> Inicia o evento mata mata
+// => [GM] /pegapega                    ==> Inicia o evento pega pega
+// => [GM] /survivor                    ==> Inicia o evento survivor
+// => [GM] !			          		==> Envia Mensagem Global Para os Jogadores Sem Nick
+// => [GM] #			          		==> Envia Mensagem Global Para os Jogadores Com Nick
+// => [B&W][GM] /reload             	==> Recarrega as configurações 0 - 5
+// => [B&W][GM] /setlvl             	==> Seta o level de um personagem.
+// => [B&W][GM] /setpts             	==> Seta os pontos a distribuir de um personagem
+// => [B&W][GM] /setfor             	==> Seta os pontos em força de um personagem
+// => [B&W][GM] /setagi             	==> Seta os pontos em agilidade de um personagem
+// => [B&W][GM] /setvit            		==> Seta os pontos em vitalidade de um personagem
+// => [B&W][GM] /setene             	==> Seta os pontos em energia de um personagem
+// => [B&W][GM] /setcmd             	==> Seta os pontos em comando de um personagem
+// => [B&W][GM] /setres             	==> Seta os resets de um personagem
+// => [B&W][GM] /goto	              	==> vai até um personagem
+// => [B&W][GM] /recall             	==> traz até você um personagem
+// => [B&W][GM] /make               	==> Cria um item no inventario.
+// => [B&W][GM] /makeset            	==> Cria um set no inventario pelo nome do set
+// => [B&W][GM] /fakename           	==> Cria um nome tempoario para o personagem.
+// => [B&W][GM] /setquest           	==> Seta a quest de um personagem
+// => [B&W][GM] /spawn              	==> invoca uma quantia de monstros no local definido
+//
+// ---------------------------------------------------------------------------------------------------- //
+// ==> Sistemas
+// ---------------------------------------------------------------------------------------------------- //
+// => [B&W] [Sistemas] Facções     	 	==> sistema de facções Black&White 
+// => [B&W] [Sistemas] Organização  	==> Pastas reorganizadas para melhor gestao do servidor
+// => [B&W] [Sistemas] Premio Diario  	==> Premia o jogador com itens e/ou gold por dia consecutivo de login
+//
+// ---------------------------------------------------------------------------------------------------- //
+// ==> Eventos Automáticos
+// ---------------------------------------------------------------------------------------------------- //
+// => [Eventos] Mata-Mata
+// => [Eventos] Pega-Pega
+// => [Eventos] Survivor
+// => [Eventos] Hydra
+// => [Eventos] Drop Event
+// => [B&W] [Eventos] Sorteio
+//
+// ---------------------------------------------------------------------------------------------------- //
+// ==> NPC's
+// ---------------------------------------------------------------------------------------------------- //
+// => [NPC's] Gowther 			  		==> Coletor de stones
+// => [NPC's] Helper  			  		==> Premia o Char com um Kit iniciante
+// => [NPC's] Quest   			  		==> Sistema de Missões diferenciado com 3 tipos de quest e varios tipos de premio
+// => [NPC's] Shadow Phantom      		==> Definições de Buff de Attack, Defesa,mana shield,life, critical, Tempo , Max Level e Resets
+//
+// ---------------------------------------------------------------------------------------------------- //
+// ==> Novas Joias
+// ---------------------------------------------------------------------------------------------------- //
+//
+// => [Jewels] Jewel Of Dragon		  	==> Eleva o nível do Item para +13
+// => [Jewels] Jewel Of Eternal		  	==> Adiciona Option+28 ao Item
+// => [Jewels] Jewel Of Skill		  	==> Adiciona Skill ao Item
+// => [Jewels] Jewel Of Rainbow		  	==> Eleva o nível do Item para +14/+15
+// => [Jewels] Jewel Of Mystic		  	==> Torna o seu Item Excellent
+// => [Jewels] Ancient Of Metal 	  	==> Torna o Item Ancient
+// => [Jewels] Jewel Of Luck		  	==> Adiciona Luck ao Item
+//
+// ---------------------------------------------------------------------------------------------------- //
+// ==> Funções
+// ---------------------------------------------------------------------------------------------------- //
+// => [WzAG] Conexão Com MSSQL
+// => [WzAG] Sistema de Display
+// => [WzAG] Sistema de Dicas
+// => [WzAG] Flechas Infinitas
+// => [WzAG] Anúncio de GMs Online
+// => [WzAG] Mensagens de Boas-Vindas
+// => [WzAG] Noticias Automáticas
+// => [WzAG] Proteção Contra Disconnect Hack
+// => [WzAG] Proteção Contra Trade Hack
+// => [WzAG] Proteção Contra Dupe Hack
+// => [WzAG] Proteção Contra Ataques (Flood)
+// => [WzAG] Proteção Contra Unicode Create Char
+// => [WzAG] Proteção Contra Unicode Create Guild
+// => [WzAG] Definido Máximo de Status (32767)
+// => [WzAG] Shops com Suporte a Itens Excelente
+// => [WzAG] Moves Customizados (/bar /arena etc..)
+// => [WzAG] Selecionar personagem, servidores, sair em 1 segundo
+// => [WzAG] Novo CalCharacter
+// => [WzAG] Nova Durabilidade para Itens +15
+// => [WzAG] Fixado o Consumo de CPU
+// => [WzAG] Nova Greater Fortitude
+// => [WzAG] PartyZen
+// => [WzAG] GameMaster Mortal
+// => [WzAG] GameMaster Move "M"
+// => [WzAG] Delete Guild Without Pid
+// => [WzAG] Leave Guild Without Pid
+// => [WzAG] Character Delete Without Pid
+// ---------------------------------------------------------------------------------------------------- //
+// ==> Customs Main
+// ---------------------------------------------------------------------------------------------------- //
+// => [Customs] Glow
+// => [Customs] Novos itens liberados
+// => [Customs] Removido Pasta GameGuard
+// => [Customs] Efeito Nevoeiro (F8 = Ativa | F8 = Desativa)
+// => [Customs] Auto Click (F10 = Esquerdo | F11 = Direito)
+// => [Customs] Prints são salvas na pasta ScreenShot
+// => [Customs] Removido Recuo
+// => [Customs] Wings Level 1 full
+// => [Customs] Preview NPC's
+// => [Customs] Monster HP Classic / Ex700
+// => [Customs] MiniMap
+// => [Customs] Novas Joias
+// => [Customs] Informações da quest no monstro
+// => [Customs] Informações da facção na cabeça do jogador
+// => [Customs] Plugins
+//
+// ---------------------------------------------------------------------------------------------------- //
+// ==> Correções Main
+// ---------------------------------------------------------------------------------------------------- //
+// => [Fix] Fonte
+// => [Fix] Acentuação
+// => [Fix] Brilho dos itens +15
+// => [Fix] Texturas
+// => [Fix] Uso do cpu
+// => [Fix] Mover cursor (Quando abre o NPC)
+// => [Fix] Agilidade
+// => [Fix] Skills do Siege
+// => [Fix] LevelUpPoint
+// => [Fix] Diretorio Erro Log
+// => [Fix] Atacar de longe (Twisting Slash)
+// => [Fix] Barra de Experiência
+// ---------------------------------------------------------------------------------------------------- //
