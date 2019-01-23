@@ -1,0 +1,22 @@
+0
+;-----------------------------------------------------------------------------------------------------
+; # Tipo		=	Categoria do item a ser dropado.
+; # Index		=	ID do item a ser dropado.
+; # Map			=	Mapa definido para o drop (-1 dropa de todos os mapas)
+; # Mob			=	Mob definido para o drop  (-1 dropa de todos os mobs)
+; # Level		=	Level do item a ser dropado.
+; # Luck		=	Atribui luck ao item dropado.
+; # Skill		=	Atribui Skill ao item dropado.
+; # Dur			=	Durabilidade do item dropado.
+; # Opt			=	Adicional do item dropado.
+; # Exe			=	Define se o item dropado é exelente.
+; # Anc			=	Define se o item dropado e ancient
+; # Rate		=	% de chance para dropar o item.
+;-----------------------------------------------------------------------------------------------------
+; #  Tipo	Index	Map	Mob	Level	Luck	Skill	Dur	Opt	Exe	Anc	Rate
+;-----------------------------------------------------------------------------------------------------
+	
+
+
+
+end

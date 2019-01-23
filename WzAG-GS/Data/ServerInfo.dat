@@ -1,0 +1,7 @@
+[GameServerInfo]
+
+ServerName       		= Sala-01
+ServerCode       		= 0
+NonPK		 			= 0
+ConnectMemberLoad		= 0
+Connect_Load			= 127.0.0.1 55970 55960 55901;

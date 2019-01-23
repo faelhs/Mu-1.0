@@ -1,0 +1,127 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// # DARK PLUGIN - POWERED BY FIRE TEAM
+// # GAME SERVER: 99.60T (C) WEBZEN.
+// # VERSÃO: 1.0.0.0
+// # Autor: Maykon
+// # Skype: Maykon.ale
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// # O Senhor é meu pastor e nada me faltará!
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#include "StdAfx.h"
+
+void ConnectServer::PlayerConnect(int aIndex)
+{
+	OBJECTSTRUCT *pObj = (OBJECTSTRUCT*)OBJECT_POINTER(aIndex);
+	Custom[aIndex].VipIndex = Manager.VipCount(gObj[aIndex].AccountID);
+	Custom[aIndex].Resets = Manager.CountResets(gObj[aIndex].Name);
+	Custom[aIndex].Masters = Manager.CountMasters(gObj[aIndex].Name);
+	Custom[aIndex].mCash = Manager.GoldCount(gObj[aIndex].AccountID);
+	Custom[aIndex].m_GensState = Manager.genstate(gObj[aIndex].Name);
+	Custom[aIndex].m_GensScore_D = Manager.gensrank(2);
+	Custom[aIndex].m_GensScore_V = Manager.gensrank(1);
+	Custom[aIndex].jail = Manager.GetJail(gObj[aIndex].Name);
+	Custom[aIndex].jaula = Manager.GetJaula(gObj[aIndex].Name);
+
+	GetPrivateProfileString("Server","Noticia de conexão","Bem vindo(a) %s",this->Notice[0],160,CFG_GAMESERVER);
+	func.MsgUser(aIndex,0,this->Notice[0],gObj[aIndex].Name);
+
+	if(Custom[aIndex].VipIndex == Free)
+	{
+		GetPrivateProfileString("Server","Noticia de conexão Free","[%s] Você é um usuário(a): Free",this->Notice[1],160,CFG_GAMESERVER);
+		func.MsgUser(aIndex,0,this->Notice[1],gObj[aIndex].Name);
+	}
+
+	if(Custom[aIndex].VipIndex == Bronze)
+	{
+		GetPrivateProfileString("Server","Noticia de conexão Vip1","[%s] Você é um usuário(a): VIP Bronze",this->Notice[2],160,CFG_GAMESERVER);
+		func.MsgUser(aIndex,0,"Experiencia %d, Drop Adicional %d",Vips.Exp1,Vips.Drop1);
+		func.MsgUser(aIndex,0,this->Notice[2],gObj[aIndex].Name);
+	}
+
+	if(Custom[aIndex].VipIndex == Prata)
+	{
+		GetPrivateProfileString("Server","Noticia de conexão Vip2","[%s] Você é um usuário(a): VIP Prata",this->Notice[3],160,CFG_GAMESERVER);
+		func.MsgUser(aIndex,0,"Experiencia %d, Drop Adicional %d",Vips.Exp2,Vips.Drop2);
+		func.MsgUser(aIndex,0,this->Notice[3],gObj[aIndex].Name);
+	}
+
+	if(Custom[aIndex].VipIndex == Ouro)
+	{
+		GetPrivateProfileString("Server","Noticia de conexão Vip3","[%s] Você é um usuário(a): VIP Ouro",this->Notice[4],160,CFG_GAMESERVER);
+		func.MsgUser(aIndex,0,"Experiencia %d, Drop Adicional %d",Vips.Exp3,Vips.Drop3);
+		func.MsgUser(aIndex,0,this->Notice[4],gObj[aIndex].Name);
+	}
+	if (Custom[aIndex].VipIndex == Platina)
+	{
+		GetPrivateProfileString("Server", "Noticia de conexão Vip4", "[%s] Você é um usuário(a): VIP Platina", this->Notice[5], 160, CFG_GAMESERVER);
+		func.MsgUser(aIndex, 0, "Experiencia %d, Drop Adicional %d", Vips.Exp4, Vips.Drop4);
+		func.MsgUser(aIndex, 0, this->Notice[5], gObj[aIndex].Name);
+	}
+	if (Custom[aIndex].VipIndex == Infinity)
+	{
+		GetPrivateProfileString("Server", "Noticia de conexão Vip5", "[%s] Você é um usuário(a): VIP Infinity", this->Notice[6], 160, CFG_GAMESERVER);
+		func.MsgUser(aIndex, 0, "Experiencia %d, Drop Adicional %d", Vips.Exp5, Vips.Drop5);
+		func.MsgUser(aIndex, 0, this->Notice[6], gObj[aIndex].Name);
+	}
+}
+
+void ConnectServer::GameMasterConnect(int aIndex)
+{
+	char ConnectNoticePlayer[160];
+
+	GetPrivateProfileString("Server","Noticia de conexão de GM/ADM"," ",this->Notice[7],160,CFG_GAMESERVER);
+	GetPrivateProfileString("Server","Noticia de conexão de Player","[ %s ] Acabou de Logar",ConnectNoticePlayer,160,CFG_GAMESERVER);
+	if(gObj[aIndex].AuthorityCode > 1)
+	{
+		func.MsgAllUser(0,this->Notice[7],gObj[aIndex].Name);
+		gObj[aIndex].AuthorityCode = 32;
+	}	
+	else
+	{
+		func.MsgOutputAll(ConnectNoticePlayer,gObj[aIndex].Name);
+	}
+}
+
+void ConnectServer::ServerType(int aIndex)
+{
+	this->Iniciante = GetPrivateProfileInt("Iniciante","Active Sala Iniciante",0,CFG_GAMESERVER);
+	this->MaxResets = GetPrivateProfileInt("Iniciante","Max Resets",0,CFG_GAMESERVER);
+	this->ServerVip = GetPrivateProfileInt("Vip","Active Sala Vip",0,CFG_GAMESERVER);
+	this->Type = GetPrivateProfileInt("Vip","Server Type",0,CFG_GAMESERVER);
+
+
+	if(this->Iniciante == 1)
+	{
+		if(Custom[aIndex].Resets > this->MaxResets)
+		{
+			func.MsgUser(aIndex,1,"[%s] Servidor exclusivo para iniciantes!",gObj[aIndex].Name);
+			gObjCloseSet(aIndex,2);
+			return;
+		}
+	}
+
+	if(this->ServerVip == 1)
+	{
+		if(Custom[aIndex].VipIndex < this->Type)
+		{
+			func.MsgUser(aIndex,1,"[%s] Servidor exclusivo para vip's!",gObj[aIndex].Name);
+			gObjCloseSet(aIndex,2);
+			return;
+		}
+	}
+}
+
+void ConnectServer::InGame(int aIndex)
+{
+	PlayerConnect(aIndex);
+	GameMasterConnect(aIndex);
+	ServerType(aIndex);
+	VipSystem(aIndex);
+	Qest_PGW.Q_CreateStruct(aIndex);
+	Qest_PGW_Boss.Q_CreateStruct(aIndex);
+	Qest_PGW_Loot.Q_CreateStruct(aIndex);
+	Pdiario.premiar(aIndex);
+}
+
+ConnectServer Connect;

@@ -1,0 +1,53 @@
+0
+;-----------------------------------------------------------------------------------------------------
+; # Tipo		=	Categoria do item a ser dropado.
+; # Index		=	ID do item a ser dropado.
+; # Map			=	Mapa definido para o drop (-1 dropa de todos os mapas)
+; # Mob			=	Mob definido para o drop  (-1 dropa de todos os mobs)
+; # Level		=	Level do item a ser dropado.
+; # Luck		=	Atribui luck ao item dropado.
+; # Skill		=	Atribui Skill ao item dropado.
+; # Dur			=	Durabilidade do item dropado.
+; # Opt			=	Adicional do item dropado.
+; # Exe			=	Define se o item dropado é exelente.
+; # Anc			=	Define se o item dropado e ancient
+; # Rate		=	% de chance para dropar o item.
+;-----------------------------------------------------------------------------------------------------
+; #  Tipo	Index	Map	Mob	Level	Luck	Skill	Dur	Opt	Exe	Anc	Rate
+;-----------------------------------------------------------------------------------------------------
+	
+
+	12	15	0	-1	0	0	0	0	0	0	0	10 // Jewels of chaos
+	12	15	1	-1	0	0	0	0	0	0	0	20 // Jewels of chaos
+	12	15	2	-1	0	0	0	0	0	0	0	30 // Jewels of chaos
+	12	15	3	-1	0	0	0	0	0	0	0	40 // Jewels of chaos
+
+
+	14	13	0	-1	0	0	0	0	0	0	0	40 // Jewels of Bless
+	14	13	1	-1	0	0	0	0	0	0	0	50 // Jewels of Bless
+	14	13	2	-1	0	0	0	0	0	0	0	30 // Jewels of Bless
+	14	13	3	-1	0	0	0	0	0	0	0	50 // Jewels of Bless
+
+	14	14	0	-1	0	0	0	0	0	0	0	15 // Jewels of Soul
+	14	14	1	-1	0	0	0	0	0	0	0	20 // Jewels of Soul
+	14	14	2	-1	0	0	0	0	0	0	0	10 // Jewels of Soul
+	14	14	3	-1	0	0	0	0	0	0	0	20 // Jewels of Soul
+
+
+	14	16	0	-1	0	0	0	0	0	0	0	10 // Jewels of Life
+	14	16	1	-1	0	0	0	0	0	0	0	10 // Jewels of Life
+	14	16	2	-1	0	0	0	0	0	0	0	10 // Jewels of Life
+	14	16	3	-1	0	0	0	0	0	0	0	10 // Jewels of Life
+
+	14	22	-1	-1	0	0	0	0	0	0	0	20 // Jewels of Creation
+
+
+	14	13	6	-1	0	0	0	0	0	0	0	40 // Jewels of Bless
+	14	14	6	-1	0	0	0	0	0	0	0	30 // Jewels of Soul
+	14	16	6	-1	0	0	0	0	0	0	0	30 // Jewels of Life
+	12	15	6	-1	0	0	0	0	0	0	0	50 // Jewels of chaos
+	14	21	6	-1	1	0	0	0	0	0	0	20 // Jewels of Stone
+	
+	13	14	-1	77	0	0	0	0	0	0	0	40 // Pena
+
+end

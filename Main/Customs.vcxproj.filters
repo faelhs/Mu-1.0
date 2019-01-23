@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Principal">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Utilitários">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Functions">
+      <UniqueIdentifier>{7c142784-b7cf-4187-81e3-181b57596cdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protocol">
+      <UniqueIdentifier>{a380642c-8726-41d3-9010-fc6ee8a62d82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Offsets">
+      <UniqueIdentifier>{0ae684c8-5984-4422-8e69-7b87d41777d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Principal\Packets">
+      <UniqueIdentifier>{80ced9ae-21a6-4b6e-a076-344c11d2e096}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Went">
+      <UniqueIdentifier>{da7a901b-4c23-4375-bf6d-1dadfcb72c39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Went\ExpBar">
+      <UniqueIdentifier>{d8eb7948-525e-475b-9886-2f525e53695c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Went\HealthBar">
+      <UniqueIdentifier>{a02c5d0a-44c2-4150-a0a3-df2bd47e9674}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Went\Fog">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Went\MiniMap">
+      <UniqueIdentifier>{9dcd70f1-09d4-44d2-bf88-eb8ecf6b0ff4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Went\Preview">
+      <UniqueIdentifier>{f5a7176b-9de6-4e1b-8965-e7e43b7d9a5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Went\Item">
+      <UniqueIdentifier>{9b3e432f-071b-49af-8120-f00a82800d79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Went\Item\Jewels">
+      <UniqueIdentifier>{392f10b1-7763-4fb5-bc60-f0f910f771ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Went\Customs">
+      <UniqueIdentifier>{168df371-63a0-4b08-b7eb-95bb86e8d5e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Went\Item\Models">
+      <UniqueIdentifier>{1ee746d8-7b15-4d1b-a56b-f32c18c8feba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Monsters">
+      <UniqueIdentifier>{ce13b3f7-cd89-4643-a3ac-9107ee4f4389}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Fog.cpp">
+      <Filter>Went\Fog</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Principal</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions.cpp">
+      <Filter>Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol.cpp">
+      <Filter>Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Preview.cpp">
+      <Filter>Went\Preview</Filter>
+    </ClCompile>
+    <ClCompile Include="HealthBar.cpp">
+      <Filter>Went\HealthBar</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniMap.cpp">
+      <Filter>Went\MiniMap</Filter>
+    </ClCompile>
+    <ClCompile Include="Jewels.cpp">
+      <Filter>Went\Item\Jewels</Filter>
+    </ClCompile>
+    <ClCompile Include="ExpBar.cpp">
+      <Filter>Went\ExpBar</Filter>
+    </ClCompile>
+    <ClCompile Include="Customs.cpp">
+      <Filter>Went\Customs</Filter>
+    </ClCompile>
+    <ClCompile Include="Models.cpp">
+      <Filter>Went\Item\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsLib.cpp">
+      <Filter>Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="Hook.cpp">
+      <Filter>Monsters</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Fog.h">
+      <Filter>Went\Fog</Filter>
+    </ClInclude>
+    <ClInclude Include="Principal.h">
+      <Filter>Principal</Filter>
+    </ClInclude>
+    <ClInclude Include="detours.h">
+      <Filter>Utilitários</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions.h">
+      <Filter>Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Packets.h">
+      <Filter>Principal\Packets</Filter>
+    </ClInclude>
+    <ClInclude Include="Offsets.h">
+      <Filter>Offsets</Filter>
+    </ClInclude>
+    <ClInclude Include="Preview.h">
+      <Filter>Went\Preview</Filter>
+    </ClInclude>
+    <ClInclude Include="HealthBar.h">
+      <Filter>Went\HealthBar</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniMap.h">
+      <Filter>Went\MiniMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Jewels.h">
+      <Filter>Went\Item\Jewels</Filter>
+    </ClInclude>
+    <ClInclude Include="ExpBar.h">
+      <Filter>Went\ExpBar</Filter>
+    </ClInclude>
+    <ClInclude Include="Customs.h">
+      <Filter>Went\Customs</Filter>
+    </ClInclude>
+    <ClInclude Include="Models.h">
+      <Filter>Went\Item\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsLib.h">
+      <Filter>Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="Hook.h">
+      <Filter>Monsters</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,36 @@
+﻿Build started 23/01/2019 10:53:18.
+     1>Project "C:\Users\Rafael\MuDraconick\mu-1.0\Main\Customs.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\DraconicK.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\Rafael\MuDraconick\mu-1.0\Debug\DraconicK.dll) does not match the Linker's OutputFile property value (C:\Users\Rafael\MuDraconick\mu-1.0\Debug\Main\DraconicK.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rafael\MuDraconick\mu-1.0\Debug\\Main\DraconicK.dll" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\DraconicK.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Rafael\MuDraconick\mu-1.0\Debug\DraconicK.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rafael\MuDraconick\mu-1.0\Debug\DraconicK.lib" /MACHINE:X86 /DLL Debug\dllmain.obj
+         Debug\ExpBar.obj
+         Debug\Fog.obj
+         Debug\Customs.obj
+         Debug\Functions.obj
+         Debug\HealthBar.obj
+         Debug\Hook.obj
+         Debug\Jewels.obj
+         Debug\MiniMap.obj
+         Debug\Models.obj
+         Debug\Preview.obj
+         Debug\Protocol.obj
+         Debug\MonsLib.obj
+         LINK : C:\Users\Rafael\MuDraconick\mu-1.0\Debug\\Main\DraconicK.dll not found or not built by the last incremental link; performing full link
+            Creating library C:\Users\Rafael\MuDraconick\mu-1.0\Debug\DraconicK.lib and object C:\Users\Rafael\MuDraconick\mu-1.0\Debug\DraconicK.exp
+     1>Detours.lib(detours.obj) : warning LNK4099: PDB 'detours.pdb' was not found with 'Detours.lib(detours.obj)' or at 'C:\Users\Rafael\MuDraconick\mu-1.0\Debug\detours.pdb'; linking object as if no debug info
+     1>Detours.lib(disasm.obj) : warning LNK4099: PDB 'detours.pdb' was not found with 'Detours.lib(disasm.obj)' or at 'C:\Users\Rafael\MuDraconick\mu-1.0\Debug\detours.pdb'; linking object as if no debug info
+         Customs.vcxproj -> C:\Users\Rafael\MuDraconick\mu-1.0\Debug\DraconicK.dll
+       Manifest:
+         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Rafael\MuDraconick\mu-1.0\Debug\\Main\DraconicK.dll;#2" /manifest Debug\DraconicK.dll.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Debug\DraconicK.unsuccessfulbuild".
+         Touching "Debug\DraconicK.lastbuildstate".
+     1>Done Building Project "C:\Users\Rafael\MuDraconick\mu-1.0\Main\Customs.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.28

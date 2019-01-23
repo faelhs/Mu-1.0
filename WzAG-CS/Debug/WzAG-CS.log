@@ -1,0 +1,48 @@
+﻿Build started 23/01/2019 10:53:18.
+     1>Project "C:\Users\Rafael\MuDraconick\mu-1.0\WzAG-CS\WzAG-CS.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\WzAG-CS.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       MakeDirsForLink:
+         Creating directory "C:\Users\Rafael\MuDraconick\mu-1.0\Debug\CS".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\Rafael\MuDraconick\mu-1.0\Debug\WzAG-CS.dll) does not match the Linker's OutputFile property value (C:\Users\Rafael\MuDraconick\mu-1.0\Debug\CS\WzAG-CS.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rafael\MuDraconick\mu-1.0\Debug\\CS\WzAG-CS.dll" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\WzAG-CS.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Rafael\MuDraconick\mu-1.0\Debug\WzAG-CS.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rafael\MuDraconick\mu-1.0\Debug\WzAG-CS.lib" /MACHINE:X86 /DLL Debug\Balancer.obj
+         Debug\Biblioteca.obj
+         Debug\Comandos.obj
+         Debug\Connect.obj
+         Debug\Customs.obj
+         Debug\Database.obj
+         Debug\Display.obj
+         Debug\Flood.obj
+         Debug\ItemDrop.obj
+         Debug\License.obj
+         Debug\Log.obj
+         Debug\Manager.obj
+         Debug\MasterReset.obj
+         Debug\News.obj
+         Debug\Plugin.obj
+         Debug\Fixes.obj
+         Debug\Functions.obj
+         Debug\Protocol.obj
+         Debug\Reset.obj
+         Debug\Shop.obj
+         Debug\StdAfx.obj
+         Debug\Tips.obj
+         Debug\UnicodeChar.obj
+         Debug\Ware.obj
+         Debug\WzAG.obj
+            Creating library C:\Users\Rafael\MuDraconick\mu-1.0\Debug\WzAG-CS.lib and object C:\Users\Rafael\MuDraconick\mu-1.0\Debug\WzAG-CS.exp
+         WzAG-CS.vcxproj -> C:\Users\Rafael\MuDraconick\mu-1.0\Debug\WzAG-CS.dll
+       Manifest:
+         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Rafael\MuDraconick\mu-1.0\Debug\\CS\WzAG-CS.dll;#2" /manifest "Debug\WzAG-CS.dll.intermediate.manifest"
+       FinalizeBuildStatus:
+         Deleting file "Debug\WzAG-CS.unsuccessfulbuild".
+         Touching "Debug\WzAG-CS.lastbuildstate".
+     1>Done Building Project "C:\Users\Rafael\MuDraconick\mu-1.0\WzAG-CS\WzAG-CS.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.51

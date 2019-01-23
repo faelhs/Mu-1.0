@@ -1,0 +1,71 @@
+﻿Build started 23/01/2019 10:53:37.
+     1>Project "C:\Users\Rafael\MuDraconick\mu-1.0\Main\Customs.vcxproj" on node 2 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "C:\Users\Rafael\MuDraconick\mu-1.0\Release\".
+       InitializeBuildStatus:
+         Creating "Release\DraconicK.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /D _WINDLL /D _MBCS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt dllmain.cpp ExpBar.cpp Fog.cpp Customs.cpp Functions.cpp HealthBar.cpp Hook.cpp Jewels.cpp MiniMap.cpp Models.cpp Preview.cpp Protocol.cpp MonsLib.cpp
+         dllmain.cpp
+         ExpBar.cpp
+         Fog.cpp
+         Customs.cpp
+         Functions.cpp
+         HealthBar.cpp
+     1>HealthBar.cpp(160): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : see declaration of 'fopen'
+     1>HealthBar.cpp(190): warning C4018: '<' : signed/unsigned mismatch
+         Hook.cpp
+         Jewels.cpp
+         MiniMap.cpp
+         Models.cpp
+         Preview.cpp
+     1>Preview.cpp(7): warning C4482: nonstandard extension used: enum 'ASM' used in qualified name
+     1>Preview.cpp(8): warning C4482: nonstandard extension used: enum 'ASM' used in qualified name
+     1>Preview.cpp(9): warning C4482: nonstandard extension used: enum 'ASM' used in qualified name
+     1>Preview.cpp(10): warning C4482: nonstandard extension used: enum 'ASM' used in qualified name
+     1>Preview.cpp(11): warning C4482: nonstandard extension used: enum 'ASM' used in qualified name
+     1>Preview.cpp(12): warning C4482: nonstandard extension used: enum 'ASM' used in qualified name
+     1>Preview.cpp(13): warning C4482: nonstandard extension used: enum 'ASM' used in qualified name
+         Protocol.cpp
+         MonsLib.cpp
+     1>MonsLib.cpp(46): warning C4101: 'dwResSize' : unreferenced local variable
+     1>MonsLib.cpp(46): warning C4101: 'dwTotalSize' : unreferenced local variable
+     1>MonsLib.cpp(46): warning C4101: 'dwResCount' : unreferenced local variable
+     1>MonsLib.cpp(74): warning C4101: 'dwEnd' : unreferenced local variable
+     1>MonsLib.cpp(146): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\include\stdio.h(371) : see declaration of 'sprintf'
+         Generating Code...
+     1>c:\users\rafael\mudraconick\mu-1.0\main\protocol.cpp(4): warning C4748: /GS can not protect parameters and local variables from local buffer overrun because optimizations are disabled in function
+     1>c:\users\rafael\mudraconick\mu-1.0\main\healthbar.cpp(202): warning C4715: 'cHealthBar::loadBMP_custom' : not all control paths return a value
+       MakeDirsForLink:
+         Creating directory "C:\Users\Rafael\MuDraconick\mu-1.0\Release\Main".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\Rafael\MuDraconick\mu-1.0\Release\DraconicK.dll) does not match the Linker's OutputFile property value (C:\Users\Rafael\MuDraconick\mu-1.0\Release\Main\DraconicK.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\\Main\DraconicK.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\DraconicK.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\DraconicK.pdb" /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\DraconicK.lib" /MACHINE:X86 /DLL Release\dllmain.obj
+         Release\ExpBar.obj
+         Release\Fog.obj
+         Release\Customs.obj
+         Release\Functions.obj
+         Release\HealthBar.obj
+         Release\Hook.obj
+         Release\Jewels.obj
+         Release\MiniMap.obj
+         Release\Models.obj
+         Release\Preview.obj
+         Release\Protocol.obj
+         Release\MonsLib.obj
+            Creating library C:\Users\Rafael\MuDraconick\mu-1.0\Release\DraconicK.lib and object C:\Users\Rafael\MuDraconick\mu-1.0\Release\DraconicK.exp
+     1>Detours.lib(detours.obj) : warning LNK4099: PDB 'detours.pdb' was not found with 'Detours.lib(detours.obj)' or at 'C:\Users\Rafael\MuDraconick\mu-1.0\Release\detours.pdb'; linking object as if no debug info
+     1>Detours.lib(disasm.obj) : warning LNK4099: PDB 'detours.pdb' was not found with 'Detours.lib(disasm.obj)' or at 'C:\Users\Rafael\MuDraconick\mu-1.0\Release\detours.pdb'; linking object as if no debug info
+         Customs.vcxproj -> C:\Users\Rafael\MuDraconick\mu-1.0\Release\DraconicK.dll
+       Manifest:
+         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\\Main\DraconicK.dll;#2" /manifest Release\DraconicK.dll.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\DraconicK.unsuccessfulbuild".
+         Touching "Release\DraconicK.lastbuildstate".
+     1>Done Building Project "C:\Users\Rafael\MuDraconick\mu-1.0\Main\Customs.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.57

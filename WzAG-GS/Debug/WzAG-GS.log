@@ -1,0 +1,77 @@
+﻿Build started 23/01/2019 10:53:18.
+     1>Project "C:\Users\Rafael\MuDraconick\mu-1.0\WzAG-GS\WzAG-GS.vcxproj" on node 3 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\WzAG-GS.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\Rafael\MuDraconick\mu-1.0\Debug\WzAG-GS.dll) does not match the Linker's OutputFile property value (C:\Users\Rafael\MuDraconick\mu-1.0\Debug\GS\WzAG-GS.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rafael\MuDraconick\mu-1.0\Debug\\GS\WzAG-GS.dll" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\WzAG-GS.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Rafael\MuDraconick\mu-1.0\Debug\WzAG-GS.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rafael\MuDraconick\mu-1.0\Debug\WzAG-GS.lib" /MACHINE:X86 /DLL Debug\AutoXP.obj
+         Debug\Balancer.obj
+         Debug\Biblioteca.obj
+         Debug\Blood.obj
+         Debug\Castle.obj
+         Debug\Comandos.obj
+         Debug\Customs.obj
+         Debug\Database.obj
+         Debug\Display.obj
+         Debug\DropEvent.obj
+         Debug\ElfBuffer.obj
+         Debug\GCMagicAttackNumberSend.obj
+         Debug\GenSystem.obj
+         Debug\Jewels.obj
+         Debug\MagicInf.obj
+         Debug\GoldShop.obj
+         Debug\Premio_Diario.obj
+         Debug\QuestBoss.obj
+         Debug\Quest_Elf.obj
+         Debug\Quest_Item_Reward.obj
+         Debug\Sorteio.obj
+         Debug\QuestLoot.obj
+         Debug\Bot.obj
+         Debug\Storm.obj
+         Debug\GMSystem.obj
+         Debug\GoldenArcher.obj
+         Debug\Helper.obj
+         Debug\HHour.obj
+         Debug\ItemDrop.obj
+         Debug\Quest.obj
+         Debug\SobreEvent.obj
+         Debug\Tips.obj
+         Debug\DuelEvent.obj
+         Debug\Hydra.obj
+         Debug\Flood.obj
+         Debug\License.obj
+         Debug\Log.obj
+         Debug\Manager.obj
+         Debug\MasterReset.obj
+         Debug\NpcTalk.obj
+         Debug\PegaEvent.obj
+         Debug\Plugin.obj
+         Debug\Fixes.obj
+         Debug\Functions.obj
+         Debug\Connect.obj
+         Debug\News.obj
+         Debug\Protocol.obj
+         Debug\Reset.obj
+         Debug\Shop.obj
+         Debug\StdAfx.obj
+         Debug\Teleport.obj
+         Debug\UnicodeChar.obj
+         Debug\VipSystem.obj
+         Debug\Ware.obj
+         Debug\WzAG.obj
+         LINK : C:\Users\Rafael\MuDraconick\mu-1.0\Debug\\GS\WzAG-GS.dll not found or not built by the last incremental link; performing full link
+            Creating library C:\Users\Rafael\MuDraconick\mu-1.0\Debug\WzAG-GS.lib and object C:\Users\Rafael\MuDraconick\mu-1.0\Debug\WzAG-GS.exp
+         WzAG-GS.vcxproj -> C:\Users\Rafael\MuDraconick\mu-1.0\Debug\WzAG-GS.dll
+       Manifest:
+         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Rafael\MuDraconick\mu-1.0\Debug\\GS\WzAG-GS.dll;#2" /manifest "Debug\WzAG-GS.dll.intermediate.manifest"
+       FinalizeBuildStatus:
+         Deleting file "Debug\WzAG-GS.unsuccessfulbuild".
+         Touching "Debug\WzAG-GS.lastbuildstate".
+     1>Done Building Project "C:\Users\Rafael\MuDraconick\mu-1.0\WzAG-GS\WzAG-GS.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.74

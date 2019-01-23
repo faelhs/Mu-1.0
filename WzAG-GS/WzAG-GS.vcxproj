@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{49148B88-F026-4E24-80FE-1DC2537CC17F}</ProjectGuid>
+    <RootNamespace>WzAG</RootNamespace>
+    <ProjectName>WzAG-GS</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>WzAG</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(OutDir)\GS\$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)\GS\$(TargetName)$(TargetExt)</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AutoXP.cpp" />
+    <ClCompile Include="Balancer.cpp" />
+    <ClCompile Include="Biblioteca.cpp" />
+    <ClCompile Include="Blood.cpp" />
+    <ClCompile Include="Castle.cpp" />
+    <ClCompile Include="Comandos.cpp" />
+    <ClCompile Include="Customs.cpp" />
+    <ClCompile Include="Database.cpp" />
+    <ClCompile Include="Display.cpp" />
+    <ClCompile Include="DropEvent.cpp" />
+    <ClCompile Include="ElfBuffer.cpp" />
+    <ClCompile Include="GCMagicAttackNumberSend.cpp" />
+    <ClCompile Include="GenSystem.cpp" />
+    <ClCompile Include="Jewels.cpp" />
+    <ClCompile Include="MagicInf.cpp" />
+    <ClCompile Include="GoldShop.cpp" />
+    <ClCompile Include="Premio_Diario.cpp" />
+    <ClCompile Include="QuestBoss.cpp" />
+    <ClCompile Include="Quest_Elf.cpp" />
+    <ClCompile Include="Quest_Item_Reward.cpp" />
+    <ClCompile Include="Sorteio.cpp" />
+    <ClCompile Include="QuestLoot.cpp" />
+    <ClCompile Include="Bot.cpp" />
+    <ClCompile Include="Storm.cpp" />
+    <ClCompile Include="GMSystem.cpp" />
+    <ClCompile Include="GoldenArcher.cpp" />
+    <ClCompile Include="Helper.cpp" />
+    <ClCompile Include="HHour.cpp" />
+    <ClCompile Include="ItemDrop.cpp" />
+    <ClCompile Include="Quest.cpp" />
+    <ClCompile Include="SobreEvent.cpp" />
+    <ClCompile Include="Tips.cpp" />
+    <ClCompile Include="DuelEvent.cpp" />
+    <ClCompile Include="Hydra.cpp" />
+    <ClCompile Include="Flood.cpp" />
+    <ClCompile Include="License.cpp" />
+    <ClCompile Include="Log.cpp" />
+    <ClCompile Include="Manager.cpp" />
+    <ClCompile Include="MasterReset.cpp" />
+    <ClCompile Include="NpcTalk.cpp" />
+    <ClCompile Include="PegaEvent.cpp" />
+    <ClCompile Include="Plugin.cpp" />
+    <ClCompile Include="Fixes.cpp" />
+    <ClCompile Include="Functions.cpp" />
+    <ClCompile Include="Connect.cpp" />
+    <ClCompile Include="News.cpp" />
+    <ClCompile Include="Protocol.cpp" />
+    <ClCompile Include="Reset.cpp" />
+    <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Teleport.cpp" />
+    <ClCompile Include="UnicodeChar.cpp" />
+    <ClCompile Include="VipSystem.cpp" />
+    <ClCompile Include="Ware.cpp" />
+    <ClCompile Include="WzAG.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AutoXP.h" />
+    <ClInclude Include="Balancer.h" />
+    <ClInclude Include="Biblioteca.h" />
+    <ClInclude Include="Blood.h" />
+    <ClInclude Include="Bot.h" />
+    <ClInclude Include="Castle.h" />
+    <ClInclude Include="Comandos.h" />
+    <ClInclude Include="Customs.h" />
+    <ClInclude Include="Database.h" />
+    <ClInclude Include="Display.h" />
+    <ClInclude Include="DropEvent.h" />
+    <ClInclude Include="ElfBuffer.h" />
+    <ClInclude Include="GCMagicAttackNumberSend.h" />
+    <ClInclude Include="GenSystem.h" />
+    <ClInclude Include="GoldShop.h" />
+    <ClInclude Include="Premio_Diario.h" />
+    <ClInclude Include="Quest_Boss.h" />
+    <ClInclude Include="Quest_Elf.h" />
+    <ClInclude Include="Quest_Item_Reward.h" />
+    <ClInclude Include="Quest_Loot.h" />
+    <ClInclude Include="Sorteio.h" />
+    <ClInclude Include="Jewels.h" />
+    <ClInclude Include="MagicInf.h" />
+    <ClInclude Include="Storm.h" />
+    <ClInclude Include="GMSystem.h" />
+    <ClInclude Include="GoldenArcher.h" />
+    <ClInclude Include="Helper.h" />
+    <ClInclude Include="HHour.h" />
+    <ClInclude Include="ItemDrop.h" />
+    <ClInclude Include="Quest.h" />
+    <ClInclude Include="SobreEvent.h" />
+    <ClInclude Include="Tips.h" />
+    <ClInclude Include="DuelEvent.h" />
+    <ClInclude Include="Hydra.h" />
+    <ClInclude Include="Fixes.h" />
+    <ClInclude Include="Flood.h" />
+    <ClInclude Include="Functions.h" />
+    <ClInclude Include="Include.h" />
+    <ClInclude Include="License.h" />
+    <ClInclude Include="Log.h" />
+    <ClInclude Include="Manager.h" />
+    <ClInclude Include="MasterReset.h" />
+    <ClInclude Include="NpcTalk.h" />
+    <ClInclude Include="Offsets.h" />
+    <ClInclude Include="Connect.h" />
+    <ClInclude Include="News.h" />
+    <ClInclude Include="Packets.h" />
+    <ClInclude Include="PegaEvent.h" />
+    <ClInclude Include="Protocol.h" />
+    <ClInclude Include="Reset.h" />
+    <ClInclude Include="Shop.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="Teleport.h" />
+    <ClInclude Include="Tokenizer.h" />
+    <ClInclude Include="UnicodeChar.h" />
+    <ClInclude Include="VipSystem.h" />
+    <ClInclude Include="Ware.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

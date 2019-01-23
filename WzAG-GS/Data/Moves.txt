@@ -1,0 +1,16 @@
+;------------------------------------------------------------------------------------------------------------------
+; # Active		=	1 Ativa o move, 0 desativa.
+; # Level		=	Level necessário para se mover.
+; # Money		=	Zen necessário para se mover.
+; # Vip			=	Tipo de conta permitido a usar o move.
+; # Pk			=	Move liberado para players pk.
+; # Map			=	Mapa referente ao move.
+; # X			=	Coordenada x referente ao move.
+; # Y			=	Coordenada Y referente ao move.
+; # Sintax		=	String usada para ativar o move.
+;------------------------------------------------------------------------------------------------------------------
+; #  Active	Level	Money	Vip	Pk	Map	X	Y	Sintax
+;------------------------------------------------------------------------------------------------------------------
+0
+	1	30	5000	0	1	0	125	125	"/bar"
+end
