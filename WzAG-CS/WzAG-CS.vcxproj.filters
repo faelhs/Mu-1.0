@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="[FT] Standard">
+      <UniqueIdentifier>{f79832d0-c000-477b-98b0-c7b4871d7c8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Standard\Biblioteca">
+      <UniqueIdentifier>{6d80e1c2-3189-4d50-88f1-c8067ff2e050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Standard\Functions">
+      <UniqueIdentifier>{cec85085-574b-4284-9d55-6c0389db2aa8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Standard\Offsets">
+      <UniqueIdentifier>{6e2adcb6-fcbd-4e68-a6d4-11f0587846bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Standard\Plugin">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="[FT] Standard\StdAfx">
+      <UniqueIdentifier>{67128570-1217-49cf-a42b-ed8cd78ad60a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] GameServer">
+      <UniqueIdentifier>{f2f53941-d6f7-4b8a-966a-de4fd01fea1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] GameServer\Fixes">
+      <UniqueIdentifier>{be22e154-2236-46bb-b4d1-cfdf4c6e9238}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] GameServer\Packets">
+      <UniqueIdentifier>{ea7c83f8-7b8f-4fb7-8e87-dbc6127e9ca4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] GameServer\Tokenizer">
+      <UniqueIdentifier>{805119e4-1a86-4ed8-a5dc-00e5a9a141ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] GameServer\WzAG">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="[FT] Customs">
+      <UniqueIdentifier>{c7056eca-3b9e-42b7-80c2-127f14e7e183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Connect">
+      <UniqueIdentifier>{af63ce8b-8d07-4922-ac87-51f4d4bcb9fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Protect">
+      <UniqueIdentifier>{b88a6354-8180-446d-9d45-f48a52dcef00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Protect\Flood">
+      <UniqueIdentifier>{045423c5-dea3-4520-9e1c-df4b1c7a62b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Protocol">
+      <UniqueIdentifier>{f4b8a096-8486-40ea-a53f-1dd15102c182}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas">
+      <UniqueIdentifier>{19d5102f-c7ba-4b50-84c2-ce615de48d78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\License">
+      <UniqueIdentifier>{69332ae0-f5f2-42b7-af47-e6dfbb037bef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Shop">
+      <UniqueIdentifier>{8f61e1d7-c537-4db7-b2f6-1764241bdff0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Customs">
+      <UniqueIdentifier>{85954480-65f6-4fd7-941f-3a5b8e4e7b3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Protect\UnicodeChar">
+      <UniqueIdentifier>{922a6fa5-a683-46fe-bc41-1d476bdedde1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Standard\MSSQL">
+      <UniqueIdentifier>{bd9a5d86-cb96-4b8a-b2d9-96bbbd83ecd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Standard\MSSQL\Manager">
+      <UniqueIdentifier>{04d0a429-f7a4-414c-9b47-5378ed5ba603}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Standard\MSSQL\Database">
+      <UniqueIdentifier>{5d384233-9c5d-4c53-a49a-bd76e43d4272}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] GameServer\Log">
+      <UniqueIdentifier>{e1382a88-69f3-43c4-9216-8810fb0844f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Protect\Ware">
+      <UniqueIdentifier>{555d9778-d6e6-4d09-a209-14a76024d502}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Balancer">
+      <UniqueIdentifier>{3b38a985-0ca2-4c88-808c-3dffbc8329a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Comandos">
+      <UniqueIdentifier>{4844a67b-9bfe-42ea-9fda-63f334876a47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Comandos\Main">
+      <UniqueIdentifier>{f5d45900-a0e4-4624-854b-fe996bf39f09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Comandos\Reset">
+      <UniqueIdentifier>{7f98d73f-a69b-4c17-93b5-6202eaf8720c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Comandos\MasterReset">
+      <UniqueIdentifier>{0669c5c4-bf5f-42bd-8777-cb5136fa8de1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Routine">
+      <UniqueIdentifier>{b5c4a5e9-16cc-4488-99e8-1e335852ea95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Routine\Tips">
+      <UniqueIdentifier>{215a8585-52ef-453f-a4cd-744a178887ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Routine\News">
+      <UniqueIdentifier>{688889e6-77a8-46bb-a198-444c870fb45b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Display">
+      <UniqueIdentifier>{8be32634-2834-411c-bf95-aa3fd371b0c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\ItemDrop">
+      <UniqueIdentifier>{d78c254b-f532-4637-a0b1-dcdafc333093}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WzAG.cpp">
+      <Filter>[FT] GameServer\WzAG</Filter>
+    </ClCompile>
+    <ClCompile Include="Fixes.cpp">
+      <Filter>[FT] GameServer\Fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol.cpp">
+      <Filter>[FT] Customs\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions.cpp">
+      <Filter>[FT] Standard\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugin.cpp">
+      <Filter>[FT] Standard\Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="Biblioteca.cpp">
+      <Filter>[FT] Standard\Biblioteca</Filter>
+    </ClCompile>
+    <ClCompile Include="License.cpp">
+      <Filter>[FT] Customs\Sistemas\License</Filter>
+    </ClCompile>
+    <ClCompile Include="Reset.cpp">
+      <Filter>[FT] Customs\Comandos\Reset</Filter>
+    </ClCompile>
+    <ClCompile Include="Connect.cpp">
+      <Filter>[FT] Customs\Connect</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>[FT] Standard\StdAfx</Filter>
+    </ClCompile>
+    <ClCompile Include="Flood.cpp">
+      <Filter>[FT] Customs\Protect\Flood</Filter>
+    </ClCompile>
+    <ClCompile Include="Shop.cpp">
+      <Filter>[FT] Customs\Shop</Filter>
+    </ClCompile>
+    <ClCompile Include="Customs.cpp">
+      <Filter>[FT] Customs\Customs</Filter>
+    </ClCompile>
+    <ClCompile Include="UnicodeChar.cpp">
+      <Filter>[FT] Customs\Protect\UnicodeChar</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager.cpp">
+      <Filter>[FT] Standard\MSSQL\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Database.cpp">
+      <Filter>[FT] Standard\MSSQL\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>[FT] GameServer\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="Ware.cpp">
+      <Filter>[FT] Customs\Protect\Ware</Filter>
+    </ClCompile>
+    <ClCompile Include="MasterReset.cpp">
+      <Filter>[FT] Customs\Comandos\MasterReset</Filter>
+    </ClCompile>
+    <ClCompile Include="Balancer.cpp">
+      <Filter>[FT] Customs\Sistemas\Balancer</Filter>
+    </ClCompile>
+    <ClCompile Include="Comandos.cpp">
+      <Filter>[FT] Customs\Comandos\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Tips.cpp">
+      <Filter>[FT] Customs\Sistemas\Routine\Tips</Filter>
+    </ClCompile>
+    <ClCompile Include="News.cpp">
+      <Filter>[FT] Customs\Sistemas\Routine\News</Filter>
+    </ClCompile>
+    <ClCompile Include="Display.cpp">
+      <Filter>[FT] Customs\Sistemas\Display</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemDrop.cpp">
+      <Filter>[FT] Customs\Sistemas\ItemDrop</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="StdAfx.h">
+      <Filter>[FT] Standard\StdAfx</Filter>
+    </ClInclude>
+    <ClInclude Include="Fixes.h">
+      <Filter>[FT] GameServer\Fixes</Filter>
+    </ClInclude>
+    <ClInclude Include="Biblioteca.h">
+      <Filter>[FT] Standard\Biblioteca</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions.h">
+      <Filter>[FT] Standard\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol.h">
+      <Filter>[FT] Customs\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Packets.h">
+      <Filter>[FT] GameServer\Packets</Filter>
+    </ClInclude>
+    <ClInclude Include="Offsets.h">
+      <Filter>[FT] Standard\Offsets</Filter>
+    </ClInclude>
+    <ClInclude Include="Include.h">
+      <Filter>[FT] Standard\Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="License.h">
+      <Filter>[FT] Customs\Sistemas\License</Filter>
+    </ClInclude>
+    <ClInclude Include="Reset.h">
+      <Filter>[FT] Customs\Comandos\Reset</Filter>
+    </ClInclude>
+    <ClInclude Include="Tokenizer.h">
+      <Filter>[FT] GameServer\Tokenizer</Filter>
+    </ClInclude>
+    <ClInclude Include="Connect.h">
+      <Filter>[FT] Customs\Connect</Filter>
+    </ClInclude>
+    <ClInclude Include="Flood.h">
+      <Filter>[FT] Customs\Protect\Flood</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop.h">
+      <Filter>[FT] Customs\Shop</Filter>
+    </ClInclude>
+    <ClInclude Include="Customs.h">
+      <Filter>[FT] Customs\Customs</Filter>
+    </ClInclude>
+    <ClInclude Include="UnicodeChar.h">
+      <Filter>[FT] Customs\Protect\UnicodeChar</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager.h">
+      <Filter>[FT] Standard\MSSQL\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Database.h">
+      <Filter>[FT] Standard\MSSQL\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>[FT] GameServer\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="Ware.h">
+      <Filter>[FT] Customs\Protect\Ware</Filter>
+    </ClInclude>
+    <ClInclude Include="MasterReset.h">
+      <Filter>[FT] Customs\Comandos\MasterReset</Filter>
+    </ClInclude>
+    <ClInclude Include="Balancer.h">
+      <Filter>[FT] Customs\Sistemas\Balancer</Filter>
+    </ClInclude>
+    <ClInclude Include="Comandos.h">
+      <Filter>[FT] Customs\Comandos\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Tips.h">
+      <Filter>[FT] Customs\Sistemas\Routine\Tips</Filter>
+    </ClInclude>
+    <ClInclude Include="News.h">
+      <Filter>[FT] Customs\Sistemas\Routine\News</Filter>
+    </ClInclude>
+    <ClInclude Include="Display.h">
+      <Filter>[FT] Customs\Sistemas\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemDrop.h">
+      <Filter>[FT] Customs\Sistemas\ItemDrop</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

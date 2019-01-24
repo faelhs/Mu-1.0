@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="[FT] Standard">
+      <UniqueIdentifier>{fd835d82-2a49-48aa-b79c-dd7fe378ce5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Standard\Biblioteca">
+      <UniqueIdentifier>{6d80e1c2-3189-4d50-88f1-c8067ff2e050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Standard\Offsets">
+      <UniqueIdentifier>{6e2adcb6-fcbd-4e68-a6d4-11f0587846bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Standard\Functions">
+      <UniqueIdentifier>{cec85085-574b-4284-9d55-6c0389db2aa8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Standard\Plugin">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="[FT] GameServer">
+      <UniqueIdentifier>{36fd2a12-ffa0-4368-959e-22d8b51048af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] GameServer\Fixes">
+      <UniqueIdentifier>{be22e154-2236-46bb-b4d1-cfdf4c6e9238}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] GameServer\Packets">
+      <UniqueIdentifier>{ea7c83f8-7b8f-4fb7-8e87-dbc6127e9ca4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] GameServer\Tokenizer">
+      <UniqueIdentifier>{921dbbd8-5e78-45a0-b61e-6b4d192322e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] GameServer\WzAG">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="[FT] Customs">
+      <UniqueIdentifier>{848ad654-0878-4d23-847c-ccbdd527e48f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Connect">
+      <UniqueIdentifier>{4d52d927-70b3-4137-b265-7a7e760e4ce9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Eventos">
+      <UniqueIdentifier>{a3789fb3-aefd-4470-bb34-212d195cec04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Protect">
+      <UniqueIdentifier>{523f55c9-0017-416b-bb22-c895d7b1cb13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Protect\Flood">
+      <UniqueIdentifier>{6a867393-e5f7-4f8c-b036-86b9f9340535}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Protocol">
+      <UniqueIdentifier>{f4b8a096-8486-40ea-a53f-1dd15102c182}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas">
+      <UniqueIdentifier>{4cc6eb63-4d0f-485f-9d91-f4342707afa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\License">
+      <UniqueIdentifier>{68704735-6ebf-4eed-9f52-48a0e5fc3ea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Shop">
+      <UniqueIdentifier>{7c1fdc80-556c-41c9-bbb3-600e7b84f881}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Customs">
+      <UniqueIdentifier>{ade17393-a2a6-4650-8422-fa026caeb251}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Protect\UnicodeChar">
+      <UniqueIdentifier>{cf52a029-49be-42fa-8162-a89545334208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Standard\MSSQL">
+      <UniqueIdentifier>{5211c40c-c577-4c48-8bf6-0bceab5f4de0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Standard\MSSQL\Manager">
+      <UniqueIdentifier>{0e55a801-4daa-485d-bccc-a237d3d9c298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Standard\MSSQL\Database">
+      <UniqueIdentifier>{9b03cdff-e7c3-4b6f-a786-0c7f82483b3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] GameServer\Log">
+      <UniqueIdentifier>{b2835ed9-5883-4417-bc29-3985913cee5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Protect\Ware">
+      <UniqueIdentifier>{3868072e-75c9-4dc3-89b1-00626627ad54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Teleport">
+      <UniqueIdentifier>{b1084a52-2a57-40ce-936b-8a2f4c307bdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Comandos">
+      <UniqueIdentifier>{fefd0d9b-be53-4e71-8701-d0f06fe4df38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Comandos\Main">
+      <UniqueIdentifier>{3c0345a9-1e5d-4015-94aa-e0111679909e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Comandos\Reset">
+      <UniqueIdentifier>{aa323bed-3c90-4f70-9281-d89ee7b1b2b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Comandos\MasterReset">
+      <UniqueIdentifier>{9f4fa1c7-db0a-4789-8956-61d8836da05a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Eventos\Castle">
+      <UniqueIdentifier>{66f0d664-f9b7-4789-bfa6-f68fc275542e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Balancer">
+      <UniqueIdentifier>{41b14be9-75ca-471d-a866-7761880b59d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Eventos\Blood">
+      <UniqueIdentifier>{a4a763da-57e2-4594-b0d4-2fa1badd1f9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Eventos\DuelEvent">
+      <UniqueIdentifier>{a2d68675-469e-4391-8753-17043c5bb821}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Eventos\PegaEvent">
+      <UniqueIdentifier>{36c56127-215d-427c-b5ea-36780d4ce8d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Routine">
+      <UniqueIdentifier>{e4cfcea1-6399-46c1-91b8-60017f01583f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Routine\Tips">
+      <UniqueIdentifier>{8f37375f-8ae4-4c6d-9e5c-eb843787652d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Routine\News">
+      <UniqueIdentifier>{5950c966-fd5d-4904-b949-3c7fda77eb11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Eventos\Hydra">
+      <UniqueIdentifier>{98e153b0-e0c4-4575-a036-2fd105f4bbe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Display">
+      <UniqueIdentifier>{2da4ac16-15c6-4538-9229-466648747290}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Eventos\SobreEvent">
+      <UniqueIdentifier>{c82583a5-723f-4da5-b0b2-b4e8441f9859}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\AutoXP">
+      <UniqueIdentifier>{8a17ec19-3de2-46c0-ab75-a589bb754342}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Eventos\DropEvent">
+      <UniqueIdentifier>{ef859545-b396-43ca-a248-357f188bac9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Eventos\HHour">
+      <UniqueIdentifier>{77f83eb7-c7ec-4d34-ae3e-9e76372a22d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\VipSystem">
+      <UniqueIdentifier>{6ee45426-6fb3-415f-bded-3ba1cf4f9e08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\ItemDrop">
+      <UniqueIdentifier>{f5f31d0a-32d9-41bf-8550-7fd2ea07a063}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\NPCSystem">
+      <UniqueIdentifier>{99652235-aae1-4b5a-84f5-b0e4fb8ca43c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\NPCSystem\Helper">
+      <UniqueIdentifier>{2ebdcb74-5513-424c-816a-3d87c9431548}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\NPCSystem\QuestSystem">
+      <UniqueIdentifier>{813ae9ce-f3c1-47eb-af57-6e91fb3203bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\NPCSystem\NPCTalk">
+      <UniqueIdentifier>{dbdfc43e-2e71-4d77-b900-9f8edfa8c84b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\NPCSystem\GoldenArcher">
+      <UniqueIdentifier>{32257509-6284-447e-98fb-3fedbf3fa300}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\GMSystem">
+      <UniqueIdentifier>{5a8e8acb-0d7d-42a8-b4e3-f8797b4d9c2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\StormSystem">
+      <UniqueIdentifier>{cedf8b40-2bee-4834-a48b-9d7f46a5c643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\NPCSystem\ShadowPhantom">
+      <UniqueIdentifier>{f6c1e925-9431-45dd-bf3f-3c082077f4ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Skill">
+      <UniqueIdentifier>{6d35ab60-f069-4aef-9b76-24ae722ad363}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Skill\GCMagicAttackNumberSend">
+      <UniqueIdentifier>{ddc1b3a7-7dfa-4204-a47c-ecbb5159d8d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Skill\MagicInf">
+      <UniqueIdentifier>{37d442c8-bd81-46bb-90e0-1f8d59910bbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Jewels">
+      <UniqueIdentifier>{9625eaf9-8929-4866-8514-1cd1621ac05d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Standard\Plugin\StdAfx">
+      <UniqueIdentifier>{67128570-1217-49cf-a42b-ed8cd78ad60a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\GoldShop">
+      <UniqueIdentifier>{b95e538b-f6ee-4a47-aa34-053c90fdf219}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Sorteio">
+      <UniqueIdentifier>{ced03304-cbe4-4c69-b3d6-5f397ef4a4f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\NPCSystem\QuestSystem\Quest_Main">
+      <UniqueIdentifier>{2a51d3fb-ad0c-4242-bf29-709e943a2b69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\NPCSystem\QuestSystem\Quest_Boss">
+      <UniqueIdentifier>{40b2ec89-b123-493c-a010-298078dcd515}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\NPCSystem\QuestSystem\Quest_Loot">
+      <UniqueIdentifier>{7a6eb8bc-5f65-49fa-8b8e-98b31e4b1a55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\NPCSystem\QuestSystem\Quest_Item_Reward">
+      <UniqueIdentifier>{4b97ee9c-dcaf-410d-a3bb-cf38f4883e6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\CashShop">
+      <UniqueIdentifier>{932a8680-add8-413a-b5b1-cd3c531180d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\NPCSystem\QuestSystem\QuestElf">
+      <UniqueIdentifier>{0eee7094-4f96-43a5-98f7-98fc22a6d919}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Gens">
+      <UniqueIdentifier>{b95a981f-5d53-47a0-ad20-a294caa502cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\OffTrade">
+      <UniqueIdentifier>{87027f0f-a04b-4a95-beca-7e665b73ec0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Bot">
+      <UniqueIdentifier>{3e9b5527-ed79-404d-bb0c-1c7cac78245a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="[FT] Customs\Sistemas\Premio Diario">
+      <UniqueIdentifier>{08e3f4b8-1cda-4e0e-a57a-33a26dd3320a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WzAG.cpp">
+      <Filter>[FT] GameServer\WzAG</Filter>
+    </ClCompile>
+    <ClCompile Include="Fixes.cpp">
+      <Filter>[FT] GameServer\Fixes</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol.cpp">
+      <Filter>[FT] Customs\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions.cpp">
+      <Filter>[FT] Standard\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugin.cpp">
+      <Filter>[FT] Standard\Plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="Biblioteca.cpp">
+      <Filter>[FT] Standard\Biblioteca</Filter>
+    </ClCompile>
+    <ClCompile Include="Connect.cpp">
+      <Filter>[FT] Customs\Connect</Filter>
+    </ClCompile>
+    <ClCompile Include="Reset.cpp">
+      <Filter>[FT] Customs\Comandos\Reset</Filter>
+    </ClCompile>
+    <ClCompile Include="License.cpp">
+      <Filter>[FT] Customs\Sistemas\License</Filter>
+    </ClCompile>
+    <ClCompile Include="Flood.cpp">
+      <Filter>[FT] Customs\Protect\Flood</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>[FT] Standard\Plugin\StdAfx</Filter>
+    </ClCompile>
+    <ClCompile Include="Shop.cpp">
+      <Filter>[FT] Customs\Shop</Filter>
+    </ClCompile>
+    <ClCompile Include="Customs.cpp">
+      <Filter>[FT] Customs\Customs</Filter>
+    </ClCompile>
+    <ClCompile Include="UnicodeChar.cpp">
+      <Filter>[FT] Customs\Protect\UnicodeChar</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager.cpp">
+      <Filter>[FT] Standard\MSSQL\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Database.cpp">
+      <Filter>[FT] Standard\MSSQL\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>[FT] GameServer\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="Ware.cpp">
+      <Filter>[FT] Customs\Protect\Ware</Filter>
+    </ClCompile>
+    <ClCompile Include="Teleport.cpp">
+      <Filter>[FT] Customs\Sistemas\Teleport</Filter>
+    </ClCompile>
+    <ClCompile Include="MasterReset.cpp">
+      <Filter>[FT] Customs\Comandos\MasterReset</Filter>
+    </ClCompile>
+    <ClCompile Include="Comandos.cpp">
+      <Filter>[FT] Customs\Comandos\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Castle.cpp">
+      <Filter>[FT] Customs\Eventos\Castle</Filter>
+    </ClCompile>
+    <ClCompile Include="Balancer.cpp">
+      <Filter>[FT] Customs\Sistemas\Balancer</Filter>
+    </ClCompile>
+    <ClCompile Include="Blood.cpp">
+      <Filter>[FT] Customs\Eventos\Blood</Filter>
+    </ClCompile>
+    <ClCompile Include="DuelEvent.cpp">
+      <Filter>[FT] Customs\Eventos\DuelEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="PegaEvent.cpp">
+      <Filter>[FT] Customs\Eventos\PegaEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="Tips.cpp">
+      <Filter>[FT] Customs\Sistemas\Routine\Tips</Filter>
+    </ClCompile>
+    <ClCompile Include="News.cpp">
+      <Filter>[FT] Customs\Sistemas\Routine\News</Filter>
+    </ClCompile>
+    <ClCompile Include="Hydra.cpp">
+      <Filter>[FT] Customs\Eventos\Hydra</Filter>
+    </ClCompile>
+    <ClCompile Include="Display.cpp">
+      <Filter>[FT] Customs\Sistemas\Display</Filter>
+    </ClCompile>
+    <ClCompile Include="SobreEvent.cpp">
+      <Filter>[FT] Customs\Eventos\SobreEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoXP.cpp">
+      <Filter>[FT] Customs\Sistemas\AutoXP</Filter>
+    </ClCompile>
+    <ClCompile Include="DropEvent.cpp">
+      <Filter>[FT] Customs\Eventos\DropEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="HHour.cpp">
+      <Filter>[FT] Customs\Eventos\HHour</Filter>
+    </ClCompile>
+    <ClCompile Include="VipSystem.cpp">
+      <Filter>[FT] Customs\Sistemas\VipSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Helper.cpp">
+      <Filter>[FT] Customs\NPCSystem\Helper</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemDrop.cpp">
+      <Filter>[FT] Customs\Sistemas\ItemDrop</Filter>
+    </ClCompile>
+    <ClCompile Include="NpcTalk.cpp">
+      <Filter>[FT] Customs\NPCSystem\NPCTalk</Filter>
+    </ClCompile>
+    <ClCompile Include="GoldenArcher.cpp">
+      <Filter>[FT] Customs\NPCSystem\GoldenArcher</Filter>
+    </ClCompile>
+    <ClCompile Include="GMSystem.cpp">
+      <Filter>[FT] Customs\Sistemas\GMSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Storm.cpp">
+      <Filter>[FT] Customs\Sistemas\StormSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ElfBuffer.cpp">
+      <Filter>[FT] Customs\NPCSystem\ShadowPhantom</Filter>
+    </ClCompile>
+    <ClCompile Include="GCMagicAttackNumberSend.cpp">
+      <Filter>[FT] Customs\Sistemas\Skill\GCMagicAttackNumberSend</Filter>
+    </ClCompile>
+    <ClCompile Include="MagicInf.cpp">
+      <Filter>[FT] Customs\Sistemas\Skill\MagicInf</Filter>
+    </ClCompile>
+    <ClCompile Include="Jewels.cpp">
+      <Filter>[FT] Customs\Sistemas\Jewels</Filter>
+    </ClCompile>
+    <ClCompile Include="GoldShop.cpp">
+      <Filter>[FT] Customs\GoldShop</Filter>
+    </ClCompile>
+    <ClCompile Include="Sorteio.cpp">
+      <Filter>[FT] Customs\Sistemas\Sorteio</Filter>
+    </ClCompile>
+    <ClCompile Include="Quest.cpp">
+      <Filter>[FT] Customs\NPCSystem\QuestSystem\Quest_Main</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestLoot.cpp">
+      <Filter>[FT] Customs\NPCSystem\QuestSystem\Quest_Loot</Filter>
+    </ClCompile>
+    <ClCompile Include="Quest_Item_Reward.cpp">
+      <Filter>[FT] Customs\NPCSystem\QuestSystem\Quest_Item_Reward</Filter>
+    </ClCompile>
+    <ClCompile Include="Quest_Elf.cpp">
+      <Filter>[FT] Customs\NPCSystem\QuestSystem\QuestElf</Filter>
+    </ClCompile>
+    <ClCompile Include="GenSystem.cpp">
+      <Filter>[FT] Customs\Sistemas\Gens</Filter>
+    </ClCompile>
+    <ClCompile Include="QuestBoss.cpp">
+      <Filter>[FT] Customs\NPCSystem\QuestSystem\Quest_Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Bot.cpp">
+      <Filter>[FT] Customs\Sistemas\Bot</Filter>
+    </ClCompile>
+    <ClCompile Include="Premio_Diario.cpp">
+      <Filter>[FT] Customs\Sistemas\Premio Diario</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="StdAfx.h">
+      <Filter>[FT] Standard\Plugin\StdAfx</Filter>
+    </ClInclude>
+    <ClInclude Include="Fixes.h">
+      <Filter>[FT] GameServer\Fixes</Filter>
+    </ClInclude>
+    <ClInclude Include="Biblioteca.h">
+      <Filter>[FT] Standard\Biblioteca</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions.h">
+      <Filter>[FT] Standard\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol.h">
+      <Filter>[FT] Customs\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Packets.h">
+      <Filter>[FT] GameServer\Packets</Filter>
+    </ClInclude>
+    <ClInclude Include="Offsets.h">
+      <Filter>[FT] Standard\Offsets</Filter>
+    </ClInclude>
+    <ClInclude Include="Connect.h">
+      <Filter>[FT] Customs\Connect</Filter>
+    </ClInclude>
+    <ClInclude Include="Reset.h">
+      <Filter>[FT] Customs\Comandos\Reset</Filter>
+    </ClInclude>
+    <ClInclude Include="Include.h">
+      <Filter>[FT] Standard\Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="License.h">
+      <Filter>[FT] Customs\Sistemas\License</Filter>
+    </ClInclude>
+    <ClInclude Include="Tokenizer.h">
+      <Filter>[FT] GameServer\Tokenizer</Filter>
+    </ClInclude>
+    <ClInclude Include="Flood.h">
+      <Filter>[FT] Customs\Protect\Flood</Filter>
+    </ClInclude>
+    <ClInclude Include="Shop.h">
+      <Filter>[FT] Customs\Shop</Filter>
+    </ClInclude>
+    <ClInclude Include="Customs.h">
+      <Filter>[FT] Customs\Customs</Filter>
+    </ClInclude>
+    <ClInclude Include="UnicodeChar.h">
+      <Filter>[FT] Customs\Protect\UnicodeChar</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager.h">
+      <Filter>[FT] Standard\MSSQL\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Database.h">
+      <Filter>[FT] Standard\MSSQL\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>[FT] GameServer\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="Ware.h">
+      <Filter>[FT] Customs\Protect\Ware</Filter>
+    </ClInclude>
+    <ClInclude Include="Teleport.h">
+      <Filter>[FT] Customs\Sistemas\Teleport</Filter>
+    </ClInclude>
+    <ClInclude Include="MasterReset.h">
+      <Filter>[FT] Customs\Comandos\MasterReset</Filter>
+    </ClInclude>
+    <ClInclude Include="Comandos.h">
+      <Filter>[FT] Customs\Comandos\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Castle.h">
+      <Filter>[FT] Customs\Eventos\Castle</Filter>
+    </ClInclude>
+    <ClInclude Include="Balancer.h">
+      <Filter>[FT] Customs\Sistemas\Balancer</Filter>
+    </ClInclude>
+    <ClInclude Include="Blood.h">
+      <Filter>[FT] Customs\Eventos\Blood</Filter>
+    </ClInclude>
+    <ClInclude Include="DuelEvent.h">
+      <Filter>[FT] Customs\Eventos\DuelEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="PegaEvent.h">
+      <Filter>[FT] Customs\Eventos\PegaEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="Tips.h">
+      <Filter>[FT] Customs\Sistemas\Routine\Tips</Filter>
+    </ClInclude>
+    <ClInclude Include="News.h">
+      <Filter>[FT] Customs\Sistemas\Routine\News</Filter>
+    </ClInclude>
+    <ClInclude Include="Hydra.h">
+      <Filter>[FT] Customs\Eventos\Hydra</Filter>
+    </ClInclude>
+    <ClInclude Include="Display.h">
+      <Filter>[FT] Customs\Sistemas\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="SobreEvent.h">
+      <Filter>[FT] Customs\Eventos\SobreEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoXP.h">
+      <Filter>[FT] Customs\Sistemas\AutoXP</Filter>
+    </ClInclude>
+    <ClInclude Include="DropEvent.h">
+      <Filter>[FT] Customs\Eventos\DropEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="HHour.h">
+      <Filter>[FT] Customs\Eventos\HHour</Filter>
+    </ClInclude>
+    <ClInclude Include="VipSystem.h">
+      <Filter>[FT] Customs\Sistemas\VipSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Helper.h">
+      <Filter>[FT] Customs\NPCSystem\Helper</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemDrop.h">
+      <Filter>[FT] Customs\Sistemas\ItemDrop</Filter>
+    </ClInclude>
+    <ClInclude Include="NpcTalk.h">
+      <Filter>[FT] Customs\NPCSystem\NPCTalk</Filter>
+    </ClInclude>
+    <ClInclude Include="GoldenArcher.h">
+      <Filter>[FT] Customs\NPCSystem\GoldenArcher</Filter>
+    </ClInclude>
+    <ClInclude Include="GMSystem.h">
+      <Filter>[FT] Customs\Sistemas\GMSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Storm.h">
+      <Filter>[FT] Customs\Sistemas\StormSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ElfBuffer.h">
+      <Filter>[FT] Customs\NPCSystem\ShadowPhantom</Filter>
+    </ClInclude>
+    <ClInclude Include="GCMagicAttackNumberSend.h">
+      <Filter>[FT] Customs\Sistemas\Skill\GCMagicAttackNumberSend</Filter>
+    </ClInclude>
+    <ClInclude Include="MagicInf.h">
+      <Filter>[FT] Customs\Sistemas\Skill\MagicInf</Filter>
+    </ClInclude>
+    <ClInclude Include="Jewels.h">
+      <Filter>[FT] Customs\Sistemas\Jewels</Filter>
+    </ClInclude>
+    <ClInclude Include="GoldShop.h">
+      <Filter>[FT] Customs\GoldShop</Filter>
+    </ClInclude>
+    <ClInclude Include="Sorteio.h">
+      <Filter>[FT] Customs\Sistemas\Sorteio</Filter>
+    </ClInclude>
+    <ClInclude Include="Quest.h">
+      <Filter>[FT] Customs\NPCSystem\QuestSystem\Quest_Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Quest_Boss.h">
+      <Filter>[FT] Customs\NPCSystem\QuestSystem\Quest_Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Quest_Loot.h">
+      <Filter>[FT] Customs\NPCSystem\QuestSystem\Quest_Loot</Filter>
+    </ClInclude>
+    <ClInclude Include="Quest_Item_Reward.h">
+      <Filter>[FT] Customs\NPCSystem\QuestSystem\Quest_Item_Reward</Filter>
+    </ClInclude>
+    <ClInclude Include="Quest_Elf.h">
+      <Filter>[FT] Customs\NPCSystem\QuestSystem\QuestElf</Filter>
+    </ClInclude>
+    <ClInclude Include="GenSystem.h">
+      <Filter>[FT] Customs\Sistemas\Gens</Filter>
+    </ClInclude>
+    <ClInclude Include="Bot.h">
+      <Filter>[FT] Customs\Sistemas\Bot</Filter>
+    </ClInclude>
+    <ClInclude Include="Premio_Diario.h">
+      <Filter>[FT] Customs\Sistemas\Premio Diario</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
