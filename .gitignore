@@ -1,3 +1,10 @@
 Release/*
 Debug/*
 ipch/*
+WzAG-CS/Data/*
+WzAG-CS/Debug/*
+WzAG-CS/Release/*
+WzAG-GS/Data/*
+WzAG-GS/Debug/*
+WzAG-GS/Release/*
+WzAG-GS/x64/*
