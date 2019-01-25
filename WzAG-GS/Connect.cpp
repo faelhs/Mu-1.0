@@ -17,9 +17,6 @@ void ConnectServer::PlayerConnect(int aIndex)
 	Custom[aIndex].Resets = Manager.CountResets(gObj[aIndex].Name);
 	Custom[aIndex].Masters = Manager.CountMasters(gObj[aIndex].Name);
 	Custom[aIndex].mCash = Manager.GoldCount(gObj[aIndex].AccountID);
-	Custom[aIndex].m_GensState = Manager.genstate(gObj[aIndex].Name);
-	Custom[aIndex].m_GensScore_D = Manager.gensrank(2);
-	Custom[aIndex].m_GensScore_V = Manager.gensrank(1);
 	Custom[aIndex].jail = Manager.GetJail(gObj[aIndex].Name);
 	Custom[aIndex].jaula = Manager.GetJaula(gObj[aIndex].Name);
 

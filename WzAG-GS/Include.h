@@ -62,11 +62,9 @@
 #include "GoldShop.h"
 #include "Sorteio.h"
 #include "Quest_Item_Reward.h" 
-#include "GenSystem.h"
 #include "gObjAttack.h"
 #include "Bot.h"
 #include "Premio_Diario.h"
-//#include "CashShop.h" 
 
 #define CFG_SVINFO					"./Data/ServerInfo.dat"
 #define CFG_GAMESERVER				"../DKData/Config.ini"

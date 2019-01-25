@@ -62,6 +62,7 @@ public:
 	bool WarehouseHacker(int aIndex);	
 	int MyRand(int min, int max);
 	void ChkJail(LPOBJ lpObj);
+	void SaveQuest(int aIndex);
 };
 
 extern Functions func;

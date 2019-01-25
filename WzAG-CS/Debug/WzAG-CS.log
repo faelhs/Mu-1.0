@@ -1,10 +1,39 @@
-﻿Build started 23/01/2019 10:53:18.
-     1>Project "C:\Users\Rafael\MuDraconick\mu-1.0\WzAG-CS\WzAG-CS.vcxproj" on node 2 (build target(s)).
+﻿Build started 25/01/2019 10:54:54.
+     1>Project "C:\Users\Rafael\MuDraconick\mu-1.0\WzAG-CS\WzAG-CS.vcxproj" on node 3 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\WzAG-CS.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         All outputs are up-to-date.
-         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\WzAG-CS.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
+         StdAfx.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\WzAG-CS.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Balancer.cpp Biblioteca.cpp Comandos.cpp Connect.cpp Customs.cpp Database.cpp Display.cpp Fixes.cpp Flood.cpp Functions.cpp ItemDrop.cpp License.cpp Log.cpp Manager.cpp MasterReset.cpp News.cpp Plugin.cpp Protocol.cpp Reset.cpp Shop.cpp Tips.cpp UnicodeChar.cpp Ware.cpp WzAG.cpp
+         WzAG.cpp
+         Ware.cpp
+         UnicodeChar.cpp
+         Tips.cpp
+         Shop.cpp
+         Reset.cpp
+         Protocol.cpp
+         Plugin.cpp
+         News.cpp
+         MasterReset.cpp
+         Manager.cpp
+         Log.cpp
+         License.cpp
+     1>c:\users\rafael\mudraconick\mu-1.0\wzag-cs\license.cpp(51): warning C4129: '*' : unrecognized character escape sequence
+         ItemDrop.cpp
+         Functions.cpp
+         Flood.cpp
+         Fixes.cpp
+         Display.cpp
+         Database.cpp
+         Customs.cpp
+         Generating Code...
+         Compiling...
+         Connect.cpp
+         Comandos.cpp
+         Biblioteca.cpp
+         Balancer.cpp
+         Generating Code...
        MakeDirsForLink:
          Creating directory "C:\Users\Rafael\MuDraconick\mu-1.0\Debug\CS".
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\Rafael\MuDraconick\mu-1.0\Debug\WzAG-CS.dll) does not match the Linker's OutputFile property value (C:\Users\Rafael\MuDraconick\mu-1.0\Debug\CS\WzAG-CS.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
@@ -45,4 +74,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.51
+Time Elapsed 00:00:11.83

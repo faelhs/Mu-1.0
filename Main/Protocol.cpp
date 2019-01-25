@@ -41,22 +41,10 @@ BOOL ProtocolCoreEx(int unk1, LPBYTE lpRecv, int unk2, int unk3)
 					for (int i = 0; i < lpMsg->Count; i++)
 					{
 						PMSG_HEALTHBAR_INFO* Info = (PMSG_HEALTHBAR_INFO*)(&lpRecv[sizeof(PMSG_HEALTHBAR) + (sizeof(PMSG_HEALTHBAR_INFO) * i)]);
-						HPBar.InsertNewHealthBar(Info->Index, Info->Rate, Info->gen, Info->qqnt, Info->qcnt, Info->qtip);
+						HPBar.InsertNewHealthBar(Info->Index, Info->Rate);
 					}
 				}
 				break;
-			case 0xF2:
-			{
-				HPBar.ClearNewQuests();
-				PMSG_QUESTS* lpMsg = (PMSG_QUESTS*)(lpRecv);
-
-				for (int i = 0; i < lpMsg->Count; i++)
-				{
-					PMSG_QUESTS_INFO* Info = (PMSG_QUESTS_INFO*)(&lpRecv[sizeof(PMSG_QUESTS) + (sizeof(PMSG_QUESTS_INFO) * i)]);
-					HPBar.GetQuests(Info->Index,Info->qqnt, Info->qcnt, Info->qtip);
-				}
-			}
-			break;
 			}
 		}
 		break;

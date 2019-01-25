@@ -236,12 +236,12 @@ void Q_PGW_ELF::KilledMob(int aIndex)
 		if (QuestUser[aIndex].Quest_kill < Number[QuestUser[aIndex].Quest_Num].Coun)
 		{
 			QuestUser[aIndex].Quest_kill++;
-			Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Kill = %d WHERE Name='%s'", QuestUser[aIndex].Quest_kill, &lpObj->Name);
-
+			
 			
 			if (QuestUser[aIndex].Quest_kill == Number[QuestUser[aIndex].Quest_Num].Coun)
 			{
 				MsgOutput(aIndex, "[Quest] Retorne ao NPC!");
+				func.MsgUser(aIndex, 0, "[Quest] Retorne ao NPC!");
 			}
 		}
 	}

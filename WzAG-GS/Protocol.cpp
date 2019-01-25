@@ -180,8 +180,6 @@ void PChatProcEx(PMSG_CHATDATA * lpChat, short aIndex)
 	case '/':
 		{
 			Command.ChatRecv(lpChat,aIndex);
-			GensProtocol(lpChat,aIndex);
-
 		}
 		break;
 	case '!':

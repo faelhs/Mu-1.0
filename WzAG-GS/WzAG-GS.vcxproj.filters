@@ -201,17 +201,8 @@
     <Filter Include="[FT] Customs\NPCSystem\QuestSystem\Quest_Item_Reward">
       <UniqueIdentifier>{4b97ee9c-dcaf-410d-a3bb-cf38f4883e6a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="[FT] Customs\Sistemas\CashShop">
-      <UniqueIdentifier>{932a8680-add8-413a-b5b1-cd3c531180d2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="[FT] Customs\NPCSystem\QuestSystem\QuestElf">
       <UniqueIdentifier>{0eee7094-4f96-43a5-98f7-98fc22a6d919}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="[FT] Customs\Sistemas\Gens">
-      <UniqueIdentifier>{b95a981f-5d53-47a0-ad20-a294caa502cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="[FT] Customs\Sistemas\OffTrade">
-      <UniqueIdentifier>{87027f0f-a04b-4a95-beca-7e665b73ec0f}</UniqueIdentifier>
     </Filter>
     <Filter Include="[FT] Customs\Sistemas\Bot">
       <UniqueIdentifier>{3e9b5527-ed79-404d-bb0c-1c7cac78245a}</UniqueIdentifier>
@@ -373,9 +364,6 @@
     </ClCompile>
     <ClCompile Include="Quest_Elf.cpp">
       <Filter>[FT] Customs\NPCSystem\QuestSystem\QuestElf</Filter>
-    </ClCompile>
-    <ClCompile Include="GenSystem.cpp">
-      <Filter>[FT] Customs\Sistemas\Gens</Filter>
     </ClCompile>
     <ClCompile Include="QuestBoss.cpp">
       <Filter>[FT] Customs\NPCSystem\QuestSystem\Quest_Boss</Filter>
@@ -549,9 +537,6 @@
     </ClInclude>
     <ClInclude Include="Quest_Elf.h">
       <Filter>[FT] Customs\NPCSystem\QuestSystem\QuestElf</Filter>
-    </ClInclude>
-    <ClInclude Include="GenSystem.h">
-      <Filter>[FT] Customs\Sistemas\Gens</Filter>
     </ClInclude>
     <ClInclude Include="Bot.h">
       <Filter>[FT] Customs\Sistemas\Bot</Filter>

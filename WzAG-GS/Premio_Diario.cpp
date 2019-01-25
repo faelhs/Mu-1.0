@@ -19,63 +19,66 @@ bool Premio_Diario::load() {
 	}
 }
 void Premio_Diario::premiar(int aIndex) {
-
 	if (!this->_ativo) {
 		return;
 	}	
-	char test[255];
-	char dateStr[9];
-	_strdate(dateStr);
-	Data Hoje;
+	char buff[10];
 	Data UltimoLogin;
+	SYSTEMTIME now;
+	GetLocalTime(&now);
 	char Usr[11];
+	char data[12] = "00/00/0000";
+	sprintf(data, "%02d/%02d/%02d", now.wDay, now.wMonth, now.wYear);
 	lstrcpy(Usr, gObj[aIndex].AccountID);
+
 	PremioDiario[aIndex].dia = Manager.getpremiodia(Usr);
 	PremioDiario[aIndex].ultimo_recebido = Manager.getpremiodata(Usr);
 	ParseData(PremioDiario[aIndex].ultimo_recebido, &UltimoLogin);
-	ParseData(dateStr, &Hoje);
-	int dias = Hoje.dia - UltimoLogin.dia;
-	int meses = Hoje.mes - UltimoLogin.mes;
-	int anos = Hoje.ano - UltimoLogin.ano;
+
+	int dias = now.wDay - UltimoLogin.dia;
+	int meses = now.wMonth - UltimoLogin.mes;
+	int anos = now.wYear - UltimoLogin.ano;
+
 	int diferenca = dias + meses + anos;
 	bool reinicio = (diferenca > 1 || PremioDiario[aIndex].dia > 7);
 	bool jarecebeu = (diferenca <= 0);
-	
+
 	if (reinicio) {
 		PremioDiario[aIndex].dia = 1;
 	}
+
 	if (jarecebeu) {
 		func.MsgUser(aIndex, 1, "Obrigado por jogar conosco.");
 		func.MsgUser(aIndex, 1, "Você já recebeu seu premio hoje.");
 		return;
 	}
+
 	if (!jarecebeu) {
-		darpremio(aIndex, PremioDiario[aIndex].dia, dateStr);
+		darpremio(aIndex, PremioDiario[aIndex].dia, data);
 		return;
 	}
 }
 void Premio_Diario::ParseData(char str[9], Data *Alvo)
 {
-	// 0, 1 = mes
+	// 0, 1 = dia
 	// 2    = /
-	// 3, 4 = dia
+	// 3, 4 = mes
 	// 5    = /
 	// 6, 7 = ano
 	// 8    = NULO
 	char _dia[3] = {
-		str[3],
-		str[4],
-		0
+		str[0],
+		str[1]
 	};
 	char _mes[3] = {
-		str[0],
-		str[1],
-		0
+		str[3],
+		str[4]
 	};
-	char _ano[3] = {
+	char _ano[5] = {
 		str[6],
 		str[7],
-		0
+		str[8],
+		str[9]
 	};
 	Alvo->dia = atoi(_dia);
 	Alvo->mes = atoi(_mes);
@@ -202,13 +205,11 @@ void Premio_Diario::LoadPremios() {
 }
 void Premio_Diario::darpremio(int aIndex,int dia,char * date) {
 	char cmd[255];
-
-	int n = dia - 1;
-	Manager.setpremiodia(gObj[aIndex].AccountID, PremioDiario[aIndex].dia);
+	Manager.setpremiodia(gObj[aIndex].AccountID, PremioDiario[aIndex].dia+1);
 	PremioDiario[aIndex].ultimo_recebido = date;
 	Manager.setpremiodata(gObj[aIndex].AccountID, PremioDiario[aIndex].ultimo_recebido);
-	Manager.ExecFormat("UPDATE[MuOnline].[dbo].[MEMB_INFO] SET gold = gold + %d WHERE memb___id = '%s'", this->valor[n], gObj[aIndex].AccountID);;
-	for (int i = 0; i < this->_Count[n]; i++)
+	Manager.ExecFormat("UPDATE[MuOnline].[dbo].[MEMB_INFO] SET gold = gold + %d WHERE memb___id = '%s'", this->valor[dia], gObj[aIndex].AccountID);;
+	for (int i = 0; i < this->_Count[dia]; i++)
 	{
 		switch (dia) {
 		case 1: 
@@ -237,6 +238,6 @@ void Premio_Diario::darpremio(int aIndex,int dia,char * date) {
 	}
 	func.MsgUser(aIndex, 1, "Obrigado por jogar conosco.");
 	func.MsgUser(aIndex, 1, "Hoje é seu %d° login diario",dia);
-	func.MsgUser(aIndex, 1, "Ganhou %d Gold.", this->valor[n]);
+	func.MsgUser(aIndex, 1, "Ganhou %d Gold.", this->valor[dia]);
 }
 Premio_Diario Pdiario;

@@ -82,9 +82,7 @@ void Loaddll()
 		CloseHandle(CreateThread(NULL,0,EventTimer,NULL,0,NULL));
 		func.HookThis((DWORD)&NpcShadowPhantomEx, 0x0040237E);
 		//Sorteio.Load();
-		ReadyGenSystem();                       //-- Load New System Gens :)
 		Pdiario.load();					//-- Carrega premios do premio diario.
-		//ReadyCashShop();
 	}
 	else
 	{

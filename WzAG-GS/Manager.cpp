@@ -220,19 +220,12 @@ void CManager::setpremiodata(char* Account, char* data) {
 }
 
 char* CManager::getpremiodata(char* Account) {
-		char * saporracaralho = "0";
-
-		//char query[255];
-		//sprintf(query, "SELECT ultimopremio from MEMB_INFO WHERE  memb___id = '%s'",Account);
+		char * buff;
 		this->ExecFormat("SELECT ultimopremio from MEMB_INFO WHERE  memb___id = '%s'", Account);
-
 		this->Fetch();
-		
-		//this->GetStrExec(query, data);
-		this->GetStr(0, saporracaralho);
+		this->GetStr(0,buff);
 		this->Clear();
-
-		return saporracaralho;
+		return buff;
 }
 int CManager::QuestBoss_Num(char * Character)
 {
@@ -330,29 +323,6 @@ bool CManager::ChangeName(char* Account, char* Character, char* NewName){
 
 }
 */
-void CManager::gensenter(char * Char, int gens){
-	this->ExecFormat("UPDATE[MuOnline].[dbo].[Character] SET gens = %d WHERE Name = '%s'", gens, Char);
-}
-void CManager::gensexit(char * Char){
-	this->ExecFormat("UPDATE[MuOnline].[dbo].[Character] SET gens = %d WHERE Name = '%s'", 0, Char);
-}
-void CManager::genscore(int gens) {
-	this->ExecFormat("UPDATE[MuOnline].[dbo].[Genscore] SET Score = Score + 1 WHERE Gen = %d",gens);
-}
-int CManager::gensrank(int gens) {
-	int pts;
-	this->ExecFormat("SELECT Score FROM Genscore WHERE Gen = %d", gens);
-	this->Fetch();
-	pts = this->GetInt("Score");
-	return pts;
-}
-int CManager::genstate(char* Char) {
-	int pts;
-	this->ExecFormat("SELECT gens FROM character WHERE Name = '%s'", Char);
-	this->Fetch();
-	pts = this->GetInt("gens");
-	return pts;
-}
 int CManager::GetJail(char* Char) {
 	int jail;
 	this->ExecFormat("SELECT jail FROM character WHERE Name = '%s'", Char);

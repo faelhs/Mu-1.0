@@ -200,7 +200,7 @@ void Q_PGW_BOSS::Q_NPC(int aIndex, int aNPC)
 
 					if (QuestBoss[aIndex].Quest_Num == Count)
 					{
-						MsgOutput(aIndex, "[Quest] Finalzada");
+						MsgOutput(aIndex, "[Quest Boss] Finalzada");
 						return;
 					}
 
@@ -242,12 +242,12 @@ void Q_PGW_BOSS::KilledMob(int aIndex)
 		if (QuestBoss[aIndex].Quest_kill < Number[QuestBoss[aIndex].Quest_Num].Coun)
 		{
 			QuestBoss[aIndex].Quest_kill++;
-			Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Boss_Kill = %d WHERE Name='%s'", QuestBoss[aIndex].Quest_kill, &lpObj->Name);
-
+			
 			
 			if (QuestBoss[aIndex].Quest_kill == Number[QuestBoss[aIndex].Quest_Num].Coun)
 			{
-				MsgOutput(aIndex, "[Quest] Retorne ao NPC!");
+				MsgOutput(aIndex, "[Quest Boss] Retorne ao NPC!");
+				func.MsgUser(aIndex, 0, "[Quest Boss] Retorne ao NPC!");
 			}
 		}
 	}

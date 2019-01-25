@@ -248,13 +248,14 @@ void Q_PGW::KilledMob(int aIndex)
 		if(QuestUser[aIndex].Quest_kill < Number[QuestUser[aIndex].Quest_Num].Coun)
 		{
 			QuestUser[aIndex].Quest_kill++;
-			Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Kill = %d WHERE Name='%s'", QuestUser[aIndex].Quest_kill,&lpObj->Name);
-
+			
 			//MsgOutput(aIndex,"[Quest] %s [%d/%d]",Number[QuestUser[aIndex].Quest_Num].msg2,QuestUser[aIndex].Quest_kill,Number[QuestUser[aIndex].Quest_Num].Coun);
 
 			if(QuestUser[aIndex].Quest_kill == Number[QuestUser[aIndex].Quest_Num].Coun)
 			{
 				MsgOutput(aIndex,"[Quest] Retorne ao NPC!");
+				func.MsgUser(aIndex, 0, "[Quest] Retorne ao NPC!");
+
 			}
 		}
 	}
@@ -376,6 +377,9 @@ bool Q_PGW::Presents(int aIndex, int Present, int Gifts)
 	
 	return true;
 }
+
+
+
 
 void ClickNPC (int aIndex, int aNPC)
 {	

@@ -43,12 +43,6 @@ public:
 	int QuestLoot_Num(char * Character);
 	int QuestLoot_Kill(char * Character);
 
-	void gensenter(char * Char, int gens);
-	void gensexit(char * Char);
-	void genscore(int gens);
-	int gensrank(int gens);
-	int genstate(char* Char);
-
 	int getpremiodia(char* Account);
 	void setpremiodia(char* Account, int dia);
 	char * getpremiodata(char* Account);

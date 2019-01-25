@@ -325,9 +325,6 @@ struct PLAYERSTRUCT
    DWORD PostDelay;
    DWORD WareDelay;
    DWORD mCash;
-   int m_GensState;
-   int m_GensScore_D;
-   int m_GensScore_V;
    int jail;
    int jaula;
 };

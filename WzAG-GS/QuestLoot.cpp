@@ -242,12 +242,12 @@ void Q_PGW_LOOT::KilledMob(int aIndex)
 		if (QuestLoot[aIndex].Quest_kill < Number[QuestLoot[aIndex].Quest_Num].Coun)
 		{
 			QuestLoot[aIndex].Quest_kill++;
-			Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Loot_Kill = %d WHERE Name='%s'", QuestLoot[aIndex].Quest_kill, &lpObj->Name);
-
+			
 			
 			if (QuestLoot[aIndex].Quest_kill == Number[QuestLoot[aIndex].Quest_Num].Coun)
 			{
-				MsgOutput(aIndex, "[Quest] Retorne ao NPC!");
+				MsgOutput(aIndex, "[Quest Loot] Retorne ao NPC!");
+				func.MsgUser(aIndex, 0, "[Quest Loot] Retorne ao NPC!");
 			}
 		}
 	}

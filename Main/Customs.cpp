@@ -10,7 +10,7 @@ void Customs()
 {
 	GetPrivateProfileStringA("B&W","SystemTitle","Mu DraconicK",SystemTitle,sizeof(SystemTitle),WentMu);
 	GetPrivateProfileStringA("B&W","SystemVersion","22459",SystemVersion,sizeof(SystemVersion),WentMu);
-	GetPrivateProfileStringA("B&W","SystemSerial","DemoB&Wby_faelhs",SystemSerial,sizeof(SystemSerial),WentMu);
+	GetPrivateProfileStringA("B&W","SystemSerial","DraconicK_faelhs",SystemSerial,sizeof(SystemSerial),WentMu);
 	hpbar	= GetPrivateProfileIntA("B&W","HPBar",   1,WentMu);
 
 

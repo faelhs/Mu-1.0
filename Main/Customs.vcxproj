@@ -17,13 +17,11 @@
     <ClCompile Include="Customs.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="HealthBar.cpp" />
-    <ClCompile Include="Hook.cpp" />
     <ClCompile Include="Jewels.cpp" />
     <ClCompile Include="MiniMap.cpp" />
     <ClCompile Include="Models.cpp" />
     <ClCompile Include="Preview.cpp" />
     <ClCompile Include="Protocol.cpp" />
-    <ClCompile Include="MonsLib.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="detours.h" />
@@ -31,8 +29,6 @@
     <ClInclude Include="Fog.h" />
     <ClInclude Include="Functions.h" />
     <ClInclude Include="Customs.h" />
-    <ClInclude Include="Hook.h" />
-    <ClInclude Include="MonsLib.h" />
     <ClInclude Include="HealthBar.h" />
     <ClInclude Include="Jewels.h" />
     <ClInclude Include="MiniMap.h" />
@@ -47,6 +43,7 @@
     <ProjectGuid>{31F5D791-D9B7-4B4D-A903-127322F1B101}</ProjectGuid>
     <RootNamespace>Fog</RootNamespace>
     <ProjectName>DraconicK</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

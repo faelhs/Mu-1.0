@@ -167,18 +167,22 @@ void Functions::gObjLifeCheckHook(LPOBJ lpTargetObj, LPOBJ lpObj, int AttackDama
 	if(QuestUser[aIndex].Quest_Start == 1 && mObj->Class == Qest_PGW.Number[QuestUser[aIndex].Quest_Num].Mob && mObj->Life <= 0 && !classe)
 	{
 		Qest_PGW.KilledMob(aIndex);
+		func.MsgUser(aIndex, 0, "[Quest] %s [%d/%d]", Qest_PGW.Number[QuestUser[aIndex].Quest_Num].msg2, QuestUser[aIndex].Quest_kill, Qest_PGW.Number[QuestUser[aIndex].Quest_Num].Coun);
 	}
 	if (QuestUser[aIndex].Quest_Start == 1 && mObj->Class == Qest_PGW_ELF.Number[QuestUser[aIndex].Quest_Num].Mob && mObj->Life <= 0 && classe)
 	{
 		Qest_PGW_ELF.KilledMob(aIndex);
+		func.MsgUser(aIndex, 0, "[Quest] %s [%d/%d]", Qest_PGW_ELF.Number[QuestUser[aIndex].Quest_Num].msg2, QuestUser[aIndex].Quest_kill, Qest_PGW_ELF.Number[QuestUser[aIndex].Quest_Num].Coun);
 	}
 	if (QuestBoss[aIndex].Quest_Start == 1 && mObj->Class == Qest_PGW_Boss.Number[QuestBoss[aIndex].Quest_Num].Mob && mObj->Life <= 0)
 	{
 		Qest_PGW_Boss.KilledMob(aIndex);
+		func.MsgUser(aIndex, 0, "[Quest] %s [%d/%d]", Qest_PGW_Boss.Number[QuestBoss[aIndex].Quest_Num].msg2, QuestBoss[aIndex].Quest_kill, Qest_PGW_Boss.Number[QuestBoss[aIndex].Quest_Num].Coun);
 	}
 	if (QuestLoot[aIndex].Quest_Start == 1 && mObj->Class == Qest_PGW_Loot.Number[QuestLoot[aIndex].Quest_Num].Mob && mObj->Life <= 0)
 	{
 		Qest_PGW_Loot.KilledMob(aIndex);
+		func.MsgUser(aIndex, 0, "[Quest] %s [%d/%d]", Qest_PGW_Loot.Number[QuestLoot[aIndex].Quest_Num].msg2, QuestLoot[aIndex].Quest_kill, Qest_PGW_Loot.Number[QuestLoot[aIndex].Quest_Num].Coun);
 	}
 	if (Hydra._Active != 0)
 	{
@@ -264,13 +268,7 @@ BOOL Functions::HookgObjAttack(OBJECTSTRUCT* lpObj, OBJECTSTRUCT* lpTargetObj, c
 	{
 		func.CheckPet(lpTargetObj);
 	}
-	if (pGens.ISGENS != FALSE)
-	{
-		if (GensDisplay(lpObj, lpTargetObj, lpMagic, magicsend, MSBFlag, AttackDamage) != true)
-		{
-			return true;
-		}
-	}
+	
 	return gObjAttack(lpObj, lpTargetObj, lpMagic, magicsend, MSBFlag, AttackDamage, bCombo);
 }
 
@@ -278,11 +276,6 @@ void Functions::gObjPlayerKillerEx(LPOBJ lpObj, LPOBJ lpTargetObj)
 {  
 	gObjPlayerKiller(lpObj,lpTargetObj); 
 
-	//Facções.
-	if (pGens.ISGENS != FALSE)
-	{
-		GensRanking(lpObj, lpTargetObj);
-	}
 }
 
 void Functions::gObjInterfaceTimeCheckEx(LPOBJ lpObj)
@@ -319,16 +312,21 @@ void Functions::gObjCloseSetEx(int aIndex, int flag)
 	Duel.Quit(&gObj[aIndex]);
 	Pega.Quit(&gObj[aIndex]);
 	Sobre.Quit(&gObj[aIndex]);
-
+	func.SaveQuest(aIndex);
 	return gObjCloseSet(aIndex,flag);  
 }
-
+void Functions::SaveQuest(int aIndex)
+{
+	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Boss_Kill = %d WHERE Name='%s'", QuestBoss[aIndex].Quest_kill, &gObj[aIndex].Name);
+	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Loot_Kill = %d WHERE Name='%s'", QuestLoot[aIndex].Quest_kill, &gObj[aIndex].Name);
+	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Kill = %d WHERE Name='%s'", QuestUser[aIndex].Quest_kill, &gObj[aIndex].Name);
+}
 short Functions::gObjDelEx(int aIndex)
 {
 	Duel.Quit(&gObj[aIndex]);
 	Pega.Quit(&gObj[aIndex]);
 	Sobre.Quit(&gObj[aIndex]);
-
+	func.SaveQuest(aIndex);
 	return gObjDel(aIndex);
 }
 
@@ -585,9 +583,6 @@ void Functions::Check(LPOBJ lpObj)
 	Custom[lpObj->m_Index].Resets = Manager.CountResets(lpObj->Name);
 	Custom[lpObj->m_Index].Masters = Manager.CountMasters(lpObj->Name);
 	Custom[lpObj->m_Index].mCash = Manager.GoldCount(lpObj->AccountID);
-	Custom[lpObj->m_Index].m_GensState = Manager.genstate(lpObj->Name);
-	Custom[lpObj->m_Index].m_GensScore_D = Manager.gensrank(2);
-	Custom[lpObj->m_Index].m_GensScore_V = Manager.gensrank(1);
 	Custom[lpObj->m_Index].jail = Manager.GetJail(lpObj->Name);
 }
 
@@ -604,91 +599,14 @@ void Functions::HealthBarSend(LPOBJ lpObj)
 	
 	int Size = sizeof(Result);
 
-	for (int i = 0; i < MAX_VIEWPORT; i++)
+	for (int i = 0; i < 75; i++)
 	{
-		bool x = (lpObj->VpPlayer[i].type == MONSTER || lpObj->VpPlayer[i].type == PLAYER);
-		
-		if (!x)
+		if (lpObj->VpPlayer[i].state != 1 && lpObj->VpPlayer[i].state != 2)
 		{
 			continue;
 		}
 
-		if (OBJECT_RANGE(lpObj->VpPlayer[i].number) == 0)
-		{
-			continue;
-		}
-
-		LPOBJ lpTargetObj = &gObj[lpObj->VpPlayer[i].number];
-		x = (lpTargetObj->Class > 99 && lpTargetObj->Class < 105);
-		if (lpTargetObj->Class == 200 || lpTargetObj->Live == 0 || lpTargetObj->m_State != 2 || CC_MAP_RANGE(lpTargetObj->MapNumber) != 0 || x)
-		{
-			continue;
-		}
-
-		if (lpObj->VpPlayer[i].type = PLAYER && gObj[lpTargetObj->m_Index].AuthorityCode < 1) {
-			Info.gen = Custom[lpTargetObj->m_Index].m_GensState;
-		}
-		else {
-			Info.gen = 0;
-		}
-		if (lpTargetObj->Class == Qest_PGW.Number[QuestUser[lpObj->m_Index].Quest_Num].Mob) {
-			Info.qqnt = Qest_PGW.Number[QuestUser[lpObj->m_Index].Quest_Num].Coun;
-			Info.qcnt = QuestUser[lpObj->m_Index].Quest_kill;
-			Info.qtip = 1;
-		}
-		else if (lpTargetObj->Class == Qest_PGW_ELF.Number[QuestUser[lpObj->m_Index].Quest_Num].Mob) {
-			Info.qqnt = Qest_PGW_ELF.Number[QuestUser[lpObj->m_Index].Quest_Num].Coun;
-			Info.qcnt = QuestUser[lpObj->m_Index].Quest_kill;
-			Info.qtip = 1;
-		}
-		else if (lpTargetObj->Class == Qest_PGW_Loot.Number[QuestLoot[lpObj->m_Index].Quest_Num].Mob) {
-			Info.qqnt = Qest_PGW_Loot.Number[QuestLoot[lpObj->m_Index].Quest_Num].Coun;
-			Info.qcnt = QuestLoot[lpObj->m_Index].Quest_kill;
-			Info.qtip = 2;
-		}
-		else if (lpTargetObj->Class == Qest_PGW_Boss.Number[QuestBoss[lpObj->m_Index].Quest_Num].Mob) {
-			Info.qqnt = Qest_PGW_Boss.Number[QuestBoss[lpObj->m_Index].Quest_Num].Coun;
-			Info.qcnt = QuestBoss[lpObj->m_Index].Quest_kill;
-			Info.qtip = 3;
-		}
-		else {
-				Info.qqnt = 0;
-				Info.qcnt = 0;
-				Info.qtip = 0;
-		}
-		
-		Info.Index = lpObj->VpPlayer[i].number;
-		Info.Rate = (BYTE)((lpTargetObj->Life * 100) / (lpTargetObj->MaxLife + lpTargetObj->AddLife));
-
-		memcpy(&Buffer[Size], &Info, sizeof(Info));
-		Size += sizeof(Info);
-		Result.Count++;
-	}
-
-	Result.h.sizeH = HIBYTE(Size);
-	Result.h.sizeL = LOBYTE(Size);
-
-	memcpy(Buffer, &Result, sizeof(Result));
-
-	DataSend(lpObj->m_Index, Buffer, Size);
-}
-void Functions::QuestsSend(LPOBJ lpObj)
-{
-	BYTE Buffer[1500];
-	PMSG_QUESTS Result;
-	PMSG_QUESTS_INFO Info;
-
-	Result.h.c = 0xC2;
-	Result.h.headcode = 0xF3;
-	Result.Code = 0xF2;
-	Result.Count = 0;
-
-	int Size = sizeof(Result);
-
-	for (int i = 0; i < MAX_VIEWPORT; i++)
-	{
-		bool x = (lpObj->VpPlayer[i].type == MONSTER);
-		if (!x)
+		if (lpObj->VpPlayer[i].type != MONSTER)
 		{
 			continue;
 		}
@@ -705,33 +623,9 @@ void Functions::QuestsSend(LPOBJ lpObj)
 			continue;
 		}
 
-		if (lpTargetObj->Class == Qest_PGW.Number[QuestUser[lpObj->m_Index].Quest_Num].Mob) {
-			Info.qqnt = Qest_PGW.Number[QuestUser[lpObj->m_Index].Quest_Num].Coun;
-			Info.qcnt = QuestUser[lpObj->m_Index].Quest_kill;
-			Info.qtip = 1;
-		}
-		else if (lpTargetObj->Class == Qest_PGW_ELF.Number[QuestUser[lpObj->m_Index].Quest_Num].Mob) {
-			Info.qqnt = Qest_PGW_ELF.Number[QuestUser[lpObj->m_Index].Quest_Num].Coun;
-			Info.qcnt = QuestUser[lpObj->m_Index].Quest_kill;
-			Info.qtip = 1;
-		}
-		else if (lpTargetObj->Class == Qest_PGW_Loot.Number[QuestLoot[lpObj->m_Index].Quest_Num].Mob) {
-			Info.qqnt = Qest_PGW_Loot.Number[QuestLoot[lpObj->m_Index].Quest_Num].Coun;
-			Info.qcnt = QuestLoot[lpObj->m_Index].Quest_kill;
-			Info.qtip = 2;
-		}
-		else if (lpTargetObj->Class == Qest_PGW_Boss.Number[QuestBoss[lpObj->m_Index].Quest_Num].Mob) {
-			Info.qqnt = Qest_PGW_Boss.Number[QuestBoss[lpObj->m_Index].Quest_Num].Coun;
-			Info.qcnt = QuestBoss[lpObj->m_Index].Quest_kill;
-			Info.qtip = 3;
-		}
-		else {
-			Info.qqnt = 0;
-			Info.qcnt = 0;
-			Info.qtip = 0;
-		}
-
 		Info.Index = lpObj->VpPlayer[i].number;
+		Info.Rate = (BYTE)((lpTargetObj->Life * 100) / (lpTargetObj->MaxLife + lpTargetObj->AddLife));
+
 		memcpy(&Buffer[Size], &Info, sizeof(Info));
 		Size += sizeof(Info);
 		Result.Count++;
@@ -744,7 +638,6 @@ void Functions::QuestsSend(LPOBJ lpObj)
 
 	DataSend(lpObj->m_Index, Buffer, Size);
 }
-
 void Functions::CheckPet(LPOBJ lpObj)
 {
 	if (!(lpObj->pInventory[8].m_Type >= ITEMGET(13,0) && lpObj->pInventory[8].m_Type <= ITEMGET(13, 5))) 

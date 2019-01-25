@@ -31,5 +31,3 @@
 #include "Jewels.h"
 #include "ExpBar.h"
 #include "Models.h"
-#include "MonsLib.h"
-#include "Hook.h"
