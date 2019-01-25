@@ -10,3 +10,4 @@ WzAG-GS/Release/*
 WzAG-GS/x64/*
 Main/Debug/*
 Main/Release/*
+.vs/*
