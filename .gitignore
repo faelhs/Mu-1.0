@@ -8,3 +8,5 @@ WzAG-GS/Data/*
 WzAG-GS/Debug/*
 WzAG-GS/Release/*
 WzAG-GS/x64/*
+Main/Debug/*
+Main/Release/*
