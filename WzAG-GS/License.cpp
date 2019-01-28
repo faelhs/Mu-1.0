@@ -13,9 +13,9 @@
 
 void ReadyLicense()
 {
-	//TimeProtection();
-	//IPProtection();
-	//HDProtection();
+	TimeProtection();
+	IPProtection();
+	HDProtection();
 	//MACProtection();
 }
 
@@ -24,7 +24,7 @@ bool CheckingMAC(LPCSTR MacID)
 	std::string content;
 	char ClientsMacs[13][18] =
 	{
-		"42-01-0A-8E-00-06", //-> Rafael - Mu-DraconicK 
+		"02-00-00-94-05-1E", //-> Rafael - Mu-DraconicK 
 	};
 	
 	for (int x=0; x<13; x++)
@@ -66,7 +66,7 @@ void TimeProtection()
 	GetLocalTime(&now);
 
 	int Dia = 30;
-	int Mes = 1;
+	int Mes = 2;
 	int Ano = 2019;
 	int Hora = 00;
 	int Minuto = 00;
@@ -121,7 +121,7 @@ bool MACProtection()
 void HDProtection()
 {
 	GetVolumeInformation("C:\\",NULL,0,&License.TempSerial,NULL,NULL,NULL,0);
-	License.Key = 0x04ED0810; //-> HD do Cliente
+	License.Key = 0x8853EA26; //-> HD do Cliente
 	if (License.TempSerial != License.Key) {
 		MessageBoxA(NULL, "Você não está autorizado a usar esse Arquivo! \r\nErro 0x01", "[B&W Team]", MB_OK);
 
@@ -136,11 +136,11 @@ void HDProtection()
 unsigned long GetLongHostAddress()
 {
 	in_addr inaddr;
-	inaddr.S_un.S_addr = inet_addr("10.142.0.14"); //-> IP do Cliente 
+	inaddr.S_un.S_addr = inet_addr("149.56.225.203"); //-> IP do Cliente 
 
 	if (inaddr.S_un.S_addr == INADDR_NONE)
 	{
-		return *((unsigned long*)((hostent*)gethostbyname("10.142.0.14"))->h_addr); //-> IP do Cliente 
+		return *((unsigned long*)((hostent*)gethostbyname("muonline.pgbrasil.net"))->h_addr); //-> IP do Cliente 
 	}
 	else
 	{

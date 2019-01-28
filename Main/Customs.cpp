@@ -8,9 +8,9 @@ int	 hpbar;
 
 void Customs()
 {
-	GetPrivateProfileStringA("B&W","SystemTitle","Mu DraconicK",SystemTitle,sizeof(SystemTitle),WentMu);
+	GetPrivateProfileStringA("B&W","SystemTitle","Private Games Brasil - Mu Online",SystemTitle,sizeof(SystemTitle),WentMu);
 	GetPrivateProfileStringA("B&W","SystemVersion","22459",SystemVersion,sizeof(SystemVersion),WentMu);
-	GetPrivateProfileStringA("B&W","SystemSerial","DraconicK_faelhs",SystemSerial,sizeof(SystemSerial),WentMu);
+	GetPrivateProfileStringA("B&W","SystemSerial","PGBrasilMuOnline",SystemSerial,sizeof(SystemSerial),WentMu);
 	hpbar	= GetPrivateProfileIntA("B&W","HPBar",   1,WentMu);
 
 
@@ -162,7 +162,7 @@ void Customs()
 	//Hook(0xE8,0x580846,(DWORD)(&HPBar.DrawHealthBar));
 
 	// - HP Bar Original
-	Hook(0xE8,0x580846,(DWORD)(&HPBar.DrawHealthBarOri));
+	Hook(0xE8,0x580846,(DWORD)(&HPBar.DrawHealthBar));
 
 
 	// - WndProc
@@ -194,7 +194,7 @@ void Customs()
 	//------------------------------------------------------------------------
 	// - Mu.exe (Abrir main sem Launcher - ON EB OFF 00)
 	//------------------------------------------------------------------------
-	*(BYTE*)(0x004A7D68) = 0x00;
+	*(BYTE*)(0x004A7D68) = 0xEB;
 
 	//------------------------------------------------------------------------
 	// FIX Open 2 MU (Abrir Dois main - ON EB OFF 00)

@@ -1,9 +1,34 @@
-﻿Build started 25/01/2019 12:38:15.
-     1>Project "C:\Users\Rafael\MuDraconick\mu-1.0\Main\Customs.vcxproj" on node 2 (clean target(s)).
-     1>_PrepareForClean:
-         Deleting file "Release\DraconicK.lastbuildstate".
-     1>Done Building Project "C:\Users\Rafael\MuDraconick\mu-1.0\Main\Customs.vcxproj" (clean target(s)).
+﻿Build started 26/01/2019 14:21:20.
+     1>Project "C:\Users\Rafael\MuDraconick\mu-1.0\Main\Customs.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\DraconicK.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /D _WINDLL /D _MBCS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Customs.cpp
+         Customs.cpp
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\Rafael\MuDraconick\mu-1.0\Release\MuOnline.dll) does not match the Linker's OutputFile property value (C:\Users\Rafael\MuDraconick\mu-1.0\Release\Main\MuOnline.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\\Main\MuOnline.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\MuOnline.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\MuOnline.pdb" /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\MuOnline.lib" /MACHINE:X86 /DLL Release\dllmain.obj
+         Release\ExpBar.obj
+         Release\Fog.obj
+         Release\Customs.obj
+         Release\Functions.obj
+         Release\HealthBar.obj
+         Release\Jewels.obj
+         Release\MiniMap.obj
+         Release\Models.obj
+         Release\Preview.obj
+         Release\Protocol.obj
+            Creating library C:\Users\Rafael\MuDraconick\mu-1.0\Release\MuOnline.lib and object C:\Users\Rafael\MuDraconick\mu-1.0\Release\MuOnline.exp
+     1>Detours.lib(detours.obj) : warning LNK4099: PDB 'detours.pdb' was not found with 'Detours.lib(detours.obj)' or at 'C:\Users\Rafael\MuDraconick\mu-1.0\Release\detours.pdb'; linking object as if no debug info
+     1>Detours.lib(disasm.obj) : warning LNK4099: PDB 'detours.pdb' was not found with 'Detours.lib(disasm.obj)' or at 'C:\Users\Rafael\MuDraconick\mu-1.0\Release\detours.pdb'; linking object as if no debug info
+         Customs.vcxproj -> C:\Users\Rafael\MuDraconick\mu-1.0\Release\MuOnline.dll
+       Manifest:
+         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\\Main\MuOnline.dll;#2" /manifest Release\MuOnline.dll.intermediate.manifest
+       FinalizeBuildStatus:
+         Deleting file "Release\DraconicK.unsuccessfulbuild".
+         Touching "Release\DraconicK.lastbuildstate".
+     1>Done Building Project "C:\Users\Rafael\MuDraconick\mu-1.0\Main\Customs.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.05
+Time Elapsed 00:00:01.49

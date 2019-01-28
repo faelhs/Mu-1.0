@@ -132,4 +132,7 @@
       <Filter>BW\Item\Models</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="MuOnline.exe" />
+  </ItemGroup>
 </Project>

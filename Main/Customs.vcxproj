@@ -39,6 +39,11 @@
     <ClInclude Include="Principal.h" />
     <ClInclude Include="Protocol.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="MuOnline.exe">
+      <DeploymentContent>false</DeploymentContent>
+    </None>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{31F5D791-D9B7-4B4D-A903-127322F1B101}</ProjectGuid>
     <RootNamespace>Fog</RootNamespace>
@@ -69,9 +74,10 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <TargetName>MuOnline</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetName>$(ProjectName)</TargetName>
+    <TargetName>MuOnline</TargetName>
     <TargetExt>.dll</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

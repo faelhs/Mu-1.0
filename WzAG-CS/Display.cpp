@@ -12,7 +12,7 @@
 
 char * TitleText[1] =
 {
-	" _=| PGBrasil-GS |=_ "
+	" _=| PGBrasil-CS |=_ "
 };
 
 char * TitleTexta[1] =
