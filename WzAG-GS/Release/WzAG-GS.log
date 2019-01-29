@@ -1,10 +1,74 @@
-﻿Build started 26/01/2019 14:15:02.
-     1>Project "C:\Users\Rafael\MuDraconick\mu-1.0\WzAG-GS\WzAG-GS.vcxproj" on node 2 (build target(s)).
-     1>InitializeBuildStatus:
+﻿Build started 29/01/2019 15:13:38.
+     1>Project "C:\Users\Rafael\MuDraconick\mu-1.0\WzAG-GS\WzAG-GS.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Release\WzAG-GS.lastbuildstate".
+       InitializeBuildStatus:
          Creating "Release\WzAG-GS.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         All outputs are up-to-date.
-         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /D _WINDLL /D _MBCS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Release\WzAG.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt StdAfx.cpp
+         StdAfx.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /D _WINDLL /D _MBCS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\WzAG.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt AutoXP.cpp Balancer.cpp Biblioteca.cpp Blood.cpp Castle.cpp Comandos.cpp Customs.cpp Database.cpp Display.cpp DropEvent.cpp ElfBuffer.cpp GCMagicAttackNumberSend.cpp Jewels.cpp MagicInf.cpp GoldShop.cpp Premio_Diario.cpp QuestBoss.cpp Quest_Elf.cpp Quest_Item_Reward.cpp Sorteio.cpp QuestLoot.cpp Bot.cpp Storm.cpp GMSystem.cpp GoldenArcher.cpp Helper.cpp HHour.cpp ItemDrop.cpp Quest.cpp SobreEvent.cpp Tips.cpp DuelEvent.cpp Hydra.cpp Flood.cpp License.cpp Log.cpp Manager.cpp MasterReset.cpp NpcTalk.cpp PegaEvent.cpp Plugin.cpp Fixes.cpp Functions.cpp Connect.cpp News.cpp Protocol.cpp Reset.cpp Shop.cpp Teleport.cpp UnicodeChar.cpp VipSystem.cpp Ware.cpp WzAG.cpp
+         AutoXP.cpp
+         Balancer.cpp
+         Biblioteca.cpp
+         Blood.cpp
+         Castle.cpp
+         Comandos.cpp
+         Customs.cpp
+         Database.cpp
+         Display.cpp
+         DropEvent.cpp
+         ElfBuffer.cpp
+         GCMagicAttackNumberSend.cpp
+         Jewels.cpp
+         MagicInf.cpp
+         GoldShop.cpp
+         Premio_Diario.cpp
+         QuestBoss.cpp
+         Quest_Elf.cpp
+         Quest_Item_Reward.cpp
+         Sorteio.cpp
+         Generating Code...
+         Compiling...
+         QuestLoot.cpp
+         Bot.cpp
+         Storm.cpp
+         GMSystem.cpp
+         GoldenArcher.cpp
+         Helper.cpp
+         HHour.cpp
+         ItemDrop.cpp
+         Quest.cpp
+         SobreEvent.cpp
+         Tips.cpp
+         DuelEvent.cpp
+         Hydra.cpp
+         Flood.cpp
+         License.cpp
+         Log.cpp
+         Manager.cpp
+         MasterReset.cpp
+         NpcTalk.cpp
+         PegaEvent.cpp
+         Generating Code...
+     1>c:\users\rafael\mudraconick\mu-1.0\wzag-gs\manager.cpp(226): warning C4700: uninitialized local variable 'buff' used
+         Compiling...
+         Plugin.cpp
+         Fixes.cpp
+         Functions.cpp
+         Connect.cpp
+         News.cpp
+         Protocol.cpp
+         Reset.cpp
+         Shop.cpp
+         Teleport.cpp
+         UnicodeChar.cpp
+         VipSystem.cpp
+         Ware.cpp
+         WzAG.cpp
+         Generating Code...
+       MakeDirsForLink:
+         Creating directory "C:\Users\Rafael\MuDraconick\mu-1.0\Release\GS".
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\Rafael\MuDraconick\mu-1.0\Release\WzAG.dll) does not match the Linker's OutputFile property value (C:\Users\Rafael\MuDraconick\mu-1.0\Release\GS\WzAG.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
        Link:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\\GS\WzAG.dll" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\WzAG.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\WzAG.pdb" /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\WzAG.lib" /MACHINE:X86 /DLL Release\AutoXP.obj
@@ -68,8 +132,8 @@
        FinalizeBuildStatus:
          Deleting file "Release\WzAG-GS.unsuccessfulbuild".
          Touching "Release\WzAG-GS.lastbuildstate".
-     1>Done Building Project "C:\Users\Rafael\MuDraconick\mu-1.0\WzAG-GS\WzAG-GS.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Users\Rafael\MuDraconick\mu-1.0\WzAG-GS\WzAG-GS.vcxproj" (rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.61
+Time Elapsed 00:00:13.67

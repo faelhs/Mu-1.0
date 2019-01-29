@@ -7,7 +7,7 @@ void Finalize();
 #define ErrorDir	"Data/Customs/Log"
 #define DumpLog		"Data/Customs/Log/Error.dmp"
 #define ErrorLog	"Data/Customs/Log/Error.log"
-#define WentMu		"Data/Customs/DraconicK.ini"
+#define BWINI		"Data/Customs/BW.ini"
 #define AUTOCLICK_LEFT		70001
 #define AUTOCLICK_RIGHT		70002
 

@@ -3,15 +3,17 @@
 char SystemTitle[16];
 char SystemVersion[6];
 char SystemSerial[17];
+char SystemIP[15];
 int	 hpbar;
 
 
 void Customs()
 {
-	GetPrivateProfileStringA("B&W","SystemTitle","Private Games Brasil - Mu Online",SystemTitle,sizeof(SystemTitle),WentMu);
-	GetPrivateProfileStringA("B&W","SystemVersion","22459",SystemVersion,sizeof(SystemVersion),WentMu);
-	GetPrivateProfileStringA("B&W","SystemSerial","PGBrasilMuOnline",SystemSerial,sizeof(SystemSerial),WentMu);
-	hpbar	= GetPrivateProfileIntA("B&W","HPBar",   1,WentMu);
+	GetPrivateProfileStringA("B&W","SystemTitle","PGBrasil",SystemTitle,sizeof(SystemTitle),BWINI);
+	GetPrivateProfileStringA("B&W","SystemVersion","22459",SystemVersion,sizeof(SystemVersion),BWINI);
+	GetPrivateProfileStringA("B&W","SystemSerial","PGBrasilMuOnline",SystemSerial,sizeof(SystemSerial),BWINI);
+	GetPrivateProfileStringA("B&W","SystemIP","192.168.1.25",SystemIP,sizeof(SystemIP),BWINI);
+	hpbar	= GetPrivateProfileIntA("B&W","HPBar",   1,BWINI);
 
 
 	// - Serial do Main
@@ -25,6 +27,9 @@ void Customs()
 	memset((int*)(0x0066FEE8), 0x00, 6);
 	memcpy((int*)(0x0066FEE8), SystemVersion, 6);
 
+	// - IP do main 
+	memset((int*)(0x0067F3E2), 0x00, 15);
+	memcpy((int*)(0x0067F3E2), SystemIP, sizeof(SystemIP));
 
 	// - Nome da Janela
 	memcpy((int*)(0x00660FE0), SystemTitle, sizeof(SystemTitle));
