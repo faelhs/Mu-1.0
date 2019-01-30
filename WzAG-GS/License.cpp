@@ -13,9 +13,9 @@
 
 void ReadyLicense()
 {
-	TimeProtection();
-	IPProtection();
-	HDProtection();
+	//TimeProtection();
+	//IPProtection();
+	//HDProtection();
 	//MACProtection();
 }
 

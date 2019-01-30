@@ -19,7 +19,7 @@ public:
 		int dia;
 		char * ultimo_recebido;
 	};
-	void ParseData(char str[9], Data *Alvo);
+	void ParseData(char str[11], Data *Alvo);
 	struct DayPrize
 	{
 		int ItemType;
@@ -31,13 +31,7 @@ public:
 		int ItemOpt;
 		int ItemExc;
 	};
-	DayPrize Day1[1000];
-	DayPrize Day2[1000];
-	DayPrize Day3[1000];
-	DayPrize Day4[1000];
-	DayPrize Day5[1000];
-	DayPrize Day6[1000];
-	DayPrize Day7[1000];
+	DayPrize Day[7][10];
 };
 
 extern Premio_Diario::Premio_Dia PremioDiario[7400];

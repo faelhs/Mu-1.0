@@ -22,7 +22,7 @@ void LogSystem::CustomLog(char * Text)
 
 	wsprintf(logString,"Log\\%02d_%02d_%02d_SQL_Log.txt", now.wYear, now.wMonth,now.wDay );
 	stream=fopen(logString, "a+");
-	fprintf(stream,"%02d:%02d:%02d -[Draconick] %s\n", now.wHour, now.wMinute, now.wSecond, Text);
+	fprintf(stream,"%02d:%02d:%02d -[B&W] %s\n", now.wHour, now.wMinute, now.wSecond, Text);
 	fclose(stream);
 }
 void LogSystem::DKLog(char * Text , char* Text2 , ...)
@@ -34,9 +34,9 @@ void LogSystem::DKLog(char * Text , char* Text2 , ...)
 	FILE *stream;
 
 	TCHAR logString[512];
-	LogAddFunc("[DraconicK] %s : %s", Text,Text2, 3);
+	LogAddFunc("[B&W] %s : %s", Text,Text2, 3);
 	wsprintf(logString, "Log\\%02d_%02d_%02d_DKLog.txt", now.wYear, now.wMonth, now.wDay);
 	stream = fopen(logString, "a+");
-	fprintf(stream, "%02d:%02d:%02d - [Draconick] %s : %s\n", now.wHour, now.wMinute, now.wSecond, Text, Text2);
+	fprintf(stream, "%02d:%02d:%02d - [B&W] %s : %s\n", now.wHour, now.wMinute, now.wSecond, Text, Text2);
 	fclose(stream);
 }

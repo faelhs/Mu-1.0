@@ -3,13 +3,13 @@
 Premio_Diario::Premio_Dia PremioDiario[7400];
 bool Premio_Diario::load() {
 	this->_ativo   = GetPrivateProfileInt("Premio diario", "Active", 1, CFG_PremioDiario) > 0 ? true : false;
-	this->valor[0] = GetPrivateProfileInt("Premio diario", "Dia 1", 1, CFG_PremioDiario);
-	this->valor[1] = GetPrivateProfileInt("Premio diario", "Dia 2", 2, CFG_PremioDiario);
-	this->valor[2] = GetPrivateProfileInt("Premio diario", "Dia 3", 3, CFG_PremioDiario);
-	this->valor[3] = GetPrivateProfileInt("Premio diario", "Dia 4", 4, CFG_PremioDiario);
-	this->valor[4] = GetPrivateProfileInt("Premio diario", "Dia 5", 5, CFG_PremioDiario);
-	this->valor[5] = GetPrivateProfileInt("Premio diario", "Dia 6", 6, CFG_PremioDiario);
-	this->valor[6] = GetPrivateProfileInt("Premio diario", "Dia 7", 7, CFG_PremioDiario);
+	this->valor[1] = GetPrivateProfileInt("Premio diario", "Dia 1", 1, CFG_PremioDiario);
+	this->valor[2] = GetPrivateProfileInt("Premio diario", "Dia 2", 2, CFG_PremioDiario);
+	this->valor[3] = GetPrivateProfileInt("Premio diario", "Dia 3", 3, CFG_PremioDiario);
+	this->valor[4] = GetPrivateProfileInt("Premio diario", "Dia 4", 4, CFG_PremioDiario);
+	this->valor[5] = GetPrivateProfileInt("Premio diario", "Dia 5", 5, CFG_PremioDiario);
+	this->valor[6] = GetPrivateProfileInt("Premio diario", "Dia 6", 6, CFG_PremioDiario);
+	this->valor[7] = GetPrivateProfileInt("Premio diario", "Dia 7", 7, CFG_PremioDiario);
 	if (!this->_ativo) {
 		return false;
 	}
@@ -22,18 +22,22 @@ void Premio_Diario::premiar(int aIndex) {
 	if (!this->_ativo) {
 		return;
 	}	
+	char Usr[11];
 	char buff[10];
+	char hoje[11];
 	Data UltimoLogin;
 	SYSTEMTIME now;
+	
 	GetLocalTime(&now);
-	char Usr[11];
-	char data[12] = "00/00/0000";
-	sprintf(data, "%02d/%02d/%02d", now.wDay, now.wMonth, now.wYear);
+	
 	lstrcpy(Usr, gObj[aIndex].AccountID);
 
 	PremioDiario[aIndex].dia = Manager.getpremiodia(Usr);
 	PremioDiario[aIndex].ultimo_recebido = Manager.getpremiodata(Usr);
 	ParseData(PremioDiario[aIndex].ultimo_recebido, &UltimoLogin);
+	
+
+	sprintf(hoje, "%02d/%02d/%02d", now.wDay, now.wMonth, now.wYear);
 
 	int dias = now.wDay - UltimoLogin.dia;
 	int meses = now.wMonth - UltimoLogin.mes;
@@ -54,11 +58,11 @@ void Premio_Diario::premiar(int aIndex) {
 	}
 
 	if (!jarecebeu) {
-		darpremio(aIndex, PremioDiario[aIndex].dia, data);
+		darpremio(aIndex, PremioDiario[aIndex].dia, hoje);
 		return;
 	}
 }
-void Premio_Diario::ParseData(char str[9], Data *Alvo)
+void Premio_Diario::ParseData(char str[11], Data *Alvo)
 {
 	// 0, 1 = dia
 	// 2    = /
@@ -90,150 +94,34 @@ void Premio_Diario::LoadPremios() {
 	TokenizerGroup     group;
 	TokenizerSection   Section;
 	token.ParseFile(std::string(CFG_PremioDiario), group);
-	if (group.GetSection(0, Section))
-	{
-		this->_Count[0] = Section.RowCount;
-		for (int i = 0; i < Section.RowCount; i++)
-		{
-			Day1[i].ItemType = Section.Rows[i].GetInt(0);
-			Day1[i].ItemIndex = Section.Rows[i].GetInt(1);
-			Day1[i].ItemLevel = Section.Rows[i].GetInt(2);
-			Day1[i].ItemLuck = Section.Rows[i].GetInt(3);
-			Day1[i].ItemSkill = Section.Rows[i].GetInt(4);
-			Day1[i].ItemDur = Section.Rows[i].GetInt(5);
-			Day1[i].ItemOpt = Section.Rows[i].GetInt(6);
-			Day1[i].ItemExc = Section.Rows[i].GetInt(7);
-		}
-	}
-	if (group.GetSection(1, Section))
-	{
-		this->_Count[1] = Section.RowCount;
 
-		for (int i = 0; i < Section.RowCount; i++)
-		{
-			Day2[i].ItemType = Section.Rows[i].GetInt(0);
-			Day2[i].ItemIndex = Section.Rows[i].GetInt(1);
-			Day2[i].ItemLevel = Section.Rows[i].GetInt(2);
-			Day2[i].ItemLuck = Section.Rows[i].GetInt(3);
-			Day2[i].ItemSkill = Section.Rows[i].GetInt(4);
-			Day2[i].ItemDur = Section.Rows[i].GetInt(5);
-			Day2[i].ItemOpt = Section.Rows[i].GetInt(6);
-			Day2[i].ItemExc = Section.Rows[i].GetInt(7);
-			
-		}
-	}
-	if (group.GetSection(2, Section))
-	{
-		this->_Count[2] = Section.RowCount;
-
-		for (int i = 0; i < Section.RowCount; i++)
-		{
-			Day3[i].ItemType = Section.Rows[i].GetInt(0);
-			Day3[i].ItemIndex = Section.Rows[i].GetInt(1);
-			Day3[i].ItemLevel = Section.Rows[i].GetInt(2);
-			Day3[i].ItemLuck = Section.Rows[i].GetInt(3);
-			Day3[i].ItemSkill = Section.Rows[i].GetInt(4);
-			Day3[i].ItemDur = Section.Rows[i].GetInt(5);
-			Day3[i].ItemOpt = Section.Rows[i].GetInt(6);
-			Day3[i].ItemExc = Section.Rows[i].GetInt(7);
-		}
-	}
-	if (group.GetSection(3, Section))
-	{
-		this->_Count[3] = Section.RowCount;
-
-		for (int i = 0; i < Section.RowCount; i++)
-		{
-			Day4[i].ItemType = Section.Rows[i].GetInt(0);
-			Day4[i].ItemIndex = Section.Rows[i].GetInt(1);
-			Day4[i].ItemLevel = Section.Rows[i].GetInt(2);
-			Day4[i].ItemLuck = Section.Rows[i].GetInt(3);
-			Day4[i].ItemSkill = Section.Rows[i].GetInt(4);
-			Day4[i].ItemDur = Section.Rows[i].GetInt(5);
-			Day4[i].ItemOpt = Section.Rows[i].GetInt(6);
-			Day4[i].ItemExc = Section.Rows[i].GetInt(7);
-		}
-	}
-	if (group.GetSection(4, Section))
-	{
-		this->_Count[4] = Section.RowCount;
-
-		for (int i = 0; i < Section.RowCount; i++)
-		{
-			Day5[i].ItemType = Section.Rows[i].GetInt(0);
-			Day5[i].ItemIndex = Section.Rows[i].GetInt(1);
-			Day5[i].ItemLevel = Section.Rows[i].GetInt(2);
-			Day5[i].ItemLuck = Section.Rows[i].GetInt(3);
-			Day5[i].ItemSkill = Section.Rows[i].GetInt(4);
-			Day5[i].ItemDur = Section.Rows[i].GetInt(5);
-			Day5[i].ItemOpt = Section.Rows[i].GetInt(6);
-			Day5[i].ItemExc = Section.Rows[i].GetInt(7);
-		}
-	}
-	if (group.GetSection(5, Section))
-	{
-		this->_Count[5] = Section.RowCount;
-
-		for (int i = 0; i < Section.RowCount; i++)
-		{
-			Day6[i].ItemType = Section.Rows[i].GetInt(0);
-			Day6[i].ItemIndex = Section.Rows[i].GetInt(1);
-			Day6[i].ItemLevel = Section.Rows[i].GetInt(2);
-			Day6[i].ItemLuck = Section.Rows[i].GetInt(3);
-			Day6[i].ItemSkill = Section.Rows[i].GetInt(4);
-			Day6[i].ItemDur = Section.Rows[i].GetInt(5);
-			Day6[i].ItemOpt = Section.Rows[i].GetInt(6);
-			Day6[i].ItemExc = Section.Rows[i].GetInt(7);
-		}
-	}
-	if (group.GetSection(6, Section))
-	{
-		this->_Count[6] = Section.RowCount;
-
-		for (int i = 0; i < Section.RowCount; i++)
-		{
-			Day7[i].ItemType = Section.Rows[i].GetInt(0);
-			Day7[i].ItemIndex = Section.Rows[i].GetInt(1);
-			Day7[i].ItemLevel = Section.Rows[i].GetInt(2);
-			Day7[i].ItemLuck = Section.Rows[i].GetInt(3);
-			Day7[i].ItemSkill = Section.Rows[i].GetInt(4);
-			Day7[i].ItemDur = Section.Rows[i].GetInt(5);
-			Day7[i].ItemOpt = Section.Rows[i].GetInt(6);
-			Day7[i].ItemExc = Section.Rows[i].GetInt(7);
-		}
+	for (int x = 0 ; x < 7; x++){
+		int y = x+1;
+		if (group.GetSection(x, Section))
+			{
+				this->_Count[y] = Section.RowCount;
+				for (int i = 0; i < Section.RowCount; i++)
+				{
+					
+					Day[y][i].ItemType = Section.Rows[i].GetInt(0);
+					Day[y][i].ItemIndex = Section.Rows[i].GetInt(1);
+					Day[y][i].ItemLevel = Section.Rows[i].GetInt(2);
+					Day[y][i].ItemLuck = Section.Rows[i].GetInt(3);
+					Day[y][i].ItemSkill = Section.Rows[i].GetInt(4);
+					Day[y][i].ItemDur = Section.Rows[i].GetInt(5);
+					Day[y][i].ItemOpt = Section.Rows[i].GetInt(6);
+					Day[y][i].ItemExc = Section.Rows[i].GetInt(7);
+				}
+			}
 	}
 }
 void Premio_Diario::darpremio(int aIndex,int dia,char * date) {
 	char cmd[255];
 	Manager.setpremiodia(gObj[aIndex].AccountID, PremioDiario[aIndex].dia+1);
-	PremioDiario[aIndex].ultimo_recebido = date;
-	Manager.setpremiodata(gObj[aIndex].AccountID, PremioDiario[aIndex].ultimo_recebido);
+	Manager.setpremiodata(gObj[aIndex].AccountID, date);
 	Manager.ExecFormat("UPDATE[MuOnline].[dbo].[MEMB_INFO] SET gold = gold + %d WHERE memb___id = '%s'", this->valor[dia], gObj[aIndex].AccountID);;
-	for (int i = 0; i < this->_Count[dia]; i++)
-	{
-		switch (dia) {
-		case 1: 
-			sprintf(cmd, "%d %d %d %d %d %d %d %d", Day1[i].ItemType, Day1[i].ItemIndex, Day1[i].ItemLevel, Day1[i].ItemDur, Day1[i].ItemSkill, Day1[i].ItemLuck, Day1[i].ItemOpt, Day1[i].ItemExc);
-			break;
-		case 2: 
-			sprintf(cmd, "%d %d %d %d %d %d %d %d", Day2[i].ItemType, Day2[i].ItemIndex, Day2[i].ItemLevel, Day2[i].ItemDur, Day2[i].ItemSkill, Day2[i].ItemLuck, Day2[i].ItemOpt, Day2[i].ItemExc);
-			break;
-		case 3: 
-			sprintf(cmd, "%d %d %d %d %d %d %d %d", Day3[i].ItemType, Day3[i].ItemIndex, Day3[i].ItemLevel, Day3[i].ItemDur, Day3[i].ItemSkill, Day3[i].ItemLuck, Day3[i].ItemOpt, Day3[i].ItemExc);
-			break;
-		case 4: 
-			sprintf(cmd, "%d %d %d %d %d %d %d %d", Day4[i].ItemType, Day4[i].ItemIndex, Day4[i].ItemLevel, Day4[i].ItemDur, Day4[i].ItemSkill, Day4[i].ItemLuck, Day4[i].ItemOpt, Day4[i].ItemExc);
-			break;
-		case 5: 
-			sprintf(cmd, "%d %d %d %d %d %d %d %d", Day5[i].ItemType, Day5[i].ItemIndex, Day5[i].ItemLevel, Day5[i].ItemDur, Day5[i].ItemSkill, Day5[i].ItemLuck, Day5[i].ItemOpt, Day5[i].ItemExc);
-			break;
-		case 6: 
-			sprintf(cmd, "%d %d %d %d %d %d %d %d", Day6[i].ItemType, Day6[i].ItemIndex, Day6[i].ItemLevel, Day6[i].ItemDur, Day6[i].ItemSkill, Day6[i].ItemLuck, Day6[i].ItemOpt, Day6[i].ItemExc);
-			break;
-		case 7: 
-			sprintf(cmd, "%d %d %d %d %d %d %d %d", Day7[i].ItemType, Day7[i].ItemIndex, Day7[i].ItemLevel, Day7[i].ItemDur, Day7[i].ItemSkill, Day7[i].ItemLuck, Day7[i].ItemOpt, Day7[i].ItemExc);
-			break;
-		}
+	for (int i = 0; i < this->_Count[dia]; i++){
+		sprintf(cmd, "%d %d %d %d %d %d %d %d", Day[dia][i].ItemType, Day[dia][i].ItemIndex, Day[dia][i].ItemLevel, Day[dia][i].ItemDur, Day[dia][i].ItemSkill, Day[dia][i].ItemLuck, Day[dia][i].ItemOpt, Day[dia][i].ItemExc);
 		Command.makecomprar(aIndex, cmd, "Premio Diario");
 	}
 	func.MsgUser(aIndex, 1, "Obrigado por jogar conosco.");

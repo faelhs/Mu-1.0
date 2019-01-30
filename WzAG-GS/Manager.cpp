@@ -203,7 +203,7 @@ int CManager::getpremiodia(char* Account) {
 
 				int dia;
 
-				this->ExecFormat("SELECT premiodia from MEMB_INFO WHERE  memb___id = '%s'", Account);
+				this->ExecFormat("SELECT premiodia from [MuOnline].[dbo].[MEMB_INFO] WHERE  memb___id = '%s'", Account);
 
 				this->Fetch();
 
@@ -221,9 +221,9 @@ void CManager::setpremiodata(char* Account, char* data) {
 
 char* CManager::getpremiodata(char* Account) {
 		char * buff;
-		this->ExecFormat("SELECT ultimopremio from MEMB_INFO WHERE  memb___id = '%s'", Account);
+		this->ExecFormat("SELECT ultimopremio from [MuOnline].[dbo].[MEMB_INFO] WHERE  memb___id = '%s'", Account);
 		this->Fetch();
-		this->GetStr(0,buff);
+		this->GetStr("ultimopremio",buff);
 		this->Clear();
 		return buff;
 }
