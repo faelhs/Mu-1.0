@@ -81,7 +81,7 @@ void Loaddll()
 		CreateThread(0, 0, (LPTHREAD_START_ROUTINE)StartAddress, 0, 0, 0);
 		CloseHandle(CreateThread(NULL,0,EventTimer,NULL,0,NULL));
 		func.HookThis((DWORD)&NpcShadowPhantomEx, 0x0040237E);
-		//Sorteio.Load();
+		gLottery.Load();				//-- Cerrega sorteio.
 		Pdiario.load();					//-- Carrega premios do premio diario.
 	}
 	else

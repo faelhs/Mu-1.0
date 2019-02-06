@@ -52,6 +52,9 @@
     <Filter Include="BW\Customs">
       <UniqueIdentifier>{168df371-63a0-4b08-b7eb-95bb86e8d5e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BW\3DCam">
+      <UniqueIdentifier>{475130d7-b9ad-43d6-9f39-c565a66040f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Fog.cpp">
@@ -86,6 +89,9 @@
     </ClCompile>
     <ClCompile Include="Models.cpp">
       <Filter>BW\Item\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>BW\3DCam</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +136,12 @@
     </ClInclude>
     <ClInclude Include="Models.h">
       <Filter>BW\Item\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>BW\3DCam</Filter>
+    </ClInclude>
+    <ClInclude Include="glaux.h">
+      <Filter>Utilitários</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

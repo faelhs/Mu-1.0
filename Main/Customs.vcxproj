@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="ExpBar.cpp" />
     <ClCompile Include="Fog.cpp" />
@@ -24,11 +25,13 @@
     <ClCompile Include="Protocol.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="detours.h" />
     <ClInclude Include="ExpBar.h" />
     <ClInclude Include="Fog.h" />
     <ClInclude Include="Functions.h" />
     <ClInclude Include="Customs.h" />
+    <ClInclude Include="glaux.h" />
     <ClInclude Include="HealthBar.h" />
     <ClInclude Include="Jewels.h" />
     <ClInclude Include="MiniMap.h" />

@@ -1,4 +1,5 @@
 #include "Principal.h"
+#include "Customs.h"
 
 extern "C" __declspec(dllexport) void Cust()
 {

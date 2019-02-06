@@ -16,8 +16,9 @@
 #define OBJECT_MIN					        6400
 #define OBJECT_MAX					        7400
 #define OBJMAXUSER                          1000
+#define OBJ_STARTUSERINDEX					(OBJECT_MAX - OBJMAXUSER)
 #define MonsterCount	                    0x0AB5BCC8
-#define OBJ_MAXMONSTER                      10600
+#define OBJ_MAXMONSTER                      2048
 #define OBJECT_RANGE(x)                     (((x) < 0) ? 0: ((x) >= 10000) ? 0 :1)
 #define CC_MAP_RANGE(x)                     (((x) < 18) ? 0: ((x) > 23) ? (((x) == 53 ) ? 1:0 ) :1)
 #define ShopExcellentMod_Hook1	            0x004EFE84

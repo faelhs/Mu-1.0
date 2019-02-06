@@ -221,6 +221,7 @@ void Initialize()
 {
 	Customs();
 	Joias();
+	LoadAddons();
 	//  Init_Monsters(); // Pegar Offsets da 1.0L
 	HookMiniMap();
 	ExperienceBar();
@@ -233,7 +234,6 @@ void Initialize()
 void Finalize()
 {
 	UnhookWindowsHookEx(m_Keyboard);
-
 	if (m_Glow)
 	{
 		FreeLibrary(m_Glow);
@@ -274,7 +274,8 @@ LRESULT CALLBACK KeyboardHookProc(int Code, WPARAM wParam, LPARAM lParam)
 				FogOff();
 			}
 		}
-		/*
+	}
+		
 		if (wParam == VK_F10)
 		{
 			if (AutoClick[1] == false) // Right
@@ -310,8 +311,8 @@ LRESULT CALLBACK KeyboardHookProc(int Code, WPARAM wParam, LPARAM lParam)
 					SetTimer(Window, AUTOCLICK_RIGHT, 100, NULL);
 				}
 			}
-		}*/
-	}
+		}
+	
 
 	return CallNextHookEx(m_Keyboard, Code, wParam, lParam);
 }

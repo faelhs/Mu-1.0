@@ -1,4 +1,5 @@
 #pragma once
+#pragma warning (disable: 4996 4091 4101 4018 4309 4099 4102 4800 4244 4482 4305 4005)
 
 #define WIN32_LEAN_AND_MEAN
 
@@ -31,3 +32,10 @@
 #include "Jewels.h"
 #include "ExpBar.h"
 #include "Models.h"
+#include "Camera.h"
+#include "glaux.h"
+
+		LRESULT CALLBACK KeyboardProc(int, WPARAM, LPARAM);
+	LRESULT CALLBACK MouseProc(int, WPARAM, LPARAM);
+	BOOL MouseSetHook(BOOL);
+	BOOL KeyboardSetHook(BOOL);

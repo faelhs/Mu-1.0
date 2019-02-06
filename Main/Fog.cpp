@@ -1,5 +1,5 @@
 #include "Principal.h"
-
+#include "Customs.h"
 int *MAP_CHECK      = (int*)0x0067198C; 
 int *MAIN_STATE     = (int*)0x0067AC98;
 

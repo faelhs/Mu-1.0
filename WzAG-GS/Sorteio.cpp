@@ -1,149 +1,128 @@
 #include "StdAfx.h"
-#include "Sorteio.h"
-#include <ctime>
-
-
-void cSorteio::Config()
+// ---
+CLottery gLottery;
+// ---
+void CLottery::Load()
 {
-	int EnableSorteio = GetPrivateProfileInt("Sorteio", "Ativar", 1, CFG_SORTEIO);
-	this->_Tempo = GetPrivateProfileInt("Sorteio", "Tempo", 6, CFG_SORTEIO);
-	this->_Golds = GetPrivateProfileInt("Sorteio", "Quantia", 10, CFG_SORTEIO);
-	
-	if (EnableSorteio < 1) {
-		return;
+	memset(&this->m_Data, 0, sizeof(this->m_Data));
+	// ---
+	Tokenizer          token;
+	TokenizerGroup     Class;
+	TokenizerSection   Section;
+	// ---
+	token.ParseFile(std::string(CFG_SORTEIO), Class);
+	// ---	
+	if(Class.GetSection(0, Section))
+	{	
+		this->m_Data.Enabled		=	Section.Rows[0].GetInt(0);
+		this->m_Data.Time			=	Section.Rows[0].GetInt(1);
+		this->m_Data.iType			=	Section.Rows[0].GetInt(2);
 	}
+	// ---
+	if(Class.GetSection(1, Section))
+	{	
+		this->m_Data.Gold			=	Section.Rows[0].GetInt(0);
+		this->m_Data.Cash			=	Section.Rows[0].GetInt(1);
+		this->m_Data.LevelUpPoints	=	Section.Rows[0].GetInt(2);
+		this->m_Data.Level			=	Section.Rows[0].GetInt(3);
+		this->m_Data.Zen			=	Section.Rows[0].GetInt(4);
+	}
+	// ---
+	_beginthread(&this->TimeTick, 0, 0);
 }
-bool cSorteio::Load() {
-	 Sorteio.Config();	
-	 Sorteio._Time = this->_Tempo * 60 * 1000 - (60 * 1000 * 5);
-	_beginthread(&Sorteio.Run, 0, NULL);
-	
-	return true;
-}
-
-void cSorteio::Run(void * lpParam){
-	while (true)
+// ---
+void CLottery::TimeTick(LPVOID lpTime)
+{
+	while(gLottery.m_Data.Enabled)
 	{
-		Sleep(Sorteio._Time);
-		func.MsgAllUser(0, "O sorteio começará em 5 minuto(s)");
-		Sleep(60000);
-		func.MsgAllUser(0, "O sorteio começará em 4 minuto(s)");
-		Sleep(60000);
-		func.MsgAllUser(0, "O sorteio começará em 3 minuto(s)");
-		Sleep(60000);
-		func.MsgAllUser(0, "O sorteio começará em 2 minuto(s)");
-		Sleep(60000);
-		func.MsgAllUser(0, "O sorteio começará em 1 minuto(s)");
-		Sleep(60000);
 		
-		Sorteio.premio();
+		Sleep(gLottery.m_Data.Time *  60 * 60 * 1000 - (60*  1000*  5));
+		func.MsgAllUser(0,"O sorteio acontecerá em 5 Minuto(s)");
+		Sleep(60000);  
+		func.MsgAllUser(0,"O sorteio acontecerá em 4 Minuto(s)");
+		Sleep(60000); 
+		func.MsgAllUser(0,"O sorteio acontecerá em 3 Minuto(s)");
+		Sleep(60000); 
+		func.MsgAllUser(0,"O sorteio acontecerá em 2 Minuto(s)");
+		Sleep(60000); 
+		func.MsgAllUser(0,"O sorteio acontecerá em 1 Minuto(s)");
+		Sleep(60000);
+		// ---
+		gLottery.Init();
 	}
+	// ---
+	_endthread();
 }
-
-
-
-void cSorteio::premio(){
-
-	char					_Query[255];
-	char * premio = NULL;
-	GetPrivateProfileString("Querys", "UPDATE PREMIAR", "", _Query, 255, CFG_QUERY);
-	this->PlayerCount = 0;
-	for (int i = OBJECT_MIN; i < OBJECT_MAX; i++)
-	{
-		if (gObj[i].Authority == 1 && gObj[i].Connected == 3)
-		{
-			this->_AccountPlayer[PlayerCount] = gObj[i].AccountID;
-			this->_NamePlayer[PlayerCount] = gObj[i].Name;
-			this->PlayerCount++;
-		}
-	}
-	if (this->PlayerCount <= 10) {
-			int n = Sorteio.randomGen(this->PlayerCount, 0);
-			if (this->_NamePlayer[n] == NULL) {
-				func.MsgAllUser(0, " Sinto muito ninguém foi sorteador.");
-				LogSystem::DKLog("Nimguém", "Foi premiado no sorteio de golds.");
-			}
-			else if (this->_NamePlayer[n] == "") {
-				func.MsgAllUser(0, " Sinto muito ninguém foi sorteador.");
-				LogSystem::DKLog("Nimguém", "Foi premiado no sorteio de golds.");
-			}
-			else {
-				Manager.ExecFormat(_Query, this->_Golds, this->_AccountPlayer[n]);
-				_itoa(this->_Golds, premio, 10);
-				func.MsgAllUser(0, " %s foi sorteado e ganhou %s golds.", this->_NamePlayer[n],&premio);
-				LogSystem::DKLog(this->_NamePlayer[n], "Foi premiado no sorteio de golds.");
-			}
-			return;
-	}
-	if (this->PlayerCount <= 50) {
-		for (int i = 0; i <= 5; i++)
-		{
-			int n = Sorteio.randomGen(this->PlayerCount, 0);
-			if (this->_NamePlayer[n] == NULL) {
-				func.MsgAllUser(0, " Sinto muito ninguém foi sorteador.");
-				LogSystem::DKLog("Nimguém", "Foi premiado no sorteio de golds.");
-			}
-			else if (this->_NamePlayer[n] == "") {
-				func.MsgAllUser(0, " Sinto muito ninguém foi sorteador.");
-				LogSystem::DKLog("Nimguém", "Foi premiado no sorteio de golds.");
-			}
-			else {
-				Manager.ExecFormat(_Query, this->_Golds, this->_AccountPlayer[n]);
-				_itoa(this->_Golds, premio, 10);
-				func.MsgAllUser(0, " %s foi sorteado e ganhou %s golds.", this->_NamePlayer[n], &premio);
-				LogSystem::DKLog(this->_NamePlayer[n], "Foi premiado no sorteio de golds.");
-			}
-		}
-		return;
-	}
-	else if (this->PlayerCount <= 100) {
-		for (int i = 0; i <= 20; i++)
-		{
-			int n = Sorteio.randomGen(this->PlayerCount, 0);
-			if (this->_NamePlayer[n] == NULL) {
-				func.MsgAllUser(0, " Sinto muito ninguém foi sorteador.");
-				LogSystem::DKLog("Nimguém", "Foi premiado no sorteio de golds.");
-			}
-			else if (this->_NamePlayer[n] == "") {
-				func.MsgAllUser(0, " Sinto muito ninguém foi sorteador.");
-				LogSystem::DKLog("Nimguém", "Foi premiado no sorteio de golds.");
-			}
-			else {
-				Manager.ExecFormat(_Query, this->_Golds, this->_AccountPlayer[n]);
-				_itoa(this->_Golds, premio, 10);
-				func.MsgAllUser(0, " %s foi sorteado e ganhou %s golds.", this->_NamePlayer[n], &premio);
-				LogSystem::DKLog(this->_NamePlayer[n], "Foi premiado no sorteio de golds.");
-			}
-		}
-		return;
-	}
-	else {
-		for (int i = 0; i <= 30; i++)
-		{
-			int n = Sorteio.randomGen(this->PlayerCount, 0);
-			if (this->_NamePlayer[n] == NULL) {
-				func.MsgAllUser(0, " Sinto muito ninguém foi sorteador.");
-				LogSystem::DKLog("Nimguém", "Foi premiado no sorteio de golds.");
-			}
-			else if (this->_NamePlayer[n] == "") {
-				func.MsgAllUser(0, " Sinto muito ninguém foi sorteador.");
-				LogSystem::DKLog("Nimguém", "Foi premiado no sorteio de golds.");
-			}
-			else {
-				Manager.ExecFormat(_Query, this->_Golds, this->_AccountPlayer[n]);
-				_itoa(this->_Golds, premio, 10);
-				func.MsgAllUser(0, " %s foi sorteado e ganhou %s golds.", this->_NamePlayer[n], &premio);
-				LogSystem::DKLog(this->_NamePlayer[n], "Foi premiado no sorteio de golds.");
-			}
-		}
-		return;
-	}
-	}
-
-int cSorteio::randomGen(int x, int y)
+// ---
+void CLottery::Init()
 {
-	int max = x, min = y, range;
-	range = max - min + 1;
-	return rand() % range + min;
+	int iTarget = 0;
+	// ---
+	for(int i = OBJ_STARTUSERINDEX; i < OBJECT_MAX; i++)
+	{
+		if(gObj[i].Connected >= 3)
+		{
+			this->m_Data.pRecv[iTarget++] = i;
+		}
+	}
+	// ---
+	if(iTarget > 0)
+	{
+		int Index = rand() % iTarget;
+		// ---
+		int Target = this->m_Data.pRecv[Index];
+		// ---
+		switch(this->m_Data.iType)
+		{
+		case 1:
+			{
+				Manager.ExecFormat("UPDATE MuOnline.dbo.MEMB_INFO SET Cash = Cash + %d WHERE memb___id = '%s'", this->m_Data.Cash, gObj[Target].AccountID);
+				// ---
+				func.MsgAllUser(0, "%s Foi Sorteado Com %d Cash(s).", gObj[Target].Name, this->m_Data.Cash);
+				// ---
+				func.MsgUser(gObj[Target].m_Index, 1, "Você Foi Sorteado Com %d Cash(s).", this->m_Data.Cash);
+			}
+			break;
+		case 2:
+			{
+				Manager.ExecFormat("UPDATE MuOnline.dbo.MEMB_INFO SET Gold = Gold + %d WHERE memb___id = '%s'", this->m_Data.Gold, gObj[Target].AccountID);
+				// ---
+				func.MsgAllUser(0, "%s Foi Sorteado Com %d Gold(s).", gObj[Target].Name, this->m_Data.Gold);
+				// ---
+				func.MsgUser(gObj[Target].m_Index, 1, "Você Foi Sorteado Com %d Gold(s).", this->m_Data.Gold);
+			}
+			break;
+		case 3:
+			{
+				gObj[Target].LevelUpPoint += this->m_Data.LevelUpPoints;
+				func.UpdateCharacter(Target, false);
+				func.LevelUPSend(Target);
+				// ---
+				func.MsgAllUser(0, "%s Foi Sorteado Com %d UpPoint(s).", gObj[Target].Name, this->m_Data.LevelUpPoints);
+				// ---
+				func.MsgUser(gObj[Target].m_Index, 1, "Você Foi Sorteado Com %d UpPoint(s).", this->m_Data.LevelUpPoints);
+			}
+			break;
+		case 4:
+			{
+				gObj[Target].Level += this->m_Data.Level;
+				func.UpdateCharacter(Target, false);
+				func.LevelUPSend(Target);
+				// ---
+				func.MsgAllUser(0, "%s Foi Sorteado Com %d Level(s).", gObj[Target].Name, this->m_Data.LevelUpPoints);
+				// ---
+				func.MsgUser(gObj[Target].m_Index, 1, "Você Foi Sorteado Com %d Level(s).", this->m_Data.LevelUpPoints);
+			}
+			break;
+		case 5:
+			{
+				gObj[Target].Money += this->m_Data.Zen;
+				// ---
+				func.MsgAllUser(0, "%s Foi Sorteado Com %d Zen.", gObj[Target].Name, this->m_Data.LevelUpPoints);
+				// ---
+				func.MsgUser(gObj[Target].m_Index, 1, "Você Foi Sorteado Com %d Zen.", this->m_Data.LevelUpPoints);
+			}
+			break;
+		}
+	}
 }
-cSorteio Sorteio;
