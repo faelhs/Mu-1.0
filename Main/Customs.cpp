@@ -12,7 +12,7 @@ void Customs()
 	GetPrivateProfileStringA("B&W","SystemTitle","PGBrasil",SystemTitle,sizeof(SystemTitle),BWINI);
 	GetPrivateProfileStringA("B&W","SystemVersion","22459",SystemVersion,sizeof(SystemVersion),BWINI);
 	GetPrivateProfileStringA("B&W","SystemSerial","PGBrasilMuOnline",SystemSerial,sizeof(SystemSerial),BWINI);
-	GetPrivateProfileStringA("B&W","SystemIP","192.168.1.25",SystemIP,sizeof(SystemIP),BWINI);
+	GetPrivateProfileStringA("B&W","SystemIP","198.27.120.44",SystemIP,sizeof(SystemIP),BWINI);
 	hpbar	= GetPrivateProfileIntA("B&W","HPBar",   1,BWINI);
 
 
