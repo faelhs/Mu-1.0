@@ -1,27 +1,42 @@
-﻿Build started 11/02/2019 17:42:57.
+﻿Build started 27/02/2019 11:16:56.
      1>Project "C:\Users\Rafael\MuDraconick\mu-1.0\Main\Customs.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating "Release\DraconicK.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Release\DraconicK.unsuccessfulbuild".
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /D _WINDLL /D _MBCS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp dllmain.cpp ExpBar.cpp Fog.cpp Customs.cpp Functions.cpp HealthBar.cpp Jewels.cpp MiniMap.cpp Models.cpp Preview.cpp Protocol.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /D _WINDLL /D _MBCS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp dllmain.cpp Dump.cpp ExpBar.cpp Fog.cpp Customs.cpp Functions.cpp HealthBar.cpp Jewels.cpp MiniMap.cpp Models.cpp Preview.cpp Protocol.cpp
          Camera.cpp
+     1>c:\users\rafael\mudraconick\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          dllmain.cpp
+     1>c:\users\rafael\mudraconick\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+         Dump.cpp
+     1>c:\users\rafael\mudraconick\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          ExpBar.cpp
+     1>c:\users\rafael\mudraconick\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          Fog.cpp
+     1>c:\users\rafael\mudraconick\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          Customs.cpp
+     1>c:\users\rafael\mudraconick\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          Functions.cpp
+     1>c:\users\rafael\mudraconick\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          HealthBar.cpp
+     1>c:\users\rafael\mudraconick\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          Jewels.cpp
+     1>c:\users\rafael\mudraconick\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          MiniMap.cpp
+     1>c:\users\rafael\mudraconick\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          Models.cpp
+     1>c:\users\rafael\mudraconick\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          Preview.cpp
+     1>c:\users\rafael\mudraconick\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          Protocol.cpp
+     1>c:\users\rafael\mudraconick\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          Generating Code...
      1>c:\users\rafael\mudraconick\mu-1.0\main\protocol.cpp(4): warning C4748: /GS can not protect parameters and local variables from local buffer overrun because optimizations are disabled in function
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\Rafael\MuDraconick\mu-1.0\Release\MuOnline.dll) does not match the Linker's OutputFile property value (C:\Users\Rafael\MuDraconick\mu-1.0\Release\Main\MuOnline.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
        Link:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\\Main\MuOnline.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\MuOnline.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\MuOnline.pdb" /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\MuOnline.lib" /MACHINE:X86 /DLL Release\Camera.obj
          Release\dllmain.obj
+         Release\Dump.obj
          Release\ExpBar.obj
          Release\Fog.obj
          Release\Customs.obj
@@ -45,4 +60,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.62
+Time Elapsed 00:00:06.98

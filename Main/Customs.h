@@ -1,6 +1,7 @@
 #pragma once
 
 void Customs();
+void ChkParametro();
 void Initialize();
 void Finalize();
 

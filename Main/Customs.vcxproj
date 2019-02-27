@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Dump.cpp" />
     <ClCompile Include="ExpBar.cpp" />
     <ClCompile Include="Fog.cpp" />
     <ClCompile Include="Customs.cpp" />
@@ -27,6 +28,7 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="detours.h" />
+    <ClInclude Include="Dump.h" />
     <ClInclude Include="ExpBar.h" />
     <ClInclude Include="Fog.h" />
     <ClInclude Include="Functions.h" />

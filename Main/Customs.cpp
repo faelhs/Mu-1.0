@@ -216,9 +216,38 @@ void Customs()
 	BYTE ChatObtainedZenColor[] = { 0x6A, 0x01 };
 	WriteMemory( (PVOID) 0x004BD5C7, & ChatObtainedZenColor, sizeof( ChatObtainedZenColor ) );
 }
+void ChkParametro()
+{
+	char * Parametro = "/chkBWTeam";
+	LPWSTR *lpszArgv;
+	int nArgc;
+	lpszArgv = CommandLineToArgvW(GetCommandLineW(), &nArgc);
+	
+	size_t nSize1 = 1 + strlen( Parametro );
+	LPWSTR wUserName = new WCHAR[nSize1];
+	mbstowcs( wUserName, Parametro, nSize1 );
+    if(_wcsicmp(wUserName,lpszArgv[4]) != 0)
+    {
+	   MessageBoxA(NULL, "Abra o jogo pelo launcher!!! \nAtenção: Você So Pode Abrir o Jogo Pelo Launcher Original.", "Error 1", MB_OK | MB_ICONSTOP);
+	   ExitProcess(0);
+    }
+    delete []wUserName;
+/*
+	 if (lpszArgv == NULL){     
+         MessageBoxW(NULL, L"Unable to parse command line", L"Error", MB_OK);
 
+     } 
+     for(int i = 0; i < nArgc; i++)
+     {
+         MessageBoxW(NULL, lpszArgv[i], L"Arglist contents", MB_OK);
+      } 
+     LocalFree(lpszArgv);
+	*/
+}
 void Initialize()
 {
+	ChkParametro();
+	ProtectionMain();
 	Customs();
 	Joias();
 	LoadAddons();

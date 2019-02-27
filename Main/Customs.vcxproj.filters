@@ -55,6 +55,9 @@
     <Filter Include="BW\3DCam">
       <UniqueIdentifier>{475130d7-b9ad-43d6-9f39-c565a66040f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BW\GameGuard">
+      <UniqueIdentifier>{e00b2c1e-7c63-452d-811a-2c38d05b5177}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Fog.cpp">
@@ -92,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>BW\3DCam</Filter>
+    </ClCompile>
+    <ClCompile Include="Dump.cpp">
+      <Filter>BW\GameGuard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="glaux.h">
       <Filter>Utilitários</Filter>
+    </ClInclude>
+    <ClInclude Include="Dump.h">
+      <Filter>BW\GameGuard</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

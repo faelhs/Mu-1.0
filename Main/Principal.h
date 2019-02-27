@@ -3,14 +3,29 @@
 
 #define WIN32_LEAN_AND_MEAN
 
-#include <Windows.h>
+#include <windows.h>
+#include <iostream>
+#include <time.h>
+#include <conio.h>
 #include <stdio.h>
+#include <tchar.h>
+#include <math.h>
+#include <time.h>
 #include <stdlib.h>
 #include <direct.h>
-#include <time.h>
+#include <fcntl.h>
+#include <io.h>
+#include <vector>
+#include <rpc.h>
+#include <rpcdce.h>
+#include <stdio.h>
+#include <iomanip>
+#include <cstdlib>
+#include <tlhelp32.h>
 #include <process.h>
+#include <shellapi.h>
+#include <time.h>
 #include <WinSock2.h>
-#include <ShellAPI.h>
 #include <vector>
 #include <gl\gl.h>
 #include <gl\glu.h>
@@ -34,8 +49,9 @@
 #include "Models.h"
 #include "Camera.h"
 #include "glaux.h"
+#include "Dump.h";
 
-		LRESULT CALLBACK KeyboardProc(int, WPARAM, LPARAM);
+	LRESULT CALLBACK KeyboardProc(int, WPARAM, LPARAM);
 	LRESULT CALLBACK MouseProc(int, WPARAM, LPARAM);
 	BOOL MouseSetHook(BOOL);
 	BOOL KeyboardSetHook(BOOL);
