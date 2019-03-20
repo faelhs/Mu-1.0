@@ -1,13 +1,14 @@
-﻿Build started 27/02/2019 09:46:38.
-     1>Project "C:\Users\Rafael\MuDraconick\mu-1.0\WzAG-GS\WzAG-GS.vcxproj" on node 2 (build target(s)).
+﻿Build started 20/03/2019 08:53:20.
+     1>Project "C:\Users\PC\Documents\mu-1.0\WzAG-GS\WzAG-GS.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Release\WzAG-GS.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          All outputs are up-to-date.
-         All outputs are up-to-date.
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\Rafael\MuDraconick\mu-1.0\Release\WzAG.dll) does not match the Linker's OutputFile property value (C:\Users\Rafael\MuDraconick\mu-1.0\Release\GS\WzAG.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /D _WINDLL /D _MBCS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\WzAG.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Customs.cpp
+         Customs.cpp
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\PC\Documents\mu-1.0\Release\WzAG.dll) does not match the Linker's OutputFile property value (C:\Users\PC\Documents\mu-1.0\Release\GS\WzAG.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\\GS\WzAG.dll" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\WzAG.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\WzAG.pdb" /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\WzAG.lib" /MACHINE:X86 /DLL Release\AutoXP.obj
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\PC\Documents\mu-1.0\Release\\GS\WzAG.dll" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\WzAG.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\PC\Documents\mu-1.0\Release\WzAG.pdb" /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\PC\Documents\mu-1.0\Release\WzAG.lib" /MACHINE:X86 /DLL Release\AutoXP.obj
          Release\Balancer.obj
          Release\Biblioteca.obj
          Release\Blood.obj
@@ -61,15 +62,15 @@
          Release\VipSystem.obj
          Release\Ware.obj
          Release\WzAG.obj
-            Creating library C:\Users\Rafael\MuDraconick\mu-1.0\Release\WzAG.lib and object C:\Users\Rafael\MuDraconick\mu-1.0\Release\WzAG.exp
-         WzAG-GS.vcxproj -> C:\Users\Rafael\MuDraconick\mu-1.0\Release\WzAG.dll
+            Creating library C:\Users\PC\Documents\mu-1.0\Release\WzAG.lib and object C:\Users\PC\Documents\mu-1.0\Release\WzAG.exp
+         WzAG-GS.vcxproj -> C:\Users\PC\Documents\mu-1.0\Release\WzAG.dll
        Manifest:
-         c:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Rafael\MuDraconick\mu-1.0\Release\\GS\WzAG.dll;#2" /manifest Release\WzAG.dll.intermediate.manifest
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\PC\Documents\mu-1.0\Release\\GS\WzAG.dll;#2" /manifest Release\WzAG.dll.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Release\WzAG-GS.unsuccessfulbuild".
          Touching "Release\WzAG-GS.lastbuildstate".
-     1>Done Building Project "C:\Users\Rafael\MuDraconick\mu-1.0\WzAG-GS\WzAG-GS.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Users\PC\Documents\mu-1.0\WzAG-GS\WzAG-GS.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.24
+Time Elapsed 00:00:02.31

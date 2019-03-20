@@ -11,3 +11,5 @@
 #pragma once
 
 void Customs();
+void GetHID();
+char* RemoveChar(char* Input, char Character);

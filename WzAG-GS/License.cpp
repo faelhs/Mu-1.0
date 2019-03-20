@@ -24,7 +24,7 @@ bool CheckingMAC(LPCSTR MacID)
 	std::string content;
 	char ClientsMacs[13][18] =
 	{
-		"00-50-56-02-E1-30", //-> Rafael - Mu-DraconicK 
+		"02-00-00-29-4B-32", //-> Rafael - Mu-DraconicK 
 	};
 	
 	for (int x=0; x<13; x++)
@@ -44,7 +44,13 @@ void TimeProtection()
 	//-- Anti Craked 
 	//===============================================
 	HANDLE holly = FindWindow(TEXT("OllyDbg"), NULL);
-	if (holly)
+	HANDLE x32dbg = FindWindow(TEXT("x32dbg"), NULL);
+	HANDLE x64dbg = FindWindow(TEXT("x64dbg"), NULL);
+	HANDLE AQtime = FindWindow(TEXT("AQtime"), NULL);
+	HANDLE DEBUG  = FindWindow(TEXT("DEBUG"), NULL);
+	HANDLE SoftICE = FindWindow(TEXT("SoftICE"), NULL);
+	HANDLE WinDbg = FindWindow(TEXT("WinDbg"), NULL);
+	if (holly || x32dbg || x64dbg || AQtime || DEBUG || SoftICE || WinDbg)
 	{
 
 		system("@echo Off");
@@ -66,7 +72,7 @@ void TimeProtection()
 	GetLocalTime(&now);
 
 	int Dia = 30;
-	int Mes = 3;
+	int Mes = 5;
 	int Ano = 2019;
 	int Hora = 00;
 	int Minuto = 00;
@@ -121,7 +127,7 @@ bool MACProtection()
 void HDProtection()
 {
 	GetVolumeInformation("C:\\",NULL,0,&License.TempSerial,NULL,NULL,NULL,0);
-	License.Key = 0x50C64462; //-> HD do Cliente
+	License.Key = 0x8853EA26; //-> HD do Cliente
 	if (License.TempSerial != License.Key) {
 		MessageBoxA(NULL, "Você não está autorizado a usar esse Arquivo! \r\nErro 0x01", "[B&W Team]", MB_OK);
 
@@ -136,7 +142,7 @@ void HDProtection()
 unsigned long GetLongHostAddress()
 {
 	in_addr inaddr;
-	inaddr.S_un.S_addr = inet_addr("198.27.120.44"); //-> IP do Cliente 
+	inaddr.S_un.S_addr = inet_addr("192.99.183.12"); //-> IP do Cliente 
 
 	if (inaddr.S_un.S_addr == INADDR_NONE)
 	{
