@@ -1,76 +1,9 @@
-﻿Build started 20/03/2019 08:53:20.
-     1>Project "C:\Users\PC\Documents\mu-1.0\WzAG-GS\WzAG-GS.vcxproj" on node 2 (build target(s)).
-     1>InitializeBuildStatus:
-         Creating "Release\WzAG-GS.unsuccessfulbuild" because "AlwaysCreate" was specified.
-       ClCompile:
-         All outputs are up-to-date.
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /D _WINDLL /D _MBCS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Release\WzAG.pch" /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Customs.cpp
-         Customs.cpp
-     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\PC\Documents\mu-1.0\Release\WzAG.dll) does not match the Linker's OutputFile property value (C:\Users\PC\Documents\mu-1.0\Release\GS\WzAG.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
-       Link:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\PC\Documents\mu-1.0\Release\\GS\WzAG.dll" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\WzAG.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\PC\Documents\mu-1.0\Release\WzAG.pdb" /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\PC\Documents\mu-1.0\Release\WzAG.lib" /MACHINE:X86 /DLL Release\AutoXP.obj
-         Release\Balancer.obj
-         Release\Biblioteca.obj
-         Release\Blood.obj
-         Release\Castle.obj
-         Release\Comandos.obj
-         Release\Customs.obj
-         Release\Database.obj
-         Release\Display.obj
-         Release\DropEvent.obj
-         Release\ElfBuffer.obj
-         Release\GCMagicAttackNumberSend.obj
-         Release\Jewels.obj
-         Release\MagicInf.obj
-         Release\GoldShop.obj
-         Release\Premio_Diario.obj
-         Release\QuestBoss.obj
-         Release\Quest_Elf.obj
-         Release\Quest_Item_Reward.obj
-         Release\Sorteio.obj
-         Release\QuestLoot.obj
-         Release\Bot.obj
-         Release\Storm.obj
-         Release\GMSystem.obj
-         Release\GoldenArcher.obj
-         Release\Helper.obj
-         Release\HHour.obj
-         Release\ItemDrop.obj
-         Release\Quest.obj
-         Release\SobreEvent.obj
-         Release\Tips.obj
-         Release\DuelEvent.obj
-         Release\Hydra.obj
-         Release\Flood.obj
-         Release\License.obj
-         Release\Log.obj
-         Release\Manager.obj
-         Release\MasterReset.obj
-         Release\NpcTalk.obj
-         Release\PegaEvent.obj
-         Release\Plugin.obj
-         Release\Fixes.obj
-         Release\Functions.obj
-         Release\Connect.obj
-         Release\News.obj
-         Release\Protocol.obj
-         Release\Reset.obj
-         Release\Shop.obj
-         Release\StdAfx.obj
-         Release\Teleport.obj
-         Release\UnicodeChar.obj
-         Release\VipSystem.obj
-         Release\Ware.obj
-         Release\WzAG.obj
-            Creating library C:\Users\PC\Documents\mu-1.0\Release\WzAG.lib and object C:\Users\PC\Documents\mu-1.0\Release\WzAG.exp
-         WzAG-GS.vcxproj -> C:\Users\PC\Documents\mu-1.0\Release\WzAG.dll
-       Manifest:
-         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\PC\Documents\mu-1.0\Release\\GS\WzAG.dll;#2" /manifest Release\WzAG.dll.intermediate.manifest
-       FinalizeBuildStatus:
-         Deleting file "Release\WzAG-GS.unsuccessfulbuild".
-         Touching "Release\WzAG-GS.lastbuildstate".
-     1>Done Building Project "C:\Users\PC\Documents\mu-1.0\WzAG-GS\WzAG-GS.vcxproj" (build target(s)).
+﻿Build started 02/04/2019 13:02:05.
+     1>Project "C:\Users\PC\Documents\mu-1.0\WzAG-GS\WzAG-GS.vcxproj" on node 2 (clean target(s)).
+     1>_PrepareForClean:
+         Deleting file "Release\WzAG-GS.lastbuildstate".
+     1>Done Building Project "C:\Users\PC\Documents\mu-1.0\WzAG-GS\WzAG-GS.vcxproj" (clean target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.31
+Time Elapsed 00:00:00.38

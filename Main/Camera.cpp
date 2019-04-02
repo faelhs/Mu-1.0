@@ -114,10 +114,10 @@ void LoadAddons()
 	{
 		HookOffset((DWORD)&Display, 0x0060B1C5, 0xE8);//ok
 
-		*Camera_ClipX = 12000;
-		*Camera_ClipR = 6600;
-		*Camera_ClipY = 12000;
-		*Camera_GlClip = 6000;
+		*Camera_ClipX = 1190;
+        *Camera_ClipY = 2400;
+        *Camera_GlClip = 3000;
+		*Camera_ClipR = 1128;
 
 		*Camera_ClipX_Map30 = 7000;
 		*Camera_ClipR_Map30 = 8000;
@@ -166,10 +166,10 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam){
 			*Camera_RotZ	= -45;
 			*Camera_PosZ	= 150.0000;
 			*Camera_Zoom	= 35.00000;
-			*Camera_ClipX = 12000;
-			*Camera_ClipR = 6600;
-			*Camera_ClipY = 12000;
-			*Camera_GlClip = 6000;
+            *Camera_ClipX = 1190;
+            *Camera_ClipY = 2400;
+            *Camera_GlClip = 3000;
+			*Camera_ClipR = 1128;
 		}
 
 		if(wParam == VK_F7){
@@ -196,6 +196,13 @@ LRESULT CALLBACK CameraProc(int nCode, WPARAM wParam, LPARAM lParam)
 		
 		if (wParam == WM_MOUSEWHEEL)
 		{
+			if(*Camera_ClipX < 10000){
+				*Camera_ClipX = 12000;
+				*Camera_ClipR = 6600;
+				*Camera_ClipY = 12000;
+				*Camera_GlClip = 6000;
+			}
+			
 	
 			int direction = mhs->mouseData;
 			if (direction<0)

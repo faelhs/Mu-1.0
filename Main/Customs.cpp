@@ -251,7 +251,7 @@ void Initialize()
 	Customs();
 	Joias();
 	LoadAddons();
-	//  Init_Monsters(); // Pegar Offsets da 1.0L
+	Monsters.Init();
 	HookMiniMap();
 	ExperienceBar();
 	m_Glow	= LoadLibrary("./Data/Customs/Plugin/Glow.dll");
@@ -303,8 +303,6 @@ LRESULT CALLBACK KeyboardHookProc(int Code, WPARAM wParam, LPARAM lParam)
 				FogOff();
 			}
 		}
-	}
-		
 		if (wParam == VK_F10)
 		{
 			if (AutoClick[1] == false) // Right
@@ -341,7 +339,7 @@ LRESULT CALLBACK KeyboardHookProc(int Code, WPARAM wParam, LPARAM lParam)
 				}
 			}
 		}
-	
+	}
 
 	return CallNextHookEx(m_Keyboard, Code, wParam, lParam);
 }

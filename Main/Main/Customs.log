@@ -1,0 +1,30 @@
+﻿Build started 02/04/2019 13:21:00.
+     1>Project "C:\Users\PC\Documents\mu-1.0\Main\Customs.vcxproj" on node 2 (build target(s)).
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(298,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+     1>InitializeBuildStatus:
+         Touching "Main\DraconicK.unsuccessfulbuild".
+       ClCompile:
+         All outputs are up-to-date.
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\PC\Documents\mu-1.0\Release\\MuOnline.dll) does not match the Linker's OutputFile property value (C:\Users\PC\Documents\mu-1.0\Release\Main\MuOnline.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\PC\Documents\mu-1.0\Release\\\Main\MuOnline.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Main\MuOnline.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\PC\Documents\mu-1.0\Release\MuOnline.pdb" /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\PC\Documents\mu-1.0\Release\\MuOnline.lib" /MACHINE:X86 /DLL Main\Camera.obj
+         Main\dllmain.obj
+         Main\Dump.obj
+         Main\ExpBar.obj
+         Main\Fog.obj
+         Main\Customs.obj
+         Main\Functions.obj
+         Main\HealthBar.obj
+         Main\Jewels.obj
+         Main\MiniMap.obj
+         Main\Models.obj
+         Main\Npc.obj
+         Main\Protocol.obj
+            Creating library C:\Users\PC\Documents\mu-1.0\Release\\MuOnline.lib and object C:\Users\PC\Documents\mu-1.0\Release\\MuOnline.exp
+     1>Npc.obj : error LNK2019: unresolved external symbol "unsigned long __cdecl SetHook1(void * const,void * const,unsigned char)" (?SetHook1@@YAKQAX0E@Z) referenced in function "public: void __thiscall CMonsters::Init(void)" (?Init@CMonsters@@QAEXXZ)
+     1>C:\Users\PC\Documents\mu-1.0\Release\\\Main\MuOnline.dll : fatal error LNK1120: 1 unresolved externals
+     1>Done Building Project "C:\Users\PC\Documents\mu-1.0\Main\Customs.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.62

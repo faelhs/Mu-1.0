@@ -1,42 +1,16 @@
-﻿Build started 20/03/2019 07:41:49.
-     1>Project "C:\Users\PC\Documents\mu-1.0\Main\Customs.vcxproj" on node 4 (build target(s)).
-     1>InitializeBuildStatus:
-         Creating "Release\DraconicK.unsuccessfulbuild" because "AlwaysCreate" was specified.
+﻿Build started 02/04/2019 13:16:23.
+     1>Project "C:\Users\PC\Documents\mu-1.0\Main\Customs.vcxproj" on node 2 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "C:\Users\PC\Documents\mu-1.0\Release\\Main\Release\".
+       InitializeBuildStatus:
+         Touching "Release\DraconicK.unsuccessfulbuild".
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /D _WINDLL /D _MBCS /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp dllmain.cpp Dump.cpp ExpBar.cpp Fog.cpp Customs.cpp Functions.cpp HealthBar.cpp Jewels.cpp MiniMap.cpp Models.cpp Preview.cpp Protocol.cpp
-         Camera.cpp
-     1>c:\users\pc\documents\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         dllmain.cpp
-     1>c:\users\pc\documents\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         Dump.cpp
-     1>c:\users\pc\documents\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         ExpBar.cpp
-     1>c:\users\pc\documents\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         Fog.cpp
-     1>c:\users\pc\documents\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         Customs.cpp
-     1>c:\users\pc\documents\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         Functions.cpp
-     1>c:\users\pc\documents\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         HealthBar.cpp
-     1>c:\users\pc\documents\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         Jewels.cpp
-     1>c:\users\pc\documents\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         MiniMap.cpp
-     1>c:\users\pc\documents\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         Models.cpp
-     1>c:\users\pc\documents\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         Preview.cpp
-     1>c:\users\pc\documents\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         Protocol.cpp
-     1>c:\users\pc\documents\mu-1.0\main\Principal.h(52): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         Generating Code...
-     1>c:\users\pc\documents\mu-1.0\main\protocol.cpp(4): warning C4748: /GS can not protect parameters and local variables from local buffer overrun because optimizations are disabled in function
+         All outputs are up-to-date.
        MakeDirsForLink:
-         Creating directory "C:\Users\PC\Documents\mu-1.0\Release\Main".
-     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\PC\Documents\mu-1.0\Release\MuOnline.dll) does not match the Linker's OutputFile property value (C:\Users\PC\Documents\mu-1.0\Release\Main\MuOnline.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+         Creating directory "C:\Users\PC\Documents\mu-1.0\Release\Main\Release\Main".
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\PC\Documents\mu-1.0\Release\\Main\Release\MuOnline.dll) does not match the Linker's OutputFile property value (C:\Users\PC\Documents\mu-1.0\Release\Main\Release\Main\MuOnline.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
        Link:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\PC\Documents\mu-1.0\Release\\Main\MuOnline.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\MuOnline.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\PC\Documents\mu-1.0\Release\MuOnline.pdb" /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\PC\Documents\mu-1.0\Release\MuOnline.lib" /MACHINE:X86 /DLL Release\Camera.obj
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\PC\Documents\mu-1.0\Release\\Main\Release\\Main\MuOnline.dll" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\MuOnline.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\PC\Documents\mu-1.0\Release\Main\Release\MuOnline.pdb" /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\PC\Documents\mu-1.0\Release\\Main\Release\MuOnline.lib" /MACHINE:X86 /DLL Release\Camera.obj
          Release\dllmain.obj
          Release\Dump.obj
          Release\ExpBar.obj
@@ -47,19 +21,13 @@
          Release\Jewels.obj
          Release\MiniMap.obj
          Release\Models.obj
-         Release\Preview.obj
+         Release\Npc.obj
          Release\Protocol.obj
-            Creating library C:\Users\PC\Documents\mu-1.0\Release\MuOnline.lib and object C:\Users\PC\Documents\mu-1.0\Release\MuOnline.exp
-     1>Detours.lib(detours.obj) : warning LNK4099: PDB 'detours.pdb' was not found with 'Detours.lib(detours.obj)' or at 'C:\Users\PC\Documents\mu-1.0\Release\detours.pdb'; linking object as if no debug info
-     1>Detours.lib(disasm.obj) : warning LNK4099: PDB 'detours.pdb' was not found with 'Detours.lib(disasm.obj)' or at 'C:\Users\PC\Documents\mu-1.0\Release\detours.pdb'; linking object as if no debug info
-         Customs.vcxproj -> C:\Users\PC\Documents\mu-1.0\Release\MuOnline.dll
-       Manifest:
-         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\PC\Documents\mu-1.0\Release\\Main\MuOnline.dll;#2" /manifest Release\MuOnline.dll.intermediate.manifest
-       FinalizeBuildStatus:
-         Deleting file "Release\DraconicK.unsuccessfulbuild".
-         Touching "Release\DraconicK.lastbuildstate".
-     1>Done Building Project "C:\Users\PC\Documents\mu-1.0\Main\Customs.vcxproj" (build target(s)).
+            Creating library C:\Users\PC\Documents\mu-1.0\Release\\Main\Release\MuOnline.lib and object C:\Users\PC\Documents\mu-1.0\Release\\Main\Release\MuOnline.exp
+     1>Npc.obj : error LNK2019: unresolved external symbol "unsigned long __cdecl SetHook1(void * const,void * const,unsigned char)" (?SetHook1@@YAKQAX0E@Z) referenced in function "public: void __thiscall CMonsters::Init(void)" (?Init@CMonsters@@QAEXXZ)
+     1>C:\Users\PC\Documents\mu-1.0\Release\\Main\Release\\Main\MuOnline.dll : fatal error LNK1120: 1 unresolved externals
+     1>Done Building Project "C:\Users\PC\Documents\mu-1.0\Main\Customs.vcxproj" (build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:20.63
+Time Elapsed 00:00:00.64

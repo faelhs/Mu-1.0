@@ -9,9 +9,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Functions">
-      <UniqueIdentifier>{7c142784-b7cf-4187-81e3-181b57596cdf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Protocol">
       <UniqueIdentifier>{a380642c-8726-41d3-9010-fc6ee8a62d82}</UniqueIdentifier>
     </Filter>
@@ -37,9 +34,6 @@
     <Filter Include="BW\MiniMap">
       <UniqueIdentifier>{9dcd70f1-09d4-44d2-bf88-eb8ecf6b0ff4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="BW\Preview">
-      <UniqueIdentifier>{f5a7176b-9de6-4e1b-8965-e7e43b7d9a5b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="BW\Item">
       <UniqueIdentifier>{9b3e432f-071b-49af-8120-f00a82800d79}</UniqueIdentifier>
     </Filter>
@@ -58,6 +52,12 @@
     <Filter Include="BW\GameGuard">
       <UniqueIdentifier>{e00b2c1e-7c63-452d-811a-2c38d05b5177}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BW\NPCLOAD">
+      <UniqueIdentifier>{50a43fcb-6985-4353-a0c7-d641fa5e6391}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Functions">
+      <UniqueIdentifier>{364e3640-54a6-4f4e-b6b1-5d17bba3995f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Fog.cpp">
@@ -66,14 +66,8 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>Principal</Filter>
     </ClCompile>
-    <ClCompile Include="Functions.cpp">
-      <Filter>Functions</Filter>
-    </ClCompile>
     <ClCompile Include="Protocol.cpp">
       <Filter>Protocol</Filter>
-    </ClCompile>
-    <ClCompile Include="Preview.cpp">
-      <Filter>BW\Preview</Filter>
     </ClCompile>
     <ClCompile Include="HealthBar.cpp">
       <Filter>BW\HealthBar</Filter>
@@ -99,6 +93,12 @@
     <ClCompile Include="Dump.cpp">
       <Filter>BW\GameGuard</Filter>
     </ClCompile>
+    <ClCompile Include="Npc.cpp">
+      <Filter>BW\NPCLOAD</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions.cpp">
+      <Filter>Functions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fog.h">
@@ -110,9 +110,6 @@
     <ClInclude Include="detours.h">
       <Filter>Utilitários</Filter>
     </ClInclude>
-    <ClInclude Include="Functions.h">
-      <Filter>Functions</Filter>
-    </ClInclude>
     <ClInclude Include="Protocol.h">
       <Filter>Protocol</Filter>
     </ClInclude>
@@ -121,9 +118,6 @@
     </ClInclude>
     <ClInclude Include="Offsets.h">
       <Filter>Offsets</Filter>
-    </ClInclude>
-    <ClInclude Include="Preview.h">
-      <Filter>BW\Preview</Filter>
     </ClInclude>
     <ClInclude Include="HealthBar.h">
       <Filter>BW\HealthBar</Filter>
@@ -151,6 +145,18 @@
     </ClInclude>
     <ClInclude Include="Dump.h">
       <Filter>BW\GameGuard</Filter>
+    </ClInclude>
+    <ClInclude Include="Npc.h">
+      <Filter>BW\NPCLOAD</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadScript.h">
+      <Filter>Utilitários</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>Utilitários</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions.h">
+      <Filter>Functions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

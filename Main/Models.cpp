@@ -1,11 +1,19 @@
 #include "Principal.h"
 
 //=======================================================================================================================
-// Model Loader
+// Model Loader folder Jewels
 //=======================================================================================================================
-char* CustomzFolder = "Customs\\Jewels\\";
-char* WaytoCustomz = "Data\\Customs\\Jewels\\";
+char* CustomzFolderJewels = "Custom\\Jewels\\";
+char* WaytoCustomzJewels = "Data\\Custom\\Jewels\\";
 //=======================================================================================================================
+// Model Loader folder Boxs
+//=======================================================================================================================
+char* CustomzFolderBox = "Custom\\Boxs\\";
+char* WaytoCustomzBox = "Data\\Custom\\Boxs\\";
+//=======================================================================================================================
+char* CustomzFolderAlas = "Data\\Custom\\alas\\";
+char* WaytoCustomzAlas = "Custom\\alas\\";
+
 int Flag = 2;
 
 
@@ -39,19 +47,25 @@ void LoadThisFuckingModelByITEMID(int ItemID,char* ModelName,char* FolderFrom,ch
 
 __declspec(naked) void PatchMainForLoadModels()
 {
-	LoadThisFuckingModelByITEMID(ITEM(12, 15), "Jewel25", CustomzFolder, WaytoCustomz);
-	LoadThisFuckingModelByITEMID(ITEM(12, 25), "Jewel25", CustomzFolder, WaytoCustomz);
-	LoadThisFuckingModelByITEMID(ITEM(12,26), "Jewel26",	CustomzFolder, WaytoCustomz);
-	LoadThisFuckingModelByITEMID(ITEM(12,27), "Jewel27",	CustomzFolder, WaytoCustomz);
-	LoadThisFuckingModelByITEMID(ITEM(12,28), "Jewel28",	CustomzFolder, WaytoCustomz);
-	LoadThisFuckingModelByITEMID(ITEM(12,29), "Jewel29",	CustomzFolder, WaytoCustomz);
-	LoadThisFuckingModelByITEMID(ITEM(14,30), "Jewelluck",	CustomzFolder, WaytoCustomz);
-	LoadThisFuckingModelByITEMID(ITEM(7, 30), "HelmMale31", "Player\\", "Data\\Player\\");
-	LoadThisFuckingModelByITEMID(ITEM(8, 30), "ArmorMale31", "Player\\", "Data\\Player\\");
-	LoadThisFuckingModelByITEMID(ITEM(9, 30), "PantMale31", "Player\\", "Data\\Player\\");
-	LoadThisFuckingModelByITEMID(ITEM(10, 30), "GloveMale31", "Player\\", "Data\\Player\\");
-	LoadThisFuckingModelByITEMID(ITEM(11, 30), "BootMale31", "Player\\", "Data\\Player\\");
-
+//============================================================================
+// Custom Conditional BMD de Box
+//============================================================================
+	LoadThisFuckingModelByITEMID(ITEM(12,25), "BoxGreen", CustomzFolderBox, WaytoCustomzBox);
+	LoadThisFuckingModelByITEMID(ITEM(12,26), "BoxPurple", CustomzFolderBox, WaytoCustomzBox);
+	LoadThisFuckingModelByITEMID(ITEM(12,27), "BoxRed", CustomzFolderBox, WaytoCustomzBox);
+//============================================================================
+// Custom Conditional BMD de Jewels
+//============================================================================
+	LoadThisFuckingModelByITEMID(ITEM(12,28), "JewelOfDragon",	CustomzFolderJewels, WaytoCustomzJewels);
+	LoadThisFuckingModelByITEMID(ITEM(14,27), "Jewel29",	CustomzFolderJewels, WaytoCustomzJewels);
+	LoadThisFuckingModelByITEMID(ITEM(14,30), "JewelGreen", CustomzFolderJewels, WaytoCustomzJewels);
+//============================================================================
+// Custom Conditional BMD de Jewels
+//============================================================================
+	LoadThisFuckingModelByITEMID(ITEM(15,134), "Wing04",	CustomzFolderAlas, WaytoCustomzAlas);
+	LoadThisFuckingModelByITEMID(ITEM(15,135), "Wing05",	CustomzFolderAlas, WaytoCustomzAlas);
+	LoadThisFuckingModelByITEMID(ITEM(15,136), "Wing06", CustomzFolderAlas, WaytoCustomzAlas);
+	LoadThisFuckingModelByITEMID(ITEM(15,137), "Wing07", CustomzFolderAlas, WaytoCustomzAlas);
 	_asm
 	{
 		PUSH -1								; /Arg4 = FFFFFFFF
@@ -75,4 +89,5 @@ void ModelsLoad()
 	memcpy((int*)LoadModel_Offset, &ModelJMP, sizeof(ModelJMP));
 	HookThis((DWORD)&PatchMainForLoadModels, LoadModel_Offset);
 }
+
 

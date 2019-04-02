@@ -22,7 +22,7 @@
     <ClCompile Include="Jewels.cpp" />
     <ClCompile Include="MiniMap.cpp" />
     <ClCompile Include="Models.cpp" />
-    <ClCompile Include="Preview.cpp" />
+    <ClCompile Include="Npc.cpp" />
     <ClCompile Include="Protocol.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -31,18 +31,20 @@
     <ClInclude Include="Dump.h" />
     <ClInclude Include="ExpBar.h" />
     <ClInclude Include="Fog.h" />
-    <ClInclude Include="Functions.h" />
     <ClInclude Include="Customs.h" />
+    <ClInclude Include="Functions.h" />
     <ClInclude Include="glaux.h" />
     <ClInclude Include="HealthBar.h" />
     <ClInclude Include="Jewels.h" />
     <ClInclude Include="MiniMap.h" />
     <ClInclude Include="Models.h" />
+    <ClInclude Include="Npc.h" />
     <ClInclude Include="Offsets.h" />
     <ClInclude Include="Packets.h" />
-    <ClInclude Include="Preview.h" />
     <ClInclude Include="Principal.h" />
     <ClInclude Include="Protocol.h" />
+    <ClInclude Include="ReadScript.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MuOnline.exe">
@@ -80,10 +82,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <TargetName>MuOnline</TargetName>
+    <OutDir>$(OutDir)\Main\</OutDir>
+    <IntDir>$(OutDir)\Main\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>MuOnline</TargetName>
     <TargetExt>.dll</TargetExt>
+    <OutDir>$(OutDir)\Main\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -111,7 +116,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
-      <OutputFile>$(OutDir)\Main\$(TargetName)$(TargetExt)</OutputFile>
+      <OutputFile>$(OutDir)\$(TargetName)$(TargetExt)</OutputFile>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

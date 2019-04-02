@@ -3,6 +3,15 @@
 
 #define WIN32_LEAN_AND_MEAN
 
+#include <string.h>
+#include <cstdio>
+#include <cstdarg>
+#include <map>
+#include <fstream>
+#include <string>
+#include <algorithm>
+#include <ctime>
+#include <sstream>
 #include <windows.h>
 #include <iostream>
 #include <time.h>
@@ -10,7 +19,6 @@
 #include <stdio.h>
 #include <tchar.h>
 #include <math.h>
-#include <time.h>
 #include <stdlib.h>
 #include <direct.h>
 #include <fcntl.h>
@@ -24,15 +32,20 @@
 #include <tlhelp32.h>
 #include <process.h>
 #include <shellapi.h>
-#include <time.h>
 #include <WinSock2.h>
 #include <vector>
 #include <gl\gl.h>
 #include <gl\glu.h>
+#include <psapi.h>
 
-#pragma comment(lib,"user32.lib")
 #pragma comment(lib,"OpenGL32.lib")
 #pragma comment(lib,"Detours.lib")
+#pragma comment(lib,"user32.lib")
+#pragma comment(lib,"GLu32.lib")
+#pragma comment(lib,"GLaux.lib")
+#pragma comment (lib,"psapi.lib")
+#pragma comment(lib,"WS2_32.lib")
+
 
 #include "Fog.h"
 #include "Customs.h"
@@ -41,7 +54,6 @@
 #include "Protocol.h"
 #include "Packets.h"
 #include "Offsets.h"
-#include "Preview.h"
 #include "HealthBar.h"
 #include "MiniMap.h"
 #include "Jewels.h"
@@ -49,7 +61,9 @@
 #include "Models.h"
 #include "Camera.h"
 #include "glaux.h"
-#include "Dump.h";
+#include "Dump.h"
+#include "Npc.h"
+
 
 	LRESULT CALLBACK KeyboardProc(int, WPARAM, LPARAM);
 	LRESULT CALLBACK MouseProc(int, WPARAM, LPARAM);

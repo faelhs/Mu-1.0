@@ -42,7 +42,9 @@ void Premio_Diario::premiar(int aIndex) {
 	int dias = now.wDay - UltimoLogin.dia;
 	int meses = now.wMonth - UltimoLogin.mes;
 	int anos = now.wYear - UltimoLogin.ano;
-
+	if(dias < 0){dias = 0;}
+	if(meses < 0){meses = 0;}
+	if(anos < 0){anos = 0;}
 	int diferenca = dias + meses + anos;
 	bool reinicio = (diferenca > 1 || PremioDiario[aIndex].dia > 7);
 	bool jarecebeu = (diferenca <= 0);
