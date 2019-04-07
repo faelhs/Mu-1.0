@@ -542,14 +542,13 @@ bool Commands::ChatRecv(PMSG_CHATDATA * lpMsg, int aIndex)
 		ClearInvCommand(aIndex, (char*)(lpMsg->message + strlen(this->_Syntax[45])));
 		return true;
 	}
-	/*
+	
 	if (!_memicmp(lpMsg->message, this->_Syntax[46], strlen(this->_Syntax[46])))
 	{
 		OpenCashShopCommand(aIndex, (char*)(lpMsg->message + strlen(this->_Syntax[46])));
 		return true;
 	}
-	*/
-
+	
 	//Syntas 47 no setrests.
 
 	if (!_stricmp((const char*)(lpMsg->message), this->_Syntax[48]))
@@ -620,7 +619,7 @@ void Commands::Post(int aIndex, char* msg)
 	}
 	else if (gObj[aIndex].Money < this->_Zen[0])
 	{
-		func.MsgUser(aIndex,1,"Você não possui Drack %d", this->_Zen[0]);
+		func.MsgUser(aIndex,1,"Você não possui Zen %d", this->_Zen[0]);
 		return;
 	}
 	else if (this->_Vip[0] == 1)
@@ -679,7 +678,7 @@ void Commands::Adicionar(int aIndex, LPCSTR Buffer, int Status)
 	}
 	else if(gObj[aIndex].Money < this->_Zen[1])
 	{
-		func.MsgUser(aIndex,1,"Você não possui Drack %d", this->_Zen[1]);
+		func.MsgUser(aIndex,1,"Você não possui Zen %d", this->_Zen[1]);
 		return;
 	}
 	else if (this->_Vip[1] == 1)
@@ -810,7 +809,7 @@ void Commands::ReAdicionar(int aIndex)
 	}
 	else if(gObj[aIndex].Money < this->_Zen[2])
 	{
-		func.MsgUser(aIndex,1,"Você não possui Drack %d", this->_Zen[2]);
+		func.MsgUser(aIndex,1,"Você não possui Zen %d", this->_Zen[2]);
 		return;
 	}
 	else if (this->_Vip[2] == 1)
@@ -869,7 +868,7 @@ void Commands::Clear(int aIndex)
 	}
 	else if (gObj[aIndex].Money < this->_Zen[3])
 	{
-		func.MsgUser(aIndex,1,"Você não possui Drack %d",this->_Zen[3]);
+		func.MsgUser(aIndex,1,"Você não possui Zen %d",this->_Zen[3]);
 		return;
 	}
 	else if (this->_Vip[3] == 1)
@@ -923,7 +922,7 @@ void Commands::Ware(int aIndex, LPCSTR Buffer)
 	}
 	else if (gObj[aIndex].Money < this->_Zen[4])
 	{
-		func.MsgUser(aIndex,1,"Você não possui Drack %d",this->_Zen[4]);
+		func.MsgUser(aIndex,1,"Você não possui Zen %d",this->_Zen[4]);
 		return;
 	}
 	else if (this->_Vip[4] == 1)
@@ -1032,10 +1031,10 @@ void Commands::Money(int aIndex, char * msg)
 			return;
 		}
 	}
-	int drack = atoi(msg);
-	func.MsgUser(aIndex,1,"Drack adicionado com sucesso.");
+	int Zen = atoi(msg);
+	func.MsgUser(aIndex,1,"Zen adicionado com sucesso.");
 
-	gObj[aIndex].Money = drack;
+	gObj[aIndex].Money = Zen;
 	GCMoneySend(aIndex,gObj[aIndex].Money);
 }
 
@@ -1055,7 +1054,7 @@ void Commands::Online(int aIndex)
 	}
 	else if (gObj[aIndex].Money < this->_Zen[6])
 	{
-		func.MsgUser(aIndex,1,"Você não possui Drack %d",this->_Zen[6]);
+		func.MsgUser(aIndex,1,"Você não possui Zen %d",this->_Zen[6]);
 		return;
 	}
 	else if (this->_Vip[6] == 1)
@@ -1101,7 +1100,7 @@ void Commands::Evo(int aIndex,char * msg)
 	}
 	else if(gObj[aIndex].Money < this->_Zen[7])
 	{
-		func.MsgUser(aIndex,1,"Você não possui Drack %d", this->_Zen[7]);
+		func.MsgUser(aIndex,1,"Você não possui Zen %d", this->_Zen[7]);
 		return;
 	}
 	else if (this->_Vip[7] == 1)
@@ -1161,7 +1160,7 @@ void Commands::OpenWare(int aIndex)
 	}
 	else if(gObj[aIndex].Money < this->_Zen[8])
 	{
-		func.MsgUser(aIndex,1,"Você não possui Drack %d", this->_Zen[8]);
+		func.MsgUser(aIndex,1,"Você não possui Zen %d", this->_Zen[8]);
 		return;
 	}
 
@@ -1229,7 +1228,7 @@ void Commands::Classe(unsigned short aIndex, char * String, BYTE Tipo)
 	}
 	else if(gObj[aIndex].Money < this->_Zen[9])
 	{
-		func.MsgUser(aIndex,1,"Você não possui Drack %d", this->_Zen[9]);
+		func.MsgUser(aIndex,1,"Você não possui Zen %d", this->_Zen[9]);
 		return;
 	}
 	
@@ -1761,7 +1760,7 @@ void Commands::ClearInvCommand(int aIndex, char* IpBuffer) // Oks !!
 		GCServerMsgStringSend("nº 1 Limpa a parte de baixo do inventário.", aIndex, 1);
 		GCServerMsgStringSend("nº 2 Limpa a parte de cima do inventário. ", aIndex, 1);
 		GCServerMsgStringSend("nº 3 Limpa a todo o inventário.           ", aIndex, 1);
-		GCServerMsgStringSend("nº 4 Zera o Drack o inventário.           ", aIndex, 1);
+		GCServerMsgStringSend("nº 4 Zera o Zen o inventário.           ", aIndex, 1);
 		return;
 	}
 	 if (ClrInvCode > 4 && ClrInvCode <= 0)
@@ -1770,7 +1769,7 @@ void Commands::ClearInvCommand(int aIndex, char* IpBuffer) // Oks !!
 		GCServerMsgStringSend("nº 1 Limpa a parte de baixo do inventário.", aIndex, 1);
 		GCServerMsgStringSend("nº 2 Limpa a parte de cima do inventário. ", aIndex, 1);
 		GCServerMsgStringSend("nº 3 Limpa a todo o inventário.           ", aIndex, 1);
-		GCServerMsgStringSend("nº 4 Zera o Drack o inventário.           ", aIndex, 1);
+		GCServerMsgStringSend("nº 4 Zera o Zen o inventário.           ", aIndex, 1);
 		return;
 	}
 
@@ -1788,7 +1787,7 @@ void Commands::ClearInvCommand(int aIndex, char* IpBuffer) // Oks !!
 	}
 	if (gObj->Money < this->_Zen[10])
 	{
-		MsgOutput(aIndex, "%s você não tem Drack suficiente! Requerido: %d", gObj->Name, this->_Zen[10]);
+		MsgOutput(aIndex, "%s você não tem Zen suficiente! Requerido: %d", gObj->Name, this->_Zen[10]);
 		return;
 	}
 	if (Custom[aIndex].VipIndex < this->_Vip[10])
@@ -1851,7 +1850,7 @@ void Commands::ClearInvCommand(int aIndex, char* IpBuffer) // Oks !!
 		gObj->Money = 0;
 		GCMoneySend(aIndex, gObj->Money);
 		func.MosterAdd(3, gObj->MapNumber, gObj->X, gObj->Y);
-		GCServerMsgStringSend("Você jogou todo seu drack no chao.", aIndex, 1);
+		GCServerMsgStringSend("Você jogou todo seu Zen no chao.", aIndex, 1);
 		GCServerMsgStringSend("E uma aranha pegou.", aIndex, 1);
 		break;
 	}
@@ -1888,31 +1887,30 @@ void Commands::Ping(int aIndex) {
 	return;	
 }
 
-/*
-void Commands::OpenCashShopCommand(int aIndex, char* msg)
+
+void Commands::OpenCashShopCommand(int aIndex,char* msg)
 {
 	OBJECTSTRUCT* lpObj = (OBJECTSTRUCT*)OBJECT_POINTER(aIndex);
 
 	PMSG_TALKRESULT pResult;
 	PMSG_TALKREQUEST* lpMsg;
 	PMSG_SHOPITEMCOUNT	pShopItemCount;
-
-	int ShopNum = (atoi(msg) + 12);
-	MsgOutput(aIndex, "Shop: %d", ShopNum);
+	
+	int ShopNum = (atoi(msg)+12);
 
 	//ShopNum = gObj[DealerNumber].ShopNumber;
-	if (ShopNum == 11 || ShopNum == 12)
+	if(ShopNum == 11 || ShopNum == 12)
 	{
 		ShopNum = 13;
 	}
 
-	if (ShopNum > (ShopL.ShopCont + 12))
+	if(ShopNum > (ShopL.ShopCont+12))
 	{
-		ShopNum = (ShopL.ShopCont + 12);
+		ShopNum = (ShopL.ShopCont+12);
 	}
+	
 
-
-	lpObj->ShopNumber = ShopNum;
+	lpObj->ShopNumber = ShopNum ;
 	lpObj->TargetShopNumber = ShopNum;
 	lpObj->m_IfState.use = 1;
 	lpObj->m_IfState.type = 3;
@@ -1924,26 +1922,27 @@ void Commands::OpenCashShopCommand(int aIndex, char* msg)
 	pResult.result = 0;
 
 	DataSend(aIndex, (LPBYTE)(&pResult), (DWORD)(pResult.h.size));
-
+	
 	int lOfs = 0;
 	BYTE SendByte[1024];
 	//PMSG_SHOPITEMCOUNT pShopItemCount;
 
-	lOfs += sizeof(pShopItemCount);
-	int size = lOfs + ShopC[ShopNum].SendItemDataLen;
-	pShopItemCount.h.c = 0xC2;
-	pShopItemCount.h.headcode = 0x31;
-	pShopItemCount.h.sizeH = HIBYTE(size);
-	pShopItemCount.h.sizeL = LOBYTE(size);
-	pShopItemCount.Type = 0;
-	pShopItemCount.count = ShopC[ShopNum].ItemCount;
-	memcpy(SendByte, &pShopItemCount, sizeof(pShopItemCount));
-	memcpy(SendByte + lOfs, ShopC[ShopNum].SendItemData, ShopC[ShopNum].SendItemDataLen);
-	MsgOutput(aIndex,"[Loja Pessoal]Você possui %d moedas",Custom[aIndex].mCash);
-	DataSend(aIndex, (LPBYTE)SendByte, size);
+	lOfs += sizeof( pShopItemCount );
+		int size = lOfs+ShopC[ShopNum].SendItemDataLen;
+		
+		pShopItemCount.h.c			= 0xC2;
+		pShopItemCount.h.headcode	= 0x31;
+		pShopItemCount.h.sizeH		= HIBYTE(size);
+		pShopItemCount.h.sizeL		= LOBYTE(size);
+		pShopItemCount.Type = 0;
+		pShopItemCount.count		= ShopC[ShopNum].ItemCount;
+		memcpy(SendByte, &pShopItemCount, sizeof( pShopItemCount ));
+		memcpy(SendByte+lOfs, ShopC[ShopNum].SendItemData, ShopC[ShopNum].SendItemDataLen);
+		//MsgOutput(aIndex,"[Loja Pessoal]Você possui %d moedas",pObj[aIndex].mCash);
+		DataSend(aIndex, (LPBYTE)SendByte, size);
 }
 
-*/
+
 
 void Commands::MakeSet(int aIndex, char* msg) {
 	if (!this->_Active[13])
@@ -2597,7 +2596,7 @@ void Commands::Pet(int aIndex, char * msg) {
 	}
 	if (gObj[aIndex].Money < this->_Zen[26])
 	{
-		func.MsgUser(aIndex, 1, "Voce não tem drack sulficiente: %d", this->_Level[26]);
+		func.MsgUser(aIndex, 1, "Voce não tem Zen sulficiente: %d", this->_Level[26]);
 		return;
 	}
 	if (strlen(msg) < 1)
@@ -2646,7 +2645,7 @@ void Commands::GoQuest(int aIndex) {
 	}
 	if (gObj[aIndex].Money < this->_Zen[28])
 	{
-		func.MsgUser(aIndex, 1, "Voce não tem drack sulficiente: %d", this->_Level[26]);
+		func.MsgUser(aIndex, 1, "Voce não tem Zen sulficiente: %d", this->_Level[26]);
 		return;
 	}
 	if (QuestUser[aIndex].Quest_Start == 0) {
@@ -2823,11 +2822,27 @@ int Commands::calcset(char * setname) {
 }
 
 void Commands::makecomprar(int aIndex, char * msg, char * itemname)
-{
-	int ItemType = 0, ItemNr = 0, ItemLevel = 0, ItemDur = 0, ItemSkill = 0, ItemLuck = 0, ItemOpt = 0, ItemExc = 0, ItemAnc = 0;
+{		
+		OBJECTSTRUCT *lpObj = (OBJECTSTRUCT*)OBJECT_POINTER(aIndex);
+		PMSG_TALKRESULT pMsg;
+
+		pMsg.h.c = 0xC3;
+		pMsg.h.headcode = 0x18;
+		pMsg.h.size = sizeof(pMsg);
+		pMsg.result = 0x09;
+
+		lpObj->m_IfState.type = 13;
+		lpObj->m_IfState.state = 0;
+		lpObj->m_IfState.use = 1;
+
+		DataSend(lpObj->m_Index, (LPBYTE)&pMsg, pMsg.h.size);
+		
+	
+		int ItemType = 0, ItemNr = 0, ItemLevel = 0, ItemDur = 0, ItemSkill = 0, ItemLuck = 0, ItemOpt = 0, ItemExc = 0, ItemAnc = 0;
 		sscanf_s(msg, "%d %d %d %d %d %d %d %d %d", &ItemType, &ItemNr, &ItemLevel, &ItemDur, &ItemSkill, &ItemLuck, &ItemOpt, &ItemExc, &ItemAnc);
 
 		DWORD Item = ItemType * 32 + ItemNr;
+		ItemSerialCreateSend(aIndex, -1, 0, 0, Item, ItemLevel, ItemDur, ItemSkill, ItemLuck, ItemOpt, -1, ItemExc, ItemAnc);
 		ItemSerialCreateSend(aIndex, 235, 0, 0, Item, ItemLevel, ItemDur, ItemSkill, ItemLuck, ItemOpt, -1, ItemExc, ItemAnc);
 		char log[255];
 		sprintf(log, "Comprou o item %s %d %d %d %d %d %d %d %d %d",itemname, ItemType, ItemNr, ItemLevel, ItemDur, ItemSkill, ItemLuck, ItemOpt, ItemExc, ItemAnc);

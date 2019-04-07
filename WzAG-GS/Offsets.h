@@ -52,7 +52,6 @@
 #define CGItemDropRequest					((bool(*)(PMSG_ITEMTHROW*, int aIndex, BOOL dType)) 0x0042DA40)
 #define NpcTalkEx                           ((BOOL(*) (OBJECTSTRUCT* lpNpc, OBJECTSTRUCT* lpObj)) 0x005211D0)
 #define gObjShopBuyInventoryInsertItem		((int(*)(int, CItem)) 0x004C6610)
-#define ItemSerialCreateSend				((int(*)(DWORD, DWORD, DWORD, DWORD, DWORD, DWORD, DWORD, DWORD, DWORD, DWORD, DWORD, DWORD, DWORD)) 0x00421750)
 #define CGLevelUpPointAdd					((int(*)(PBYTE Arg1, DWORD PlayerID))	0x0042B7E0)
 #define gObjGetIndex						((int(*)(const char*))	0x004BB6A0)
 #define gObjGetItemCountInIventory			((int(*)(int, WORD)) 0x004DD310)
@@ -130,7 +129,6 @@
 
 //Draconick Exclusive.
 #define GameMonsterAllCloseAndReLoad		(( void(*)()) 0x004F6AE0)
-#define ShopDataLoad						(( void(*)()) 0x004EFFA0)
 #define ReadCommonServerInfo				(( void(*)()) 0x004F7440)
 #define ReadEventInfo						(( void(*)(int)) 0x004FB110)
 #define ReadGameEtcInfo						(( void(*)(int)) 0x004FCCD0)
@@ -143,6 +141,19 @@
 #define gObjMonsterCallKill					((void(*)(int aIndex))0x004014CE)
 #define ChatSend							((void(*)(LPOBJ lpObj,char* text))0x00402FE5)
 #define GCActionSend						((void(*)(LPOBJ lpObj, BYTE ActionNumber, int aIndex, int aTargetIndex))0x00404390)
+#define ItemSerialCreateSend				((int(*)(int aIndex, BYTE MapNumber, BYTE x, BYTE y, int type, BYTE level, BYTE dur, BYTE Op1, BYTE Op2, BYTE Op3, int LootIndex, BYTE ExcOption, BYTE SetOption)) 0x00421750)
+#define gObjShopBuyInventoryInsertItem		((int(*)(int, CItem))	0x004C6610) // OK
+#define gObjOnlyInventoryInsertItem			((char(*)(int aIndex, CItem item)) 0x004C5EB0) // CRISTIAN
+#define DefaultChaosMix						((void(*)(LPOBJ lpObj))0x0047FFB0)
+#define gUserFindDevilSquareKeyEyes			((int(*)(int aIndex))0x004DCBE0)
+
+//-- CashShop - Offsets :)
+#define ItemGetSize						 ((void(*)(int Index, int &Width, int &Height))       0x004EC660)
+#define ItemGetDurability				 ((int(*)(int Index, int Level, int ExcellentItem))   0x004EC700)
+#define ItemByteConvert					 ((void(*)(LPBYTE Buf, CItem Item))                   0x004EC470)
+#define PacketCheckTime					 ((BOOL(*)(LPOBJ lpObj))                              0x00426C80)
+#define gObjSearchItem					 ((BOOL(*)(LPOBJ lpObj, int ItemType, int AddDur))    0x004C6360)
+#define LoadShopData					 (( void(*)())										  0x004EFFA0)
 enum OBJECT_TYPE 
 {
 	EMPTY		= -1,

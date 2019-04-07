@@ -161,7 +161,7 @@ void cMReset::InitExec(int aIndex)
 	}
 	else if (MReset._Zen[Custom[aIndex].VipIndex] > gObj[aIndex].Money)
 	{
-		func.MsgUser(aIndex,1,"Você não possui Drack %d",MReset._Zen[Custom[aIndex].VipIndex]);
+		func.MsgUser(aIndex,1,"Você não possui Zen %d",MReset._Zen[Custom[aIndex].VipIndex]);
 		return;
 	}
 	else if (gObj[aIndex].Strength < MReset._NeedFor[Custom[aIndex].VipIndex])

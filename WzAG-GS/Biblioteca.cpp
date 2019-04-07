@@ -25,3 +25,12 @@ __declspec(naked) void CItem::Convert(int type, BYTE Option1, BYTE Option2, BYTE
 		JMP EAX
 	}
 }
+void CItem::Value()
+{
+	_asm
+	{
+		MOV ECX, this;
+		MOV EDI, 0x004E7B40;
+		CALL EDI;
+	}
+}

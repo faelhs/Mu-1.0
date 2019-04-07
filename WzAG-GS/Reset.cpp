@@ -100,7 +100,7 @@ void cReset::InitExec(int aIndex)
 				}
 				else if (Reset.Acumulativo._Zen > gObj[aIndex].Money)
 				{
-					func.MsgUser(aIndex,1,"Você não possui Drack %d",Reset.Acumulativo._Zen);
+					func.MsgUser(aIndex,1,"Você não possui Zen %d",Reset.Acumulativo._Zen);
 					return;
 				}
 				else if (Reset.Acumulativo._RemoveItems[Custom[aIndex].VipIndex] != 0 && !this->CheckItem(&gObj[aIndex]))
@@ -162,7 +162,7 @@ void cReset::InitExec(int aIndex)
 				}
 				else if (Reset.Pontuativo._Zen > gObj[aIndex].Money)
 				{
-					func.MsgUser(aIndex,1,"Você não possui Drack %d",Reset.Pontuativo._Zen);
+					func.MsgUser(aIndex,1,"Você não possui Zen %d",Reset.Pontuativo._Zen);
 					return;
 				}
 				else if (Reset.Acumulativo._RemoveItems[Custom[aIndex].VipIndex] != 0 && !this->CheckItem(&gObj[aIndex]))

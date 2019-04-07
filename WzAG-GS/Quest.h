@@ -19,7 +19,7 @@ public:
 		int rew;
 		int gift;
 		int exp;
-		int Drack;
+		int Zen;
 		int lvl;
 		int resets;
 		int reqmap;

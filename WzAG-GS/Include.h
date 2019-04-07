@@ -65,6 +65,7 @@
 #include "gObjAttack.h"
 #include "Bot.h"
 #include "Premio_Diario.h"
+#include "CashShop.h"
 
 #define CFG_SVINFO					"./Data/ServerInfo.dat"
 #define CFG_GAMESERVER				"../DKData/Config.ini"

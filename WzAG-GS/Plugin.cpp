@@ -23,6 +23,7 @@ void Loaddll()
 	if(VirtualProtect(LPVOID(0x401000),3543191,PAGE_EXECUTE_READWRITE,&OldProtect))
 	{  
 		ReadyLicense(); 
+		ReadyCashShop();
 		Fixes();
 		Manager.Initialize();
 		Customs();

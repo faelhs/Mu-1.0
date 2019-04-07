@@ -247,7 +247,7 @@ void ChkParametro()
 void Initialize()
 {
 	ChkParametro();
-	ProtectionMain();
+	//ProtectionMain();
 	Customs();
 	Joias();
 	LoadAddons();

@@ -45,7 +45,7 @@ int MapDropRateMonster(OBJECTSTRUCT * lpMonster, OBJECTSTRUCT * lpObject)
 	{
 		if(lpMonster->MapNumber == DropItens[i].Mapa && lpMonster->Class == DropItens[i].Mob) //ok
 		{
-			if ( DropItens[i].Rate == 100)
+			if ( DropItens[i].Rate == 10000)
 			{
 				DWORD Item		= ITEMGET(DropItens[i].Tipo, DropItens[i].Index);
 				DWORD Damage	= gObjMonsterTopHitDamageUser(lpMonster);
@@ -60,7 +60,7 @@ int MapDropRateMonster(OBJECTSTRUCT * lpMonster, OBJECTSTRUCT * lpObject)
 		}
 		if(lpMonster->MapNumber == DropItens[i].Mapa && DropItens[i].Mob < 0 ) // ok
 		{
-			if (DropItens[i].Rate == 100)
+			if (DropItens[i].Rate == 10000)
 			{
 				DWORD Item		= ITEMGET(DropItens[i].Tipo, DropItens[i].Index);
 				DWORD Damage	= gObjMonsterTopHitDamageUser(lpMonster);
@@ -75,7 +75,7 @@ int MapDropRateMonster(OBJECTSTRUCT * lpMonster, OBJECTSTRUCT * lpObject)
 		}
 		if(lpMonster->Class == DropItens[i].Mob && DropItens[i].Mapa == 255 ) //ok
 		{
-			if (DropItens[i].Rate == 100)
+			if (DropItens[i].Rate == 10000)
 			{
 				DWORD Item		= ITEMGET(DropItens[i].Tipo, DropItens[i].Index);
 				DWORD Damage	= gObjMonsterTopHitDamageUser(lpMonster);
@@ -90,7 +90,7 @@ int MapDropRateMonster(OBJECTSTRUCT * lpMonster, OBJECTSTRUCT * lpObject)
 		}
 		if(DropItens[i].Mapa == 255  && DropItens[i].Mob < 0 )
 		{
-			if (DropItens[i].Rate == 100)
+			if (DropItens[i].Rate == 10000)
 			{
 				DWORD Item		= ITEMGET(DropItens[i].Tipo, DropItens[i].Index);
 				DWORD Damage	= gObjMonsterTopHitDamageUser(lpMonster);

@@ -298,7 +298,7 @@ public:
 	/*<thisrel this+0xa4>*/ /*|0x4|*/ int m_PetItem_Exp;
 
 	public:
-   
+   void Value();
    __declspec() void Convert(int type, BYTE Option1, BYTE Option2, BYTE Option3,BYTE Attribute2, BYTE SetOption, BYTE DbVersion);
 
 };

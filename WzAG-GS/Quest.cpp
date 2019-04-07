@@ -97,7 +97,7 @@ void Q_PGW::Q_Load()
 			Number[Count].proc	 = n[2];
 			Number[Count].rew	 = n[3];
 			Number[Count].gift	 = n[4];
-			Number[Count].Drack  = n[5];
+			Number[Count].Zen  = n[5];
 			Number[Count].exp	 = n[6];
 			Number[Count].lvl	 = n[7];
 			Number[Count].resets = n[8];
@@ -278,10 +278,10 @@ bool Q_PGW::Presents(int aIndex, int Present, int Gifts)
 			else {
 				lpObj->LevelUpPoint += Number[QuestUser[aIndex].Quest_Num].exp * 5;
 			}
-			GCMoneySend(aIndex, lpObj->Money += Number[QuestUser[aIndex].Quest_Num].Drack);
+			GCMoneySend(aIndex, lpObj->Money += Number[QuestUser[aIndex].Quest_Num].Zen);
 			func.UpdateCharacter(aIndex,false);
 			MsgOutput(aIndex,"[Quest] %s  Premiado com %d Points",lpObj->Name,Gifts);		
-			if (Number[QuestUser[aIndex].Quest_Num].Drack > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Drack", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].Drack); }
+			if (Number[QuestUser[aIndex].Quest_Num].Zen > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Zen", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].Zen); }
 			if (Number[QuestUser[aIndex].Quest_Num].exp > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Level", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].exp); }
 			func.LevelUPSend(aIndex);
 		}
@@ -297,9 +297,9 @@ bool Q_PGW::Presents(int aIndex, int Present, int Gifts)
 				lpObj->LevelUpPoint += Number[QuestUser[aIndex].Quest_Num].exp * 5;
 			}
 			MsgOutput(aIndex,"[Quest] %s  Premiado com %d Resets",lpObj->Name,Gifts);
-			if (Number[QuestUser[aIndex].Quest_Num].Drack > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Drack", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].Drack); }
+			if (Number[QuestUser[aIndex].Quest_Num].Zen > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Zen", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].Zen); }
 			if (Number[QuestUser[aIndex].Quest_Num].exp > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Level", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].exp); }
-			GCMoneySend(aIndex, lpObj->Money += Number[QuestUser[aIndex].Quest_Num].Drack);
+			GCMoneySend(aIndex, lpObj->Money += Number[QuestUser[aIndex].Quest_Num].Zen);
 			func.LevelUPSend(aIndex);	
 
 		}
@@ -315,9 +315,9 @@ bool Q_PGW::Presents(int aIndex, int Present, int Gifts)
 				lpObj->LevelUpPoint += Number[QuestUser[aIndex].Quest_Num].exp * 5;
 			}
 			MsgOutput(aIndex,"[Quest] %s  Premiado com %d Golds",lpObj->Name,Gifts);
-			if (Number[QuestUser[aIndex].Quest_Num].Drack > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Drack", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].Drack); }
+			if (Number[QuestUser[aIndex].Quest_Num].Zen > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Zen", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].Zen); }
 			if (Number[QuestUser[aIndex].Quest_Num].exp > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Level", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].exp); }
-			GCMoneySend(aIndex, lpObj->Money += Number[QuestUser[aIndex].Quest_Num].Drack);
+			GCMoneySend(aIndex, lpObj->Money += Number[QuestUser[aIndex].Quest_Num].Zen);
 			func.LevelUPSend(aIndex);	
 		}
 		break;
@@ -365,9 +365,9 @@ bool Q_PGW::Presents(int aIndex, int Present, int Gifts)
 			else {
 				lpObj->LevelUpPoint += Number[QuestUser[aIndex].Quest_Num].exp * 5;
 			}
-			GCMoneySend(aIndex, lpObj->Money += Number[QuestUser[aIndex].Quest_Num].Drack);
+			GCMoneySend(aIndex, lpObj->Money += Number[QuestUser[aIndex].Quest_Num].Zen);
 			MsgOutput(aIndex, "[Quest] %s  Premiado com %s ", lpObj->Name, Quest_Item_RewardInfo[exib].itemexib);
-			if (Number[QuestUser[aIndex].Quest_Num].Drack > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Drack", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].Drack); }
+			if (Number[QuestUser[aIndex].Quest_Num].Zen > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Zen", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].Zen); }
 			if (Number[QuestUser[aIndex].Quest_Num].exp > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Level", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].exp); }
 			func.LevelUPSend(aIndex);
 			}

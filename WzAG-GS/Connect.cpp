@@ -32,33 +32,33 @@ void ConnectServer::PlayerConnect(int aIndex)
 	if(Custom[aIndex].VipIndex == Bronze)
 	{
 		GetPrivateProfileString("Server","Noticia de conexão Vip1","[%s] Você é um usuário(a): VIP Bronze",this->Notice[2],160,CFG_GAMESERVER);
-		func.MsgUser(aIndex,0,"Experiencia %d, Drop Adicional %d",Vips.Exp1,Vips.Drop1);
+		func.MsgUser(aIndex,0,"Experiencia adicional %d",Vips.Exp1);
 		func.MsgUser(aIndex,0,this->Notice[2],gObj[aIndex].Name);
 	}
 
 	if(Custom[aIndex].VipIndex == Prata)
 	{
 		GetPrivateProfileString("Server","Noticia de conexão Vip2","[%s] Você é um usuário(a): VIP Prata",this->Notice[3],160,CFG_GAMESERVER);
-		func.MsgUser(aIndex,0,"Experiencia %d, Drop Adicional %d",Vips.Exp2,Vips.Drop2);
+		func.MsgUser(aIndex,0,"Experiencia %d",Vips.Exp2);
 		func.MsgUser(aIndex,0,this->Notice[3],gObj[aIndex].Name);
 	}
 
 	if(Custom[aIndex].VipIndex == Ouro)
 	{
 		GetPrivateProfileString("Server","Noticia de conexão Vip3","[%s] Você é um usuário(a): VIP Ouro",this->Notice[4],160,CFG_GAMESERVER);
-		func.MsgUser(aIndex,0,"Experiencia %d, Drop Adicional %d",Vips.Exp3,Vips.Drop3);
+		func.MsgUser(aIndex,0,"Experiencia Adicional %d",Vips.Exp3);
 		func.MsgUser(aIndex,0,this->Notice[4],gObj[aIndex].Name);
 	}
 	if (Custom[aIndex].VipIndex == Platina)
 	{
 		GetPrivateProfileString("Server", "Noticia de conexão Vip4", "[%s] Você é um usuário(a): VIP Platina", this->Notice[5], 160, CFG_GAMESERVER);
-		func.MsgUser(aIndex, 0, "Experiencia %d, Drop Adicional %d", Vips.Exp4, Vips.Drop4);
+		func.MsgUser(aIndex, 0, "Experiencia Adicional %d", Vips.Exp4);
 		func.MsgUser(aIndex, 0, this->Notice[5], gObj[aIndex].Name);
 	}
 	if (Custom[aIndex].VipIndex == Infinity)
 	{
 		GetPrivateProfileString("Server", "Noticia de conexão Vip5", "[%s] Você é um usuário(a): VIP Infinity", this->Notice[6], 160, CFG_GAMESERVER);
-		func.MsgUser(aIndex, 0, "Experiencia %d, Drop Adicional %d", Vips.Exp5, Vips.Drop5);
+		func.MsgUser(aIndex, 0, "Experiencia Adicional %d", Vips.Exp5);
 		func.MsgUser(aIndex, 0, this->Notice[6], gObj[aIndex].Name);
 	}
 }

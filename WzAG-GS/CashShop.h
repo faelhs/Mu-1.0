@@ -1,4 +1,3 @@
-#include "StdAfx.h"
 
 #define MAX_SHOP		    50
 #define MAX_ITEM_IN_SHOP	120
@@ -7,7 +6,6 @@ struct sShop
 {
 	int value;
 };
-
 
 
 class CShop
@@ -38,4 +36,4 @@ extern CShop ShopL;
 
 void ReadyCashShop();
 BOOL ShopDataLoad();
-void BuyRequest(PMSG_BUYREQUEST* lpMsg, int aIndex);
+//void BuyRequest(PMSG_BUYREQUEST* lpMsg, int aIndex);

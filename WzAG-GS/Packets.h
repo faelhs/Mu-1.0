@@ -49,6 +49,44 @@ struct PMSG_CHATDATA
 	char message[60];
 };
 
+struct PMSG_TALKRESULT
+
+{
+
+	PBMSG_HEAD h;
+
+	BYTE result;	// 3
+
+	BYTE level1;	// 4
+
+	BYTE level2;	// 5
+
+	BYTE level3;	// 6
+
+	BYTE level4;	// 7
+
+	BYTE level5;	// 8
+
+	BYTE level6;	// 9
+
+
+
+	BYTE level7;	// 10 //0x0A
+
+};
+struct PMSG_TALKREQUEST
+{
+	PBMSG_HEAD h;
+	BYTE NumberH;	// 3
+	BYTE NumberL;	// 4
+};
+
+struct PMSG_SHOPITEMCOUNT
+{
+	PWMSG_HEAD h;
+	BYTE Type;
+	BYTE count;
+};
 struct PMSG_NOTICE
 {
 	PBMSG_HEAD h;
