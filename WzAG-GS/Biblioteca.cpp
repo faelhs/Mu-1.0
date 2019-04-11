@@ -30,7 +30,7 @@ void CItem::Value()
 	_asm
 	{
 		MOV ECX, this;
-		MOV EDI, 0x004E7B40;
+		MOV EDI, 0x00402F18;
 		CALL EDI;
 	}
 }

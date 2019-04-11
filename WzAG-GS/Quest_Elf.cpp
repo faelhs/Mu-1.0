@@ -140,7 +140,7 @@ void Q_PGW_ELF::Q_NPC(int aIndex, int aNPC)
 				{
 					ChatTargetSend(gObjNPC, "[Quest] Aceita!", aIndex);
 					QuestUser[aIndex].Quest_Start = 1;
-					Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Start = 1 WHERE Name='%s'", lpObj->Name);
+					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Start = 1 WHERE Name='%s'", lpObj->Name);
 					MsgOutput(aIndex, "[Quest] Quest N: %d", QuestUser[aIndex].Quest_Num + 1);
 					MsgOutput(aIndex, "[Quest] %s", Number[QuestUser[aIndex].Quest_Num].msg);
 					MsgOutput(aIndex, "[Quest] Mate %s [%d/%d]", Number[QuestUser[aIndex].Quest_Num].msg2, QuestUser[aIndex].Quest_kill, Number[QuestUser[aIndex].Quest_Num].Coun);
@@ -152,7 +152,7 @@ void Q_PGW_ELF::Q_NPC(int aIndex, int aNPC)
 				else if (QuestUser[aIndex].Quest_Num > 0 && lpObj->Level >= Number[QuestUser[aIndex].Quest_Num].lvl && Custom[aIndex].Resets >= Number[QuestUser[aIndex].Quest_Num].resets &&  lpObj->MapNumber == Number[QuestUser[aIndex].Quest_Num].reqmap)
 				{
 					QuestUser[aIndex].Quest_Start = 1;
-					Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Start = 1 WHERE Name='%s'", lpObj->Name);
+					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Start = 1 WHERE Name='%s'", lpObj->Name);
 					MsgOutput(aIndex, "[Quest] Quest N: %d", QuestUser[aIndex].Quest_Num + 1);
 					MsgOutput(aIndex, "[Quest] %s", Number[QuestUser[aIndex].Quest_Num].msg);
 					MsgOutput(aIndex, "[Quest] Mate %s [%d/%d]", Number[QuestUser[aIndex].Quest_Num].msg2, QuestUser[aIndex].Quest_kill, Number[QuestUser[aIndex].Quest_Num].Coun);
@@ -201,9 +201,9 @@ void Q_PGW_ELF::Q_NPC(int aIndex, int aNPC)
 					QuestUser[aIndex].Quest_Num++;
 					QuestUser[aIndex].Quest_kill = 0;
 					ChatTargetSend(gObjNPC, "Parabéns!", aIndex);
-					Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Start = 0 WHERE Name='%s'", lpObj->Name);
-					Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Kill = 0 WHERE Name='%s'", lpObj->Name);
-					Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Num = Quest_Num + 1 WHERE Name='%s'", lpObj->Name);
+					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Start = 0 WHERE Name='%s'", lpObj->Name);
+					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Kill = 0 WHERE Name='%s'", lpObj->Name);
+					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Num = Quest_Num + 1 WHERE Name='%s'", lpObj->Name);
 					return;
 				}
 				else
@@ -362,9 +362,4 @@ bool Q_PGW_ELF::Presents(int aIndex, int Present, int Gifts)
 	}
 
 	return true;
-}
-
-void ClickNPCElf(int aIndex, int aNPC)
-{
-	ClickOnNPC(aIndex, aNPC);
 }

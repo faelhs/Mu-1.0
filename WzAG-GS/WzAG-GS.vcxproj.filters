@@ -377,6 +377,9 @@
     <ClCompile Include="CashShop.cpp">
       <Filter>[B&amp;W] Customs\GoldShop</Filter>
     </ClCompile>
+    <ClCompile Include="CShopNPC.cpp">
+      <Filter>[B&amp;W] Customs\NPCSystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StdAfx.h">
@@ -549,6 +552,12 @@
     </ClInclude>
     <ClInclude Include="CashShop.h">
       <Filter>[B&amp;W] Customs\GoldShop</Filter>
+    </ClInclude>
+    <ClInclude Include="CShopNPC.h">
+      <Filter>[B&amp;W] Customs\NPCSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadScript.h">
+      <Filter>[B&amp;W] Standard\Plugin</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

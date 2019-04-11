@@ -24,6 +24,7 @@ void Loaddll()
 	{  
 		ReadyLicense(); 
 		ReadyCashShop();
+		ShopDataLoad();
 		Fixes();
 		Manager.Initialize();
 		Customs();
@@ -84,6 +85,7 @@ void Loaddll()
 		func.HookThis((DWORD)&NpcShadowPhantomEx, 0x0040237E);
 		gLottery.Load();				//-- Cerrega sorteio.
 		Pdiario.load();					//-- Carrega premios do premio diario.
+		//CShopnpc.Load();
 	}
 	else
 	{

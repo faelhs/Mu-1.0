@@ -14,7 +14,7 @@ CShop ShopL;
 
 void ReadyCashShop()
 {
-	ShopL.ShopCont = 1;
+	//ShopL.ShopCont = 5;
 //	HookThis((DWORD)&BuyRequest,0x4026B2);
 //	hook_proc(0x401B5E, (DWORD)(&ShopDataLoad),							0xE9);
 	func.HookThis((DWORD)&ShopDataLoad,0x004031DE);
@@ -49,8 +49,9 @@ BOOL CShop::LoadShopItem(char* Filename)
 		::ExitProcess(0);
 	}
 	char Buff[256];
-	int Type, Index, Level, Dur,Money, LoopCount = 0;
-	BYTE Opt1, Opt2, Opt3, Opt4;
+
+	int  Type, Index,Level, Dur,Money, LoopCount = 0;
+	BYTE Opt1, Opt2, Opt3, Opt4, Anc;
 
 	while (!feof(file))
 	{
@@ -60,9 +61,9 @@ BOOL CShop::LoadShopItem(char* Filename)
 		{
 			continue;
 		}
-		sscanf(Buff,"%d %d %d %d %d %d %d %d %d",&Type,&Index,&Level,&Dur,&Opt1,&Opt2,&Opt3,&Opt4,&Money);
+		sscanf(Buff,"%d %d %d %d %d %d %d %d %d",&Type,&Index,&Level,&Dur,&Opt1,&Opt2,&Opt3,&Opt4,&Anc);
 
-		if (this->InsertItem(Type, Index, Level, Dur, Opt1, Opt2, Opt3, Opt4, Money) == FALSE)
+		if (this->InsertItem(Type, Index, Level, Dur, Opt1, Opt2, Opt3, Opt4, Anc) == FALSE)
 		{
 			MessageBox(0,"Erro0 no Shop","Mu Cosmos",MB_OK);
 			::ExitProcess(0);
@@ -73,10 +74,9 @@ BOOL CShop::LoadShopItem(char* Filename)
 	return TRUE;
 }
 
-BOOL CShop::InsertItem(int Type, int Index, int Level, int Dur, BYTE Opt1, BYTE Opt2, BYTE Opt3, BYTE ExcOpt,int BuyMoney)
+BOOL CShop::InsertItem(int Type, int Index, int Level, int Dur, BYTE Opt1, BYTE Opt2, BYTE Opt3, BYTE ExcOpt,BYTE Anc)
 {
-	int Temp = ItemGetNumberMake(Type, Index);
-	 
+	int Temp = ITEMGET(Type, Index);
 	if (Temp < 0)
 	{
 		MessageBox(0,"Erro1 no Shop","Mu Cosmos",MB_OK);
@@ -113,10 +113,10 @@ BOOL CShop::InsertItem(int Type, int Index, int Level, int Dur, BYTE Opt1, BYTE 
 					}
 
 					this->Item[Blank].m_Durability = (float)(Dur);
-					this->Item[Blank].Convert(Temp, Opt1, Opt2, Opt3,0,ExcOpt,1);  
+					this->Item[Blank].Convert(Temp, Opt1, Opt2, Opt3,0,ExcOpt,0);  
 					this->Item[Blank].Value();
 
-					this->Cash[Blank].value = BuyMoney;
+					//this->Cash[Blank].value = BuyMoney;
 
 					this->SendItemData[this->SendItemDataLen] = Blank;
 					this->SendItemDataLen++;
@@ -188,25 +188,28 @@ BOOL ShopDataLoad()
 		ShopC[x].LoadShopItem(msg);
 		
 	}
+	/*
+	ShopC[0].LoadShopItem("..\\Data\\Shops\\shop0.txt");
+	ShopC[1].LoadShopItem("..\\Data\\Shops\\shop1.txt");
+	ShopC[2].LoadShopItem("..\\Data\\Shops\\shop2.txt");
+	ShopC[3].LoadShopItem("..\\Data\\Shops\\shop3.txt");
+	ShopC[4].LoadShopItem("..\\Data\\Shops\\shop4.txt");	
+	ShopC[5].LoadShopItem("..\\Data\\Shops\\shop5.txt");
+	ShopC[6].LoadShopItem("..\\Data\\Shops\\shop6.txt");
+	ShopC[7].LoadShopItem("..\\Data\\Shops\\shop7.txt");
+	ShopC[8].LoadShopItem("..\\Data\\Shops\\shop8.txt");
+	ShopC[9].LoadShopItem("..\\Data\\Shops\\shop9.txt");
+	ShopC[10].LoadShopItem("..\\Data\\Shops\\shop10.txt");
+	ShopC[11].LoadShopItem("..\\Data\\Shops\\shop12.txt");
+	ShopC[12].LoadShopItem("..\\Data\\Shops\\shop13.txt");
 
-	/*ShopC[0].LoadShopItem("..\\Data\\shop0.txt");
-	ShopC[1].LoadShopItem("..\\Data\\shop1.txt");
-	ShopC[2].LoadShopItem("..\\Data\\shop2.txt");
-	ShopC[3].LoadShopItem("..\\Data\\shop3.txt");
-	ShopC[4].LoadShopItem("..\\Data\\shop4.txt");	
-	ShopC[5].LoadShopItem("..\\Data\\shop5.txt");
-	ShopC[6].LoadShopItem("..\\Data\\shop6.txt");
-	ShopC[7].LoadShopItem("..\\Data\\shop7.txt");
-	ShopC[8].LoadShopItem("..\\Data\\shop8.txt");
-	ShopC[9].LoadShopItem("..\\Data\\shop9.txt");
-	ShopC[10].LoadShopItem("..\\Data\\shop10.txt");
-
-	ShopC[13].LoadShopItem(".\\Customs\\Shop1.txt");
-	ShopC[14].LoadShopItem(".\\Customs\\Shop2.txt");
-	ShopC[15].LoadShopItem(".\\Customs\\Shop3.txt");
-	ShopC[16].LoadShopItem(".\\Customs\\Shop4.txt");*/
-
-	//LogAddTD("ShopExtras Carregado");
+	ShopC[13].LoadShopItem("..\\Data\\CashShop\\CashShop1.txt");
+	ShopC[14].LoadShopItem("..\\Data\\CashShop\\CashShop2.txt");
+	ShopC[15].LoadShopItem("..\\Data\\CashShop\\CashShop3.txt");
+	ShopC[16].LoadShopItem("..\\Data\\CashShop\\CashShop4.txt");
+	ShopC[17].LoadShopItem("..\\Data\\CashShop\\CashShop5.txt");
+	*/
+	LogAddFunc("ShopExtras Carregado");
 	return TRUE;
 }
 

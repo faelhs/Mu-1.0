@@ -14,7 +14,7 @@ class Functions
 {
 	
 public:
-
+	BYTE InventoryMap[64];
 	void HookThis(DWORD dwMyFuncOffset,DWORD dwJmpOffset);
 	void HookProc(DWORD Offset, DWORD Func);
 	void SetNop(DWORD Offset,int Size);
@@ -63,6 +63,10 @@ public:
 	int MyRand(int min, int max);
 	void ChkJail(LPOBJ lpObj);
 	void SaveQuest(int aIndex);
+	//void CGTalkRequestRecv(PMSG_TALKREQUEST* lpMsg, int aIndex);
+	//void CGBuyRequestRecv(PMSG_BUYREQUEST* lpMsg, int aIndex);
+	void ItemSerialCreateSendEx(int aIndex, int MapNumber, int x, int y, int Type, int Level, int Dur, int Skill, int Luck, int Option,int LootIndex,int Excellent,int Ancient);
+	int InventoryMapCheck(int aIndex,int X, int Y, int Width, int Height);
 };
 
 extern Functions func;

@@ -167,22 +167,38 @@ void Functions::gObjLifeCheckHook(LPOBJ lpTargetObj, LPOBJ lpObj, int AttackDama
 	if(QuestUser[aIndex].Quest_Start == 1 && mObj->Class == Qest_PGW.Number[QuestUser[aIndex].Quest_Num].Mob && mObj->Life <= 0 && !classe)
 	{
 		Qest_PGW.KilledMob(aIndex);
-		func.MsgUser(aIndex, 0, "[Quest] %s [%d/%d]", Qest_PGW.Number[QuestUser[aIndex].Quest_Num].msg2, QuestUser[aIndex].Quest_kill, Qest_PGW.Number[QuestUser[aIndex].Quest_Num].Coun);
+		if(QuestUser[aIndex].Quest_kill < Qest_PGW.Number[QuestUser[aIndex].Quest_Num].Coun){
+			func.MsgUser(aIndex, 0, "[Quest] %s [%d/%d]", Qest_PGW.Number[QuestUser[aIndex].Quest_Num].msg2, QuestUser[aIndex].Quest_kill, Qest_PGW.Number[QuestUser[aIndex].Quest_Num].Coun);
+		}else{
+			func.MsgUser(aIndex, 0, "[Quest] Concluida Retorne ao NPC");
+		}
 	}
 	if (QuestUser[aIndex].Quest_Start == 1 && mObj->Class == Qest_PGW_ELF.Number[QuestUser[aIndex].Quest_Num].Mob && mObj->Life <= 0 && classe)
 	{
 		Qest_PGW_ELF.KilledMob(aIndex);
-		func.MsgUser(aIndex, 0, "[Quest] %s [%d/%d]", Qest_PGW_ELF.Number[QuestUser[aIndex].Quest_Num].msg2, QuestUser[aIndex].Quest_kill, Qest_PGW_ELF.Number[QuestUser[aIndex].Quest_Num].Coun);
+		if(QuestUser[aIndex].Quest_kill < Qest_PGW_ELF.Number[QuestUser[aIndex].Quest_Num].Coun){
+			func.MsgUser(aIndex, 0, "[Quest] %s [%d/%d]", Qest_PGW_ELF.Number[QuestUser[aIndex].Quest_Num].msg2, QuestUser[aIndex].Quest_kill, Qest_PGW_ELF.Number[QuestUser[aIndex].Quest_Num].Coun);
+		}else{
+			func.MsgUser(aIndex, 0, "[Quest] Concluida Retorne ao NPC");
+		}
 	}
 	if (QuestBoss[aIndex].Quest_Start == 1 && mObj->Class == Qest_PGW_Boss.Number[QuestBoss[aIndex].Quest_Num].Mob && mObj->Life <= 0)
 	{
 		Qest_PGW_Boss.KilledMob(aIndex);
-		func.MsgUser(aIndex, 0, "[Quest] %s [%d/%d]", Qest_PGW_Boss.Number[QuestBoss[aIndex].Quest_Num].msg2, QuestBoss[aIndex].Quest_kill, Qest_PGW_Boss.Number[QuestBoss[aIndex].Quest_Num].Coun);
+		if(QuestBoss[aIndex].Quest_kill < Qest_PGW_Boss.Number[QuestBoss[aIndex].Quest_Num].Coun){
+			func.MsgUser(aIndex, 0, "[QuestBoss] %s [%d/%d]", Qest_PGW_Boss.Number[QuestBoss[aIndex].Quest_Num].msg2, QuestBoss[aIndex].Quest_kill, Qest_PGW_Boss.Number[QuestBoss[aIndex].Quest_Num].Coun);
+		}else{
+			func.MsgUser(aIndex, 0, "[QuestBoss] Concluida Retorne ao NPC");
+		}
 	}
 	if (QuestLoot[aIndex].Quest_Start == 1 && mObj->Class == Qest_PGW_Loot.Number[QuestLoot[aIndex].Quest_Num].Mob && mObj->Life <= 0)
 	{
 		Qest_PGW_Loot.KilledMob(aIndex);
-		func.MsgUser(aIndex, 0, "[Quest] %s [%d/%d]", Qest_PGW_Loot.Number[QuestLoot[aIndex].Quest_Num].msg2, QuestLoot[aIndex].Quest_kill, Qest_PGW_Loot.Number[QuestLoot[aIndex].Quest_Num].Coun);
+		if(QuestLoot[aIndex].Quest_kill < Qest_PGW_Loot.Number[QuestLoot[aIndex].Quest_Num].Coun){
+			func.MsgUser(aIndex, 0, "[QuestLoot] %s [%d/%d]", Qest_PGW_Loot.Number[QuestLoot[aIndex].Quest_Num].msg2, QuestLoot[aIndex].Quest_kill, Qest_PGW_Loot.Number[QuestLoot[aIndex].Quest_Num].Coun);
+		}else{
+			func.MsgUser(aIndex, 0, "[QuestLoot] Concluida Retorne ao NPC");
+		}
 	}
 	if (Hydra._Active != 0)
 	{
@@ -309,10 +325,12 @@ void Functions::gObjSecondProcEx()
 
 void Functions::gObjCloseSetEx(int aIndex, int flag)
 {
+	if(gObj[aIndex].Type == PLAYER){
+	func.SaveQuest(aIndex);
 	Duel.Quit(&gObj[aIndex]);
 	Pega.Quit(&gObj[aIndex]);
 	Sobre.Quit(&gObj[aIndex]);
-	func.SaveQuest(aIndex);
+	}
 	return gObjCloseSet(aIndex,flag);  
 }
 void Functions::SaveQuest(int aIndex)
@@ -320,6 +338,12 @@ void Functions::SaveQuest(int aIndex)
 	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Boss_Kill = %d WHERE Name='%s'", QuestBoss[aIndex].Quest_kill, &gObj[aIndex].Name);
 	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Loot_Kill = %d WHERE Name='%s'", QuestLoot[aIndex].Quest_kill, &gObj[aIndex].Name);
 	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Kill = %d WHERE Name='%s'", QuestUser[aIndex].Quest_kill, &gObj[aIndex].Name);
+	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Boss_Num = %d WHERE Name='%s'", QuestBoss[aIndex].Quest_Num, &gObj[aIndex].Name);
+	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Loot_Numl = %d WHERE Name='%s'", QuestLoot[aIndex].Quest_Num, &gObj[aIndex].Name);
+	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Num = %d WHERE Name='%s'", QuestUser[aIndex].Quest_Num, &gObj[aIndex].Name);
+	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Boss_Start = %d WHERE Name='%s'", QuestBoss[aIndex].Quest_Start, &gObj[aIndex].Name);
+	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Loot_Start = %d WHERE Name='%s'", QuestLoot[aIndex].Quest_Start, &gObj[aIndex].Name);
+	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Start = %d WHERE Name='%s'", QuestUser[aIndex].Quest_Start, &gObj[aIndex].Name);
 }
 short Functions::gObjDelEx(int aIndex)
 {
@@ -820,5 +844,542 @@ void StartAddress(LPVOID lpThreadParameter)
 		v2 = GetCurrentProcess();
 		SetThreadPriority(v2, -2);
 	}
+}/*
+void Functions::CGTalkRequestRecv(PMSG_TALKREQUEST* lpMsg, int aIndex)
+{
+	if (PacketCheckTime(&gObj[aIndex]) == FALSE)
+	{
+		return;
+	}
+	if (gObj[aIndex].CloseType != -1)
+	{
+		return;
+	}
+
+	if (!Func.gObjIsConnectedGP(aIndex))
+	{
+		return;
+	}
+
+	if (gObj[aIndex].m_IfState.use > 0)
+	{
+		return;
+	}
+
+	int DealerNumber = MAKE_NUMBER(lpMsg->NumberH, lpMsg->NumberL);
+
+	if (DealerNumber < 0 || DealerNumber > OBJECT_MAX - 1)
+	{
+		return;
+	}
+
+	if (gObj[aIndex].MapNumber != gObj[DealerNumber].MapNumber ||
+		(gObj[aIndex].X < (gObj[DealerNumber].X - 5) || gObj[aIndex].X > (gObj[DealerNumber].X + 5)) || 
+		(gObj[aIndex].Y < (gObj[DealerNumber].Y - 5) || gObj[aIndex].Y > (gObj[DealerNumber].Y + 5)))
+	{
+		return;
+	}
+
+	int ShopNum = gObj[DealerNumber].ShopNumber;
+
+	if (gObj[DealerNumber].Type == 3)
+	{
+		if (cNpc::NPCTalkEx(&gObj[DealerNumber], &gObj[aIndex]) == TRUE)
+		{
+			return;
+		}
+	}
+
+	Func.gObjFixInventoryPointer(&gObj[aIndex]);
+
+	PMSG_TALKRESULT pMsg;
+	BYTE bRand;
+
+	pMsg.h.c        = 0xC3;
+	pMsg.h.head		= 0x30;
+	pMsg.h.size     = sizeof(PMSG_TALKRESULT);
+	pMsg.Treasure   = 0;
+
+	if (gObj[DealerNumber].Class == 234)    // Npc Server Division
+	{
+		pMsg.result = 5;
+		DataSend(aIndex, (LPBYTE)&pMsg, pMsg.h.size);
+		return;
+	}
+
+	if (gObj[DealerNumber].Type == 3 && ShopNum < 0)
+	{
+		return; 
+	}
+
+	if (ShopNum >= 0 && ShopNum < MAX_SHOP)
+	{
+		if (ShopNum == Treasure.ShopNumber())  // Treasure
+		{
+			if (!_stricmp(Treasure.Winner(), gObj[aIndex].Name))
+			{
+				CShop* Shop				   = &ShopC[ShopNum];
+
+				gObj[aIndex].TargetShopNumber    = ShopNum;
+				gObj[aIndex].m_IfState.use       = 1;
+				gObj[aIndex].m_IfState.type      = 3;
+				gObj[aIndex].m_ShopTime          = 0;
+
+				pMsg.result				   = 0;
+				pMsg.Treasure			   = 1;
+
+				DataSend(aIndex, (LPBYTE)(&pMsg), pMsg.h.size);
+
+				BYTE SendByte[1024];
+				PMSG_SHOPITEMCOUNT pShopItemCount;
+				int lOfs = sizeof(pShopItemCount);
+				int Size = lOfs + Shop->SendItemDataLen;
+
+				pShopItemCount.h.c          = 0xC2;
+				pShopItemCount.h.sizeH      = HIBYTE(Size);
+				pShopItemCount.h.sizeL      = LOBYTE(Size);
+				pShopItemCount.h.head	    = 0x31;
+				pShopItemCount.Type         = 0;
+				pShopItemCount.count        = Shop->ItemCount;
+
+				memcpy_s(SendByte, 1024, &pShopItemCount, sizeof(pShopItemCount));
+				memcpy_s(&SendByte[lOfs], (1024 - lOfs), Shop->SendItemData, Shop->SendItemDataLen);
+
+				DataSend(aIndex, SendByte, Size);
+			}
+		}
+		else
+		{
+			CShop* Shop = &ShopC[ShopNum];
+			bRand		= (BYTE)(rand() % 2);
+
+			if (Shop->ItemCount < 1)
+			{
+				if (bRand != 0)
+				{
+					ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 119)), aIndex);
+				}
+				else
+				{
+					ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 120)), aIndex);
+				}
+
+				return;
+			}
+
+			if (gObj[aIndex].m_PK_Level > 4)
+			{
+				if (bRand != 0)
+				{
+					ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 121)), aIndex);
+				}
+				else
+				{
+					ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 122)), aIndex);
+				}
+
+				return;
+			}
+
+			bRand = (BYTE)(rand() % 6);
+
+			switch (bRand)
+			{
+			case 0:
+				{
+					if (*(gMerryXMasNpcEvent) == 1)
+					{
+						ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 123)), aIndex);
+					}
+				} break;
+			case 1:
+				{
+					if (*(gHappyNewYearNpcEvent) == 1)
+					{
+						ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 124)), aIndex);
+					}
+				} break;
+			}
+
+			gObj[aIndex].TargetShopNumber    = ShopNum;
+			gObj[aIndex].m_IfState.use       = 1;
+			gObj[aIndex].m_IfState.type      = 3;
+			gObj[aIndex].m_ShopTime          = 0;
+
+			pMsg.result				   = 0;
+			pMsg.Treasure              = 0;
+
+			DataSend(aIndex, (LPBYTE)(&pMsg), pMsg.h.size);
+
+			BYTE SendByte[1024];
+			PMSG_SHOPITEMCOUNT pShopItemCount;
+			int lOfs = sizeof(pShopItemCount);
+			int Size = lOfs + Shop->SendItemDataLen;
+
+			pShopItemCount.h.c          = 0xC2;
+			pShopItemCount.h.sizeH      = HIBYTE(Size);
+			pShopItemCount.h.sizeL      = LOBYTE(Size);
+			pShopItemCount.h.head	    = 0x31;
+			pShopItemCount.Type         = 0;
+			pShopItemCount.count        = Shop->ItemCount;
+
+			memcpy_s(SendByte, 1024, &pShopItemCount, sizeof(pShopItemCount));
+			memcpy_s(&SendByte[lOfs], (1024 - lOfs), Shop->SendItemData, Shop->SendItemDataLen);
+
+			DataSend(aIndex, SendByte, Size);
+		}
+	}
+	else
+	{
+		bRand = (BYTE)(rand() % 6);
+
+		switch (bRand)
+		{
+		case 0:
+			{
+				if (*(gMerryXMasNpcEvent) == 1)
+				{
+					ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 123)), aIndex);
+				}
+			} break;
+		case 1:
+			{
+				if (*(gHappyNewYearNpcEvent) == 1)
+				{
+					ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 124)), aIndex);
+				}
+			} break;
+		}
+
+		gObj[aIndex].TargetShopNumber    = ShopNum;
+		gObj[aIndex].m_IfState.use       = 1;
+		gObj[aIndex].m_IfState.type      = 3;
+		gObj[aIndex].m_ShopTime          = 0;
+
+		pMsg.result = 0;
+
+		switch (ShopNum)
+		{
+		case 100:
+			{
+				if (gObj[aIndex].m_ReqWarehouseOpen != 0)
+				{
+				}
+				else
+				{
+					gObj[aIndex].m_ReqWarehouseOpen  = 1;
+					gObj[aIndex].m_IfState.type      = 6;
+					gObj[aIndex].m_IfState.state     = 0;
+					gObj[aIndex].WarehouseCount      = 0;
+
+					GDGetWarehouseList(aIndex, gObj[aIndex].AccountID);
+				}
+			} break;
+		case 101:
+			{
+				if (*(bCanChaosBox) == TRUE)
+				{               
+					gObj[aIndex].m_IfState.type = 7;
+					gObj[aIndex].m_IfState.state = 0;
+
+					pMsg.result = 3;
+					pMsg.level1 = (BYTE)(*(gDQChaosSuccessRateLevel1));
+					pMsg.level2 = (BYTE)(*(gDQChaosSuccessRateLevel2));
+					pMsg.level3 = (BYTE)(*(gDQChaosSuccessRateLevel3));
+					pMsg.level4 = (BYTE)(*(gDQChaosSuccessRateLevel4));
+
+					DataSend(aIndex, (LPBYTE)&pMsg, pMsg.h.size);
+					gObjInventoryTrans(aIndex);
+
+					LogAddTD("[%s][%s] Open Chaos Box", gObj[aIndex].AccountID, gObj[aIndex].Name);
+
+					gObjItemTextSave(&gObj[aIndex]);
+					gObjWarehouseTextSave(&gObj[aIndex]);
+				}
+			} break;
+		}
+	}
 }
+
+void Functions::CGBuyRequestRecv(PMSG_BUYREQUEST* lpMsg, int aIndex)
+{
+	PMSG_BUYRESULT pMsg;
+
+	pMsg.h.c        = 0xC1;
+	pMsg.h.size     = sizeof(PMSG_BUYRESULT);
+	pMsg.h.head     = 0x32;
+	pMsg.Result     = -1;
+
+	if (PacketCheckTime(&gObj[aIndex]) == FALSE)
+	{
+		DataSend(aIndex, (LPBYTE)&pMsg, pMsg.h.size);
+		return;
+	}
+	
+	if (gObj[aIndex].CloseType != -1)
+	{
+		DataSend(aIndex, (LPBYTE)&pMsg, pMsg.h.size);
+		return;
+	}
+	
+	Func.gObjFixInventoryPointer(&gObj[aIndex]);
+
+	if (gObj[aIndex].m_ShopTime == 0)
+	{
+		gObj[aIndex].m_ShopTime = 1;
+	}
+	
+	if (gObj[aIndex].m_ShopTime > 60)
+	{
+		if (gObj[aIndex].m_IfState.use != 0 && gObj[aIndex].m_IfState.type == 3)
+		{
+			gObj[aIndex].TargetShopNumber    = -1;
+			gObj[aIndex].m_IfState.use       = 0;
+			gObj[aIndex].m_IfState.type      = 0;
+		}
+
+		DataSend(aIndex, (LPBYTE)&pMsg, pMsg.h.size);
+		return;
+	}
+	else if (gObj[aIndex].m_IfState.use > 0 && gObj[aIndex].m_IfState.type != 3)
+	{
+		DataSend(aIndex, (LPBYTE)&pMsg, pMsg.h.size);
+		return;
+	}
+	else
+	{
+		int ShopNum = gObj[aIndex].TargetShopNumber;
+
+		if (ShopNum < 0 || ShopNum > MAX_SHOP -1)
+		{
+			DataSend(aIndex, (LPBYTE)&pMsg, pMsg.h.size);
+			return;
+		}
+		else if (lpMsg->Pos > 120 - 1)
+		{
+			DataSend(aIndex, (LPBYTE)&pMsg, pMsg.h.size);
+			return;
+		}
+		else
+		{
+			if (ShopNum == Treasure.ShopNumber()) // Treasure
+			{
+				if (!_stricmp(gObj[aIndex].Name, Treasure.Winner()))
+				{
+					CShop* Shop = &ShopC[ShopNum];
+
+					if (Shop->Item[lpMsg->Pos].IsItem())
+					{
+						BOOL NoItem = TRUE;
+
+						if (Shop->Item[lpMsg->Pos].m_Type >= ITEMGET(14,0) && Shop->Item[lpMsg->Pos].m_Type <= ITEMGET(14,8))
+						{
+							int Durability = (int)(Shop->Item[lpMsg->Pos].m_Durability);
+
+							if(Durability == 0)
+							{
+								Durability = 1;
+							}
+
+							if (gObjSearchItem(&gObj[aIndex], Shop->Item[lpMsg->Pos].m_Type, Durability) == TRUE)
+							{
+								NoItem = FALSE;                             
+							}
+						}
+
+						if (NoItem != FALSE)
+						{
+							pMsg.Result = gObjShopBuyInventoryInsertItem(aIndex, Shop->Item[lpMsg->Pos]);
+
+							if (pMsg.Result != 0xFF)
+							{
+								ItemByteConvert((LPBYTE)(&pMsg.ItemInfo), Shop->Item[lpMsg->Pos]);
+							}
+						}
+					}
+				}
+			}
+			else
+			{
+				CShop* Shop = &ShopC[ShopNum];
+
+				if (Shop->Item[lpMsg->Pos].IsItem() == TRUE)
+				{
+					if ((UINT)(gObj[aIndex].Money) < Shop->Item[lpMsg->Pos].m_BuyMoney)
+					{
+						pMsg.Result = -1;
+					}
+					else
+					{
+						BOOL NoItem = TRUE;
+
+						if (Shop->Item[lpMsg->Pos].m_Type >= ITEMGET(14,0) && Shop->Item[lpMsg->Pos].m_Type <= ITEMGET(14,8))
+						{
+							int Durability = (int)(Shop->Item[lpMsg->Pos].m_Durability);
+
+							if(Durability == 0)
+							{
+								Durability = 1;
+							}
+
+							if (gObjSearchItem(&gObj[aIndex], Shop->Item[lpMsg->Pos].m_Type, Durability) == TRUE)
+							{
+								NoItem = FALSE;
+
+								gObj[aIndex].Money -= (int)Shop->Item[lpMsg->Pos].m_BuyMoney;
+
+								if (gObj[aIndex].Money < 0)
+								{
+									gObj[aIndex].Money = 0;
+								}
+
+								GCMoneySend(aIndex, gObj[aIndex].Money);
+							}
+						}
+
+						if (NoItem != FALSE)
+						{
+							pMsg.Result = gObjShopBuyInventoryInsertItem(aIndex, Shop->Item[lpMsg->Pos]);
+							
+							if (pMsg.Result != 0xFF)
+							{
+								ItemByteConvert((LPBYTE)(&pMsg.ItemInfo), Shop->Item[lpMsg->Pos]);
+
+								gObj[aIndex].Money -= (int)Shop->Item[lpMsg->Pos].m_BuyMoney;
+
+								if (gObj[aIndex].Money < 0)
+								{
+									gObj[aIndex].Money = 0;
+								}
+
+								GCMoneySend(aIndex, gObj[aIndex].Money);                              
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	DataSend(aIndex, (LPBYTE)&pMsg, pMsg.h.size);
+}*/
+//===========================================================================================
+//--  Function ItemSerialCreateSend Extra   
+//===========================================================================================
+
+int Functions::InventoryMapCheck(int aIndex,int X, int Y, int Width, int Height)
+{
+	 OBJECTSTRUCT *ItObj = (OBJECTSTRUCT*)OBJECT_POINTER(aIndex);
+
+		  
+	if (((X + Width) > 8) || ((Y + Height) > 12))
+	{
+		return (-1);
+	}
+
+	int y, x, Blank = 0;
+	
+	for (y = 4; y < Height; y++)
+	{
+		for (x = 0; x < Width; x++)
+		{
+			if (this->InventoryMap[(((Y + y) * 8) + (X + x))])
+			{
+				if(ItObj->pInventory[(((Y + y) * 8) + (X + x))].m_Type == SLOT_EMPTY ){
+					Blank++;
+					break;
+				}
+			}
+		}
+	}
+
+	if (Blank == 0)
+	{
+		for (y = 4; y < Height; y++)
+		{
+			for (x = 0; x < Width; x++)
+			{
+				this->InventoryMap[(((Y + y) * 8) + (X + x))] = 1;
+			}
+		}
+
+		return (X + (Y * 8));
+	}
+
+	return (-1);
+}
+
+
+void Functions::ItemSerialCreateSendEx(int aIndex, int MapNumber, int x, int y, int Type, int Level, int Dur, int Skill, int Luck, int Option,int LootIndex,int Excellent,int Ancient)
+{
+	if(MapNumber == 235 )
+	{
+		
+		int Width = 0, Height = 0,Blank = (-1);
+		OBJECTSTRUCT *ItObj = (OBJECTSTRUCT*)OBJECT_POINTER(aIndex);
+		if ( ItObj->Connected > CONNECTED )
+		{
+		ItemGetSize(Type, Width, Height);
+		if ((Width < 0) || (Height < 0))
+			{
+				return;
+			}
+		for (y = 4; y < 12; y++)
+			{
+				for (x = 0; x < 8; x++)
+					{
+						if (this->InventoryMap[(x + (y * 8))] == 0)
+							{
+								Blank = this->InventoryMapCheck(aIndex,x, y, Width, Height);
+								if (Blank >= 0)
+									{
+
+										if(Dur == 0){Dur = ItemGetDurability(Type, Level, (Excellent != 0) ? 1 : 0);}
+										CItem pCreateItem;
+
+										// ----
+										
+										pCreateItem.m_Number = func.MyRand(1000000, 30000000);
+										pCreateItem.m_Level = Level;
+										
+										pCreateItem.m_Durability = Dur;
+		
+
+										pCreateItem.Convert(Type, Skill, Luck, Option, Excellent, Ancient, 1);
+										BYTE btItemPos = gObjOnlyInventoryInsertItem(aIndex, pCreateItem);
+										//BYTE btItemPos = gObjInventoryInsertItem(aIndex, pCreateItem);
+
+										// ----
+
+										if ( btItemPos == (BYTE)-1 )
+
+											{
+
+												//LogAddTD("[CashShop] Error : Failed To Insert Item Type:%d, TypeIndex:%d to [%s][%s]", iItemType, iItemIndex, gObj[lpMsg->aIndex].AccountID, gObj[lpMsg->aIndex].Name);
+
+											}
+										else
+
+											{
+												//GCInventoryItemOneSend(aIndex, btItemPos);
+												GCItemListSend(aIndex);
+
+											}
+										
+										return;
+								}else{
+									func.MsgUser(aIndex,1,"Inventario lotado, item não inserido");
+								}
+							}
+						}
+					}
+		}
+	}
+	else
+	{
+	    ItemSerialCreateSend(aIndex,MapNumber,x,y,Type,Level,Dur,Skill,Luck,Option,aIndex,Excellent,0);  //Original Function 
+	}
+
+}
+
 Functions func;

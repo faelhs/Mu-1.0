@@ -1889,7 +1889,7 @@ void Commands::Ping(int aIndex) {
 
 
 void Commands::OpenCashShopCommand(int aIndex,char* msg)
-{
+{/*
 	OBJECTSTRUCT* lpObj = (OBJECTSTRUCT*)OBJECT_POINTER(aIndex);
 
 	PMSG_TALKRESULT pResult;
@@ -1940,6 +1940,7 @@ void Commands::OpenCashShopCommand(int aIndex,char* msg)
 		memcpy(SendByte+lOfs, ShopC[ShopNum].SendItemData, ShopC[ShopNum].SendItemDataLen);
 		//MsgOutput(aIndex,"[Loja Pessoal]Você possui %d moedas",pObj[aIndex].mCash);
 		DataSend(aIndex, (LPBYTE)SendByte, size);
+		*/
 }
 
 
@@ -1988,21 +1989,21 @@ void Commands::MakeSet(int aIndex, char* msg) {
 	char dropboots[100];
 	if (set == 0) { GCServerMsgStringSend("Digite um nome valido", aIndex, 1); return; }
 	if (set == stormcrow || set == thunderkawk || set == huricane) {
-		sprintf(droparmor, "%d %d 13 255 1 1 28 63", 8, set);
-		sprintf(dropgloves, "%d %d 13 255 1 1 28 63", 9, set);
-		sprintf(droppants, "%d %d 13 255 1 1 28 63", 10, set);
-		sprintf(dropboots, "%d %d 13 255 1 1 28 63", 11, set);
+		sprintf(droparmor, "%d %d 13 255 1 1 28 63 6", 8, set);
+		sprintf(dropgloves, "%d %d 13 255 1 1 28 63 6", 9, set);
+		sprintf(droppants, "%d %d 13 255 1 1 28 63 6", 10, set);
+		sprintf(dropboots, "%d %d 13 255 1 1 28 63 6", 11, set);
 		Commands::makecomprar(aIndex, droparmor, "MAKE SET");
 		Commands::makecomprar(aIndex, dropgloves, "MAKE SET");
 		Commands::makecomprar(aIndex, droppants, "MAKE SET");
 		Commands::makecomprar(aIndex, dropboots, "MAKE SET");
 	}
 	else {
-		sprintf(drophelm, "%d %d 13 255 1 1 28 63", 7, set);
-		sprintf(droparmor, "%d %d 13 255 1 1 28 63", 8, set);
-		sprintf(dropgloves, "%d %d 13 255 1 1 28 63", 9, set);
-		sprintf(droppants, "%d %d 13 255 1 1 28 63", 10, set);
-		sprintf(dropboots, "%d %d 13 255 1 1 28 63", 11, set);
+		sprintf(drophelm, "%d %d 13 255 1 1 28 63 6", 7, set);
+		sprintf(droparmor, "%d %d 13 255 1 1 28 63 6", 8, set);
+		sprintf(dropgloves, "%d %d 13 255 1 1 28 63 6", 9, set);
+		sprintf(droppants, "%d %d 13 255 1 1 28 63 6", 10, set);
+		sprintf(dropboots, "%d %d 13 255 1 1 28 63 6", 11, set);
 		Commands::makecomprar(aIndex, drophelm,"MAKE SET");
 		Commands::makecomprar(aIndex, droparmor, "MAKE SET");
 		Commands::makecomprar(aIndex, dropgloves, "MAKE SET");
@@ -2276,7 +2277,7 @@ void Commands::Make(int aIndex, char * msg)
 		char cmd[255];
 		int ItemType = 0, ItemNr = 0, ItemLevel = 0, ItemDur = 0, ItemSkill = 0, ItemLuck = 0, ItemOpt = 0, ItemExc = 0, ItemAnc = 0;
 		sscanf_s(msg, "%d %d %d %d %d %d %d %d %d", &ItemType, &ItemNr, &ItemLevel, &ItemDur, &ItemSkill, &ItemLuck, &ItemOpt, &ItemExc, &ItemAnc);
-		sprintf(cmd, "%d %d %d %d %d %d %d %d", ItemType, ItemNr, ItemLevel, ItemDur, ItemSkill, ItemLuck,  ItemOpt, ItemExc);
+		sprintf(cmd, "%d %d %d %d %d %d %d %d %d", ItemType, ItemNr, ItemLevel, ItemDur, ItemSkill, ItemLuck,  ItemOpt, ItemExc, ItemAnc);
 		Commands::makecomprar(aIndex, cmd, "Make Do GM");
 	}
 }
@@ -2570,6 +2571,25 @@ void Commands::Spawn(int aIndex, char * msg) {
 			gObj->Dir = gObj[aIndex].Dir;
 			gObj->X = x;
 			gObj->Y = y;
+			/*
+			//gObj->m_RecallMon				= mIndex;
+			//gObj->TargetNumber				= -1;
+			gObj->TX						= gObj->X;
+			gObj->TY						= gObj->Y;
+			gObj->MTX						= gObj->X;
+			gObj->MTY						= gObj->Y;
+			gObj->m_OldX					= gObj->X;
+			gObj->m_OldY					= gObj->Y;
+			gObj->StartX					= (BYTE)(gObj->X);
+			gObj->StartY					= (BYTE)(gObj->Y);
+			//gObj->m_ActState.Emotion		= 0;
+			//gObj->m_ActState.Attack			= 0;
+			//gObj->m_ActState.EmotionCount	= 0;        
+			gObj->PathCount					= 0;
+			gObj->m_MoveRange				= 0;
+			//gObj->m_PosNum					= -1;
+			gObj->ShopNumber				= 14;
+			*/
 		}
 
 	}
@@ -2661,11 +2681,19 @@ void Commands::GoQuest(int aIndex) {
 		map = Qest_PGW_ELF.Number[QuestUser[aIndex].Quest_Num].map;
 		x = Qest_PGW_ELF.Number[QuestUser[aIndex].Quest_Num].x;
 		y = Qest_PGW_ELF.Number[QuestUser[aIndex].Quest_Num].y;
+		if(Qest_PGW_ELF.Number[QuestUser[aIndex].Quest_Num].teleport == 0){
+			func.MsgUser(aIndex, 0, "Essa quest não permite teleporte.");
+			return;
+		}
 	}
 	if (!classe) {
 		map = Qest_PGW.Number[QuestUser[aIndex].Quest_Num].map;
 		x = Qest_PGW.Number[QuestUser[aIndex].Quest_Num].x;
 		y = Qest_PGW.Number[QuestUser[aIndex].Quest_Num].y;
+		if(Qest_PGW.Number[QuestUser[aIndex].Quest_Num].teleport == 0){
+			func.MsgUser(aIndex, 0, "Essa quest não permite teleporte.");
+			return;
+		}
 	}
 	gObjTeleport(aIndex,map,x,y);
 	gObj[aIndex].Money -= this->_Zen[26];
@@ -2823,27 +2851,11 @@ int Commands::calcset(char * setname) {
 
 void Commands::makecomprar(int aIndex, char * msg, char * itemname)
 {		
-		OBJECTSTRUCT *lpObj = (OBJECTSTRUCT*)OBJECT_POINTER(aIndex);
-		PMSG_TALKRESULT pMsg;
-
-		pMsg.h.c = 0xC3;
-		pMsg.h.headcode = 0x18;
-		pMsg.h.size = sizeof(pMsg);
-		pMsg.result = 0x09;
-
-		lpObj->m_IfState.type = 13;
-		lpObj->m_IfState.state = 0;
-		lpObj->m_IfState.use = 1;
-
-		DataSend(lpObj->m_Index, (LPBYTE)&pMsg, pMsg.h.size);
-		
-	
 		int ItemType = 0, ItemNr = 0, ItemLevel = 0, ItemDur = 0, ItemSkill = 0, ItemLuck = 0, ItemOpt = 0, ItemExc = 0, ItemAnc = 0;
 		sscanf_s(msg, "%d %d %d %d %d %d %d %d %d", &ItemType, &ItemNr, &ItemLevel, &ItemDur, &ItemSkill, &ItemLuck, &ItemOpt, &ItemExc, &ItemAnc);
 
 		DWORD Item = ItemType * 32 + ItemNr;
-		ItemSerialCreateSend(aIndex, -1, 0, 0, Item, ItemLevel, ItemDur, ItemSkill, ItemLuck, ItemOpt, -1, ItemExc, ItemAnc);
-		ItemSerialCreateSend(aIndex, 235, 0, 0, Item, ItemLevel, ItemDur, ItemSkill, ItemLuck, ItemOpt, -1, ItemExc, ItemAnc);
+		func.ItemSerialCreateSendEx(aIndex, 235, 0, 0, Item, ItemLevel, ItemDur, ItemSkill, ItemLuck, ItemOpt, -1, ItemExc, ItemAnc);
 		char log[255];
 		sprintf(log, "Comprou o item %s %d %d %d %d %d %d %d %d %d",itemname, ItemType, ItemNr, ItemLevel, ItemDur, ItemSkill, ItemLuck, ItemOpt, ItemExc, ItemAnc);
 		LogSystem::DKLog(gObj[aIndex].Name, log);

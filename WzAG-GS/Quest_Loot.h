@@ -38,4 +38,3 @@ public:
 
 
 extern Q_PGW_LOOT Qest_PGW_Loot;
-void ClickNPCLoot(int aIndex, int aNPC);

@@ -55,6 +55,12 @@ bool ClickOnNPC(int aIndex,int aNPC)
 
 	if (gObjNPC->Class == NPC_Quest_Loot)
 	{
+		
+		Qest_PGW_Loot.Q_NPC(aIndex, aNPC);
+	}
+	if (gObjNPC->Class == 201)
+	{
+		
 		Qest_PGW_Loot.Q_NPC(aIndex, aNPC);
 	}
 

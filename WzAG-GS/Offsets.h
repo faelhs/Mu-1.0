@@ -28,8 +28,11 @@
 #define GetNumber                           0x0048C4B0
 #define GetToken                            0x0048C500
 #define ITEMGET(X,Y)                        ((X * 32) + Y)
+#define SLOT_EMPTY -1
 #define MAX_VIEWPORT						75 
 #define MAX_VIEWPORT_MONSTER				20
+#define MAKE_NUMBERW(x,y)		( (WORD)(((BYTE)((y)&0xFF)) |   ((BYTE)((x)&0xFF)<<8 ))  )
+#define MAKE_NUMBERQW(x,y)		( (unsigned __int64)(((DWORD)((y)&0xFFFFFFFF)) | ((DWORD)((x)&0xFFFFFFFF)<<32))  )
 
 
 #define gObjLifeCheck					    ((void(*)(OBJECTSTRUCT* lpTargetObj, OBJECTSTRUCT* lpObj, int AttackDamage, int DamageSendType, int MSBFlag, int MSBDamage, BYTE Skill, int iShieldDamage)) 0x004C36E0)
@@ -140,12 +143,18 @@
 #define GCRecallMonLife				        ((void(*)(int aIndex, int maxlife, int life)) 0x00403F30)
 #define gObjMonsterCallKill					((void(*)(int aIndex))0x004014CE)
 #define ChatSend							((void(*)(LPOBJ lpObj,char* text))0x00402FE5)
-#define GCActionSend						((void(*)(LPOBJ lpObj, BYTE ActionNumber, int aIndex, int aTargetIndex))0x00404390)
+#define GCActionSend						((void(*)(LPOBJ lpObj, BYTE ActionNumber, int aIndex, int aTargetIndex))00404390)
 #define ItemSerialCreateSend				((int(*)(int aIndex, BYTE MapNumber, BYTE x, BYTE y, int type, BYTE level, BYTE dur, BYTE Op1, BYTE Op2, BYTE Op3, int LootIndex, BYTE ExcOption, BYTE SetOption)) 0x00421750)
 #define gObjShopBuyInventoryInsertItem		((int(*)(int, CItem))	0x004C6610) // OK
 #define gObjOnlyInventoryInsertItem			((char(*)(int aIndex, CItem item)) 0x004C5EB0) // CRISTIAN
 #define DefaultChaosMix						((void(*)(LPOBJ lpObj))0x0047FFB0)
 #define gUserFindDevilSquareKeyEyes			((int(*)(int aIndex))0x004DCBE0)
+//#define gObjInventoryInsertItem             ((BYTE(*)(int aIndex, CItem item))0x004C6CD0)
+//#define gObjInventoryInsertItem             ((BYTE(*)(int aIndex, CItem item))0x004C6A10)
+//#define gObjInventoryInsertItem             ((BYTE(*)(int aIndex, CItem item))0x004C60C0)
+#define gObjInventoryInsertItem             ((BYTE(*)(int aIndex, CItem item))0x004C5CA0)
+//#define gObjInventoryInsertItem             ((BYTE(*)(int aIndex, CItem item))0x004C59D0)
+ 
 
 //-- CashShop - Offsets :)
 #define ItemGetSize						 ((void(*)(int Index, int &Width, int &Height))       0x004EC660)

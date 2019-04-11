@@ -48,7 +48,7 @@ void ObjBot::MakeBot(char* name, int map, int x, int y, int dir) {
 		gObj[result].m_Defense = 1000;
 		GCRecallMonLife(gObj[result].m_RecallMon, gObj[result].MaxLife, gObj[result].Life);
 		ChatSend(&gObj[result], "Olá Mestre");
-		GCActionSend(&gObj[result], 120, result, result);
+//		GCActionSend(&gObj[result], 120, result, result);
 		func.MsgUser(gObj->m_Index, 1, "Bot criado com sucesso.");
 	}
 	else {

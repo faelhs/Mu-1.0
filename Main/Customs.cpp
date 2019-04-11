@@ -246,12 +246,13 @@ void ChkParametro()
 }
 void Initialize()
 {
+	
+	Monsters.Init();
 	ChkParametro();
 	//ProtectionMain();
 	Customs();
 	Joias();
 	LoadAddons();
-	Monsters.Init();
 	HookMiniMap();
 	ExperienceBar();
 	m_Glow	= LoadLibrary("./Data/Customs/Plugin/Glow.dll");

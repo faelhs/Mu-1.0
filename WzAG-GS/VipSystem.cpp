@@ -28,7 +28,7 @@ void VipSystem(int aIndex)
 	case 1:
 		{
 			float * EXPERIENCE = (float *)(getAddExperience);
-			(*EXPERIENCE) = Vips.Exp1;
+			(*EXPERIENCE) += Vips.Exp1;
 			SetDrop( GetDrop() + Vips.Drop1 );
 			
 		}
@@ -36,7 +36,7 @@ void VipSystem(int aIndex)
 	case 2:
 		{
 			float * EXPERIENCE = (float *)(getAddExperience);
-			(*EXPERIENCE) = Vips.Exp2;
+			(*EXPERIENCE) += Vips.Exp2;
 			SetDrop( GetDrop() + Vips.Drop2);
 
 		}
@@ -44,21 +44,21 @@ void VipSystem(int aIndex)
 	case 3:
 		{
 			float * EXPERIENCE = (float *)(getAddExperience);
-			(*EXPERIENCE) = Vips.Exp3;
+			(*EXPERIENCE) += Vips.Exp3;
 			SetDrop( GetDrop() + Vips.Drop3);
 		}
 		break;
 	case 4:
 	{
 		float * EXPERIENCE = (float *)(getAddExperience);
-		(*EXPERIENCE) = Vips.Exp4;
+		(*EXPERIENCE) += Vips.Exp4;
 		SetDrop(GetDrop() + Vips.Drop4);
 	}
 	break;
 	case 5:
 	{
 		float * EXPERIENCE = (float *)(getAddExperience);
-		(*EXPERIENCE) = Vips.Exp5;
+		(*EXPERIENCE) += Vips.Exp5;
 		SetDrop(GetDrop() + Vips.Drop5);
 	}
 	break;

@@ -38,4 +38,3 @@ public:
 };
 
 extern Q_PGW_ELF Qest_PGW_ELF;
-void ClickNPCElf(int aIndex, int aNPC);

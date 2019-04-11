@@ -37,4 +37,3 @@ public:
 
 
 extern Q_PGW_BOSS Qest_PGW_Boss;
-void ClickNPCBoss(int aIndex, int aNPC);

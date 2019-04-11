@@ -1,3 +1,11 @@
+//**********************************************************************//
+// Project:	HaRiBO MU GameServer - Season 6								//
+// Company: RealCoderZ MU Development © 2010							//
+// Description: Game Shops & NPCs Structures							//
+// Coded & Modified By:	WolF & M.E.S									//
+//**********************************************************************//
+
+#include "StdAfx.h"
 
 #define MAX_SHOP		    50
 #define MAX_ITEM_IN_SHOP	120
@@ -17,7 +25,7 @@ public:
 
 	void Init();
 	BOOL LoadShopItem(char* Filename);
-	BOOL InsertItem(int Type, int Index, int Level, int Dur, BYTE Opt1, BYTE Opt2, BYTE Opt3, BYTE ExcOpt,int BuyMoney);
+	BOOL InsertItem(int Type, int Index, int Level, int Dur, BYTE Opt1, BYTE Opt2, BYTE Opt3, BYTE ExcOpt,BYTE Anc);
 	int InventoryMapCheck(int X, int Y, int Width, int Height);
 
 

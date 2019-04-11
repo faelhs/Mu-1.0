@@ -70,7 +70,14 @@ LPVOID CObjectPreview::Render(DWORD m_iMonsterID, DWORD Arg1, DWORD Arg3, DWORD 
 	// ----
 	switch (m_iMonsterID)
 	{
-		case 254:
+		case 201:
+	{
+			
+			lstrcpy(lpView->Name, "[NPC] ShopTest");
+			lpView->WingsSlot = ITEM(12, 5);
+
+	}
+		case 254: //passi the wizard
 		{
 			lpView->WingsSlot = ITEM(12, 4);
 			lpView->WeaponFirstSlot = ITEM(5, 10);
@@ -88,7 +95,7 @@ LPVOID CObjectPreview::Render(DWORD m_iMonsterID, DWORD Arg1, DWORD Arg3, DWORD 
 		}
 		break;
 
-			case 229:
+			case 229: //marlon
 		{
 			lpView->WeaponFirstSlot = ITEM(0, 31);
 			lpView->WeaponFirstLevel = 13;
@@ -222,7 +229,7 @@ LPVOID CObjectPreview::Render(DWORD m_iMonsterID, DWORD Arg1, DWORD Arg3, DWORD 
 	}
 	break;
 
-		case 249:
+		case 249: //npc quest lorencia
 		{
 			lpView->WeaponFirstSlot = ITEM(0, 19);
 			lpView->WeaponFirstLevel = 13;
@@ -252,7 +259,7 @@ LPVOID CObjectPreview::Render(DWORD m_iMonsterID, DWORD Arg1, DWORD Arg3, DWORD 
 			lpView->WingsSlot = ITEM(12, 5);
 		}
 		break;
-	case 257:
+	case 257: // diane a guardia
 		{
 			// ----
 			lpView->HelmSlot = ITEM(7, 19);
@@ -278,7 +285,7 @@ LPVOID CObjectPreview::Render(DWORD m_iMonsterID, DWORD Arg1, DWORD Arg3, DWORD 
 			lpView->WingsSlot = ITEM(12, 3);
 		}
 		break;
-	case 25:
+	case 25: //ice queen
 		{
 			lpView->fScalarMode = 1.0f;
 			// ----
@@ -314,6 +321,17 @@ int NewMonster_Switch(int MonsterIndex, int a2, int a3, int a4)
 	{
 		switch (MonsterIndex)
 		{
+
+			//=======================================
+			//-- CARGA NPC NUEVOS
+			//=======================================
+			case 201: // "New Mob 1" 
+			LoadMonsterBMD(100);// ejemplo monster97.bmd - 1 = 96
+			return LoadTextureMonster(a4, 419, a2, a3, 0); // 319 + 97 -1 = 415
+			break;
+			//=======================================
+			//-- CARGA Monster NUEVOS
+			//=======================================
 		case 304: // "New Mob 1" 
 			LoadMonsterBMD(93);// ejemplo monster97.bmd - 1 = 96
 			return LoadTextureMonster(a4, 412, a2, a3, 0); // 319 + 97 -1 = 415

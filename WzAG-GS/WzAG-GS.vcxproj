@@ -134,6 +134,7 @@
     <ClCompile Include="CashShop.cpp" />
     <ClCompile Include="Castle.cpp" />
     <ClCompile Include="Comandos.cpp" />
+    <ClCompile Include="CShopNPC.cpp" />
     <ClCompile Include="Customs.cpp" />
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="Display.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="CashShop.h" />
     <ClInclude Include="Castle.h" />
     <ClInclude Include="Comandos.h" />
+    <ClInclude Include="CShopNPC.h" />
     <ClInclude Include="Customs.h" />
     <ClInclude Include="Database.h" />
     <ClInclude Include="Display.h" />
@@ -209,6 +211,7 @@
     <ClInclude Include="Quest_Elf.h" />
     <ClInclude Include="Quest_Item_Reward.h" />
     <ClInclude Include="Quest_Loot.h" />
+    <ClInclude Include="ReadScript.h" />
     <ClInclude Include="Sorteio.h" />
     <ClInclude Include="Jewels.h" />
     <ClInclude Include="MagicInf.h" />

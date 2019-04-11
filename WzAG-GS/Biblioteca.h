@@ -780,14 +780,6 @@ struct Quest_User
 	int FreePoints;
 	int ClickNPC;
 };
-struct Quest_Elf
-{
-	int Quest_Num;
-	int Quest_kill;
-	int Quest_Start;
-	int FreePoints;
-	int ClickNPC;
-};
 struct Quest_Boss
 {
 	int Quest_Num;

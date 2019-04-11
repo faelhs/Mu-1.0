@@ -126,6 +126,11 @@ void Q_PGW_BOSS::Q_CreateStruct(int aIndex)
 	QuestBoss[aIndex].Quest_Start = Manager.QuestBoss_Start(gObj[aIndex].Name);
 	//-------------------------------------------------------------------------
 	QuestBoss[aIndex].FreePoints = Manager.LevelUpPoint(gObj[aIndex].Name);
+
+	if (QuestBoss[aIndex].Quest_kill < 0){QuestBoss[aIndex].Quest_kill = 0;}
+	if (QuestBoss[aIndex].Quest_Start < 0){QuestBoss[aIndex].Quest_Start = 0;}
+	if (QuestBoss[aIndex].Quest_Num < 0){QuestBoss[aIndex].Quest_Num = 0;}
+
 }
 
 void Q_PGW_BOSS::Q_NPC(int aIndex, int aNPC)
@@ -147,7 +152,7 @@ void Q_PGW_BOSS::Q_NPC(int aIndex, int aNPC)
 				{
 					ChatTargetSend(gObjNPC, "[Quest] Aceita!", aIndex);
 					QuestBoss[aIndex].Quest_Start = 1;
-					Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Boss_Start = 1 WHERE Name='%s'", lpObj->Name);
+					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Boss_Start = 1 WHERE Name='%s'", lpObj->Name);
 					MsgOutput(aIndex, "[Quest] Quest N: %d", QuestBoss[aIndex].Quest_Num + 1);
 					MsgOutput(aIndex, "[Quest] %s", Number[QuestBoss[aIndex].Quest_Num].msg);
 					MsgOutput(aIndex, "[Quest] Mate %s [%d/%d]", Number[QuestBoss[aIndex].Quest_Num].msg2, QuestBoss[aIndex].Quest_kill, Number[QuestBoss[aIndex].Quest_Num].Coun);
@@ -159,7 +164,7 @@ void Q_PGW_BOSS::Q_NPC(int aIndex, int aNPC)
 				else if (QuestBoss[aIndex].Quest_Num > 0 && lpObj->Level >= Number[QuestBoss[aIndex].Quest_Num].lvl && Custom[aIndex].Resets >= Number[QuestBoss[aIndex].Quest_Num].resets)
 				{
 					QuestBoss[aIndex].Quest_Start = 1;
-					Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Boss_Start = 1 WHERE Name='%s'", lpObj->Name);
+					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Boss_Start = 1 WHERE Name='%s'", lpObj->Name);
 					MsgOutput(aIndex, "[Quest] Quest N: %d", QuestBoss[aIndex].Quest_Num + 1);
 					MsgOutput(aIndex, "[Quest] %s", Number[QuestBoss[aIndex].Quest_Num].msg);
 					MsgOutput(aIndex, "[Quest] Mate %s [%d/%d]", Number[QuestBoss[aIndex].Quest_Num].msg2, QuestBoss[aIndex].Quest_kill, Number[QuestBoss[aIndex].Quest_Num].Coun);
@@ -208,9 +213,9 @@ void Q_PGW_BOSS::Q_NPC(int aIndex, int aNPC)
 					QuestBoss[aIndex].Quest_Num++;
 					QuestBoss[aIndex].Quest_kill = 0;
 					ChatTargetSend(gObjNPC, "Parabéns!", aIndex);
-					Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Boss_Start = 0 WHERE Name='%s'", lpObj->Name);
-					Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Boss_Kill = 0 WHERE Name='%s'", lpObj->Name);
-					Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Boss_Num = Quest__Boss_Num + 1 WHERE Name='%s'", lpObj->Name);
+					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Boss_Start = 0 WHERE Name='%s'", lpObj->Name);
+					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Boss_Kill = 0 WHERE Name='%s'", lpObj->Name);
+					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Boss_Num = Quest__Boss_Num + 1 WHERE Name='%s'", lpObj->Name);
 					return;
 				}
 				else
@@ -370,7 +375,3 @@ bool Q_PGW_BOSS::Presents(int aIndex, int Present, int Gifts)
 	return true;
 }
 
-void ClickNPCBoss(int aIndex, int aNPC)
-{
-	ClickOnNPC(aIndex, aNPC);
-}

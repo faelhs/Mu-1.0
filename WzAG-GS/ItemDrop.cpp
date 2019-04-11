@@ -43,6 +43,13 @@ int MapDropRateMonster(OBJECTSTRUCT * lpMonster, OBJECTSTRUCT * lpObject)
 {												
 	for (int i = 0; i < MapContadorDrops; i++)
 	{
+		if(DropItens[i].Level > 99){if(rand() % 100 < 3){DropItens[i].Level = rand() % 4;}}
+		if(DropItens[i].Luck > 99){if(rand() % 100 < 3){DropItens[i].Level = 1;}}
+		if(DropItens[i].Skill > 99){if(rand() % 100 < 3){DropItens[i].Level = 1;}}
+		if(DropItens[i].Opcao > 99){if(rand() % 100 < 3){DropItens[i].Level = rand() % 8;}}
+		if(DropItens[i].Excelente > 99){if(rand() % 100 < 2){DropItens[i].Level = rand() % 32;}}
+		if(DropItens[i].Ancient > 99){if(rand() % 100 < 2){DropItens[i].Level = rand() % 6;}}
+		
 		if(lpMonster->MapNumber == DropItens[i].Mapa && lpMonster->Class == DropItens[i].Mob) //ok
 		{
 			if ( DropItens[i].Rate == 10000)
@@ -94,13 +101,13 @@ int MapDropRateMonster(OBJECTSTRUCT * lpMonster, OBJECTSTRUCT * lpObject)
 			{
 				DWORD Item		= ITEMGET(DropItens[i].Tipo, DropItens[i].Index);
 				DWORD Damage	= gObjMonsterTopHitDamageUser(lpMonster);
-				ItemSerialCreateSend(lpMonster->m_Index,(DWORD)lpMonster->MapNumber,(DWORD)lpMonster->X, (DWORD)lpObject->Y, Item, DropItens[i].Level, (DWORD)DropItens[i].Luck, (DWORD)DropItens[i].Skill, (DWORD)DropItens[i].Durabilidade, (DWORD)DropItens[i].Opcao,Damage, (DWORD)DropItens[i].Excelente, (DWORD)DropItens[i].Ancient);	
+				func.ItemSerialCreateSendEx(lpMonster->m_Index,(DWORD)lpMonster->MapNumber,(DWORD)lpMonster->X, (DWORD)lpObject->Y, Item, DropItens[i].Level, (DWORD)DropItens[i].Luck, (DWORD)DropItens[i].Skill, (DWORD)DropItens[i].Durabilidade, (DWORD)DropItens[i].Opcao,Damage, (DWORD)DropItens[i].Excelente, (DWORD)DropItens[i].Ancient);	
 			}
 			if (rand() % 10000 < DropItens[i].Rate)
 			{
 				DWORD Item		= ITEMGET(DropItens[i].Tipo, DropItens[i].Index);
 				DWORD Damage	= gObjMonsterTopHitDamageUser(lpMonster);
-				ItemSerialCreateSend(lpMonster->m_Index,(DWORD)lpMonster->MapNumber,(DWORD)lpMonster->X, (DWORD)lpObject->Y, Item, DropItens[i].Level, (DWORD)DropItens[i].Luck, (DWORD)DropItens[i].Skill, (DWORD)DropItens[i].Durabilidade, (DWORD)DropItens[i].Opcao,Damage, (DWORD)DropItens[i].Excelente, (DWORD)DropItens[i].Ancient);	
+				func.ItemSerialCreateSendEx(lpMonster->m_Index,(DWORD)lpMonster->MapNumber,(DWORD)lpMonster->X, (DWORD)lpObject->Y, Item, DropItens[i].Level, (DWORD)DropItens[i].Luck, (DWORD)DropItens[i].Skill, (DWORD)DropItens[i].Durabilidade, (DWORD)DropItens[i].Opcao,Damage, (DWORD)DropItens[i].Excelente, (DWORD)DropItens[i].Ancient);	
 			}
 		}
 		

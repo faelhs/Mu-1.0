@@ -138,67 +138,10 @@ int CManager::CountMasters(char * Character)
 	return MResets;
 }
 
-int CManager::Quest_Num(char * Character)
-{
-	int Quest_Num;
-
-	this->ExecFormat("SELECT Quest_Num from Character WHERE Name = '%s'",Character);
-
-	this->Fetch( );
-
-	Quest_Num = this->GetInt("Quest_Num");
-
-	this->Clear( );
-
-	return Quest_Num;
-}
-int CManager::Quest_Kill(char * Character)
-{
-	int Quest_Kill;
-
-	this->ExecFormat("SELECT Quest_Kill from Character WHERE Name = '%s'", Character);
-
-	this->Fetch();
-
-	Quest_Kill = this->GetInt("Quest_Kill");
-
-	this->Clear();
-
-	return Quest_Kill;
-}
-
-int CManager::Quest_Start(char * Character)
-{
-	int Quest_Start;
-
-	this->ExecFormat("SELECT Quest_Start from Character WHERE Name = '%s'",Character);
-
-	this->Fetch( );
-
-	Quest_Start = this->GetInt("Quest_Start");
-
-	this->Clear( );
-
-	return Quest_Start; 
-}
-
-int CManager::QuestBoss_Start(char * Character)
-{
-	int Quest_Start;
-
-	this->ExecFormat("SELECT Quest_Boss_Start from Character WHERE Name = '%s'", Character);
-
-	this->Fetch();
-
-	Quest_Start = this->GetInt("Quest_Start");
-
-	this->Clear();
-
-	return Quest_Start;
-}
 void CManager::setpremiodia(char* Account, int dia) {
 	this->ExecFormat("UPDATE[MuOnline].[dbo].[MEMB_INFO] SET premiodia = %d WHERE memb___id = '%s'", dia, Account);
 }
+
 int CManager::getpremiodia(char* Account) {
 
 				int dia;
@@ -227,6 +170,66 @@ char* CManager::getpremiodata(char* Account) {
 		this->Clear();
 		return buff;
 }
+
+int CManager::Quest_Num(char * Character)
+{
+	int Quest_Num;
+
+	this->ExecFormat("SELECT Quest_Num from Character WHERE Name = '%s'",Character);
+
+	this->Fetch( );
+
+	Quest_Num = this->GetInt("Quest_Num");
+
+	this->Clear( );
+
+	return Quest_Num;
+}
+int CManager::Quest_Kill(char * Character)
+{
+	int Quest_Kill;
+
+	this->ExecFormat("SELECT Quest_Kill from Character WHERE Name = '%s'", Character);
+
+	this->Fetch();
+
+	Quest_Kill = this->GetInt("Quest_Kill");
+	if(Quest_Kill < 0){return 0;}
+	this->Clear();
+
+	return Quest_Kill;
+}
+
+int CManager::Quest_Start(char * Character)
+{
+	int Quest_Start;
+
+	this->ExecFormat("SELECT Quest_Start from Character WHERE Name = '%s'",Character);
+
+	this->Fetch( );
+
+	Quest_Start = this->GetInt("Quest_Start");
+
+	this->Clear( );
+
+	return Quest_Start; 
+}
+
+int CManager::QuestBoss_Start(char * Character)
+{
+	int Quest_Start;
+
+	this->ExecFormat("SELECT Quest_Boss_Start from Character WHERE Name = '%s'", Character);
+
+	this->Fetch();
+
+	Quest_Start = this->GetInt("Quest_Boss_Start");
+
+	this->Clear();
+
+	return Quest_Start;
+}
+
 int CManager::QuestBoss_Num(char * Character)
 {
 	int Quest_Num;
@@ -235,7 +238,7 @@ int CManager::QuestBoss_Num(char * Character)
 
 	this->Fetch();
 
-	Quest_Num = this->GetInt("Quest_Num");
+	Quest_Num = this->GetInt("Quest_Boss_Num");
 
 	this->Clear();
 
@@ -249,8 +252,8 @@ int CManager::QuestBoss_Kill(char * Character)
 
 	this->Fetch();
 
-	Quest_Kill = this->GetInt("Quest_Kill");
-
+	Quest_Kill = this->GetInt("Quest_Boss_Kill");
+	if(Quest_Kill < 0){return 0;}
 	this->Clear();
 
 	return Quest_Kill;
@@ -264,7 +267,7 @@ int CManager::QuestLoot_Start(char * Character)
 
 	this->Fetch();
 
-	Quest_Start = this->GetInt("Quest_Start");
+	Quest_Start = this->GetInt("Quest_Loot_Start");
 
 	this->Clear();
 
@@ -278,7 +281,7 @@ int CManager::QuestLoot_Num(char * Character)
 
 	this->Fetch();
 
-	Quest_Num = this->GetInt("Quest_Num");
+	Quest_Num = this->GetInt("Quest_Loot_Num");
 
 	this->Clear();
 
@@ -292,8 +295,8 @@ int CManager::QuestLoot_Kill(char * Character)
 
 	this->Fetch();
 
-	Quest_Kill = this->GetInt("Quest_Kill");
-
+	Quest_Kill = this->GetInt("Quest_Loot_Kill");
+	if(Quest_Kill < 0){return 0;}
 	this->Clear();
 
 	return Quest_Kill;
