@@ -78,6 +78,7 @@ IsNotZero:
 
 void Fixes()
 {
+	
 	// -  Nprotect GameGuard
 
 	func.SetRetn(0x401EF1);
@@ -317,6 +318,13 @@ void Fixes()
 	// - gObjGuildWarCheck
 
 	*(DWORD*)(0x4DB923+1) = 50000;
+
+	//--------------------------------------------------------------------
+	// # Juntar Potions
+	//--------------------------------------------------------------------
+
+	*(DWORD*)(0x4C9C58 + 2) = 0x612A52;//509408 0x00612A52
+	*(DWORD*)(0x4C9C65 + 6) = 0xFF;
 
 	// - Mensagem de dragões
 

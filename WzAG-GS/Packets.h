@@ -87,6 +87,22 @@ struct PMSG_SHOPITEMCOUNT
 	BYTE Type;
 	BYTE count;
 };
+struct PMSG_BUYREQUEST
+{
+	PBMSG_HEAD h;
+	unsigned char Pos;
+};/*
+struct PMSG_BUYRESULT
+{
+	PBMSG_HEAD h;	// C1:32
+	BYTE Result;	// 3
+	BYTE ItemInfo[MAX_ITEM_INFO];	// 4
+};*/
+struct PMSG_SELLREQUEST
+{
+	PBMSG_HEAD h;
+	unsigned char Pos;
+};
 struct PMSG_NOTICE
 {
 	PBMSG_HEAD h;

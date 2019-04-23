@@ -249,15 +249,15 @@ void Initialize()
 	
 	Monsters.Init();
 	ChkParametro();
-	//ProtectionMain();
+	ProtectionMain();
 	Customs();
 	Joias();
 	LoadAddons();
 	HookMiniMap();
 	ExperienceBar();
 	m_Glow	= LoadLibrary("./Data/Customs/Plugin/Glow.dll");
-	m_Cam	= LoadLibrary("./Data/Customs/Plugin/Camera.dll");
-	m_Min	= LoadLibrary("./Data/Customs/Plugin/Min.dll");
+	//m_Cam	= LoadLibrary("./Data/Customs/Plugin/Camera.dll");
+	//m_Min	= LoadLibrary("./Data/Customs/Plugin/Min.dll");
 	m_Keyboard = SetWindowsHookEx(WH_KEYBOARD,KeyboardHookProc,NULL,GetCurrentThreadId());
 }
 

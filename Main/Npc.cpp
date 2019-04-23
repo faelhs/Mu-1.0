@@ -73,7 +73,13 @@ LPVOID CObjectPreview::Render(DWORD m_iMonsterID, DWORD Arg1, DWORD Arg3, DWORD 
 		case 201:
 	{
 			
-			lstrcpy(lpView->Name, "[NPC] ShopTest");
+			lstrcpy(lpView->Name, "[NPC] QuestBoss");
+			lpView->WingsSlot = ITEM(12, 5);
+
+	}	case 202:
+	{
+			
+			lstrcpy(lpView->Name, "[NPC] QuestLoot");
 			lpView->WingsSlot = ITEM(12, 5);
 
 	}
@@ -325,7 +331,14 @@ int NewMonster_Switch(int MonsterIndex, int a2, int a3, int a4)
 			//=======================================
 			//-- CARGA NPC NUEVOS
 			//=======================================
-			case 201: // "New Mob 1" 
+			case 201: // "QuestBoss" 
+			LoadMonsterBMD(100);// ejemplo monster97.bmd - 1 = 96
+			return LoadTextureMonster(a4, 419, a2, a3, 0); // 319 + 97 -1 = 415
+			break;
+			//=======================================
+			//-- CARGA NPC NUEVOS
+			//=======================================
+			case 202: // "QuestLoot" 
 			LoadMonsterBMD(100);// ejemplo monster97.bmd - 1 = 96
 			return LoadTextureMonster(a4, 419, a2, a3, 0); // 319 + 97 -1 = 415
 			break;

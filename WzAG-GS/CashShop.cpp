@@ -14,7 +14,7 @@ CShop ShopL;
 
 void ReadyCashShop()
 {
-	//ShopL.ShopCont = 5;
+	ShopL.ShopCont = 3;
 //	HookThis((DWORD)&BuyRequest,0x4026B2);
 //	hook_proc(0x401B5E, (DWORD)(&ShopDataLoad),							0xE9);
 	func.HookThis((DWORD)&ShopDataLoad,0x004031DE);
@@ -131,7 +131,7 @@ BOOL CShop::InsertItem(int Type, int Index, int Level, int Dur, BYTE Opt1, BYTE 
 			}
 		}
 	}
-
+	
 }
 
 int CShop::InventoryMapCheck(int X, int Y, int Width, int Height)

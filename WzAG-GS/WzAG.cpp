@@ -146,11 +146,12 @@ extern "C" _declspec(dllexport)HANDLE AGSetInfo(int iCountryCode, unsigned char 
 			strcpy(szFileName[j], "..\\data\\");
 		}
 	}
-
+	char Monster[40] = {0};
 	strcat(szFileName[0], "lang\\Kor\\Item(Kor).txt");
 	strcat(szFileName[2], "lang\\Kor\\Skill(Kor).txt");
 	strcat(szFileName[4], "lang\\Kor\\Quest(Kor).txt");
-	strcat(szFileName[7], "Monsters\\Monster.txt");
+	GetPrivateProfileString("Monsters", "MONSTERINFO", "Monsters\\Monster.txt", Monster, 40, CFG_SVINFO);
+	strcat(szFileName[7], Monster);
 	strcat(szFileName[8], "Gate.txt");
 
 	if ( bIsGSServer == TRUE )
@@ -159,7 +160,9 @@ extern "C" _declspec(dllexport)HANDLE AGSetInfo(int iCountryCode, unsigned char 
 	}
 	else
 	{
-		strcat(szFileName[9], "Monsters\\MonsterSetBase.txt");
+		char Spot[40] = {0};
+		GetPrivateProfileString("Monsters", "MONSTERSPOT", "Monsters\\MonsterSetBase.txt", Spot, 40, CFG_SVINFO);
+		strcat(szFileName[9], Spot);
 	}
 
 	strcat(szFileName[11], "Shops\\Shop0.txt");

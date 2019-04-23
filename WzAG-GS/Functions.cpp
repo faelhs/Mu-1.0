@@ -345,6 +345,15 @@ void Functions::SaveQuest(int aIndex)
 	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Loot_Start = %d WHERE Name='%s'", QuestLoot[aIndex].Quest_Start, &gObj[aIndex].Name);
 	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Start = %d WHERE Name='%s'", QuestUser[aIndex].Quest_Start, &gObj[aIndex].Name);
 }
+void Functions::ResetQuest(int aIndex)
+{
+	QuestUser[aIndex].Quest_Num = 0;
+	QuestUser[aIndex].Quest_kill = 0;
+	QuestUser[aIndex].Quest_Start = 0;
+	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Num = %d WHERE Name='%s'", 0, &gObj[aIndex].Name);
+	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Start = 0 WHERE Name='%s'", gObj[aIndex].Name);
+	Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Kill = 0 WHERE Name='%s'", gObj[aIndex].Name);				
+}
 short Functions::gObjDelEx(int aIndex)
 {
 	Duel.Quit(&gObj[aIndex]);
@@ -856,7 +865,7 @@ void Functions::CGTalkRequestRecv(PMSG_TALKREQUEST* lpMsg, int aIndex)
 		return;
 	}
 
-	if (!Func.gObjIsConnectedGP(aIndex))
+	if (!func.gObjIsConnectedGP(aIndex))
 	{
 		return;
 	}
@@ -890,7 +899,7 @@ void Functions::CGTalkRequestRecv(PMSG_TALKREQUEST* lpMsg, int aIndex)
 		}
 	}
 
-	Func.gObjFixInventoryPointer(&gObj[aIndex]);
+	func.gObjFixInventoryPointer(&gObj[aIndex]);
 
 	PMSG_TALKRESULT pMsg;
 	BYTE bRand;
@@ -957,11 +966,11 @@ void Functions::CGTalkRequestRecv(PMSG_TALKREQUEST* lpMsg, int aIndex)
 			{
 				if (bRand != 0)
 				{
-					ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 119)), aIndex);
+					ChatTargetSend(&gObj[DealerNumber], func.lMsgGet(MSGGET(4, 119)), aIndex);
 				}
 				else
 				{
-					ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 120)), aIndex);
+					ChatTargetSend(&gObj[DealerNumber], func.lMsgGet(MSGGET(4, 120)), aIndex);
 				}
 
 				return;
@@ -971,11 +980,11 @@ void Functions::CGTalkRequestRecv(PMSG_TALKREQUEST* lpMsg, int aIndex)
 			{
 				if (bRand != 0)
 				{
-					ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 121)), aIndex);
+					ChatTargetSend(&gObj[DealerNumber], func.lMsgGet(MSGGET(4, 121)), aIndex);
 				}
 				else
 				{
-					ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 122)), aIndex);
+					ChatTargetSend(&gObj[DealerNumber], func.lMsgGet(MSGGET(4, 122)), aIndex);
 				}
 
 				return;
@@ -989,14 +998,14 @@ void Functions::CGTalkRequestRecv(PMSG_TALKREQUEST* lpMsg, int aIndex)
 				{
 					if (*(gMerryXMasNpcEvent) == 1)
 					{
-						ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 123)), aIndex);
+						ChatTargetSend(&gObj[DealerNumber], func.lMsgGet(MSGGET(4, 123)), aIndex);
 					}
 				} break;
 			case 1:
 				{
 					if (*(gHappyNewYearNpcEvent) == 1)
 					{
-						ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 124)), aIndex);
+						ChatTargetSend(&gObj[DealerNumber], func.lMsgGet(MSGGET(4, 124)), aIndex);
 					}
 				} break;
 			}
@@ -1039,14 +1048,14 @@ void Functions::CGTalkRequestRecv(PMSG_TALKREQUEST* lpMsg, int aIndex)
 			{
 				if (*(gMerryXMasNpcEvent) == 1)
 				{
-					ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 123)), aIndex);
+					ChatTargetSend(&gObj[DealerNumber], func.lMsgGet(MSGGET(4, 123)), aIndex);
 				}
 			} break;
 		case 1:
 			{
 				if (*(gHappyNewYearNpcEvent) == 1)
 				{
-					ChatTargetSend(&gObj[DealerNumber], Func.lMsgGet(MSGGET(4, 124)), aIndex);
+					ChatTargetSend(&gObj[DealerNumber], func.lMsgGet(MSGGET(4, 124)), aIndex);
 				}
 			} break;
 		}
@@ -1122,7 +1131,7 @@ void Functions::CGBuyRequestRecv(PMSG_BUYREQUEST* lpMsg, int aIndex)
 		return;
 	}
 	
-	Func.gObjFixInventoryPointer(&gObj[aIndex]);
+	func.gObjFixInventoryPointer(&gObj[aIndex]);
 
 	if (gObj[aIndex].m_ShopTime == 0)
 	{

@@ -302,20 +302,6 @@ int CManager::QuestLoot_Kill(char * Character)
 	return Quest_Kill;
 }
 
-int CManager::LevelUpPoint(char * Character)
-{
-	int LevelUpPoint;
-
-	this->ExecFormat("SELECT LevelUpPoint from Character WHERE Name = '%s'",Character);
-
-	this->Fetch( );
-
-	LevelUpPoint = this->GetInt("LevelUpPoint");
-
-	this->Clear( );
-
-	return LevelUpPoint;
-}
 /*
 bool CManager::ChangeName(char* Account, char* Character, char* NewName){
 	char* query = ("SELECT Name from Character WHERE Name = '%s'", Character);

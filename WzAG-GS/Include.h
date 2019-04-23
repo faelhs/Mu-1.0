@@ -112,8 +112,8 @@
 //NPCS
 #define NPC_Quest						249
 #define NPC_Quest_Elf					247
-#define NPC_Quest_Boss					239
-#define NPC_Quest_Loot					253
+#define NPC_Quest_Boss					201
+#define NPC_Quest_Loot					202
 #define NPC_Helper						234	
 #define NPC_Gowter						236
 void Loaddll();

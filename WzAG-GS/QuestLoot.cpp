@@ -55,6 +55,15 @@ void Q_PGW_LOOT::Q_Num()
 		Number[i].proc = 0;
 		Number[i].rew = 0;
 		Number[i].gift = 0;
+		Number[i].Zen = 0;
+		Number[i].exp = 0;
+		Number[i].lvl =0;
+		Number[i].resets = 0;
+		Number[i].teleport = 0;
+		Number[i].map = 0;
+		Number[i].x = 0;
+		Number[i].y = 0;
+		Number[i].reqmap = 0;
 		Number[i].msg[0] = NULL;
 		Number[i].msg2[0] = NULL;
 		Number[i].msg3[0] = NULL;
@@ -86,7 +95,7 @@ void Q_PGW_LOOT::Q_Load()
 
 		if (Flag == 1)
 		{
-			int n[10];
+			int n[14];
 			char mes[100];
 			char mes2[100];
 			char mes3[100];
@@ -125,7 +134,6 @@ void Q_PGW_LOOT::Q_CreateStruct(int aIndex)
 	//-------------------------------------------------------------------------
 	QuestLoot[aIndex].Quest_Start = Manager.QuestLoot_Start(gObj[aIndex].Name);
 	//-------------------------------------------------------------------------
-	QuestLoot[aIndex].FreePoints = Manager.LevelUpPoint(gObj[aIndex].Name);
 	
 	if (QuestLoot[aIndex].Quest_kill < 0){QuestLoot[aIndex].Quest_kill = 0;}
 	if (QuestLoot[aIndex].Quest_Num < 0){QuestLoot[aIndex].Quest_Num = 0;}

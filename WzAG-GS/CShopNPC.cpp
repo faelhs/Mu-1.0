@@ -7,20 +7,21 @@ void CShopNPC::Load(){
 		BYTE Map   = 0;
 
 		this->_index	 = gObjAddMonster(Map);
-		this->_shopNumber = 1;
+		this->_shopNumber = 13;
 		
-			X= 130;
-			Y= 130;
+			X= 139;
+			Y= 139;
 			
 			gObjSetMonster(this->_index, 201);
 			OBJECTSTRUCT* lpNpc = &gObj[this->_index];
 			lpNpc->Class                    = 201;
+			lpNpc->Type                     = 3;
 			lpNpc->MapNumber                = Map;
 			lpNpc->X                        = X;
 			lpNpc->Y                        = Y;
 			lpNpc->Dir						= (rand() % 7);
 			//lpNpc->m_RecallMon				= this->_index;
-			//lpNpc->TargetNumber				= -1;
+			lpNpc->TargetNumber				= -1;
 			lpNpc->TX						= lpNpc->X;
 			lpNpc->TY						= lpNpc->Y;
 			lpNpc->MTX						= lpNpc->X;

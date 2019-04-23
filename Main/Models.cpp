@@ -3,16 +3,16 @@
 //=======================================================================================================================
 // Model Loader folder Jewels
 //=======================================================================================================================
-char* CustomzFolderJewels = "Custom\\Jewels\\";
-char* WaytoCustomzJewels = "Data\\Custom\\Jewels\\";
+char* CustomzFolderJewels = "Customs\\Jewels\\";
+char* WaytoCustomzJewels = "Data\\Customs\\Jewels\\";
 //=======================================================================================================================
 // Model Loader folder Boxs
 //=======================================================================================================================
 char* CustomzFolderBox = "Custom\\Boxs\\";
 char* WaytoCustomzBox = "Data\\Custom\\Boxs\\";
 //=======================================================================================================================
-char* CustomzFolderAlas = "Data\\Custom\\alas\\";
-char* WaytoCustomzAlas = "Custom\\alas\\";
+char* CustomzFolderAlas = "Data\\Customs\\Asas\\";
+char* WaytoCustomzAlas = "Customs\\Asas\\";
 
 int Flag = 2;
 
@@ -50,22 +50,23 @@ __declspec(naked) void PatchMainForLoadModels()
 //============================================================================
 // Custom Conditional BMD de Box
 //============================================================================
-	LoadThisFuckingModelByITEMID(ITEM(12,25), "BoxGreen", CustomzFolderBox, WaytoCustomzBox);
-	LoadThisFuckingModelByITEMID(ITEM(12,26), "BoxPurple", CustomzFolderBox, WaytoCustomzBox);
-	LoadThisFuckingModelByITEMID(ITEM(12,27), "BoxRed", CustomzFolderBox, WaytoCustomzBox);
+	LoadThisFuckingModelByITEMID(ITEM(12,25), "JewelGreen",	CustomzFolderJewels, WaytoCustomzJewels);
+	LoadThisFuckingModelByITEMID(ITEM(12,26), "JewelOfDragon",	CustomzFolderJewels, WaytoCustomzJewels);
+	LoadThisFuckingModelByITEMID(ITEM(12,27), "JewelOfEternal", CustomzFolderJewels, WaytoCustomzJewels);
 //============================================================================
 // Custom Conditional BMD de Jewels
 //============================================================================
-	LoadThisFuckingModelByITEMID(ITEM(12,28), "JewelOfDragon",	CustomzFolderJewels, WaytoCustomzJewels);
-	LoadThisFuckingModelByITEMID(ITEM(14,27), "Jewel29",	CustomzFolderJewels, WaytoCustomzJewels);
-	LoadThisFuckingModelByITEMID(ITEM(14,30), "JewelGreen", CustomzFolderJewels, WaytoCustomzJewels);
+	LoadThisFuckingModelByITEMID(ITEM(12,28), "JewelOfLuck",	CustomzFolderJewels, WaytoCustomzJewels);
+	LoadThisFuckingModelByITEMID(ITEM(12,29), "JewelOfMystical",	CustomzFolderJewels, WaytoCustomzJewels);
+	LoadThisFuckingModelByITEMID(ITEM(14,27), "JewelOfRainbow",	CustomzFolderJewels, WaytoCustomzJewels);
+	LoadThisFuckingModelByITEMID(ITEM(14,30), "JewelOfSkill", CustomzFolderJewels, WaytoCustomzJewels);
 //============================================================================
 // Custom Conditional BMD de Jewels
 //============================================================================
-	LoadThisFuckingModelByITEMID(ITEM(15,134), "Wing04",	CustomzFolderAlas, WaytoCustomzAlas);
-	LoadThisFuckingModelByITEMID(ITEM(15,135), "Wing05",	CustomzFolderAlas, WaytoCustomzAlas);
-	LoadThisFuckingModelByITEMID(ITEM(15,136), "Wing06", CustomzFolderAlas, WaytoCustomzAlas);
-	LoadThisFuckingModelByITEMID(ITEM(15,137), "Wing07", CustomzFolderAlas, WaytoCustomzAlas);
+	LoadThisFuckingModelByITEMID(ITEM(15,19), "Wing04",	CustomzFolderAlas, WaytoCustomzAlas);
+	LoadThisFuckingModelByITEMID(ITEM(15,20), "Wing05",	CustomzFolderAlas, WaytoCustomzAlas);
+	LoadThisFuckingModelByITEMID(ITEM(15,21), "Wing06", CustomzFolderAlas, WaytoCustomzAlas);
+	LoadThisFuckingModelByITEMID(ITEM(15,22), "Wing07", CustomzFolderAlas, WaytoCustomzAlas);
 	_asm
 	{
 		PUSH -1								; /Arg4 = FFFFFFFF

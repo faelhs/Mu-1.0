@@ -154,7 +154,9 @@
 //#define gObjInventoryInsertItem             ((BYTE(*)(int aIndex, CItem item))0x004C60C0)
 #define gObjInventoryInsertItem             ((BYTE(*)(int aIndex, CItem item))0x004C5CA0)
 //#define gObjInventoryInsertItem             ((BYTE(*)(int aIndex, CItem item))0x004C59D0)
- 
+#define gObjInventoryTrans					((bool(*)(int aIndex)) 0x004C4B10)
+#define gObjItemTextSave					((void(*)(LPOBJ lpObj)) 0x004B70D0)
+#define gObjWarehouseTextSave				((void(*)(LPOBJ lpObj)) 0x004B7360)
 
 //-- CashShop - Offsets :)
 #define ItemGetSize						 ((void(*)(int Index, int &Width, int &Height))       0x004EC660)

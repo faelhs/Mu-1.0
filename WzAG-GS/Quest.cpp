@@ -55,6 +55,15 @@ void Q_PGW::Q_Num()
 		Number[i].proc = 0;
 		Number[i].rew = 0;
 		Number[i].gift = 0;
+		Number[i].Zen = 0;
+		Number[i].exp = 0;
+		Number[i].lvl =0;
+		Number[i].resets = 0;
+		Number[i].teleport = 0;
+		Number[i].map = 0;
+		Number[i].x = 0;
+		Number[i].y = 0;
+		Number[i].reqmap = 0;
 		Number[i].msg[0] = NULL;
 		Number[i].msg2[0] = NULL;
 		Number[i].msg3[0] = NULL;
@@ -64,13 +73,12 @@ void Q_PGW::Q_Num()
 void Q_PGW::Q_Load()
 {
 	Qest_PGW.Config();
-
 	Q_Num();
 	FILE *file;
-	file = fopen(CFG_QUEST,"r");
-	if(file == NULL)
+	file = fopen(CFG_QUEST, "r");
+	if (file == NULL)
 	{
-		MessageBoxA(0, CFG_QUEST,"CRITICAL ERROR",0);
+		MessageBoxA(0, CFG_QUEST, "CRITICAL ERROR", 0);
 		ExitProcess(1);
 		return;
 	}
@@ -78,35 +86,35 @@ void Q_PGW::Q_Load()
 	int Flag = 0;
 	Count = 0;
 
-	while(!feof(file))
+	while (!feof(file))
 	{
-		fgets(Buff,256,file);
+		fgets(Buff, 256, file);
 
 		if (IsBadFileLine(Buff, Flag)) continue;
-		
-		if(Flag == 1)
+
+		if (Flag == 1)
 		{
-			int n[10];
+			int n[14];
 			char mes[100];
 			char mes2[100];
 			char mes3[100];
 			//gets(mes);
 			sscanf(Buff, "%d %d %d %d %d %d %d %d %d %d %d %d %d %d \"%[^\"]\" \"%[^\"]\" \"%[^\"]\"", &n[0], &n[1], &n[2], &n[3], &n[4], &n[5], &n[6], &n[7], &n[8], &n[9], &n[10], &n[11], &n[12], &n[13], &mes, &mes2, &mes3);
-			Number[Count].Mob	 = n[0];
-			Number[Count].Coun	 = n[1];
-			Number[Count].proc	 = n[2];
-			Number[Count].rew	 = n[3];
-			Number[Count].gift	 = n[4];
-			Number[Count].Zen  = n[5];
-			Number[Count].exp	 = n[6];
-			Number[Count].lvl	 = n[7];
+			Number[Count].Mob = n[0];
+			Number[Count].Coun = n[1];
+			Number[Count].proc = n[2];
+			Number[Count].rew = n[3];
+			Number[Count].gift = n[4];
+			Number[Count].Zen = n[5];
+			Number[Count].exp = n[6];
+			Number[Count].lvl = n[7];
 			Number[Count].resets = n[8];
 			Number[Count].teleport = n[9];
 			Number[Count].map = n[10];
 			Number[Count].x = n[11];
 			Number[Count].y = n[12];
-			Number[Count].reqmap= n[13];
-			sprintf(Number[Count].msg,"%s",mes);
+			Number[Count].reqmap = n[13];
+			sprintf(Number[Count].msg, "%s", mes);
 			sprintf(Number[Count].msg2, "%s", mes2);
 			sprintf(Number[Count].msg3, "%s", mes3);
 			Count++;
@@ -125,9 +133,10 @@ void Q_PGW::Q_CreateStruct(int aIndex)
 	//-------------------------------------------------------------------------
 	QuestUser[aIndex].Quest_Start = Manager.Quest_Start(gObj[aIndex].Name);
 	//-------------------------------------------------------------------------
-	QuestUser[aIndex].FreePoints = Manager.LevelUpPoint(gObj[aIndex].Name); 
 
 	if (QuestUser[aIndex].Quest_kill < 0){QuestUser[aIndex].Quest_kill = 0;}
+	if (QuestUser[aIndex].Quest_Num < 0){QuestUser[aIndex].Quest_Num = 0;}
+	if (QuestUser[aIndex].Quest_Start < 0){QuestUser[aIndex].Quest_Start = 0;}
 }
 
 void Q_PGW::Q_NPC (int aIndex,int aNPC)

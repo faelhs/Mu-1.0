@@ -209,12 +209,7 @@ void cReset::InitExec(int aIndex)
 					gObjSetBP(aIndex);
 					gObj[aIndex].BP = gObj[aIndex].MaxBP;
 					gObj[aIndex].AddBP = 0;
-					QuestUser[aIndex].Quest_Num = 0;
-					QuestUser[aIndex].Quest_kill = 0;
-					QuestUser[aIndex].Quest_Start = 0;
-					Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Num = %d WHERE Name='%s'", 0, &gObj[aIndex].Name);
-					Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Start = 0 WHERE Name='%s'", gObj[aIndex].Name);
-					Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Kill = 0 WHERE Name='%s'", gObj[aIndex].Name);
+					func.ResetQuest(aIndex);
 					func.UpdateCharacter(aIndex, true);
 					func.MsgUser(aIndex,1,"Resetado com sucesso.");
 					func.MsgUser(aIndex, 1, "Resets: %d", Custom[aIndex].Resets);
