@@ -115,7 +115,7 @@ void Customs()
 
 	//memset((char*)0x617148, 0, 17);
 	//memcpy((char*)0x617148, "demoversion10ply", sizeof("demoversion10ply"));
-	//*(unsigned int*)(0x4F837B + 1) = 20;
+	//*(unsigned int*)(0x4F837B + 1) = 10;
 
 	// - Checksum
 
@@ -159,6 +159,8 @@ void Customs()
 	{
 		func.SetByte(0x4C07A8,0x90);
 		func.SetByte(0x4C07A9,0x90);
+		//func.SetByte(0x4DF789,0x90);
+		//func.SetByte(0x4DF78B,0x90);
 	}
 
 	// - Zen
@@ -169,46 +171,6 @@ void Customs()
 		*(BYTE*)(0x479540) = 0xC3;
 	}
 
-	// Event Bags
-	memcpy((char*)0x6179F0, "EventBags\\Bag1.txt", sizeof("EventBags\\Bag1.txt"));
-	memcpy((char*)0x6179D8, "EventBags\\Bag2.txt", sizeof("EventBags\\Bag2.txt"));
-	memcpy((char*)0x6179C0, "EventBags\\Bag3.txt", sizeof("EventBags\\Bag3.txt"));
-	memcpy((char*)0x6179A8, "EventBags\\Bag4.txt", sizeof("EventBags\\Bag4.txt"));
-	memcpy((char*)0x617990, "EventBags\\Bag5.txt", sizeof("EventBags\\Bag5.txt"));
-	memcpy((char*)0x617978, "EventBags\\Bag6.txt", sizeof("EventBags\\Bag6.txt"));
-	memcpy((char*)0x617960, "EventBags\\Bag7.txt", sizeof("EventBags\\Bag7.txt"));
-	memcpy((char*)0x617948, "EventBags\\Bag8.txt", sizeof("EventBags\\Bag8.txt"));
-	memcpy((char*)0x617930, "EventBags\\Bag9.txt", sizeof("EventBags\\Bag9.txt"));
-	memcpy((char*)0x617918, "EventBags\\Bag10.txt", sizeof("EventBags\\Bag10.txt"));
-	memcpy((char*)0x617900, "EventBags\\Bag11.txt", sizeof("EventBags\\Bag11.txt"));
-	memcpy((char*)0x6178E8, "EventBags\\Bag12.txt", sizeof("EventBags\\Bag12.txt"));
-	memcpy((char*)0x6178D0, "EventBags\\Bag13.txt", sizeof("EventBags\\Bag13.txt"));
-	memcpy((char*)0x6178B8, "EventBags\\Bag14.txt", sizeof("EventBags\\Bag14.txt"));
-	memcpy((char*)0x6178A0, "EventBags\\Bag15.txt", sizeof("EventBags\\Bag15.txt"));
-	//memcpy((char*)0x, "EventBags\\Bag16.txt", sizeof("EventBags\\Bag16.txt"));
-	memcpy((char*)0x617888, "EventBags\\Bag17.txt", sizeof("EventBags\\Bag17.txt"));
-	//memcpy((char*)0x, "EventBags\\Bag18.txt", sizeof("EventBags\\Bag18.txt"));
-	//memcpy((char*)0x, "EventBags\\Bag19.txt", sizeof("EventBags\\Bag19.txt"));
-
-
-	//Mapas
-	memcpy((char*)0x616804, "Maps\\Map1.att", sizeof("Maps\\Map1.att"));
-	memcpy((char*)0x6167F4, "Maps\\Map2.att", sizeof("Maps\\Map2.att"));
-	memcpy((char*)0x6167E4, "Maps\\Map3.att", sizeof("Maps\\Map3.att"));
-	memcpy((char*)0x6167D4, "Maps\\Map4.att", sizeof("Maps\\Map4.att"));
-	memcpy((char*)0x6167C4, "Maps\\Map5.att", sizeof("Maps\\Map5.att"));
-	memcpy((char*)0x6167B4, "Maps\\Map6.att", sizeof("Maps\\Map6.att"));
-	memcpy((char*)0x6167A4, "Maps\\Map7.att", sizeof("Maps\\Map7.att"));
-	memcpy((char*)0x616794, "Maps\\Map8.att", sizeof("Maps\\Map8.att"));
-	memcpy((char*)0x616784, "Maps\\Map9.att", sizeof("Maps\\Map9.att"));
-	memcpy((char*)0x616774, "Maps\\Map10.att", sizeof("Maps\\Map10.att"));
-	memcpy((char*)0x616764, "Maps\\Map11.att", sizeof("Maps\\Map11.att"));
-	memcpy((char*)0x616754, "Maps\\Map12.att", sizeof("Maps\\Map12.att"));
-	memcpy((char*)0x616744, "Maps\\Map19.att", sizeof("Maps\\Map19.att"));
-	memcpy((char*)0x616734, "Maps\\Map25.att", sizeof("Maps\\Map25.att"));
-	memcpy((char*)0x616724, "Maps\\Map31.att", sizeof("Maps\\Map31.att"));
-	memcpy((char*)0x616714, "Maps\\Map32.att", sizeof("Maps\\Map32.att"));
-	memcpy((char*)0x616704, "Maps\\Map33.att", sizeof("Maps\\Map33.att"));
 }
 char* RemoveChar(char* Input, char Character) //OK
 {

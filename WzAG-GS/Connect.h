@@ -20,9 +20,11 @@ public:
 
 private:
 	int Iniciante;
+	int MinResets;
 	int MaxResets;
 	int ServerVip;
 	int Type;
+	int Staff;
 
 	char Notice[8][160];
 

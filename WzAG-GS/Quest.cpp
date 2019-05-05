@@ -217,7 +217,7 @@ void Q_PGW::Q_NPC (int aIndex,int aNPC)
 
 					if(QuestUser[aIndex].Quest_Num == Count)
 					{
-						MsgOutput(aIndex,"[Quest] Finalzada");
+						MsgOutput(aIndex,"[Quest] Finalizada");
 						return;
 					}
 
@@ -252,9 +252,6 @@ void Q_PGW::KilledMob(int aIndex)
 {
 	Qest_PGW.Config();
 	OBJECTSTRUCT * lpObj = (OBJECTSTRUCT*)OBJECT_POINTER(aIndex);
-	int iRate = rand()%100+1;
-	if(iRate >= 0)
-	{			
 
 		if(QuestUser[aIndex].Quest_kill < Number[QuestUser[aIndex].Quest_Num].Coun)
 		{
@@ -269,7 +266,6 @@ void Q_PGW::KilledMob(int aIndex)
 
 			}
 		}
-	}
 }
 
 bool Q_PGW::Presents(int aIndex, int Present, int Gifts)

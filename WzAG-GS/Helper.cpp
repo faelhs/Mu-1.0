@@ -99,13 +99,14 @@ void Helper(OBJECTSTRUCT*lpObj, OBJECTSTRUCT* lpNpc)
 		}
 
 		Manager.ExecFormat("UPDATE [MuOnline].[dbo].[MEMB_INFO] SET helper = 1 Where memb___id = '%s'",lpObj->AccountID);
+		if(Resets > 0){
 		Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Resets = Resets + %d Where memb___id = '%s'",Resets,lpObj->Name);
-
-
+		}
+		if(Points >0){
 		lpObj->LevelUpPoint += Points;
 		func.UpdateCharacter(lpObj->m_Index,false);
 		func.LevelUPSend(lpObj->m_Index);
-
+		}
 		ChatTargetSend(lpNpc,"Parabéns Você foi Premiado",lpObj->m_Index);
 	}
 	else

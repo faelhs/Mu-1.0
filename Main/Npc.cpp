@@ -70,19 +70,7 @@ LPVOID CObjectPreview::Render(DWORD m_iMonsterID, DWORD Arg1, DWORD Arg3, DWORD 
 	// ----
 	switch (m_iMonsterID)
 	{
-		case 201:
-	{
-			
-			lstrcpy(lpView->Name, "[NPC] QuestBoss");
-			lpView->WingsSlot = ITEM(12, 5);
 
-	}	case 202:
-	{
-			
-			lstrcpy(lpView->Name, "[NPC] QuestLoot");
-			lpView->WingsSlot = ITEM(12, 5);
-
-	}
 		case 254: //passi the wizard
 		{
 			lpView->WingsSlot = ITEM(12, 4);

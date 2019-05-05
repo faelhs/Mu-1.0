@@ -210,6 +210,9 @@
     <Filter Include="[B&amp;W] Standard\MSSQL\Database">
       <UniqueIdentifier>{9b03cdff-e7c3-4b6f-a786-0c7f82483b3c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="[B&amp;W] Customs\Map">
+      <UniqueIdentifier>{15f0b019-6d13-4822-8fdc-176c69cad025}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WzAG.cpp">
@@ -379,6 +382,9 @@
     </ClCompile>
     <ClCompile Include="CShopNPC.cpp">
       <Filter>[B&amp;W] Customs\NPCSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Maps.cpp">
+      <Filter>[B&amp;W] Customs\Map</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -558,6 +564,9 @@
     </ClInclude>
     <ClInclude Include="ReadScript.h">
       <Filter>[B&amp;W] Standard\Plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="Maps.h">
+      <Filter>[B&amp;W] Customs\Map</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

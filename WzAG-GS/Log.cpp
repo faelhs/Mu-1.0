@@ -12,6 +12,7 @@
 
 void LogSystem::CustomLog(char * Text)
 {
+	return;
 	SYSTEMTIME now;
 	GetLocalTime(&now);
 

@@ -50,11 +50,20 @@ void Q_PGW_ELF::Q_Num()
 {
 	for (int i(0); i<1000; i++)
 	{
-		Number[i].Mob = 0;
+				Number[i].Mob = 0;
 		Number[i].Coun = 0;
 		Number[i].proc = 0;
 		Number[i].rew = 0;
 		Number[i].gift = 0;
+		Number[i].Zen = 0;
+		Number[i].exp = 0;
+		Number[i].lvl =0;
+		Number[i].resets = 0;
+		Number[i].teleport = 0;
+		Number[i].map = 0;
+		Number[i].x = 0;
+		Number[i].y = 0;
+		Number[i].reqmap = 0;
 		Number[i].msg[0] = NULL;
 		Number[i].msg2[0] = NULL;
 		Number[i].msg3[0] = NULL;
@@ -131,32 +140,32 @@ void Q_PGW_ELF::Q_NPC(int aIndex, int aNPC)
 			MsgOutput(aIndex, "Sua classe incia em lorencia.");
 			return;
 		}
-		if (QuestUser[aIndex].Quest_Num < Count)
+		if(QuestUser[aIndex].Quest_Num < Count)
 		{
 
-			if (QuestUser[aIndex].Quest_Start == 0)
+			if(QuestUser[aIndex].Quest_Start == 0)
 			{
-				if (QuestUser[aIndex].Quest_Num == 0 && lpObj->Level >= Number[QuestUser[aIndex].Quest_Num].lvl && Custom[aIndex].Resets >= Number[QuestUser[aIndex].Quest_Num].resets &&  lpObj->MapNumber == Number[QuestUser[aIndex].Quest_Num].reqmap)
+				if(QuestUser[aIndex].Quest_Num == 0 && lpObj->Level >= Number[QuestUser[aIndex].Quest_Num].lvl && Custom[aIndex].Resets >= Number[QuestUser[aIndex].Quest_Num].resets &&  lpObj->MapNumber == Number[QuestUser[aIndex].Quest_Num].reqmap)
 				{
-					ChatTargetSend(gObjNPC, "[Quest] Aceita!", aIndex);
+					ChatTargetSend(gObjNPC,"[Quest] Aceita!",aIndex);
 					QuestUser[aIndex].Quest_Start = 1;
 					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Start = 1 WHERE Name='%s'", lpObj->Name);
-					MsgOutput(aIndex, "[Quest] Quest N: %d", QuestUser[aIndex].Quest_Num + 1);
-					MsgOutput(aIndex, "[Quest] %s", Number[QuestUser[aIndex].Quest_Num].msg);
-					MsgOutput(aIndex, "[Quest] Mate %s [%d/%d]", Number[QuestUser[aIndex].Quest_Num].msg2, QuestUser[aIndex].Quest_kill, Number[QuestUser[aIndex].Quest_Num].Coun);
+					MsgOutput(aIndex,"[Quest] Quest N: %d",QuestUser[aIndex].Quest_Num+1);
+					MsgOutput(aIndex,"[Quest] %s",Number[QuestUser[aIndex].Quest_Num].msg);
+					MsgOutput(aIndex,"[Quest] Mate %s [%d/%d]",Number[QuestUser[aIndex].Quest_Num].msg2,QuestUser[aIndex].Quest_kill,Number[QuestUser[aIndex].Quest_Num].Coun);
 					if (Number[QuestUser[aIndex].Quest_Num].teleport > 0) {
 						gObjTeleport(gObj[aIndex].m_Index, Number[QuestUser[aIndex].Quest_Num].map, Number[QuestUser[aIndex].Quest_Num].x, Number[QuestUser[aIndex].Quest_Num].y);
 					}
 					return;
 				}
-				else if (QuestUser[aIndex].Quest_Num > 0 && lpObj->Level >= Number[QuestUser[aIndex].Quest_Num].lvl && Custom[aIndex].Resets >= Number[QuestUser[aIndex].Quest_Num].resets &&  lpObj->MapNumber == Number[QuestUser[aIndex].Quest_Num].reqmap)
+				else if(QuestUser[aIndex].Quest_Num > 0 && lpObj->Level >= Number[QuestUser[aIndex].Quest_Num].lvl && Custom[aIndex].Resets >= Number[QuestUser[aIndex].Quest_Num].resets &&  lpObj->MapNumber == Number[QuestUser[aIndex].Quest_Num].reqmap)
 				{
 					QuestUser[aIndex].Quest_Start = 1;
 					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Start = 1 WHERE Name='%s'", lpObj->Name);
-					MsgOutput(aIndex, "[Quest] Quest N: %d", QuestUser[aIndex].Quest_Num + 1);
-					MsgOutput(aIndex, "[Quest] %s", Number[QuestUser[aIndex].Quest_Num].msg);
-					MsgOutput(aIndex, "[Quest] Mate %s [%d/%d]", Number[QuestUser[aIndex].Quest_Num].msg2, QuestUser[aIndex].Quest_kill, Number[QuestUser[aIndex].Quest_Num].Coun);
-					ChatTargetSend(gObjNPC, "Complete essa nova Quest!", aIndex);
+					MsgOutput(aIndex,"[Quest] Quest N: %d",QuestUser[aIndex].Quest_Num+1);
+					MsgOutput(aIndex,"[Quest] %s",Number[QuestUser[aIndex].Quest_Num].msg);
+					MsgOutput(aIndex,"[Quest] Mate %s [%d/%d]",Number[QuestUser[aIndex].Quest_Num].msg2,QuestUser[aIndex].Quest_kill,Number[QuestUser[aIndex].Quest_Num].Coun);
+					ChatTargetSend(gObjNPC,"Complete essa nova Quest!",aIndex);
 					if (Number[QuestUser[aIndex].Quest_Num].teleport > 0) {
 						gObjTeleport(gObj[aIndex].m_Index, Number[QuestUser[aIndex].Quest_Num].map, Number[QuestUser[aIndex].Quest_Num].x, Number[QuestUser[aIndex].Quest_Num].y);
 					}
@@ -179,59 +188,55 @@ void Q_PGW_ELF::Q_NPC(int aIndex, int aNPC)
 					MsgOutput(aIndex, "Verifica esse erro...");
 				}
 			}
-			else if (QuestUser[aIndex].Quest_Start == 1)
+			else if(QuestUser[aIndex].Quest_Start == 1)
 			{
 
-				if (QuestUser[aIndex].Quest_kill == Number[QuestUser[aIndex].Quest_Num].Coun)
+				if(QuestUser[aIndex].Quest_kill == Number[QuestUser[aIndex].Quest_Num].Coun)
 				{
-					int ExQuest_gift = Presents(aIndex, Number[QuestUser[aIndex].Quest_Num].rew, Number[QuestUser[aIndex].Quest_Num].gift);
-					if (ExQuest_gift == false)
+					int ExQuest_gift = Qest_PGW.Presents(aIndex,Number[QuestUser[aIndex].Quest_Num].rew,Number[QuestUser[aIndex].Quest_Num].gift);
+					if(ExQuest_gift == false)
 					{
-						ChatTargetSend(gObjNPC, "Premiação desativada!", aIndex);
+						ChatTargetSend(gObjNPC,"Premiação desativada!",aIndex);
 						return;
 					}
 
-					if (QuestUser[aIndex].Quest_Num == Count)
+					if(QuestUser[aIndex].Quest_Num == Count)
 					{
-						MsgOutput(aIndex, "[Quest] Finalzada");
+						MsgOutput(aIndex,"[Quest] Finalzada");
 						return;
 					}
 
 					QuestUser[aIndex].Quest_Start = 0;
 					QuestUser[aIndex].Quest_Num++;
 					QuestUser[aIndex].Quest_kill = 0;
-					ChatTargetSend(gObjNPC, "Parabéns!", aIndex);
-					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Start = 0 WHERE Name='%s'", lpObj->Name);
+					ChatTargetSend(gObjNPC,"Parabéns!",aIndex);
+					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Start = 0 WHERE Name='%s'", lpObj->Name);		
 					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Kill = 0 WHERE Name='%s'", lpObj->Name);
 					//Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Quest_Num = Quest_Num + 1 WHERE Name='%s'", lpObj->Name);
 					return;
 				}
 				else
 				{
-					ChatTargetSend(gObjNPC, "Volte quando tiver terminado!", aIndex);
-					MsgOutput(aIndex, "[Quest] %s", Number[QuestUser[aIndex].Quest_Num].msg);
-					MsgOutput(aIndex, "[Quest] %s [%d/%d]", Number[QuestUser[aIndex].Quest_Num].msg2, QuestUser[aIndex].Quest_kill, Number[QuestUser[aIndex].Quest_Num].Coun);
+					ChatTargetSend(gObjNPC,"Volte quando tiver terminado!",aIndex);
+					MsgOutput(aIndex,"[Quest] %s",Number[QuestUser[aIndex].Quest_Num].msg);
+					MsgOutput(aIndex,"[Quest] %s [%d/%d]",Number[QuestUser[aIndex].Quest_Num].msg2,QuestUser[aIndex].Quest_kill,Number[QuestUser[aIndex].Quest_Num].Coun);
 					return;
 				}
 			}
 		}
 		else
 		{
-			ChatTargetSend(gObjNPC, "Você completou todas as Quest!", aIndex);
-			MsgOutput(aIndex, "Você completou todas as Quest");
+			ChatTargetSend(gObjNPC,"Você completou todas as Quest!",aIndex);
+			MsgOutput(aIndex,"Você completou todas as Quest");
 			return;
 		}
 	}
-
 }
 
 void Q_PGW_ELF::KilledMob(int aIndex)
 {
 	Qest_PGW.Config();
 	OBJECTSTRUCT * lpObj = (OBJECTSTRUCT*)OBJECT_POINTER(aIndex);
-	int iRate = rand() % 100 + 1;
-	if (iRate >= 0)
-	{
 
 		if (QuestUser[aIndex].Quest_kill < Number[QuestUser[aIndex].Quest_Num].Coun)
 		{
@@ -244,122 +249,5 @@ void Q_PGW_ELF::KilledMob(int aIndex)
 				func.MsgUser(aIndex, 0, "[Quest] Retorne ao NPC!");
 			}
 		}
-	}
-}
-
-bool Q_PGW_ELF::Presents(int aIndex, int Present, int Gifts)
-{
-	OBJECTSTRUCT * lpObj = (OBJECTSTRUCT*)OBJECT_POINTER(aIndex);
-
-	switch (Present)
-	{
-
-	case 1:
-	{
-		lpObj->LevelUpPoint += Gifts;
-		lpObj->Level += Number[QuestUser[aIndex].Quest_Num].exp;
-		if (lpObj->DbClass == DB_MAGIC_GLADIATOR || lpObj->DbClass == DB_DARK_LORD) {
-			lpObj->LevelUpPoint += Number[QuestUser[aIndex].Quest_Num].exp * 7;
-		}
-		else {
-			lpObj->LevelUpPoint += Number[QuestUser[aIndex].Quest_Num].exp * 5;
-		}
-		GCMoneySend(aIndex, lpObj->Money += Number[QuestUser[aIndex].Quest_Num].Zen);
-		func.UpdateCharacter(aIndex, false);
-		MsgOutput(aIndex, "[Quest] %s  Premiado com %d Points", lpObj->Name, Gifts);
-		if (Number[QuestUser[aIndex].Quest_Num].Zen > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Zen", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].Zen); }
-		if (Number[QuestUser[aIndex].Quest_Num].exp > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Level", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].exp); }
-		func.LevelUPSend(aIndex);
-	}
-	break;
-	case 2:
-	{
-		Manager.ExecFormat("UPDATE [MuOnline].[dbo].[Character] SET Resets = Resets + %d WHERE Name='%s'", lpObj->Name);
-		lpObj->Level += Number[QuestUser[aIndex].Quest_Num].exp;
-		if (lpObj->DbClass == DB_MAGIC_GLADIATOR || lpObj->DbClass == DB_DARK_LORD) {
-			lpObj->LevelUpPoint += Number[QuestUser[aIndex].Quest_Num].exp * 7;
-		}
-		else {
-			lpObj->LevelUpPoint += Number[QuestUser[aIndex].Quest_Num].exp * 5;
-		}
-		MsgOutput(aIndex, "[Quest] %s  Premiado com %d Resets", lpObj->Name, Gifts);
-		if (Number[QuestUser[aIndex].Quest_Num].Zen > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Zen", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].Zen); }
-		if (Number[QuestUser[aIndex].Quest_Num].exp > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Level", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].exp); }
-		GCMoneySend(aIndex, lpObj->Money += Number[QuestUser[aIndex].Quest_Num].Zen);
-		func.LevelUPSend(aIndex);
-
-	}
-	break;
-	case 3:
-	{
-		Manager.ExecFormat("UPDATE [MuOnline].[dbo].[MEMB_INFO] SET Gold = Gold + %d WHERE memb___id='%s'", lpObj->AccountID);
-		lpObj->Level += Number[QuestUser[aIndex].Quest_Num].exp;
-		if (lpObj->DbClass == DB_MAGIC_GLADIATOR || lpObj->DbClass == DB_DARK_LORD) {
-			lpObj->LevelUpPoint += Number[QuestUser[aIndex].Quest_Num].exp * 7;
-		}
-		else {
-			lpObj->LevelUpPoint += Number[QuestUser[aIndex].Quest_Num].exp * 5;
-		}
-		MsgOutput(aIndex, "[Quest] %s  Premiado com %d Golds", lpObj->Name, Gifts);
-		if (Number[QuestUser[aIndex].Quest_Num].Zen > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Zen", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].Zen); }
-		if (Number[QuestUser[aIndex].Quest_Num].exp > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Level", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].exp); }
-		GCMoneySend(aIndex, lpObj->Money += Number[QuestUser[aIndex].Quest_Num].Zen);
-		func.LevelUPSend(aIndex);
-	}
-	break;
-	case 4: {
-		char  str[20];
-		_itoa(Gifts, str, 10);
-		int qtd = 1;
-		char cmd[255] = "";
-		int index = 0;
-		int id = 0;
-		int lvl = 0;
-		int dur = 0;
-		int opt = 0;
-		int exc = 0;
-		int luck = 0;
-		int skill = 0;
-		int preco = 0;
-		bool existe = 0;
-		int saldo = 0;
-		int exib;
-		for (int x = 0; x < Quest_Item_RewardCount; x++)
-		{
-			if (!strcmp(Quest_Item_RewardInfo[x].itemnome, str) || !strcmp(Quest_Item_RewardInfo[x].itemexib, str))
-			{
-				exib = x;
-				index = Quest_Item_RewardInfo[x].itemindex;
-				id = Quest_Item_RewardInfo[x].itemid;
-				lvl = Quest_Item_RewardInfo[x].itemlvl;
-				dur = Quest_Item_RewardInfo[x].itemdur;
-				opt = Quest_Item_RewardInfo[x].itemopt;
-				exc = Quest_Item_RewardInfo[x].itemexc;
-				luck = Quest_Item_RewardInfo[x].itemluck;
-				skill = Quest_Item_RewardInfo[x].itemskill;
-				preco = Quest_Item_RewardInfo[x].itempreco;
-				existe = 1;
-			}
-		}
-		if (existe) {
-			sprintf(cmd, "%d %d %d %d %d %d %d %d", index, id, lvl, dur, skill, luck, opt, exc);
-			Command.makecomprar(aIndex, cmd, ("Quest Reward %s", Quest_Item_RewardInfo[exib].itemexib));
-			lpObj->Level += Number[QuestUser[aIndex].Quest_Num].exp;
-			if (lpObj->DbClass == DB_MAGIC_GLADIATOR || lpObj->DbClass == DB_DARK_LORD) {
-				lpObj->LevelUpPoint += Number[QuestUser[aIndex].Quest_Num].exp * 7;
-			}
-			else {
-				lpObj->LevelUpPoint += Number[QuestUser[aIndex].Quest_Num].exp * 5;
-			}
-			GCMoneySend(aIndex, lpObj->Money += Number[QuestUser[aIndex].Quest_Num].Zen);
-			MsgOutput(aIndex, "[Quest] %s  Premiado com %s ", lpObj->Name, Quest_Item_RewardInfo[exib].itemexib);
-			if (Number[QuestUser[aIndex].Quest_Num].Zen > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Zen", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].Zen); }
-			if (Number[QuestUser[aIndex].Quest_Num].exp > 0) { MsgOutput(aIndex, "[Quest] %s  Premiado com %d Level", lpObj->Name, Number[QuestUser[aIndex].Quest_Num].exp); }
-			func.LevelUPSend(aIndex);
-		}
-	}
-			break;
-	}
-
-	return true;
+	
 }

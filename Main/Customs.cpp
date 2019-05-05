@@ -215,6 +215,35 @@ void Customs()
 
 	BYTE ChatObtainedZenColor[] = { 0x6A, 0x01 };
 	WriteMemory( (PVOID) 0x004BD5C7, & ChatObtainedZenColor, sizeof( ChatObtainedZenColor ) );
+
+
+	//------------------------------------------------------------------------
+	// Resolution Fix widescreen
+	//------------------------------------------------------------------------
+	ScreenFix();
+}
+void ScreenFix()
+{
+HKEY hKey;
+DWORD buffer=0;
+LONG result;
+unsigned long type=REG_DWORD, size=1024;
+ 
+    result = RegOpenKeyEx(HKEY_CURRENT_USER,"software\\Webzen\\Mu\\Config",0,KEY_READ,&hKey);
+    if(result == ERROR_SUCCESS)
+    {
+       RegQueryValueEx(hKey,"WideScreenMode",NULL,&type,(LPBYTE)&buffer,&size);
+       RegCloseKey(hKey);
+    }
+	if(buffer == 1){
+		*(DWORD*)(0x4A750E+6)=0x500;
+		*(DWORD*)(0x4A7518+6)=0x2D0;
+		*(DWORD*)(0x4A7524+6)=0x556;
+		*(DWORD*)(0x4A752E+6)=0x300;
+		*(DWORD*)(0x4A854F+6)=0x500;
+		*(DWORD*)(0x4A855B+6)=0x556;
+	}
+
 }
 void ChkParametro()
 {
@@ -257,7 +286,7 @@ void Initialize()
 	ExperienceBar();
 	m_Glow	= LoadLibrary("./Data/Customs/Plugin/Glow.dll");
 	//m_Cam	= LoadLibrary("./Data/Customs/Plugin/Camera.dll");
-	//m_Min	= LoadLibrary("./Data/Customs/Plugin/Min.dll");
+	m_Min	= LoadLibrary("./Data/Customs/Plugin/Min.dll");
 	m_Keyboard = SetWindowsHookEx(WH_KEYBOARD,KeyboardHookProc,NULL,GetCurrentThreadId());
 }
 

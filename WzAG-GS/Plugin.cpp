@@ -85,7 +85,8 @@ void Loaddll()
 		func.HookThis((DWORD)&NpcShadowPhantomEx, 0x0040237E);
 		gLottery.Load();				//-- Cerrega sorteio.
 		Pdiario.load();					//-- Carrega premios do premio diario.
-		CShopnpc.Load();
+		//CShopnpc.Load();
+		//ReadyNewMaps();
 	}
 	else
 	{

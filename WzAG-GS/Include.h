@@ -68,6 +68,8 @@
 #include "CashShop.h"
 #include "CShopNPC.h"
 #include "ReadScript.h"
+#include "Maps.h"
+
 
 #define CFG_SVINFO					"./Data/ServerInfo.dat"
 #define CFG_GAMESERVER				"../DKData/Config.ini"
@@ -107,13 +109,13 @@
 #define CFG_PremioDiario			"../DKData/Premio_Diario.ini"
 #define CFG_Faccao					"../DKData/facção.ini"
 
-
+//MAPS
 
 //NPCS
 #define NPC_Quest						249
 #define NPC_Quest_Elf					247
-#define NPC_Quest_Boss					201
-#define NPC_Quest_Loot					202
+#define NPC_Quest_Boss					239
+#define NPC_Quest_Loot					253
 #define NPC_Helper						234	
 #define NPC_Gowter						236
 void Loaddll();

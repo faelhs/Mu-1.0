@@ -114,8 +114,8 @@ void LoadAddons()
 	{
 		HookOffset((DWORD)&Display, 0x0060B1C5, 0xE8);//ok
 
-		*Camera_ClipX = 1190;
-        *Camera_ClipY = 2400;
+		*Camera_ClipX = 3000;
+        *Camera_ClipY = 3000;
         *Camera_GlClip = 3000;
 		*Camera_ClipR = 1128;
 
@@ -166,9 +166,9 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam){
 			*Camera_RotZ	= -45;
 			*Camera_PosZ	= 150.0000;
 			*Camera_Zoom	= 35.00000;
-            *Camera_ClipX = 1190;
-            *Camera_ClipY = 2400;
-            *Camera_GlClip = 3000;
+           *Camera_ClipX = 3000;
+			*Camera_ClipY = 3000;
+			*Camera_GlClip = 3000;
 			*Camera_ClipR = 1128;
 		}
 

@@ -2632,8 +2632,9 @@ void Commands::Pet(int aIndex, char * msg) {
 			return;
 		}
 	}
-	else {
-		GCServerMsgStringSend("GM tem todos os pets", aIndex, 1);
+	else if (mob > 100 || mob < 0) {
+			GCServerMsgStringSend("Pets vão de 0 a 100", aIndex, 1);
+			return;
 	}
 	x = gObj[aIndex].X;
 	y = gObj[aIndex].Y;
@@ -2855,7 +2856,8 @@ void Commands::makecomprar(int aIndex, char * msg, char * itemname)
 		sscanf_s(msg, "%d %d %d %d %d %d %d %d %d", &ItemType, &ItemNr, &ItemLevel, &ItemDur, &ItemSkill, &ItemLuck, &ItemOpt, &ItemExc, &ItemAnc);
 
 		DWORD Item = ItemType * 32 + ItemNr;
-		func.ItemSerialCreateSendEx(aIndex, 235, 0, 0, Item, ItemLevel, ItemDur, ItemSkill, ItemLuck, ItemOpt, -1, ItemExc, ItemAnc);
+		//func.ItemSerialCreateSendEx(aIndex, 235, 0, 0, Item, ItemLevel, ItemDur, ItemSkill, ItemLuck, ItemOpt, -1, ItemExc, ItemAnc);
+		ItemSerialCreateSend(aIndex, 235, 0, 0, Item, ItemLevel, ItemDur, ItemSkill, ItemLuck, ItemOpt, -1, ItemExc, ItemAnc);
 		char log[255];
 		sprintf(log, "Comprou o item %s %d %d %d %d %d %d %d %d %d",itemname, ItemType, ItemNr, ItemLevel, ItemDur, ItemSkill, ItemLuck, ItemOpt, ItemExc, ItemAnc);
 		LogSystem::DKLog(gObj[aIndex].Name, log);

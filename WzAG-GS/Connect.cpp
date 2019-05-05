@@ -82,23 +82,31 @@ void ConnectServer::GameMasterConnect(int aIndex)
 
 void ConnectServer::ServerType(int aIndex)
 {
-	this->Iniciante = GetPrivateProfileInt("Iniciante","Active Sala Iniciante",0,CFG_GAMESERVER);
-	this->MaxResets = GetPrivateProfileInt("Iniciante","Max Resets",0,CFG_GAMESERVER);
-	this->ServerVip = GetPrivateProfileInt("Vip","Active Sala Vip",0,CFG_GAMESERVER);
-	this->Type = GetPrivateProfileInt("Vip","Server Type",0,CFG_GAMESERVER);
+	this->Iniciante = GetPrivateProfileInt("ConnectControl","Ativo",0,CFG_SVINFO);
+	this->MinResets = GetPrivateProfileInt("ConnectControl","MinResets",0,CFG_SVINFO);
+	this->MaxResets = GetPrivateProfileInt("ConnectControl","MaxResets",0,CFG_SVINFO);
+	this->ServerVip = GetPrivateProfileInt("ConnectControl","SomenteVip",0,CFG_SVINFO);
+	this->Type =	  GetPrivateProfileInt("ConnectControl","VipLvl",0,CFG_SVINFO);
+	this->Staff =	  GetPrivateProfileInt("ConnectControl","SomenteStaff",0,CFG_SVINFO);
 
 
-	if(this->Iniciante == 1)
+	if(this->Iniciante > 0)
 	{
-		if(Custom[aIndex].Resets > this->MaxResets)
+		if(Custom[aIndex].Resets > this->MaxResets || Custom[aIndex].Resets < this->MinResets)
 		{
-			func.MsgUser(aIndex,1,"[%s] Servidor exclusivo para iniciantes!",gObj[aIndex].Name);
+			func.MsgUser(aIndex,1,"[%s] Servidor para [%d-%d] Resets!",gObj[aIndex].Name,this->MinResets,this->MaxResets);
 			gObjCloseSet(aIndex,2);
 			return;
 		}
 	}
-
-	if(this->ServerVip == 1)
+	if(this->Staff > 0){
+		if(gObj[aIndex].AuthorityCode < 8){
+			func.MsgUser(aIndex,1,"[%s] Servidor para Staff",gObj[aIndex].Name);
+			gObjCloseSet(aIndex,2);
+			return;
+		}
+	}
+	if(this->ServerVip > 0)
 	{
 		if(Custom[aIndex].VipIndex < this->Type)
 		{

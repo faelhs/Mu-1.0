@@ -1,6 +1,7 @@
 #pragma once
 
 void Customs();
+void ScreenFix();
 void ChkParametro();
 void Initialize();
 void Finalize();
