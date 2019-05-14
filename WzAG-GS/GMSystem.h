@@ -23,6 +23,8 @@ typedef struct GMSystem
 	int GMSetQuest;
 	int GMSpawn;
 	int GMJail;
+	int GMSorteio;
+	int GMEvent;
 
 }GMSYSTEM;
 

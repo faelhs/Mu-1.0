@@ -328,7 +328,17 @@ struct PLAYERSTRUCT
    int jail;
    int jaula;
 };
-
+struct PARTY_STRUCT
+{
+	int		Count;
+	int		Number[MAX_USER_IN_PARTY];
+	int		DbNumber[MAX_USER_IN_PARTY];
+	short	m_MaxLevel;
+	short	m_MinLevel;
+	char	m_UserPKLevel[MAX_USER_IN_PARTY];
+	char	m_PKPartyLevel;
+	int		m_nPKUserCount;
+};
 struct OBJECTSTRUCT
 {
 	/*<thisrel this+0x0>*/ /*|0x4|*/ int m_Index;

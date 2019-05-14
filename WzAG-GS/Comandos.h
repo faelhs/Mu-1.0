@@ -54,6 +54,9 @@ public:
 	void Goto(int aIndex, char * msg);
 	void Recall(int aIndex, char * msg);
 	void Jail(int aIndex, char * msg,int type);
+	void Dice(int aIndex);
+	void ComandoSortear(int aIndex);
+	void EventStart(int aIndex, char * msg); 
 		
 private:
 	bool					_Active[50];

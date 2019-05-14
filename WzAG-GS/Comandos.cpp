@@ -191,6 +191,18 @@ bool Commands::Load()
 	GetPrivateProfileString("Comando Jail", "Sintax Jail", "/jail", this->_Syntax[55], 25, CFG_COMMAND);
 	GetPrivateProfileString("Comando Jail", "Sintax UnJail", "/unjail", this->_Syntax[56], 25, CFG_COMMAND);
 
+	this->_Active[30] = GetPrivateProfileInt("Comando Dice", "Active", 1, CFG_COMMAND) > 0 ? true : false;
+	GetPrivateProfileString("Comando Dice", "Sintax", "/dice", this->_Syntax[57], 25, CFG_COMMAND);
+	this->_Vip[30] = GetPrivateProfileInt("Comando Dice", "NeedVip", 1, CFG_COMMAND);
+	this->_Level[30] = GetPrivateProfileInt("Comando Dice", "NeedLevel", 1, CFG_COMMAND);
+	this->_Zen[30] = GetPrivateProfileInt("Comando Dice", "NeedZen", 0, CFG_COMMAND);
+	
+	this->_Active[31] = GetPrivateProfileInt("Comando Sortear", "Active", 1, CFG_COMMAND) > 0 ? true : false;
+	GetPrivateProfileString("Comando Sortear", "Sintax", "/sortear", this->_Syntax[58], 25, CFG_COMMAND);
+
+	this->_Active[32] = GetPrivateProfileInt("Comando EventStart", "Active", 1, CFG_COMMAND) > 0 ? true : false;
+	GetPrivateProfileString("Comando EventStart", "Sintax", "/event", this->_Syntax[59], 25, CFG_COMMAND);
+
 	return true;
 }
 
@@ -594,6 +606,21 @@ bool Commands::ChatRecv(PMSG_CHATDATA * lpMsg, int aIndex)
 	if (!_memicmp(lpMsg->message, this->_Syntax[56], strlen(this->_Syntax[56])))
 	{
 		Jail(aIndex, (char*)(lpMsg->message + strlen(this->_Syntax[56])), 2);
+		return true;
+	}
+	if (!_memicmp(lpMsg->message, this->_Syntax[57], strlen(this->_Syntax[57])))
+	{
+		Dice(aIndex);
+		return true;
+	}
+	if (!_memicmp(lpMsg->message, this->_Syntax[58], strlen(this->_Syntax[58])))
+	{
+		ComandoSortear(aIndex);
+		return true;
+	}
+	if (!_memicmp(lpMsg->message, this->_Syntax[59], strlen(this->_Syntax[59])))
+	{
+		EventStart(aIndex, (char*)(lpMsg->message + strlen(this->_Syntax[59])));
 		return true;
 	}
 	return false;
@@ -1265,7 +1292,31 @@ void Commands::Classe(unsigned short aIndex, char * String, BYTE Tipo)
 	gObj[aIndex].CloseType  = 1;
 	gObj[aIndex].CloseCount = 1;
 }
-
+void Commands::Dice(int aIndex){
+	if (!this->_Active[30])
+	{
+		func.MsgUser(aIndex, 1, "Comando Desligado.");
+		return;
+	}
+	else if(gObj[aIndex].Money < this->_Zen[57])
+	{
+		func.MsgUser(aIndex,1,"Você não possui Zen %d", this->_Zen[9]);
+		return;
+	}
+	else if (this->_Vip[57] == 1)
+	{
+		if(Custom[aIndex].VipIndex < 1)
+		{
+			func.MsgUser(aIndex,1,"Somente Vips");
+			return;
+		}
+	}
+	char msg[25];
+	int Dice = rand() % 5;
+	Dice++;
+	sprintf(msg,"Dados: %d",Dice);
+	func.GreenChatSend(gObj[aIndex].Name,msg,aIndex);
+}
 //===================================================================================
 // [#] - Comandos Game Master
 //===================================================================================
@@ -2811,8 +2862,107 @@ void Commands::StormCommand(int aIndex)
 	LogSystem::DKLog(gObj[aIndex].Name, "Usou storm");
 }
 
-//Função adicional
 
+void Commands::ComandoSortear(int aIndex) {
+	if (!this->_Active[31])
+	{
+		func.MsgUser(aIndex, 1, "Comando Desligado..");
+		return;
+	}
+		
+		else
+		{
+			int SorteioGM = 0;
+			for (int x = 1; x < GMSystemCount; x++)
+			{
+				if ( !strcmp(GMSystemInfo[x].Name, gObj[aIndex].Name ) || !strcmp(GMSystemInfo[x].Name, Custom[aIndex].OriName))
+				{
+					SorteioGM = GMSystemInfo[x].GMSorteio;
+				}
+			}
+
+			if (gObj[aIndex].AuthorityCode < 1)
+			{
+				func.MsgUser(aIndex, 1, "Exclusivo apenas para gamemaster.");
+				return;
+			}
+
+			if (SorteioGM == 0)
+			{
+				GCServerMsgStringSend("Seu [GM] Não pode usar esse Comando !!", aIndex, 1);
+				return;
+			}
+		}
+	int pRecv[1000];
+	int iTarget = 0;
+	// ---
+	for(int i = OBJ_STARTUSERINDEX; i < OBJECT_MAX; i++)
+	{
+		if(gObj[i].Connected >= 3)
+		{
+			pRecv[iTarget++] = i;
+		}
+	}
+	// ---
+	if(iTarget > 0)
+	{
+		int Index = rand() % iTarget;
+		int Target = pRecv[Index];
+		func.MsgAllUser(0, "%s Sorteou %s.",gObj[aIndex].Name, gObj[Target].Name);
+	}
+}
+
+
+void Commands::EventStart(int aIndex, char * msg) {
+	
+	if (!this->_Active[32])
+	{
+		func.MsgUser(aIndex, 1, "Comando Desligado..");
+		return;
+	}
+		
+		else
+		{
+			int EventGM = 0;
+			for (int x = 1; x < GMSystemCount; x++)
+			{
+				if ( !strcmp(GMSystemInfo[x].Name, gObj[aIndex].Name ) || !strcmp(GMSystemInfo[x].Name, Custom[aIndex].OriName))
+				{
+					EventGM = GMSystemInfo[x].GMEvent;
+				}
+			}
+
+			if (gObj[aIndex].AuthorityCode < 1)
+			{
+				func.MsgUser(aIndex, 1, "Exclusivo apenas para gamemaster.");
+				return;
+			}
+
+			if (EventGM == 0)
+			{
+				GCServerMsgStringSend("Seu [GM] Não pode usar esse Comando !!", aIndex, 1);
+				return;
+			}
+		}
+	int Event = atoi(msg);
+	switch(Event){
+	case 1: DevilRun();
+		break;
+	case 2: BCRun();
+		break;
+	case 3: CCRun();
+		break;
+	default: {
+				func.MsgUser(aIndex, 1, "User /EventStart nº");
+				func.MsgUser(aIndex, 1, "1 = Devil Square");
+				func.MsgUser(aIndex, 1, "2 = BloodCastle");
+				func.MsgUser(aIndex, 1, "3 = Chaos Castle");
+			 }
+		break;
+	}
+}
+
+//Função adicional
 int Commands::calcset(char * setname) {
 	
 	if (strcmp(setname,"dragon")==0) { return this->dragon; }

@@ -30,7 +30,7 @@ void ReadGMSystem()
 		int n[20];
 		char GetGMName[11];
 
-		sscanf(sLineTxt, "%s %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d", &GetGMName,&n[1],&n[2],&n[3],&n[4],&n[5],&n[6],&n[7],&n[8],&n[9],&n[10],&n[11],&n[12], &n[13], &n[14], &n[15],&n[16]);
+		sscanf(sLineTxt, "%s %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d", &GetGMName,&n[1],&n[2],&n[3],&n[4],&n[5],&n[6],&n[7],&n[8],&n[9],&n[10],&n[11],&n[12], &n[13], &n[14], &n[15],&n[16],&n[17],&n[18]);
 		sprintf(GMSystemInfo[GMSystemCount].Name,"%s",GetGMName);
 		
 		GMSystemInfo[GMSystemCount].GMPremiar		= n[1];
@@ -49,6 +49,8 @@ void ReadGMSystem()
 		GMSystemInfo[GMSystemCount].GMSetQuest		= n[14];
 		GMSystemInfo[GMSystemCount].GMSpawn		    = n[15];
 		GMSystemInfo[GMSystemCount].GMJail		    = n[16];
+		GMSystemInfo[GMSystemCount].GMSorteio	    = n[17];
+		GMSystemInfo[GMSystemCount].GMEvent		    = n[18];
 			
 		GMSystemCount++;
 	}

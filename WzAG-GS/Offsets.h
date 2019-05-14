@@ -33,6 +33,9 @@
 #define MAX_VIEWPORT_MONSTER				20
 #define MAKE_NUMBERW(x,y)		( (WORD)(((BYTE)((y)&0xFF)) |   ((BYTE)((x)&0xFF)<<8 ))  )
 #define MAKE_NUMBERQW(x,y)		( (unsigned __int64)(((DWORD)((y)&0xFFFFFFFF)) | ((DWORD)((x)&0xFFFFFFFF)<<32))  )
+#define MAX_PARTYUSER				5
+#define MAX_USER_IN_PARTY			5
+#define MAX_PARTY_DISTANCE_EFFECT	10
 
 
 #define gObjLifeCheck					    ((void(*)(OBJECTSTRUCT* lpTargetObj, OBJECTSTRUCT* lpObj, int AttackDamage, int DamageSendType, int MSBFlag, int MSBDamage, BYTE Skill, int iShieldDamage)) 0x004C36E0)
@@ -165,6 +168,15 @@
 #define PacketCheckTime					 ((BOOL(*)(LPOBJ lpObj))                              0x00426C80)
 #define gObjSearchItem					 ((BOOL(*)(LPOBJ lpObj, int ItemType, int AddDur))    0x004C6360)
 #define LoadShopData					 (( void(*)())										  0x004EFFA0)
+
+
+//-- Party --
+#define IsParty							 ((BOOL(*)(int party_number))                         0x0048E700)
+
+//Eventos 
+#define BCRun							(( void(*)())										  0x00501E50)
+#define DevilRun						(( void(*)())										  0x00454A50)
+#define CCRun							(( void(*)())										  0x0050BF80)
 enum OBJECT_TYPE 
 {
 	EMPTY		= -1,

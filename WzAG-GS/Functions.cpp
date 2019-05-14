@@ -853,7 +853,20 @@ void StartAddress(LPVOID lpThreadParameter)
 		v2 = GetCurrentProcess();
 		SetThreadPriority(v2, -2);
 	}
-}/*
+}
+/*
+int GetPartyMemberIndex(int party_number){
+	int	Number[5];
+
+	if(IsParty(party_number)){
+		return;
+	}
+	return 0;
+}
+*/
+
+
+/*
 void Functions::CGTalkRequestRecv(PMSG_TALKREQUEST* lpMsg, int aIndex)
 {
 	if (PacketCheckTime(&gObj[aIndex]) == FALSE)
