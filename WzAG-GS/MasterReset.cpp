@@ -203,6 +203,15 @@ void cMReset::InitExec(int aIndex)
 				gObj[aIndex].Leadership = 250;
 			}
 		}
+		
+		if (gObj[aIndex].Class == WIZARD || gObj[aIndex].Class == KNIGHT || gObj[aIndex].Class == MAGUMSA || gObj[aIndex].Class == DARKLORD)
+		{
+			gObjTeleport(aIndex,0,134,128);
+		}
+		else if (gObj[aIndex].Class == ELF)
+		{
+			gObjTeleport(aIndex,3,174,114);
+		}
 
 		gObj[aIndex].Level             = MReset._NextLevel[Custom[aIndex].VipIndex];
 		gObj[aIndex].Money             -= MReset._Zen[Custom[aIndex].VipIndex];
@@ -212,14 +221,6 @@ void cMReset::InitExec(int aIndex)
 
 		MReset.Increase(aIndex,Custom[aIndex].VipIndex);
 
-		if (gObj[aIndex].Class == WIZARD || gObj[aIndex].Class == KNIGHT || gObj[aIndex].Class == MAGUMSA || gObj[aIndex].Class == DARKLORD)
-		{
-			gObjTeleport(aIndex,0,134,128);
-		}
-		else if (gObj[aIndex].Class == ELF)
-		{
-			gObjTeleport(aIndex,3,174,114);
-		}
 		Custom[aIndex].Resets = 0;
 		gObj[aIndex].MaxLife = gObj[aIndex].VitalityToLife * gObj[aIndex].Vitality;
 	    gObj[aIndex].Life = gObj[aIndex].MaxLife;

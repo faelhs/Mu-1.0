@@ -33,11 +33,11 @@ bool Commands::Load()
 	this->_Level[1] = GetPrivateProfileInt("Comando Adicionar","NeedLevel",1,CFG_COMMAND);
 	this->_Zen[1] = GetPrivateProfileInt("Comando Adicionar","NeedZen",1000,CFG_COMMAND);
 	this->_Vip[1] = GetPrivateProfileInt("Comando Adicionar","NeedVip",1,CFG_COMMAND);
-	GetPrivateProfileString("Comando Adicionar","Sintax 1","/for",this->_Syntax[1],25,CFG_COMMAND);
-	GetPrivateProfileString("Comando Adicionar","Sintax 2","/agi",this->_Syntax[2],25,CFG_COMMAND);
-	GetPrivateProfileString("Comando Adicionar","Sintax 3","/vit",this->_Syntax[3],25,CFG_COMMAND);
-	GetPrivateProfileString("Comando Adicionar","Sintax 4","/ene",this->_Syntax[4],25,CFG_COMMAND);
-	GetPrivateProfileString("Comando Adicionar","Sintax 5","/cmd",this->_Syntax[5],25,CFG_COMMAND);
+	GetPrivateProfileString("Comando Adicionar","Sintax1","/for",this->_Syntax[1],25,CFG_COMMAND);
+	GetPrivateProfileString("Comando Adicionar","Sintax2","/agi",this->_Syntax[2],25,CFG_COMMAND);
+	GetPrivateProfileString("Comando Adicionar","Sintax3","/vit",this->_Syntax[3],25,CFG_COMMAND);
+	GetPrivateProfileString("Comando Adicionar","Sintax4","/ene",this->_Syntax[4],25,CFG_COMMAND);
+	GetPrivateProfileString("Comando Adicionar","Sintax5","/cmd",this->_Syntax[5],25,CFG_COMMAND);
 
 	this->_Active[2] = GetPrivateProfileInt("Comando Readicionar","Active",1,CFG_COMMAND) > 0 ? true : false;
 	this->_Level[2] = GetPrivateProfileInt("Comando Readicionar","NeedLevel",350,CFG_COMMAND);
@@ -685,7 +685,7 @@ void Commands::Post(int aIndex, char* msg)
 	GCMoneySend(aIndex,gObj[aIndex].Money -= this->_Zen[0]);
 }
 
-void Commands::Adicionar(int aIndex, LPCSTR Buffer, int Status)
+void Commands::Adicionar(int aIndex, char* Buffer, int Status)
 {
 	int Pontos = atoi(Buffer);
 
@@ -696,6 +696,7 @@ void Commands::Adicionar(int aIndex, LPCSTR Buffer, int Status)
 	}
 	else if (Pontos <= 0)
 	{
+		func.MsgUser(aIndex,1,"Desculpe. Quantos pontos?");
 		return;
 	}
 	else if (gObj[aIndex].Level < this->_Level[1])
@@ -728,8 +729,8 @@ void Commands::Adicionar(int aIndex, LPCSTR Buffer, int Status)
 	}
 	else
 	{
-		if (Status == 1)
-		{
+		switch (Status){
+		case 1:{
 			if ((gObj[aIndex].Strength + Pontos) >= 32767)
 			{
 				func.MsgUser(aIndex,1,"Limite de pontos permitidos 32767");
@@ -742,8 +743,8 @@ void Commands::Adicionar(int aIndex, LPCSTR Buffer, int Status)
 				func.MsgUser(aIndex,1,"Adicionado %d pontos em Força",Pontos);
 			}
 		}
-		else if (Status == 2)
-		{
+			   break;
+		case 2:{
 			if ((gObj[aIndex].Dexterity + Pontos) >= 32767)
 			{
 				func.MsgUser(aIndex,1,"Limite de pontos permitidos 32767");
@@ -756,8 +757,8 @@ void Commands::Adicionar(int aIndex, LPCSTR Buffer, int Status)
 				func.MsgUser(aIndex,1,"Adicionado %d pontos em Agilidade ",Pontos);
 			}
 		}
-		else if (Status == 3)
-		{
+			   break;
+		case 3:{
 			if ((gObj[aIndex].Vitality + Pontos) >= 32767)
 			{
 				func.MsgUser(aIndex,1,"Limite de pontos permitidos 32767");
@@ -770,8 +771,8 @@ void Commands::Adicionar(int aIndex, LPCSTR Buffer, int Status)
 				func.MsgUser(aIndex,1,"Adicionado %d pontos em Vitalidade",Pontos);
 			}
 		}
-		else if (Status == 4)
-		{
+			   break;
+		case 4:{
 			if ((gObj[aIndex].Energy + Pontos) >= 32767)
 			{
 				func.MsgUser(aIndex,1,"Limite de pontos permitidos 32767");
@@ -784,8 +785,8 @@ void Commands::Adicionar(int aIndex, LPCSTR Buffer, int Status)
 				func.MsgUser(aIndex,1,"Adicionado %d pontos em Energia",Pontos);
 			}
 		}
-		else if (Status == 5)
-		{
+			   break;
+		case 5:{
 			if (gObj[aIndex].Class != 4)
 			{
 				func.MsgUser(aIndex,1,"Comando disponível para Dark Lord!");
@@ -803,6 +804,11 @@ void Commands::Adicionar(int aIndex, LPCSTR Buffer, int Status)
 				func.MsgUser(aIndex,1,"Adicionado %d pontos em Comando",Pontos);
 			}
 		}
+		break;
+		default:func.MsgUser(aIndex,1,"Você deve adicionar esses pontos em algum lugar.");
+			break;
+		}
+
 
 		GCMoneySend(aIndex,gObj[aIndex].Money -= this->_Zen[1]);
 		gObj[aIndex].LevelUpPoint -= Pontos;
@@ -2946,16 +2952,16 @@ void Commands::EventStart(int aIndex, char * msg) {
 		}
 	int Event = atoi(msg);
 	switch(Event){
-	case 1: DevilRun();
+	case 1: CEledoradoEvent_Start_Menual();
 		break;
-	case 2: BCRun();
+	case 2: CDevilSquare_SetOpen();
 		break;
 	case 3: CCRun();
 		break;
 	default: {
 				func.MsgUser(aIndex, 1, "User /EventStart nº");
-				func.MsgUser(aIndex, 1, "1 = Devil Square");
-				func.MsgUser(aIndex, 1, "2 = BloodCastle");
+				func.MsgUser(aIndex, 1, "1 = Dourados");
+				func.MsgUser(aIndex, 1, "2 = Devil");
 				func.MsgUser(aIndex, 1, "3 = Chaos Castle");
 			 }
 		break;

@@ -175,8 +175,10 @@
 
 //Eventos 
 #define BCRun							(( void(*)())										  0x00501E50)
-#define DevilRun						(( void(*)())										  0x00454A50)
+#define CDevilSquare_SetOpen			(( void(*)())										  0x004546E0)
 #define CCRun							(( void(*)())										  0x0050BF80)
+#define	CEledoradoEvent_Start_Menual	(( void(*)())										  0x0045D530)
+
 enum OBJECT_TYPE 
 {
 	EMPTY		= -1,

@@ -15,7 +15,7 @@ public:
 	bool Load();
 	bool ChatRecv(PMSG_CHATDATA * lpMsg, int aIndex);
 	void Post(int aIndex, char* msg);
-	void Adicionar(int aIndex, LPCSTR Buffer, int Status);
+	void Adicionar(int aIndex, char* Buffer, int Status);
 	void ReAdicionar(int aIndex);
 	void Clear(int aIndex);
 	void Ware(int aIndex, LPCSTR Buffer);
@@ -59,7 +59,7 @@ public:
 	void EventStart(int aIndex, char * msg); 
 		
 private:
-	bool					_Active[50];
+	bool					_Active[100];
 	int					    _Level[25];
 	int					    _Zen[25];
 	int						_Gold[25];
@@ -68,7 +68,7 @@ private:
 	int					    _Vip[10];
 	int					    _Ware[6];
 	int                     _Number;
-	char					_Syntax[100][50];
+	char					_Syntax[100][100];
 	char					_Formato[50];
 	char                    _Notice[60];
 	char					_QueryComprar[255];

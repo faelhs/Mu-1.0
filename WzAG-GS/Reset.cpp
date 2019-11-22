@@ -13,6 +13,8 @@
 bool cReset::Load()
 {
 	this->_Active = GetPrivateProfileInt("Reset","Active",1,CFG_RESET) > 0 ? true : false;
+	this->_ResetMove = GetPrivateProfileInt("Reset","Mover",1,CFG_RESET) > 0 ? true : false;
+	this->_ResetAuto = GetPrivateProfileInt("Reset","Auto",0,CFG_RESET) > 0 ? true : false;
 	this->_Type = GetPrivateProfileInt("Reset","Type",2,CFG_RESET);
 	GetPrivateProfileString("Reset","Sintax","/reset",this->_Syntax,50,CFG_RESET);
 
@@ -110,6 +112,17 @@ void cReset::InitExec(int aIndex)
 				}
 				else
 				{
+					if(this->_ResetMove){
+						if (gObj[aIndex].Class == WIZARD || gObj[aIndex].Class == KNIGHT || gObj[aIndex].Class == MAGUMSA || gObj[aIndex].Class == DARKLORD)
+						{
+							gObjTeleport(aIndex,0,134,128);
+						}
+						else if (gObj[aIndex].Class == ELF)
+						{
+							gObjTeleport(aIndex,3,174,114);
+						}
+					}
+					
 					Custom[aIndex].Resets		   += 1;
 					gObj[aIndex].Money			   -= Reset.Acumulativo._Zen;
 					gObj[aIndex].Experience        = 0;
@@ -120,11 +133,6 @@ void cReset::InitExec(int aIndex)
 					Manager.ExecFormat(this->_Query[1],gObj[aIndex].Name);
 					Manager.ExecFormat(this->_Query[2],gObj[aIndex].Name);
 					Manager.ExecFormat(this->_Query[3],gObj[aIndex].Name);
-
-					if (gObj[aIndex].Class == ELF)
-					{
-						gObjTeleport(aIndex,3,174,114);
-					}
 
 					gObj[aIndex].MaxLife = gObj[aIndex].VitalityToLife * gObj[aIndex].Vitality;
 					gObj[aIndex].Life = gObj[aIndex].MaxLife;
@@ -146,6 +154,9 @@ void cReset::InitExec(int aIndex)
 					func.UpdateCharacter(aIndex, true);
 					func.MsgUser(aIndex,1,"Resetado com sucesso.");
 					func.MsgUser(aIndex, 1, "Resets: %d", Custom[aIndex].Resets);
+
+					
+
 				}
 			}
 			break;
@@ -172,6 +183,17 @@ void cReset::InitExec(int aIndex)
 				}
 				else
 				{
+					if(this->_ResetMove){
+						if (gObj[aIndex].Class == WIZARD || gObj[aIndex].Class == KNIGHT || gObj[aIndex].Class == MAGUMSA || gObj[aIndex].Class == DARKLORD)
+						{
+							gObjTeleport(aIndex,0,134,128);
+						}
+						else if (gObj[aIndex].Class == ELF)
+						{
+							gObjTeleport(aIndex,3,174,114);
+						}
+					}
+
 					gObj[aIndex].LevelUpPoint      = 0;
 
 					Custom[aIndex].Resets		   += 1;
@@ -190,15 +212,6 @@ void cReset::InitExec(int aIndex)
 					Manager.ExecFormat(this->_Query[1],gObj[aIndex].Name);
 					Manager.ExecFormat(this->_Query[2],gObj[aIndex].Name);
 					Manager.ExecFormat(this->_Query[3], gObj[aIndex].Name);
-
-					if (gObj[aIndex].Class == WIZARD || gObj[aIndex].Class == KNIGHT || gObj[aIndex].Class == MAGUMSA || gObj[aIndex].Class == DARKLORD)
-					{
-						gObjTeleport(aIndex,0,134,128);
-					}
-					else if (gObj[aIndex].Class == ELF)
-					{
-						gObjTeleport(aIndex,3,174,114);
-					}
 
 					gObj[aIndex].MaxLife = gObj[aIndex].VitalityToLife * gObj[aIndex].Vitality;
 					gObj[aIndex].Life = gObj[aIndex].MaxLife;

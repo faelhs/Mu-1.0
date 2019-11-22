@@ -44,6 +44,8 @@ public:
 	BYTE					_Type;
 	char					_Syntax[25];
 	char					_Query[5][255];
+	bool					_ResetMove;
+	bool					_ResetAuto;
 };
 
 extern cReset Reset;

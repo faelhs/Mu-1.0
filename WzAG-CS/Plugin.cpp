@@ -15,7 +15,7 @@ void Load()
 	DWORD OldProtect;
 	if(VirtualProtect(LPVOID(0x401000),3543191,PAGE_EXECUTE_READWRITE,&OldProtect))
 	{
-		ReadyLicense();
+		//ReadyLicense();
 		Fixes();
 		Manager.Initialize();
 		Customs();
