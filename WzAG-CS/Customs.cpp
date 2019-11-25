@@ -12,7 +12,7 @@
 
 void Customs()
 {
-	//GetHID();
+	GetHID();
 	//===============================================
 	//-- Anti Craked 
 	//===============================================
@@ -196,7 +196,7 @@ void GetHID()
 	//===============================================
 	//-- HardwareID Protection
 	//===============================================
-	char HwID[] ="10A7D44C-2214FA89-214FA898-31F77CE4";
+	char HwID[] ="A0D863C6-341B0C78-41B0C78C-E2892B52";
 	if( strcmp(HwID,HardID) != 0 ){
 		MessageBoxA(NULL, "Você não está autorizado a usar esse Arquivo!\r\nErro 0x04", "[B&W Team]", MB_OK);
 		
